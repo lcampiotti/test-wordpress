@@ -7,7 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bienvenido a la documentación de Qflow &mdash; Qflow Cloud</title>
-  <p>BUTTON TXT <link rel="index" title="TEST LINK A OTRA PAGINA" href="01-QflowIntroduction.html"/></p>
+  
   
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
@@ -70,39 +70,39 @@
      //  }
    //   }
     
-    function getVersion() {    
-      if (window.location.href.includes('/qflowcloud/')) 
-      {
-        return '/qflowcloud/';
-      }
-      else if (window.location.href.includes('/qflow5_1_1/')) 
-      {
-        return '/qflow5_1_1/';
-      }
-      else if (window.location.href.includes('/qflow5_2/')) 
-      {
-        return '/qflow5_2/';
-      }
-      else {
-        return '/qflow5_5/';
-      } 
-    }
+  //   function getVersion() {    
+   //    if (window.location.href.includes('/qflowcloud/')) 
+    //   {
+    //     return '/qflowcloud/';
+   //    }
+  //     else if (window.location.href.includes('/qflow5_1_1/')) 
+  //     {
+    //     return '/qflow5_1_1/';
+  //     }
+    //   else if (window.location.href.includes('/qflow5_2/')) 
+  //     {
+   //      return '/qflow5_2/';
+    //   }
+   //    else {
+  //       return '/qflow5_5/';
+  //     } 
+  //   }
 
-    function redirectToSite(url) {
-        var http = new XMLHttpRequest();
-        http.onreadystatechange = function() {
-          if (http.readyState === 4) {
-            if (http.status !== 404) {
-              window.location.href = url;
-            } else {
-              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
-            }
-          }
-        }
+  //   function redirectToSite(url) {
+    //     var http = new XMLHttpRequest();
+   //      http.onreadystatechange = function() {
+   //        if (http.readyState === 4) {
+  //           if (http.status !== 404) {
+    //           window.location.href = url;
+    //         } else {
+     //          window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+    //         }
+   //        }
+    //     }
 
-        http.open('HEAD', url, true);
-        http.send();        
-    }
+      //   http.open('HEAD', url, true);
+     //    http.send();        
+  //   }
   </script>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -110,6 +110,7 @@
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
+  <p>BUTTON TXT <link rel="index" title="TEST LINK A OTRA PAGINA" href="01-QflowIntroduction.html"/></p>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
@@ -305,6 +306,7 @@
 </body>
 
 </html>
+
 
 
 
