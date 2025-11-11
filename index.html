@@ -61,26 +61,6 @@
   </a>
 </h2>
 
-<script>
-function cambiarTexto(link, url) {
-  // Mientras "carga"
-  link.textContent = 'Cargando...';
-
-  // Simula que se carga algo (fetch es opcional, sirve solo si querés verificar el enlace)
-  fetch(url)
-    .then(response => {
-      if (!response.ok) throw new Error('No se pudo cargar');
-      // Extrae solo el nombre del archivo del URL
-      const nombreArchivo = url.split('/').pop();
-      link.textContent = nombreArchivo;
-    })
-    .catch(err => {
-      link.textContent = 'Error';
-      console.error(err);
-    });
-}
-</script>
-
     
   
  
@@ -352,6 +332,7 @@ function cambiarTexto(link, url) {
 </body>
 
 </html>
+
 
 
 
