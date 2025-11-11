@@ -47,11 +47,38 @@
 </h2>
 <h2>
   <a href="#"
-     rel="index" 
-     onclick="cargarHTML('https://raw.githubusercontent.com/lcampiotti/test-wordpress/main/03-AppBPM.html'); return false;">
+     rel="index"
+     onclick="cargarHTML('https://raw.githubusercontent.com/lcampiotti/test-wordpress/main/03-AppBPM.html', this); return false;">
      BUTTON TXT
   </a>
 </h2>
+
+<div id="contenido-html"></div>
+
+<script>
+function cargarHTML(url, link) {
+  // Cambia el texto del enlace mientras carga
+  link.textContent = 'Cargando...';
+
+  fetch(url)
+    .then(response => response.text())
+    .then(html => {
+      // Si el archivo tiene <body>, tomamos solo su contenido
+      const bodyMatch = html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
+      document.getElementById('contenido-html').innerHTML = bodyMatch ? bodyMatch[1] : html;
+      
+      // Cambia el texto del link al nombre del archivo
+      const nombreArchivo = url.split('/').pop();
+      link.textContent = nombreArchivo;
+    })
+    .catch(err => {
+      document.getElementById('contenido-html').innerHTML = "<p>Error al cargar el archivo.</p>";
+      link.textContent = 'Error';
+      console.error(err);
+    });
+}
+</script>
+
     </div>
     
   
@@ -324,6 +351,7 @@
 </body>
 
 </html>
+
 
 
 
