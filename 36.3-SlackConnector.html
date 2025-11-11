@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slack &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/36.3-SlackConnector.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Trello" href="36.4-TrelloConnector.html" />
+    <link rel="prev" title="Outlook" href="36.2-OutlookConnector.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="35-ConnectorParameterConfig.html">Configuración de Conectores desde una Tarea de Servicio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.1-MicrosoftTeamsConnector.html">Microsoft Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.2-OutlookConnector.html">Outlook</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Slack</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduccion">Introducción</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prerrequisitos">Prerrequisitos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parametro-de-aplicacion">Parámetro de aplicación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#acciones">Acciones</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36.4-TrelloConnector.html">Trello</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.5-OpenAIConnector.html">OpenAI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.6-JiraCloudConnector.html">Jira Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.7-RedmineConnector.html">Redmine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.8-DocuSignConnector.html">DocuSign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.9-GoogleCalendarConnector.html">Google Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.11-DropboxConnector.html">Dropbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.12-OneDriveConnector.html">OneDrive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.13-WhatsAppTwilioConnector.html">WhatsApp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.14-MicrosoftWordConnector.html">Microsoft Word</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.15-ILovePDFConnector.html">ILovePDF</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="34-ConnectorsIndex.html">Conectores</a></li>
+      <li class="breadcrumb-item active">Slack</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="slack">
+<h1>Slack<a class="headerlink" href="#slack" title="Link to this heading"></a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading"></a></h2>
+<p>El propósito de este manual es detallar cómo configurar e integrar Qflow
+con Slack para permitir la interacción entre ambas plataformas, permitiendo
+enviar y responder a mensajes de Slack desde Qflow.</p>
+<p>Slack cuenta con las siguientes acciones:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#id1">Enviar mensaje (Slack App)</a></p></li>
+<li><p><a class="reference external" href="#id2">Enviar mensaje (Webhook)</a></p></li>
+</ul>
+</section>
+<section id="prerrequisitos">
+<h2>Prerrequisitos<a class="headerlink" href="#prerrequisitos" title="Link to this heading"></a></h2>
+<p>Es necesario contar con una cuenta de Slack y un espacio de trabajo creado en la plataforma.
+Esto puede hacerse <a href="https://slack.com/get-started#/create" target="_blank">desde aquí</a>.</p>
+</section>
+<section id="parametro-de-aplicacion">
+<h2>Parámetro de aplicación<a class="headerlink" href="#parametro-de-aplicacion" title="Link to this heading"></a></h2>
+<p>Para entablar la conexión es necesario contar con al menos un <strong>parámetro de aplicación</strong> (ver <a class="reference external" href="15-QflowDesign.html#parametros-de-aplicacion">Parámetros de aplicación</a>)
+que permita establecer la comunicación entre Qflow y Slack.
+Este parámetro puede ser creado desde la configuración de la tarea de servicio en Qflow.
+(ver <a class="reference external" href="35-ConnectorParameterConfig.html">Configuración de Conectores desde una Tarea de Servicio</a>)</p>
+<p>Para crear un parámetro de aplicación de Slack, se requieren los siguientes pasos que se detallan a continuación.
+Para establecer una conexión únicamente va a ser necesario configurar uno de ellos.</p>
+<section id="parametro-de-aplicacion-utilizando-token-de-autenticacion-oauth">
+<h3>Parámetro de aplicación utilizando Token de Autenticación OAuth<a class="headerlink" href="#parametro-de-aplicacion-utilizando-token-de-autenticacion-oauth" title="Link to this heading"></a></h3>
+<p>Este tipo de parámetro de aplicación requiere el siguiente parámetro:</p>
+<ul class="simple">
+<li><p><strong>Token de Autenticación OAuth</strong>: Es un token de autenticación que permite a Qflow
+conectarse a Slack como un Bot, simulando ser un usuario y realizando operaciones
+en nombre de la aplicación.</p></li>
+</ul>
+<p>Para obtenerlo, se deben seguir los siguientes pasos:</p>
+<ol class="arabic">
+<li><p>Acceder a la <a href="https://api.slack.com/apps" target="_blank">sección de aplicaciones de Slack</a>. Aquí
+se crea una nueva aplicación al seleccionar <cite>Create New App</cite>.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/OAuth1.png"><img alt="_images/OAuth1.png" src="_images/OAuth1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 792 </span><span class="caption-text">Botón <cite>Create New App</cite> en la sección de aplicaciones de Slack</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Seleccionar la opción <cite>From scratch</cite> para especificar que se está creando la aplicación desde cero.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/OAuth2.png"><img alt="_images/OAuth2.png" src="_images/OAuth2.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 793 </span><span class="caption-text">Vista de selección de tipo de creación de aplicación en Slack</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Escribir el nombre de la aplicación y seleccionar el <cite>workspace</cite> al que pertenecerá,
+luego seleccionar <cite>Create App</cite>.
+En el ejemplo de la imagen a continuación, se muestra que la aplicación se llama <cite>Qflow</cite>
+y pertenece al <cite>workspace</cite> <cite>Nombre de empresa</cite>.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/OAuth3.png"><img alt="_images/OAuth3.png" src="_images/OAuth3.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 794 </span><span class="caption-text">Vista de creación de aplicación en Slack</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Seleccionar la opción <cite>OAuth &amp; Permissions</cite> en el menú de la izquierda.</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/OAuth4.png"><img alt="_images/OAuth4.png" src="_images/OAuth4.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 795 </span><span class="caption-text"><cite>OAuth &amp; Permissions</cite> marcado en el menú de la aplicación de Slack</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Dentro de <cite>OAuth &amp; Permissions</cite>, en la sección <cite>Scopes</cite>, seleccionar la opción <cite>Add an OAuth Scope</cite> para
+agregar un permiso a la aplicación.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/OAuth5.png"><img alt="_images/OAuth5.png" src="_images/OAuth5.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 796 </span><span class="caption-text"><cite>Add an OAuth Scope</cite> marcado en la sección de permisos de la aplicación de Slack</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Agregar los permisos <cite>channels:read</cite> y <cite>chat:write</cite>, los cuales permiten
+leer la información básica de los canales y escribir mensajes en ellos, respectivamente.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/OAuth6.png"><img alt="_images/OAuth6.png" src="_images/OAuth6.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 797 </span><span class="caption-text">Permisos <cite>channels:read</cite> y <cite>chat:write</cite> agregados a la sección de permisos de la aplicación de Slack</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Dentro de <cite>OAuth &amp; Permissions</cite>, en la sección <cite>OAuth Tokens for Your Workspace</cite>, seleccionar <cite>Install to Workspace</cite></p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="_images/OAuth7.png"><img alt="_images/OAuth7.png" src="_images/OAuth7.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 798 </span><span class="caption-text"><cite>Install to Workspace</cite> marcado en la sección de tokens de autenticación de la aplicación de Slack</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Confirmar la instalación de la aplicación en el <cite>workspace</cite>.</p>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="_images/OAuth8.png"><img alt="_images/OAuth8.png" src="_images/OAuth8.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 799 </span><span class="caption-text"><cite>Permitir</cite> marcado en la confirmación de permisos de acceso de la aplicación de Slack</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Una vez confirmados los permisos, Slack muestra el <cite>Bot User OAuth Token</cite>, que es
+el token de autenticación necesario para configurar el parámetro de aplicación en Qflow.
+Con esto finalizan los pasos necesarios en la página Slack API.</p>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="_images/OAuth9.png"><img alt="_images/OAuth9.png" src="_images/OAuth9.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 800 </span><span class="caption-text"><cite>Bot User OAuth Token</cite> marcado en la sección de tokens de autenticación de la aplicación de Slack</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>En Qflow Design, agregar el <cite>Bot User OAuth Token</cite> en el parámetro <cite>Token de autenticación OAuth</cite></p>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="_images/OAuth10.png"><img alt="_images/OAuth10.png" src="_images/OAuth10.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 801 </span><span class="caption-text"><cite>Token de autenticación OAuth</cite> agregado en Qflow</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Desde el chat de Slack, es necesario agregar la aplicación a cada canal de Slack al que se desea permitir enviar mensajes.
+Se debe seleccionar la opción <cite>Añadir aplicaciones a este canal</cite> en el canal deseado.</p>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="_images/OAuth11.png"><img alt="_images/OAuth11.png" src="_images/OAuth11.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 802 </span><span class="caption-text"><cite>Añadir aplicaciones a este canal</cite> seleccionado como acción en el chat de Slack</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Buscar la aplicación <cite>Qflow</cite> y añadirla al canal seleccionado. Para esto, se debe de seleccionar <cite>Añadir</cite>.</p>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="_images/OAuth12.png"><img alt="_images/OAuth12.png" src="_images/OAuth12.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 803 </span><span class="caption-text"><cite>Añadir</cite> seleccionado en la ventana de añadir aplicaciones a un canal de de Slack</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+</ol>
+<p>Una vez completados los pasos, será posible enviar mensajes desde Qflow a Slack utilizando <cite>Slack App</cite>.</p>
+</section>
+<section id="parametro-de-aplicacion-utilizando-webhook">
+<h3>Parámetro de aplicación utilizando Webhook<a class="headerlink" href="#parametro-de-aplicacion-utilizando-webhook" title="Link to this heading"></a></h3>
+<p>Este tipo de parámetro de aplicación requiere el siguiente parámetro:</p>
+<ul class="simple">
+<li><p><strong>Vínculo del Webhook</strong>: Es un vínculo que representa un canal de comunicación de Slack,
+permitiendo a Qflow enviar mensajes dentro de este canal.</p></li>
+</ul>
+<p>Para obtenerlo, se deben seguir los siguientes pasos:</p>
+<ol class="arabic">
+<li><p>Realizar los pasos del 1 al 3 del apartado anterior. (ver <a class="reference internal" href="#parametro-de-aplicacion-utilizando-token-de-autenticacion-oauth">Parámetro de aplicación utilizando Token de Autenticación OAuth</a>)</p></li>
+<li><p>Seleccionar la opción <cite>Incoming Webhooks</cite>.</p>
+<figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="_images/Webhook1.png"><img alt="_images/Webhook1.png" src="_images/Webhook1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 804 </span><span class="caption-text"><cite>Incoming Webhooks</cite> seleccionado en el menú de agregar características y funcionalidades de la aplicación de Slack</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Activar los <cite>Incoming Webhooks</cite> para poder utilizarlos.</p>
+<figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="_images/Webhook2.png"><img alt="_images/Webhook2.png" src="_images/Webhook2.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 805 </span><span class="caption-text"><cite>Activate Incoming Webhooks</cite> seleccionado para activar la funcionalidad de Webhooks en la aplicación de Slack</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Una vez activados los <cite>Incoming Webhooks</cite>, seleccionar la opción <cite>Add New Webhook to Workspace</cite>.
+Cada <cite>webhook</cite> creado estará asociado a un canal específico de Slack.</p>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="_images/Webhook3.png"><img alt="_images/Webhook3.png" src="_images/Webhook3.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 806 </span><span class="caption-text"><cite>Add New Webhook to Workspace</cite> seleccionado en la vista <cite>Incoming Webhooks</cite> de la aplicación de Slack</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Seleccionar el canal al que se desea asociar el <cite>webhook</cite> y luego seleccionar <cite>Permitir</cite>.</p>
+<figure class="align-center" id="id18">
+<a class="reference internal image-reference" href="_images/Webhook4.png"><img alt="_images/Webhook4.png" src="_images/Webhook4.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 807 </span><span class="caption-text"><cite>Permitir</cite> seleccionado en la vista de selección de canal para asociar un <cite>webhook</cite> en la aplicación de Slack</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Slack mostrará el <cite>Webhook URL</cite> del <cite>webhook</cite> creado para el canal seleccionado, necesario para configurar el
+parámetro de aplicación en Qflow. Con esto finalizan los pasos necesarios en la página Slack API.</p>
+<figure class="align-center" id="id19">
+<a class="reference internal image-reference" href="_images/Webhook5.png"><img alt="_images/Webhook5.png" src="_images/Webhook5.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 808 </span><span class="caption-text"><cite>Webhook URL</cite> mostrado en la vista de creación de <cite>webhook</cite> en la aplicación de Slack</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>En Qflow Design, agregar el <cite>Webhook URL</cite> en el parámetro <cite>Vínculo del Webhook</cite></p>
+<figure class="align-center" id="id20">
+<a class="reference internal image-reference" href="_images/Webhook6.png"><img alt="_images/Webhook6.png" src="_images/Webhook6.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 809 </span><span class="caption-text"><cite>Vínculo del Webhook</cite> agregado en Qflow</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+</ol>
+<p>Una vez completados los pasos, será posible enviar mensajes desde Qflow a Slack utilizando <cite>Webhook</cite>.</p>
+</section>
+</section>
+<section id="acciones">
+<h2>Acciones<a class="headerlink" href="#acciones" title="Link to this heading"></a></h2>
+<p>Se pueden realizar las siguientes acciones con Slack:</p>
+<section id="id1">
+<h3>Enviar mensaje (Slack App)<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>Esta acción permite enviar un mensaje directamente a un canal de Slack. Se debe proporcionar
+el nombre del canal (sin el “#”) y luego el mensaje. Si se desea responder a otro mensaje, también se puede
+agregar su identificador. Después de enviar el mensaje, se recibe un número que identifica el mensaje,
+lo que permite responder a él más adelante.</p>
+<table class="docutils align-center" id="id21" style="width: 100%">
+<caption><span class="caption-number">Tabla 6 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id21" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Entrada</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Nombre del canal</p></td>
+<td><p><strong>Requerido.</strong> El nombre del canal de Slack al que se desea enviar el mensaje. (Sin “#” al principio)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mensaje</p></td>
+<td><p><strong>Requerido.</strong> Texto del mensaje que se desea enviar por Slack.</p></td>
+</tr>
+<tr class="row-even"><td><p>El identificador del mensaje al que se desea responder.</p></td>
+<td><p>Se obtiene al crear un mensaje desde Qflow. Si no se desea responder a un mensaje, este parámetro se puede dejar en blanco.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id22" style="width: 100%">
+<caption><span class="caption-number">Tabla 7 </span><span class="caption-text">Salidas</span><a class="headerlink" href="#id22" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Salida</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Identificador del mensaje</p></td>
+<td><p>El número que identifica el mensaje que se acaba de enviar.
+Se puede usar este número para responder a este mensaje.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h3>Enviar mensaje (Webhook)<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>Esta opción permite enviar mensajes a un canal de Slack, pero de forma más limitada.
+El canal al que envías el mensaje está determinado por el <cite>Webhook</cite> que se utiliza,
+ya que cada <cite>Webhook</cite> está asociado a un canal específico. No es posible responder a mensajes
+directamente con esta opción, ya que no se puede especificar el identificador del mensaje al
+que se desea responder.</p>
+<table class="docutils align-center" id="id23" style="width: 100%">
+<caption><span class="caption-number">Tabla 8 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id23" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Entrada</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Mensaje</p></td>
+<td><p><strong>Requerido.</strong> Texto del mensaje que se desea enviar por Slack.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="36.2-OutlookConnector.html" class="btn btn-neutral float-left" title="Outlook" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="36.4-TrelloConnector.html" class="btn btn-neutral float-right" title="Trello" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

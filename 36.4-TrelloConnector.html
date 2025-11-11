@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trello &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/36.4-TrelloConnector.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="OpenAI" href="36.5-OpenAIConnector.html" />
+    <link rel="prev" title="Slack" href="36.3-SlackConnector.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="35-ConnectorParameterConfig.html">Configuración de Conectores desde una Tarea de Servicio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.1-MicrosoftTeamsConnector.html">Microsoft Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.2-OutlookConnector.html">Outlook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.3-SlackConnector.html">Slack</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Trello</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduccion">Introducción</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prerrequisitos">Prerrequisitos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parametro-de-aplicacion">Parámetro de aplicación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#acciones">Acciones</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36.5-OpenAIConnector.html">OpenAI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.6-JiraCloudConnector.html">Jira Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.7-RedmineConnector.html">Redmine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.8-DocuSignConnector.html">DocuSign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.9-GoogleCalendarConnector.html">Google Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.11-DropboxConnector.html">Dropbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.12-OneDriveConnector.html">OneDrive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.13-WhatsAppTwilioConnector.html">WhatsApp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.14-MicrosoftWordConnector.html">Microsoft Word</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.15-ILovePDFConnector.html">ILovePDF</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="34-ConnectorsIndex.html">Conectores</a></li>
+      <li class="breadcrumb-item active">Trello</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="trello">
+<h1>Trello<a class="headerlink" href="#trello" title="Link to this heading"></a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading"></a></h2>
+<p>El propósito de este manual es detallar cómo configurar e integrar Qflow
+con Trello para permitir la interacción entre ambas plataformas, permitiendo
+crear, mover, eliminar tarjetas, añadir comentarios, añadir y eliminar miembros.</p>
+<p>Trello cuenta con las siguientes acciones:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#id1">Crear tarjeta</a></p></li>
+<li><p><a class="reference external" href="#id2">Agregar comentario a tarjeta</a></p></li>
+<li><p><a class="reference external" href="#id3">Mover tarjeta</a></p></li>
+<li><p><a class="reference external" href="#id4">Agregar miembro a tarjeta</a></p></li>
+<li><p><a class="reference external" href="#id5">Eliminar miembro de la tarjeta</a></p></li>
+<li><p><a class="reference external" href="#id6">Eliminar tarjeta</a></p></li>
+</ul>
+</section>
+<section id="prerrequisitos">
+<h2>Prerrequisitos<a class="headerlink" href="#prerrequisitos" title="Link to this heading"></a></h2>
+<p>Es necesario contar con una cuenta de Trello y un espacio de trabajo creado en la plataforma.
+Puede hacerse una cuenta <a href="https://trello.com/signup" target="_blank">desde aquí</a>.</p>
+</section>
+<section id="parametro-de-aplicacion">
+<h2>Parámetro de aplicación<a class="headerlink" href="#parametro-de-aplicacion" title="Link to this heading"></a></h2>
+<p>Para entablar la conexión es necesario contar con al menos un <strong>parámetro de aplicación</strong> (ver <a class="reference external" href="15-QflowDesign.html#parametros-de-aplicacion">Parámetros de aplicación</a>)
+que permita establecer la comunicación entre Qflow y Trello.
+Este parámetro puede ser creado desde la configuración de la tarea de servicio en Qflow.
+(ver <a class="reference external" href="35-ConnectorParameterConfig.html">Configuración de Conectores desde una Tarea de Servicio</a>)</p>
+<p>Para crear un parámetro de aplicación de Trello, se requieren los siguientes pasos que se detallan a continuación.</p>
+<section id="parametro-de-aplicacion-utilizando-api-key-y-token">
+<h3>Parámetro de aplicación utilizando API Key y Token<a class="headerlink" href="#parametro-de-aplicacion-utilizando-api-key-y-token" title="Link to this heading"></a></h3>
+<p>Este tipo de parámetro de aplicación requiere de los siguientes parámetros:</p>
+<ul class="simple">
+<li><p><strong>API Key</strong>: Es una clave que permite a Qflow conectarse con el Espacio de trabajo
+de Trello para el cual ha sido creada la clave.</p></li>
+<li><p><strong>Token</strong>: Es un token de acceso que permite a Qflow acceder al Espacio de trabajo
+como el usuario que ha generado el token.</p></li>
+</ul>
+<p>Para obtenerlos, se deben seguir los siguientes pasos:</p>
+<ol class="arabic">
+<li><p>Acceder a la sección de <a href="https://trello.com/power-ups/admin" target="_blank">Power-Ups e integraciones</a> de Trello, leer y aceptar las Condiciones
+del Desarrollador de Trello.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/TrelloConnectors1.png"><img alt="_images/TrelloConnectors1.png" src="_images/TrelloConnectors1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 810 </span><span class="caption-text"><cite>Condiciones del Desarrollador de Trello</cite> seleccionado en Privacidad y cumplimiento</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Seleccionar <cite>Nuevo</cite> para crear una nueva integración.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/TrelloConnectors2.png"><img alt="_images/TrelloConnectors2.png" src="_images/TrelloConnectors2.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 811 </span><span class="caption-text"><cite>Nuevo</cite> seleccionado en Power-Ups e integraciones</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Llenar los campos requeridos para la creación de la integración.</p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="_images/TrelloConnectors3.png"><img alt="_images/TrelloConnectors3.png" src="_images/TrelloConnectors3.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 812 </span><span class="caption-text"><cite>Crear</cite> seleccionado en Nuevo Power-Up o integración</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Una vez creada la integración, generar una nueva clave de API.</p>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="_images/TrelloConnectors4.png"><img alt="_images/TrelloConnectors4.png" src="_images/TrelloConnectors4.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 813 </span><span class="caption-text"><cite>Generar una nueva clave de API</cite> seleccionado en Power-Ups e integraciones</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Seleccionar que se desea generar la clave de API.</p>
+<blockquote>
+<div><figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="_images/TrelloConnectors5.png"><img alt="_images/TrelloConnectors5.png" src="_images/TrelloConnectors5.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 814 </span><span class="caption-text"><cite>Generar clave de API</cite> seleccionado en Generar clave de API</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</div></blockquote>
+</li>
+<li><p>Trello muestra la <cite>Clave de API</cite>, que es la API Key a copiar necesaria para configurar el
+parámetro de aplicación de Qflow. Hecho esto, se debe generar un token de acceso seleccionando
+<cite>Token</cite>.</p>
+<blockquote>
+<div><figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="_images/TrelloConnectors6.png"><img alt="_images/TrelloConnectors6.png" src="_images/TrelloConnectors6.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 815 </span><span class="caption-text">Donde copiar <cite>Clave de API</cite> y <cite>Token</cite> seleccionados en Power-Ups e integraciones</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</div></blockquote>
+</li>
+<li><p>Se listan los permisos que le daremos a la integración al utilizar el token que crearemos.
+Seleccionar <cite>Permitir</cite></p>
+<blockquote>
+<div><figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="_images/TrelloConnectors7.png"><img alt="_images/TrelloConnectors7.png" src="_images/TrelloConnectors7.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 816 </span><span class="caption-text"><cite>Permitir</cite> seleccionado en sección de permisos</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</div></blockquote>
+</li>
+<li><p>Copiar el token generado, que es el token de acceso necesario para configurar el parámetro de aplicación de Qflow.
+Con esto finalizan los pasos necesarios en la página de Trello.</p>
+<blockquote>
+<div><figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="_images/TrelloConnectors8.png"><img alt="_images/TrelloConnectors8.png" src="_images/TrelloConnectors8.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 817 </span><span class="caption-text">Copiar <cite>Token</cite> seleccionado</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</div></blockquote>
+</li>
+<li><p>En Qflow Design, agregar <cite>API Key</cite> y <cite>Token</cite> en la creación del parámetro de aplicación.</p>
+<blockquote>
+<div><figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="_images/TrelloConnectors9.png"><img alt="_images/TrelloConnectors9.png" src="_images/TrelloConnectors9.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 818 </span><span class="caption-text">Parámetros necesarios del parámetro de aplicación agregados en Qflow</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</div></blockquote>
+</li>
+</ol>
+<p>Una vez completados los pasos, será posible crear, mover, eliminar tarjetas, añadir comentarios,
+añadir y eliminar miembros en Trello desde Qflow.</p>
+</section>
+</section>
+<section id="acciones">
+<h2>Acciones<a class="headerlink" href="#acciones" title="Link to this heading"></a></h2>
+<p>Se pueden realizar las siguientes acciones con Trello:</p>
+<section id="id1">
+<h3>Crear tarjeta<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>Esta acción permite crear una tarjeta en una lista específica de un tablero de Trello.
+Se debe proporcionar el nombre del tablero, el nombre de la tarjeta y el nombre de la lista
+en la que se creará la tarjeta.
+Opcionalmente se pueden agregar otros parámetros que se listan debajo.
+Después de crear la tarjeta, se recibe un identificador único de la tarjeta creada, que permite
+eliminarla, moverla a otra lista, añadirle comentarios, añadirle y eliminarle miembros.</p>
+<table class="docutils align-center" id="id16" style="width: 100%">
+<caption><span class="caption-number">Tabla 9 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id16" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Entrada</p></td>
+<td><p>Descripción</p></td>
+</tr>
+<tr class="row-even"><td><p>Nombre del tablero</p></td>
+<td><p><strong>Requerido.</strong> Nombre del tablero de Trello en el que se creará la tarjeta.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nombre</p></td>
+<td><p><strong>Requerido.</strong> Nombre de la tarjeta que se creará.</p></td>
+</tr>
+<tr class="row-even"><td><p>Descripción</p></td>
+<td><p>Descripción de la tarjeta que se creará.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nombre de usuario de miembros</p></td>
+<td><p>Nombre de usuario de los miembros que se añadirán a la tarjeta.</p></td>
+</tr>
+<tr class="row-even"><td><p>Nombre de la lista</p></td>
+<td><p><strong>Requerido.</strong> Nombre de la lista en la que se creará la tarjeta.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Fecha de vencimiento</p></td>
+<td><p>Fecha de vencimiento de la tarjeta que se creará.</p></td>
+</tr>
+<tr class="row-even"><td><p>Etiquetas</p></td>
+<td><p>Etiquetas de la tarjeta que se creará. Esta debe existir ya en el tablero, de lo contrario no se asignará.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Vínculo del adjunto</p></td>
+<td><p>Vínculo adjunto de la tarjeta que se creará.</p></td>
+</tr>
+<tr class="row-even"><td><p>Crear tarjeta como archivada</p></td>
+<td><p>Especifica si la tarjeta se creará como archivada o no.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id17" style="width: 100%">
+<caption><span class="caption-number">Tabla 10 </span><span class="caption-text">Salidas</span><a class="headerlink" href="#id17" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Salida</p></td>
+<td><p>Descripción</p></td>
+</tr>
+<tr class="row-even"><td><p>Identificador de la tarjeta</p></td>
+<td><p>Identificador único de la tarjeta creada.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h3>Agregar comentario a tarjeta<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>Esta acción permite agregar un comentario a una tarjeta específica de Trello. Se debe proporcionar el identificador de la tarjeta y el comentario a agregar.</p>
+<table class="docutils align-center" id="id18" style="width: 100%">
+<caption><span class="caption-number">Tabla 11 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id18" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Entrada</p></td>
+<td><p>Descripción</p></td>
+</tr>
+<tr class="row-even"><td><p>Identificador de la tarjeta</p></td>
+<td><p><strong>Requerido.</strong> Identificador único de la tarjeta a la que se agregará el comentario.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Texto</p></td>
+<td><p><strong>Requerido.</strong> Comentario que se agregará a la tarjeta.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h3>Mover tarjeta<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>Esta acción permite mover una tarjeta a una lista específica de un tablero de Trello. Se debe proporcionar el identificador de la tarjeta y el nombre de la lista a la que se moverá la tarjeta.</p>
+<table class="docutils align-center" id="id19" style="width: 100%">
+<caption><span class="caption-number">Tabla 12 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id19" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Entrada</p></td>
+<td><p>Descripción</p></td>
+</tr>
+<tr class="row-even"><td><p>Identificador de la tarjeta</p></td>
+<td><p><strong>Requerido.</strong> Identificador único de la tarjeta que se moverá.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nombre de lista</p></td>
+<td><p><strong>Requerido.</strong> Nombre de la lista a la que se moverá la tarjeta.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id4">
+<h3>Agregar miembro a tarjeta<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p>Esta acción permite agregar un miembro a una tarjeta específica de Trello. Se debe proporcionar el identificador de la tarjeta y el nombre de usuario del miembro que se añadirá a la tarjeta.</p>
+<table class="docutils align-center" id="id20" style="width: 100%">
+<caption><span class="caption-number">Tabla 13 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id20" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Entrada</p></td>
+<td><p>Descripción</p></td>
+</tr>
+<tr class="row-even"><td><p>Identificador de la tarjeta</p></td>
+<td><p><strong>Requerido.</strong> Identificador único de la tarjeta a la que se añadirá el miembro.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nombre de usuario</p></td>
+<td><p><strong>Requerido.</strong> Nombre de usuario del miembro que se añadirá a la tarjeta.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id5">
+<h3>Eliminar miembro de la tarjeta<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<p>Esta acción permite eliminar un miembro de una tarjeta específica de Trello. Se debe proporcionar el identificador de la tarjeta y el nombre de usuario del miembro que se eliminará de la tarjeta.</p>
+<table class="docutils align-center" id="id21" style="width: 100%">
+<caption><span class="caption-number">Tabla 14 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id21" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Entrada</p></td>
+<td><p>Descripción</p></td>
+</tr>
+<tr class="row-even"><td><p>Identificador de la tarjeta</p></td>
+<td><p><strong>Requerido.</strong> Identificador único de la tarjeta de la que se eliminará el miembro.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nombre de usuario</p></td>
+<td><p><strong>Requerido.</strong> Nombre de usuario del miembro que se eliminará de la tarjeta.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id6">
+<h3>Eliminar tarjeta<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<p>Esta acción permite eliminar una tarjeta específica de Trello. Se debe proporcionar el identificador de la tarjeta que se eliminará.</p>
+<table class="docutils align-center" id="id22" style="width: 100%">
+<caption><span class="caption-number">Tabla 15 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id22" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Entrada</p></td>
+<td><p>Descripción</p></td>
+</tr>
+<tr class="row-even"><td><p>Identificador de la tarjeta</p></td>
+<td><p><strong>Requerido.</strong> Identificador único de la tarjeta que se eliminará.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="36.3-SlackConnector.html" class="btn btn-neutral float-left" title="Slack" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="36.5-OpenAIConnector.html" class="btn btn-neutral float-right" title="OpenAI" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

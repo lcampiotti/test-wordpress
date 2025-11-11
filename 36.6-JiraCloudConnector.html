@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jira Cloud &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/36.6-JiraCloudConnector.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Redmine" href="36.7-RedmineConnector.html" />
+    <link rel="prev" title="OpenAI" href="36.5-OpenAIConnector.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="35-ConnectorParameterConfig.html">Configuración de Conectores desde una Tarea de Servicio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.1-MicrosoftTeamsConnector.html">Microsoft Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.2-OutlookConnector.html">Outlook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.3-SlackConnector.html">Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.4-TrelloConnector.html">Trello</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.5-OpenAIConnector.html">OpenAI</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Jira Cloud</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduccion">Introducción</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prerrequisitos">Prerrequisitos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parametro-de-aplicacion">Parámetro de aplicación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#acciones">Acciones</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36.7-RedmineConnector.html">Redmine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.8-DocuSignConnector.html">DocuSign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.9-GoogleCalendarConnector.html">Google Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.11-DropboxConnector.html">Dropbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.12-OneDriveConnector.html">OneDrive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.13-WhatsAppTwilioConnector.html">WhatsApp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.14-MicrosoftWordConnector.html">Microsoft Word</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.15-ILovePDFConnector.html">ILovePDF</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="34-ConnectorsIndex.html">Conectores</a></li>
+      <li class="breadcrumb-item active">Jira Cloud</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="jira-cloud">
+<h1>Jira Cloud<a class="headerlink" href="#jira-cloud" title="Link to this heading"></a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading"></a></h2>
+<p>El propósito de este manual es detallar cómo configurar e integrar Qflow
+con Jira Cloud para permitir la interacción entre ambas plataformas, permitiendo
+crear, mover, editar, eliminar incidencias, además de agregar comentarios.</p>
+<p>Jira Cloud cuenta con las siguientes acciones:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#id1">Crear incidencia</a></p></li>
+<li><p><a class="reference external" href="#id2">Agregar comentario a incidencia</a></p></li>
+<li><p><a class="reference external" href="#id3">Actualizar fecha de vencimiento en incidencia</a></p></li>
+<li><p><a class="reference external" href="#id4">Actualizar prioridad en incidencia</a></p></li>
+<li><p><a class="reference external" href="#id5">Actualizar estado de incidencia</a></p></li>
+<li><p><a class="reference external" href="#id6">Actualizar usuario asignado</a></p></li>
+<li><p><a class="reference external" href="#id7">Eliminar incidencia</a></p></li>
+</ul>
+</section>
+<section id="prerrequisitos">
+<h2>Prerrequisitos<a class="headerlink" href="#prerrequisitos" title="Link to this heading"></a></h2>
+<p>Es necesario contar con una cuenta en Jira Cloud y un espacio de trabajo creado en la plataforma.
+Puede hacerse una cuenta <a href="https://www.atlassian.com/es/try/cloud/signup?bundle=jira-software" target="_blank">desde aquí</a>.</p>
+</section>
+<section id="parametro-de-aplicacion">
+<h2>Parámetro de aplicación<a class="headerlink" href="#parametro-de-aplicacion" title="Link to this heading"></a></h2>
+<p>Para entablar la conexión es necesario contar con al menos un <strong>parámetro de aplicación</strong> (ver <a class="reference external" href="15-QflowDesign.html#parametros-de-aplicacion">Parámetros de aplicación</a>)
+que permita establecer la comunicación entre Qflow y Jira Cloud.
+Este parámetro puede ser creado desde la configuración de la tarea de servicio en Qflow, donde también se utiliza para establecer la comunicación entre Qflow y Jira Cloud.
+(ver <a class="reference external" href="35-ConnectorParameterConfig.html">Configuración de Conectores desde una Tarea de Servicio</a>)</p>
+<p>Para crear un parámetro de aplicación de Jira Cloud, se requieren los siguientes pasos que se detallan a continuación.</p>
+<section id="parametro-de-aplicacion-utilizando-api-token">
+<h3>Parámetro de aplicación utilizando API Token<a class="headerlink" href="#parametro-de-aplicacion-utilizando-api-token" title="Link to this heading"></a></h3>
+<p>Este tipo de parámetro de aplicación requiere de los siguientes parámetros:</p>
+<ul class="simple">
+<li><p><strong>API Token</strong>: Es un token que permite a Qflow conectarse a Jira Cloud, simulando ser el usuario que lo generó.
+Toda acción hecha desde Qflow se va a mostrar como realizada por el usuario que generó el token.</p></li>
+<li><p><strong>Vínculo del dominio de Jira</strong>: Es el vínculo de la instancia de Jira Cloud a la que se va a conectar Qflow.
+Por ejemplo, una posible instancia de Jira Cloud podría ser <a class="reference external" href="https://miempresa.atlassian.net">https://miempresa.atlassian.net</a>.</p></li>
+<li><p><strong>Correo electrónico del usuario</strong>: Es el correo electrónico del usuario que generó el token desde Jira Cloud, las acciones hechas desde
+el conector de Qflow se van a mostrar como realizadas por este usuario.</p></li>
+</ul>
+<p>Para obtenerlos, se deben seguir los siguientes pasos:</p>
+<ol class="arabic">
+<li><p>Acceder a la sección de <a href="https://id.atlassian.com/manage-profile/security/api-tokens" target="_blank">Tokens de API</a> de Jira Cloud.</p></li>
+<li><p>Seleccionar <strong>Crear token de API</strong>.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/ApiToken1.png"><img alt="_images/ApiToken1.png" src="_images/ApiToken1.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 822 </span><span class="caption-text"><cite>Crear token de API</cite> marcado en la sección de Tokens de API</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Escribir una etiqueta para identificar el token, por ejemplo, <cite>Qflow</cite>, y seleccionar <cite>Crear</cite>.</p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="_images/ApiToken2.png"><img alt="_images/ApiToken2.png" src="_images/ApiToken2.png" style="width: 450px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 823 </span><span class="caption-text">Sección de elegir etiqueta y crear Token de API</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Copiar el token generado, que es el token de API necesario para configurar el parámetro de aplicación en Qflow.
+Con esto finalizan los pasos necesarios en la página de Jira Cloud.</p>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="_images/ApiToken3.png"><img alt="_images/ApiToken3.png" src="_images/ApiToken3.png" style="width: 450px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 824 </span><span class="caption-text">Token de API generado</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>En Qflow Design, agregar el Token de Api en <cite>API Token</cite>, el vínculo del equipo en <cite>Vínculo del dominio de Jira</cite>,
+y el correo del usuario logueado al pedir el Token de API en <cite>Correo electrónico de usuario</cite>.</p>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="_images/ApiToken4.png"><img alt="_images/ApiToken4.png" src="_images/ApiToken4.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 825 </span><span class="caption-text">Parámetros necesarios del parámetro de aplicación agregados en Qflow</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+</ol>
+<p>Una vez completados los pasos, será posible crear, editar, mover, eliminar incidencias y agregar comentarios en Jira Cloud desde Qflow.</p>
+</section>
+</section>
+<section id="acciones">
+<h2>Acciones<a class="headerlink" href="#acciones" title="Link to this heading"></a></h2>
+<p>Se pueden realizar las siguientes acciones con Jira Cloud:</p>
+<section id="id1">
+<h3>Crear incidencia<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>Esta acción permite crear una incidencia en Jira Cloud. Se debe proporcionar el nombre del proyecto, el tipo de
+incidencia y el resumen, opcionalmente se pueden agregar otros parámetros que se listan debajo.
+Después de crear la incidencia, se recibe una clave que identifica la incidencia en Jira Cloud, que permite
+editarla, moverla, eliminarla, y agregarle comentarios más adelante.</p>
+<table class="docutils align-center" id="id12" style="width: 100%">
+<caption><span class="caption-number">Tabla 20 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id12" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Entrada</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Nombre de Proyecto</p></td>
+<td><p><strong>Requerido.</strong> Nombre del proyecto de Jira Cloud donde se creará la incidencia.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tipo de incidencia</p></td>
+<td><p><strong>Requerido.</strong> Tipo de incidencia que se creará. Por ejemplo, “Task” (Tarea), “Story” (Historia), entre otros.</p>
+<p>Los tipos de incidencia pueden estar traducidos, Jira Cloud ya ofrece una traducción al español, la traducción puede ser editada
+por el equipo de Jira, también es posible agregar tipos de incidencia personalizados.</p>
+<p>Se pueden poner los parámetros en
+el idioma que utilice el usuario que configuró la conexión con Jira Cloud, y también en inglés.</p>
+<p>Es decir, por ejemplo,
+si el usuario que configuró la conexión con Jira Cloud tiene configurada su cuenta con español, se pueden escribir los
+nombres de los tipos de incidencia en español y en inglés.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Resumen</p></td>
+<td><p><strong>Requerido.</strong> Resumen de la incidencia que se creará.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Prioridad</p></td>
+<td><p>Prioridad de la incidencia que se creará. Por ejemplo, “High”, “Medium”, “Low”.
+Se puede usar parámetros de incidencia personalizados o agregados por su equipo de Jira Cloud.</p></td>
+</tr>
+<tr class="row-even"><td><p>Fecha de vencimiento</p></td>
+<td><p>Fecha de vencimiento de la incidencia que se creará.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Descripción</p></td>
+<td><p>Descripción de la incidencia que se creará.</p></td>
+</tr>
+<tr class="row-even"><td><p>Persona asignada</p></td>
+<td><p>Usuario designado a realizar la incidencia. Se debe escribir su nombre de usuario.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Informador</p></td>
+<td><p>Usuario que informa la incidencia. Se debe escribir su nombre de usuario.</p></td>
+</tr>
+<tr class="row-even"><td><p>Etiquetas</p></td>
+<td><p>Se usan para clasificar y buscar incidencias. Se pueden asignar varias etiquetas a una sola incidencia
+y no deben contener espacios.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Versiones corregidas</p></td>
+<td><p>Escribir el nombre de la versión corregida. Se pueden asignar varias versiones a una sola incidencia.</p></td>
+</tr>
+<tr class="row-even"><td><p>JSON de campos extra</p></td>
+<td><p>Si se desea agregar parámetros personalizados a la incidencia, se debe escribir un JSON con los parámetros y valores que se desean agregar.</p>
+<p>Es útil para agregar parámetros en la incidencia
+a crear que no están definidos en la acción. Los parámetros agregados deben estar habilitados en su configuración de Jira Cloud.</p>
+<p>Puede basarse en los ejemplos en la <a href="https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-group-issues" target="_blank">documentación de Jira Cloud</a>
+para saber cómo estructurar el JSON para agregar solamente los parámetros extras que se desee.</p>
+<p>Considerar que el contenido que escriba será unificado con el JSON que se envía a Jira Cloud.</p>
+<p>Por ejemplo, si se desea agregar que la incidencia creada sea hija de otra incidencia, se puede agregar el parámetro <cite>parent</cite> con el JSON <code class="docutils literal notranslate"><span class="pre">{&quot;fields&quot;:{&quot;parent&quot;:{&quot;key&quot;:</span> <span class="pre">&quot;PROJ-123&quot;}}}</span></code>.
+Donde <cite>PROJ-123</cite> es la clave de la incidencia padre.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id13" style="width: 100%">
+<caption><span class="caption-number">Tabla 21 </span><span class="caption-text">Salidas</span><a class="headerlink" href="#id13" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Salida</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Clave de incidencia</p></td>
+<td><p>Clave que identifica la incidencia creada en Jira Cloud. Se puede usar para editar, mover, eliminar, y agregar comentarios a la incidencia.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h3>Agregar comentario a incidencia<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>Esta acción permite agregar un comentario a una incidencia en Jira Cloud. Se debe proporcionar la clave de la incidencia y el comentario a agregar.
+Después de crear el comentario, se recibe un identificador del comentario.</p>
+<table class="docutils align-center" id="id14" style="width: 100%">
+<caption><span class="caption-number">Tabla 22 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id14" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Entrada</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Clave de incidencia</p></td>
+<td><p><strong>Requerido.</strong> Clave de la incidencia a la que se le agrega el comentario.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Comentario</p></td>
+<td><p><strong>Requerido.</strong> Comentario que se agrega a la incidencia.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id15" style="width: 100%">
+<caption><span class="caption-number">Tabla 23 </span><span class="caption-text">Salidas</span><a class="headerlink" href="#id15" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Salida</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Identificador de comentario</p></td>
+<td><p>Identificador del comentario agregado a la incidencia en Jira Cloud.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h3>Actualizar fecha de vencimiento en incidencia<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>Esta acción permite actualizar la fecha de vencimiento de una incidencia en Jira Cloud. Se debe proporcionar la clave de la incidencia y la nueva fecha de vencimiento.</p>
+<table class="docutils align-center" id="id16" style="width: 100%">
+<caption><span class="caption-number">Tabla 24 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id16" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Entrada</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Clave de incidencia</p></td>
+<td><p><strong>Requerido.</strong> Clave de la incidencia a la que se le actualizará la fecha de vencimiento.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Fecha de vencimiento</p></td>
+<td><p><strong>Requerido.</strong> Nueva fecha de vencimiento de la incidencia. Si se desea eliminar la fecha de vencimiento, se debe dejar el parámetro vacío.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id4">
+<h3>Actualizar prioridad en incidencia<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p>Esta acción permite actualizar la prioridad de una incidencia en Jira Cloud. Se debe proporcionar la clave de la incidencia y la nueva prioridad.
+La prioridad puede ser “High”, “Medium”, “Low”, o cualquier otra prioridad definida en Jira Cloud.</p>
+<table class="docutils align-center" id="id17" style="width: 100%">
+<caption><span class="caption-number">Tabla 25 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id17" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Entrada</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Clave de incidencia</p></td>
+<td><p><strong>Requerido.</strong> Clave de la incidencia a la que se le actualizará la prioridad.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Prioridad</p></td>
+<td><p><strong>Requerido.</strong> Nueva prioridad de la incidencia. Puede ser “High”, “Medium”, “Low”, o cualquier otra prioridad definida en Jira Cloud.
+Si se desea eliminar la prioridad, se debe dejar el parámetro vacío.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id5">
+<h3>Actualizar estado de incidencia<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<p>Esta acción permite actualizar el estado de una incidencia en Jira Cloud. Se debe proporcionar la clave de la incidencia y el nuevo estado a donde se moverá.
+El estado puede ser “To do” (Por hacer), “In Progress” (En progreso), “Done” (Listo), o cualquier otro estado definido en Jira Cloud. Los estados pueden estar traducidos,
+Jira Cloud ya ofrece una traducción al español, la traducción puede ser editada por el equipo de Jira.
+Tambien es posible agregar parámetros personalizados en la incidencia, para ello se debe agregar un JSON con los parámetros y valores que se desean agregar.</p>
+<table class="docutils align-center" id="id18" style="width: 100%">
+<caption><span class="caption-number">Tabla 26 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id18" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Entrada</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Clave de incidencia</p></td>
+<td><p><strong>Requerido.</strong> Clave de la incidencia a la que se le actualizará el estado.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nombre de columna</p></td>
+<td><p><strong>Requerido.</strong> Nuevo estado de la incidencia. Puede estar escrito en inglés o traducido.</p></td>
+</tr>
+<tr class="row-even"><td><p>JSON de parámetros extra</p></td>
+<td><p>Si se desea agregar parámetros personalizados a la incidencia, se debe escribir un JSON con los parámetros y valores que se desean agregar.</p>
+<p>Es útil para agregar parámetros en la incidencia
+a crear que no están definidos en la acción. Los parámetros agregados deben estar habilitados en su configuración de Jira Cloud.</p>
+<p>Puede basarse en los ejemplos en la <a href="https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-group-issues" target="_blank">documentación de Jira Cloud</a>
+para saber cómo estructurar el JSON para agregar solamente los parámetros extras que se desee.</p>
+<p>Considerar que el contenido que escriba será unificado con el JSON que se envía a Jira Cloud.</p>
+<p>Por ejemplo, si se desea agregar que la incidencia creada sea hija de otra incidencia, se puede agregar el parámetro <cite>parent</cite> con el JSON <code class="docutils literal notranslate"><span class="pre">{&quot;fields&quot;:{&quot;parent&quot;:{&quot;key&quot;:</span> <span class="pre">&quot;PROJ-123&quot;}}}</span></code>.
+Donde <cite>PROJ-123</cite> es la clave de la incidencia padre.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id6">
+<h3>Actualizar usuario asignado<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<p>Esta acción permite actualizar el usuario asignado a una incidencia en Jira Cloud. Se debe proporcionar la clave de la incidencia y el nombre de usuario del nuevo asignado.</p>
+<table class="docutils align-center" id="id19" style="width: 100%">
+<caption><span class="caption-number">Tabla 27 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id19" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Entrada</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Clave de incidencia</p></td>
+<td><p><strong>Requerido.</strong> Clave de la incidencia a la que se le actualizará el usuario asignado.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Usuario asignado</p></td>
+<td><p><strong>Requerido.</strong> Nombre de usuario del nuevo asignado a la incidencia. Si se desea eliminar el usuario asignado, se debe dejar el parámetro vacío.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id7">
+<h3>Eliminar incidencia<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<p>Esta acción permite eliminar una incidencia en Jira Cloud. Se debe proporcionar la clave de la incidencia a eliminar.</p>
+<table class="docutils align-center" id="id20" style="width: 100%">
+<caption><span class="caption-number">Tabla 28 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id20" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Entrada</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Clave de incidencia</p></td>
+<td><p><strong>Requerido.</strong> Clave de la incidencia a eliminar.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="36.5-OpenAIConnector.html" class="btn btn-neutral float-left" title="OpenAI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="36.7-RedmineConnector.html" class="btn btn-neutral float-right" title="Redmine" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

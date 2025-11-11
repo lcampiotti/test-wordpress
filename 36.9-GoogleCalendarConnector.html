@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google Calendar &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/36.9-GoogleCalendarConnector.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Dropbox" href="36.11-DropboxConnector.html" />
+    <link rel="prev" title="DocuSign" href="36.8-DocuSignConnector.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="35-ConnectorParameterConfig.html">Configuración de Conectores desde una Tarea de Servicio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.1-MicrosoftTeamsConnector.html">Microsoft Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.2-OutlookConnector.html">Outlook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.3-SlackConnector.html">Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.4-TrelloConnector.html">Trello</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.5-OpenAIConnector.html">OpenAI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.6-JiraCloudConnector.html">Jira Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.7-RedmineConnector.html">Redmine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.8-DocuSignConnector.html">DocuSign</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Google Calendar</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduccion">Introducción</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prerrequisitos">Prerrequisitos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parametro-de-aplicacion">Parámetro de aplicación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Acciones</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36.11-DropboxConnector.html">Dropbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.12-OneDriveConnector.html">OneDrive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.13-WhatsAppTwilioConnector.html">WhatsApp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.14-MicrosoftWordConnector.html">Microsoft Word</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.15-ILovePDFConnector.html">ILovePDF</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="34-ConnectorsIndex.html">Conectores</a></li>
+      <li class="breadcrumb-item active">Google Calendar</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="google-calendar">
+<h1>Google Calendar<a class="headerlink" href="#google-calendar" title="Link to this heading"></a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading"></a></h2>
+<p>El propósito de este manual es detallar cómo configurar e integrar Qflow
+con Google Calendar para permitir la interacción entre ambas plataformas, permitiendo
+crear, actualizar y eliminar eventos.</p>
+<p>Google calendar cuenta con las siguientes acciones:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#id2">Crear evento</a></p></li>
+<li><p><a class="reference external" href="#id3">Actualizar evento</a></p></li>
+<li><p><a class="reference external" href="#id4">Eliminar evento</a></p></li>
+</ul>
+<p>Ver <a class="reference external" href="36.9-GoogleCalendarConnector.html#id1">Acciones</a> para conocer la descripción y contenido de cada una.</p>
+</section>
+<section id="prerrequisitos">
+<h2>Prerrequisitos<a class="headerlink" href="#prerrequisitos" title="Link to this heading"></a></h2>
+<p>Es necesario contar con una cuenta de Google y un espacio de trabajo creado en la plataforma.
+Esto puede hacerse <a href="https://cloud.google.com/cloud-console" target="_blank">desde aquí</a>.</p>
+<p>Además, es necesario contar con una cuenta de Google Workspace y tener habilitada la Delegación en todo el dominio.
+Esto puede habilitarse en su <a href="https://admin.google.com/" target="_blank">consola de Administración</a>.</p>
+</section>
+<section id="parametro-de-aplicacion">
+<h2>Parámetro de aplicación<a class="headerlink" href="#parametro-de-aplicacion" title="Link to this heading"></a></h2>
+<p>Para entablar la conexión es necesario contar con al menos un <strong>parámetro de aplicación</strong> (ver <a class="reference external" href="15-QflowDesign.html#parametros-de-aplicacion">Parámetros de aplicación</a>)
+que permita establecer la comunicación entre Qflow y Google Calendar.
+Este parámetro puede ser creado desde la configuración de la tarea de servicio en Qflow. (ver <a class="reference external" href="35-ConnectorParameterConfig.html">Configuración de Conectores desde una Tarea de Servicio</a>)</p>
+<p>Para crear un parámetro de aplicación de Google Calendar, se requieren los siguientes pasos que se detallan a continuación.</p>
+<section id="parametro-de-aplicacion-utilizando-delegacion-en-todo-el-dominio">
+<h3>Parámetro de aplicación utilizando Delegación en todo el Dominio<a class="headerlink" href="#parametro-de-aplicacion-utilizando-delegacion-en-todo-el-dominio" title="Link to this heading"></a></h3>
+<p>Este tipo de parámetro de aplicación requiere los siguientes parámetros:</p>
+<ul class="simple">
+<li><p><strong>Email de usuario</strong></p></li>
+<li><p><strong>Id de proyecto</strong></p></li>
+<li><p><strong>Id de clave privada</strong></p></li>
+<li><p><strong>Clave privada</strong></p></li>
+<li><p><strong>Email cliente</strong></p></li>
+<li><p><strong>Id cliente</strong></p></li>
+</ul>
+<p>Para obtenerlos, se deben seguir los siguientes pasos:</p>
+<ol class="arabic">
+<li><p>Acceder al <a href="https://console.cloud.google.com/cloud-resource-manager" target="_blank">Manejador de recursos</a>. Aquí crearemos un nuevo proyecto seleccionando <cite>CREAR PROYECTO</cite>.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/CreateProjectButton.png"><img alt="_images/CreateProjectButton.png" src="_images/CreateProjectButton.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 843 </span><span class="caption-text">Botón <cite>CREAR PROYECTO</cite> en el manejador de recursos de Google Cloud</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Escribir el nombre del proyecto y seleccionar la <cite>Ubicación</cite> al que pertenecerá,
+luego seleccionar <cite>CREAR</cite>.
+En el ejemplo de la imagen a continuación, se muestra que la aplicación se llama <cite>QflowTestWiki</cite>
+y no pertenece a alguna organización.</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/ProjectName.png"><img alt="_images/ProjectName.png" src="_images/ProjectName.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 844 </span><span class="caption-text">Vista de creación de proyecto en Google Cloud</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Seleccionar en el combobox superior nuestro nuevo proyecto.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/SelectProject.png"><img alt="_images/SelectProject.png" src="_images/SelectProject.png" style="width: 850px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 845 </span><span class="caption-text">Vista de selección de proyecto en Google Cloud</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>En la barra superior buscamos <cite>Google Calendar API</cite>, entramos y posteriormente clicamos en <cite>HABILITAR</cite> para habilitar dicha API en nuestro proyecto.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/GoogleCalendarAPI.png"><img alt="_images/GoogleCalendarAPI.png" src="_images/GoogleCalendarAPI.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 846 </span><span class="caption-text">Botón para habilitar Google Calendar API en nuestro proyecto de Google Cloud</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>En la barra superior buscamos <cite>Cuentas de servicio</cite> y procederemos a crear una cuenta de servicio, encargada de la ejecución de nuestras interacciones.
+Para esto seleccionamos <cite>CREAR CUENTA DE SERVICIO</cite>.</p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="_images/CreateServiceAccount.png"><img alt="_images/CreateServiceAccount.png" src="_images/CreateServiceAccount.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 847 </span><span class="caption-text">Opción para crear una cuenta de servicio en Google Cloud</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Aquí deberemos completar <cite>ID de la cuenta de servicio</cite>. Recomendamos además completar <cite>Nombre de la cuenta de servicio</cite> y la <cite>Descripción de la cuenta de servicio</cite> como se muestra en la imagen siguiente.</p>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="_images/CreateServiceAccount2.png"><img alt="_images/CreateServiceAccount2.png" src="_images/CreateServiceAccount2.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 848 </span><span class="caption-text">Campos de cuenta de servicio en Google Cloud</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Volver a la vista de Service Accounts, seleccionar la cuenta de servicio creada y en la sección de <cite>Acciones</cite> seleccionamos <cite>Adminsitrar claves</cite>.</p>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="_images/ManageKeys.png"><img alt="_images/ManageKeys.png" src="_images/ManageKeys.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 849 </span><span class="caption-text">Opción de <cite>Manage Keys</cite> para cuenta de servicio en Google Cloud</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>En esta nueva ventana vamos a seleccionar la opción <cite>Crear clave nueva</cite> dentro del combobox de <cite>AGREGAR CLAVE</cite>.</p>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="_images/CreateNewKey.png"><img alt="_images/CreateNewKey.png" src="_images/CreateNewKey.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 850 </span><span class="caption-text">Opción de creación de nueva clave para cuenta de servicio en Google Cloud</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Aquí seleccionamos la opción de <cite>JSON</cite> y procedemos a crear la clave. Automáticamente se descargará un archivo JSON con la clave privada generada.</p>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="_images/SelectJSONKey.png"><img alt="_images/SelectJSONKey.png" src="_images/SelectJSONKey.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 851 </span><span class="caption-text">Selección de tipo de clave privada</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="_images/GeneratedKey.png"><img alt="_images/GeneratedKey.png" src="_images/GeneratedKey.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 852 </span><span class="caption-text">Mensaje de descarga de clave generada en Google Cloud</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Debemos anotarnos el <cite>ID de cliente de OAuth 2</cite> que se encuentra en la vista de service accounts como identifica la siguiente imagen:</p>
+<figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="_images/ClientId.png"><img alt="_images/ClientId.png" src="_images/ClientId.png" style="width: 1000px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 853 </span><span class="caption-text"><cite>ID de cliente de OAuth 2</cite> de cuenta de servicio en Google Cloud</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Ahora pasaremos a brindarle a nuestra cuenta de servicio los permisos necesarios para su correcto funcionamiento, dentro de nuestra consola de administrador de Google Workspace.
+Para esto vamos a <cite>Controles de API</cite> y seleccionamos <cite>ADMINISTRAR LA DELEGACIÓN DE TODO EL DOMINIO</cite>.</p>
+<figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="_images/DomainWideDelegationButton.png"><img alt="_images/DomainWideDelegationButton.png" src="_images/DomainWideDelegationButton.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 854 </span><span class="caption-text">Opción para configurar delegación en todo el dominio en Google Workspace</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Aquí seleccionamos <cite>Agregar nuevo</cite> para agregar un nuevo cliente en nuestra configuración de delegación en todo el dominio.</p>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="_images/DomainWideDelegationAddNewButton.png"><img alt="_images/DomainWideDelegationAddNewButton.png" src="_images/DomainWideDelegationAddNewButton.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 855 </span><span class="caption-text">Botón para agregar nuevo cliente en configuración de delegación en todo el dominio</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Procedemos a rellenar los campos <cite>ID de cliente</cite> y <cite>Permisos de OAuth</cite> con el client ID asociado a la cuenta de servicio que creamos anteriormente y en
+<cite>Permisos de OAuth</cite> agregamos únicamente <cite>https://www.googleapis.com/auth/calendar.events</cite>.</p>
+<figure class="align-center" id="id18">
+<a class="reference internal image-reference" href="_images/AddClientDomainWideDelegationAuth.png"><img alt="_images/AddClientDomainWideDelegationAuth.png" src="_images/AddClientDomainWideDelegationAuth.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 856 </span><span class="caption-text">Rellenado de campos de cuenta de servicio para autorizar permisos en dominio</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Finalmente, en el listado de <cite>Clientes de API</cite> deberemos ver nuestro nuevo cliente agregado con el permiso anterior en su listado.</p>
+<figure class="align-center" id="id19">
+<a class="reference internal image-reference" href="_images/AddedApiClient.png"><img alt="_images/AddedApiClient.png" src="_images/AddedApiClient.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 857 </span><span class="caption-text">Nueva cuenta de servicio en listado de <cite>Clientes de API</cite></span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+</ol>
+<p>Una vez completados los pasos anteriores, será posible crear, actualizar y eliminar eventos en Google Calendar desde Qflow.</p>
+</section>
+</section>
+<section id="id1">
+<h2>Acciones<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>Se pueden realizar las siguientes acciones con Google Calendar:</p>
+<section id="id2">
+<h3>Crear evento<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>Esta acción permite generar un nuevo evento sobre el calendario de Google seleccionado. Se debe proporcionar
+una fecha y hora de inicio y fin y además un email asociado al organizador del evento.
+Opcionalmente, se pueden agregar título, descripción, ubicación, lista de invitados y id de calendario.
+Además permite generar en conjunto del evento un Google Meet asociado al mismo y se permite marcar si
+cualquier usuario se puede autoagregar al evento.</p>
+<table class="docutils align-center" id="id20" style="width: 100%">
+<caption><span class="caption-number">Tabla 40 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id20" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Entrada</p></td>
+<td><p>Descripción</p></td>
+</tr>
+<tr class="row-even"><td><p>Email del Organizador</p></td>
+<td><p><strong>Requerido.</strong> Email que aparecerá como el organizador del evento.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Fecha de inicio</p></td>
+<td><p><strong>Requerido.</strong> Fecha y hora de inicio del evento.</p></td>
+</tr>
+<tr class="row-even"><td><p>Fecha de fin</p></td>
+<td><p><strong>Requerido.</strong> Fecha y hora de fin del evento.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Título</p></td>
+<td><p>Título del evento.</p></td>
+</tr>
+<tr class="row-even"><td><p>Descripción</p></td>
+<td><p>Descripción del evento.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ubicación</p></td>
+<td><p>Ubicación del evento.</p></td>
+</tr>
+<tr class="row-even"><td><p>Generar meet con evento</p></td>
+<td><p>Permite generar una Google Meet asociado al evento.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cualquier usuario puede autoagregarse</p></td>
+<td><p>Permite establecer si cualquier usuario puede autoagregarse al evento.</p></td>
+</tr>
+<tr class="row-even"><td><p>Lista de invitados</p></td>
+<td><p>Lista de mails asociados a los invitados del evento.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Id de calendario</p></td>
+<td><p>Id específico del calendario en el cual se creará el evento.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id21" style="width: 100%">
+<caption><span class="caption-number">Tabla 41 </span><span class="caption-text">Salidas</span><a class="headerlink" href="#id21" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Salida</p></td>
+<td><p>Descripción</p></td>
+</tr>
+<tr class="row-even"><td><p>Id del evento</p></td>
+<td><p>Id generado por Google, asociado al evento.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h3>Actualizar evento<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>Esta acción permite actualizar un evento ya existente sobre el calendario de Google seleccionado. Se debe proporcionar
+una fecha y hora de inicio y fin, un email asociado al organizador del evento y el id del evento a actualizar.
+Opcionalmente, se pueden agregar título, descripción, ubicación, lista de invitados y id de calendario.
+Además, permite generar, mantener o eliminar una Google Meet asociada al evento en caso que exista y se permite seleccionar si
+cualquier usuario puede o no autoagregarse al evento.</p>
+<table class="docutils align-center" id="id22" style="width: 100%">
+<caption><span class="caption-number">Tabla 42 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id22" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Entrada</p></td>
+<td><p>Descripción</p></td>
+</tr>
+<tr class="row-even"><td><p>Email del organizador del evento</p></td>
+<td><p><strong>Requerido.</strong> Email que aparecerá como el organizador del evento.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Fecha de inicio</p></td>
+<td><p><strong>Requerido.</strong> Fecha y hora de inicio del evento.</p></td>
+</tr>
+<tr class="row-even"><td><p>Fecha de fin</p></td>
+<td><p><strong>Requerido.</strong> Fecha y hora de fin del evento.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Id del evento</p></td>
+<td><p><strong>Requerido.</strong> Id del evento a modificar.</p></td>
+</tr>
+<tr class="row-even"><td><p>Título</p></td>
+<td><p>Título del evento.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Descripción</p></td>
+<td><p>Descripción del evento.</p></td>
+</tr>
+<tr class="row-even"><td><p>Ubicación</p></td>
+<td><p>Ubicación del evento.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Generar meet con evento</p></td>
+<td><p>Permite generar una Google Meet asociado al evento.</p></td>
+</tr>
+<tr class="row-even"><td><p>Cualquier usuario puede autoagregarse</p></td>
+<td><p>Permite establecer si cualquier usuario puede autoagregarse al evento.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lista de invitados</p></td>
+<td><p>Lista de mails asociados a los invitados del evento.</p></td>
+</tr>
+<tr class="row-even"><td><p>Id de calendario</p></td>
+<td><p>Id específico del calendario en el cual se modificará el evento.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id23" style="width: 100%">
+<caption><span class="caption-number">Tabla 43 </span><span class="caption-text">Salidas</span><a class="headerlink" href="#id23" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Salida</p></td>
+<td><p>Descripción</p></td>
+</tr>
+<tr class="row-even"><td><p>Id del evento</p></td>
+<td><p>Id del evento actualizado.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id4">
+<h3>Eliminar evento<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p>Esta acción permite eliminar un evento del calendario de Google seleccionado. Se debe proporcionar
+un email asociado al organizador del evento y el id del evento a eliminar.
+Opcionalmente, se pueden especificar el id del calendario al cual pertenece el evento a eliminar.</p>
+<table class="docutils align-center" id="id24" style="width: 100%">
+<caption><span class="caption-number">Tabla 44 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id24" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Entrada</p></td>
+<td><p>Descripción</p></td>
+</tr>
+<tr class="row-even"><td><p>Email del organizador del evento</p></td>
+<td><p><strong>Requerido.</strong> Email del Organizador del evento</p></td>
+</tr>
+<tr class="row-odd"><td><p>Id del evento</p></td>
+<td><p><strong>Requerido.</strong> Id del evento a eliminar.</p></td>
+</tr>
+<tr class="row-even"><td><p>Id de calendario</p></td>
+<td><p>Id específico del calendario en el cual se eliminará el evento.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="36.8-DocuSignConnector.html" class="btn btn-neutral float-left" title="DocuSign" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="36.11-DropboxConnector.html" class="btn btn-neutral float-right" title="Dropbox" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

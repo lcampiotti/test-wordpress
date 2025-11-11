@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crea tu formulario personalizado &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/37-QformTutorial.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Qflow Task" href="04-QflowTask.html" />
+    <link rel="prev" title="Administra y monitorea el sistema" href="28-QflowAdminTutorial.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="26-QflowToolsTutorial.html">Introducción a las herramientas de Qflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-Tutorial.html">Crea tu primer proceso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="23-DesignTutorial.html">Diseña un proceso de quejas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="24-QflowTaskTutorial.html">Descubre Qflow Task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27-QflowTeamTutorial.html">Configura el equipo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="28-QflowAdminTutorial.html">Administra y monitorea el sistema</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Crea tu formulario personalizado</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#contexto-del-proceso">Contexto del proceso</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disenar-el-formulario-unico-con-visibilidad-por-paso">Diseñar el formulario único con visibilidad por paso</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configurar-visibilidad-y-comportamiento-de-campos">Configurar visibilidad y comportamiento de campos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#validar-el-diseno-con-vista-previa">Validar el diseño con vista previa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ejecutar-una-instancia-de-prueba">Ejecutar una instancia de prueba</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resultado-esperado">Resultado esperado</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="TutorialsIndex.html">Tutoriales</a></li>
+      <li class="breadcrumb-item active">Crea tu formulario personalizado</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="crea-tu-formulario-personalizado">
+<h1>Crea tu formulario personalizado<a class="headerlink" href="#crea-tu-formulario-personalizado" title="Link to this heading"></a></h1>
+<p>Este tutorial describe paso a paso cómo construir un formulario en el diseñador de formularios personalizado para digitalizar una solicitud de compra de insumos, con revisión posterior por parte de un supervisor.</p>
+<p>El objetivo es construir un único formulario cuya visibilidad se adapte según el paso del proceso: primero para que el empleado complete la solicitud, y luego para que el supervisor la visualice y tome una decisión.</p>
+<section id="contexto-del-proceso">
+<h2>Contexto del proceso<a class="headerlink" href="#contexto-del-proceso" title="Link to this heading"></a></h2>
+<p>Un área administrativa necesita recibir solicitudes de compra de materiales de oficina.
+Los empleados deben detallar los insumos requeridos, y un supervisor debe revisar y aprobar (o rechazar) cada solicitud.</p>
+<p>El flujo contempla dos etapas principales:</p>
+<ol class="arabic simple">
+<li><p><strong>Ingreso de la solicitud</strong>: por parte del empleado.</p></li>
+<li><p><strong>Revisión y decisión</strong>: a cargo del supervisor.</p></li>
+</ol>
+<p>Antes de crear los formularios personalizados, asegurate de que el proceso ya tenga definidos los pasos correspondientes en el diseñador de procesos.</p>
+<p>El flujo debe incluir al menos los siguientes pasos:</p>
+<ul class="simple">
+<li><p><strong>Evento de inicio - Solicitud de compra</strong> (rol <em>Empleado</em>): permite al usuario registrar los detalles de la solicitud, incluyendo la descripción de los insumos, la cantidad requerida y una justificación de la compra.</p></li>
+<li><p><strong>Tarea de usuario - Revisión de solicitud</strong> (rol <em>Supervisor</em>): permite al supervisor analizar la información ingresada por el empleado, agregar observaciones si corresponde, y tomar una decisión sobre la aprobación o el rechazo de la solicitud.</p></li>
+</ul>
+<img alt="Ejemplo del flujo con tareas definidas" class="align-center" src="_images/FlujoSolicitud.png" />
+<hr class="docutils" />
+<ol class="arabic">
+<li><p>Ingresá a Design y seleccioná el proceso en el que vas a construir el formulario personalizado.</p></li>
+<li><p>Hacé clic sobre el paso <strong>Evento de inicio: Solicitud de compra</strong> (rol: Empleado).</p></li>
+<li><p>En el panel derecho, dentro de la sección <strong>Formulario</strong>, seleccioná <strong>Crear formulario personalizado</strong>.</p>
+<a class="reference internal image-reference" href="_images/LinkForms.png"><img alt="Desde este enlace se accede a la configuración del formulario" class="align-center" src="_images/LinkForms.png" style="width: 400px;" /></a>
+</li>
+<li><p>El sistema generará automáticamente el nombre del formulario y lo vinculará al nombre del flujo.</p></li>
+<li><p>Luego, seleccioná el paso <strong>Tarea de usuario: Revisión de solicitud</strong> (rol: Supervisor) y asigná el mismo formulario creado previamente.</p></li>
+</ol>
+<div class="admonition-nota admonition">
+<p class="admonition-title">Nota</p>
+<p>El mismo formulario puede utilizarse en varios pasos del proceso.
+La visibilidad de sus componentes se configurará más adelante, según el rol y el paso correspondiente.</p>
+</div>
+</section>
+<section id="disenar-el-formulario-unico-con-visibilidad-por-paso">
+<h2>Diseñar el formulario único con visibilidad por paso<a class="headerlink" href="#disenar-el-formulario-unico-con-visibilidad-por-paso" title="Link to this heading"></a></h2>
+<p>El formulario será utilizado tanto por el empleado como por el supervisor en diferentes pasos del proceso.
+La estructura visual es única, y lo que varía es la visibilidad de los <strong>datos</strong> según el paso.</p>
+<section id="componentes-a-incluir">
+<h3>Componentes a incluir<a class="headerlink" href="#componentes-a-incluir" title="Link to this heading"></a></h3>
+<p>Desde el panel izquierdo, arrastrá los siguientes componentes al área central del diseñador y asignales los siguientes nombres:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo de componente</p></th>
+<th class="head"><p>Nombre</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Texto (una línea)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Descripción</span> <span class="pre">de</span> <span class="pre">insumo</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Número</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Cantidad</span> <span class="pre">solicitada</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Texto (varias líneas)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Justificación</span> <span class="pre">del</span> <span class="pre">pedido</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Casilla de verificación</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Aprobado</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Texto (varias líneas)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Observaciones</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="configurar-visibilidad-y-comportamiento-de-campos">
+<h2>Configurar visibilidad y comportamiento de campos<a class="headerlink" href="#configurar-visibilidad-y-comportamiento-de-campos" title="Link to this heading"></a></h2>
+<p>La visibilidad de los campos y el comportamiento en cada etapa del proceso se define desde <strong>el diseñador de formularios</strong>, para nuestro proceso es necesario definir:</p>
+<ul class="simple">
+<li><p><strong>Paso del empleado (Solicitud de compra)</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Descripción</span> <span class="pre">de</span> <span class="pre">insumo</span></code>, <code class="docutils literal notranslate"><span class="pre">Cantidad</span> <span class="pre">Solicitada</span></code>, <code class="docutils literal notranslate"><span class="pre">Justificación</span> <span class="pre">del</span> <span class="pre">Pedido</span></code>: <strong>editables</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Aprobado</span></code>, <code class="docutils literal notranslate"><span class="pre">Observaciones</span></code>: <strong>ausentes</strong></p></li>
+</ul>
+</li>
+<li><p><strong>Paso del supervisor (Revisión de solicitud)</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Descripción</span> <span class="pre">de</span> <span class="pre">insumo</span></code>, <code class="docutils literal notranslate"><span class="pre">Cantidad</span> <span class="pre">Solicitada</span></code>, <code class="docutils literal notranslate"><span class="pre">Justificación</span> <span class="pre">del</span> <span class="pre">pedido</span></code>: <strong>solo lectura</strong></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Aprobado</span></code>, <code class="docutils literal notranslate"><span class="pre">Observaciones</span></code>: <strong>editables</strong></p></li>
+<li><p>Respuestas: “Aprobar”, “Rechazar” (<a class="reference external" href="15-QflowDesign.html#tarea-de-usuario">para más información sobre el manejo de respuestas, ir a la subsección Tarea de Usuario del enlace</a>)</p></li>
+</ul>
+</li>
+</ul>
+<p>Estas configuraciones permiten adaptar el comportamiento del formulario a cada etapa del proceso:</p>
+<ul class="simple">
+<li><p>En la <strong>solicitud</strong>, el empleado completa los campos necesarios, mientras que los campos reservados para el supervisor permanecen ocultos.</p></li>
+<li><p>En la <strong>revisión</strong>, el supervisor puede visualizar los datos ingresados por el empleado sin modificarlos, y acceder únicamente a los campos que debe completar para tomar una decisión.</p></li>
+</ul>
+<div class="admonition-nota admonition">
+<p class="admonition-title">Nota</p>
+<p>Todos los datos se agregan una única vez en el formulario.
+La visibilidad y el comportamiento se configuran desde <strong>el diseñador</strong>, según el paso del proceso.</p>
+</div>
+</section>
+<section id="validar-el-diseno-con-vista-previa">
+<h2>Validar el diseño con vista previa<a class="headerlink" href="#validar-el-diseno-con-vista-previa" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Desde la barra superior del diseñador, hacé clic en <strong>Vista previa</strong> y selecciona «Abrir Formulario».</p>
+<a class="reference internal image-reference" href="_images/Preview.png"><img alt="Botón Vista previa en la barra superior del diseñador" class="align-center" src="_images/Preview.png" style="width: 500px;" /></a>
+</li>
+<li><p>Se abrirá una pestaña con la estructura visual del formulario activo.</p></li>
+<li><p>Verificá:</p>
+<ul class="simple">
+<li><p>Etiquetas, alineación y disposición de los campos.</p></li>
+<li><p>Comportamiento visual en escritorio y dispositivos móviles.</p></li>
+</ul>
+</li>
+</ol>
+<p>Si lo deseás, utilizá la opción <strong>Escanear QR</strong> para probar el formulario en un celular o tablet.</p>
+<div class="admonition-nota admonition">
+<p class="admonition-title">Nota</p>
+<p>La vista previa no simula la ejecución real del proceso.
+Para validar comportamientos como navegación, decisiones o reglas, es necesario ejecutar una instancia real del flujo.</p>
+</div>
+</section>
+<section id="ejecutar-una-instancia-de-prueba">
+<h2>Ejecutar una instancia de prueba<a class="headerlink" href="#ejecutar-una-instancia-de-prueba" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Desde Design, publicá la versión actual del proceso.</p></li>
+<li><p>Luego, iniciá una instancia desde <strong>Task</strong>, donde comienzan los procesos.</p></li>
+</ol>
+</section>
+<section id="resultado-esperado">
+<h2>Resultado esperado<a class="headerlink" href="#resultado-esperado" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>El <strong>Empleado</strong> accede al formulario con todos los campos habilitados para ingreso.</p></li>
+<li><p>El <strong>Supervisor</strong> accede a los mismos campos en modo solo lectura, con nuevos campos para tomar la decisión.</p></li>
+<li><p>El formulario respeta la visibilidad y configuración definida en cada paso.</p></li>
+<li><p>Las acciones del supervisor pueden activar pasos posteriores o integraciones definidas en el diseño del proceso.</p></li>
+</ul>
+<p>Este enfoque permite mantener formularios separados para cada rol, reutilizando datos sin necesidad de duplicación y controlando exactamente la visibilidad y comportamiento esperados en cada tarea.</p>
+<div class="admonition-nota admonition">
+<p class="admonition-title">Nota</p>
+<p>Para realizar una prueba completa, asegurate de asignarte como usuario en ambas tareas
+y completar los formularios correspondientes: primero como empleado y luego como supervisor.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="28-QflowAdminTutorial.html" class="btn btn-neutral float-left" title="Administra y monitorea el sistema" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="04-QflowTask.html" class="btn btn-neutral float-right" title="Qflow Task" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

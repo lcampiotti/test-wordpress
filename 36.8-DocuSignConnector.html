@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DocuSign &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/36.8-DocuSignConnector.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Google Calendar" href="36.9-GoogleCalendarConnector.html" />
+    <link rel="prev" title="Redmine" href="36.7-RedmineConnector.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="35-ConnectorParameterConfig.html">Configuración de Conectores desde una Tarea de Servicio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.1-MicrosoftTeamsConnector.html">Microsoft Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.2-OutlookConnector.html">Outlook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.3-SlackConnector.html">Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.4-TrelloConnector.html">Trello</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.5-OpenAIConnector.html">OpenAI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.6-JiraCloudConnector.html">Jira Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.7-RedmineConnector.html">Redmine</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">DocuSign</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduccion">Introducción</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prerrequisitos">Prerrequisitos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parametro-de-aplicacion">Parámetro de aplicación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Acciones</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36.9-GoogleCalendarConnector.html">Google Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.11-DropboxConnector.html">Dropbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.12-OneDriveConnector.html">OneDrive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.13-WhatsAppTwilioConnector.html">WhatsApp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.14-MicrosoftWordConnector.html">Microsoft Word</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.15-ILovePDFConnector.html">ILovePDF</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="34-ConnectorsIndex.html">Conectores</a></li>
+      <li class="breadcrumb-item active">DocuSign</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="docusign">
+<h1>DocuSign<a class="headerlink" href="#docusign" title="Link to this heading"></a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading"></a></h2>
+<p>El propósito de este manual es detallar cómo configurar e integrar Qflow
+con DocuSign para permitir la interacción entre ambas plataformas, permitiendo
+enviar documentos a firmar, obtener el estado de los documentos enviados, obtener los documentos una vez se hayan firmado y cancelar el envío de documentos previamente enviados a firmar.</p>
+<p>DocuSign cuenta con las siguientes acciones:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="36.8-DocuSignConnector.html#enviar-documento-a-firmar">Enviar documentos a firmar</a></p></li>
+<li><p><a class="reference external" href="36.8-DocuSignConnector.html#id2">Obtener estado de documentos enviados a firmar</a></p></li>
+<li><p><a class="reference external" href="36.8-DocuSignConnector.html#id3">Obtener documentos firmados desde DocuSign</a></p></li>
+<li><p><a class="reference external" href="36.8-DocuSignConnector.html#id4">Cancelar firma de documentos</a></p></li>
+</ul>
+<p>Ver <a class="reference external" href="36.8-DocuSignConnector.html#id1">Acciones</a> para conocer la descripción y contenido de cada una.</p>
+</section>
+<section id="prerrequisitos">
+<h2>Prerrequisitos<a class="headerlink" href="#prerrequisitos" title="Link to this heading"></a></h2>
+<p>Es necesario contar con una cuenta de desarrollador de DocuSign.
+Puede hacerse una cuenta <a href="https://developers.docusign.com/" target="_blank">desde aquí</a>.</p>
+</section>
+<section id="parametro-de-aplicacion">
+<h2>Parámetro de aplicación<a class="headerlink" href="#parametro-de-aplicacion" title="Link to this heading"></a></h2>
+<p>Para entablar la conexión es necesario contar con al menos un <strong>parámetro de aplicación</strong> (ver <a class="reference external" href="15-QflowDesign.html#parametros-de-aplicacion">Parámetros de aplicación</a>)
+que permita establecer la comunicación entre Qflow y DocuSign.
+Este campo es utilizado para configurar el conector de una Tarea de Servicio en Qflow. (ver <a class="reference external" href="35-ConnectorParameterConfig.html">Configuración de Conectores desde una Tarea de Servicio</a>)</p>
+<p>Para crear un parámetro de aplicación de DocuSign, se requieren los siguientes pasos que se detallan a continuación.</p>
+<section id="parametro-de-aplicacion-utilizando-json-web-token">
+<h3>Parámetro de aplicación utilizando JSON Web Token<a class="headerlink" href="#parametro-de-aplicacion-utilizando-json-web-token" title="Link to this heading"></a></h3>
+<p>Este tipo de parámetro de aplicación requiere de los siguientes parámetros:</p>
+<ul class="simple">
+<li><p><strong>Servidor de autenticación</strong>: Servidor de autenticación utilizado por DocuSign. Por defecto es “account-d.docusign.com”.</p></li>
+<li><p><strong>Clave de integración</strong>: La clave de integración es la que identifica su integración y se vincula a sus valores de configuración.</p></li>
+<li><p><strong>Identificador del usuario</strong>: Identificador del usuario para acceder a los servicios de DocuSign.</p></li>
+<li><p><strong>Clave privada RSA</strong>: Clave privada de cifrado RSA.</p></li>
+</ul>
+<p>Para obtenerlos, se deben seguir los siguientes pasos:</p>
+<ol class="arabic">
+<li><p>Acceder a su cuenta de desarrollador de DocuSign <a href="https://developers.docusign.com/" target="_blank">desde aquí</a>.</p></li>
+<li><p>Hacer clic en su perfil y luego seleccionar <strong>My Apps &amp; Keys</strong> para dirigirse a la sección de Aplicaciones y claves.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/img1.png"><img alt="_images/img1.png" src="_images/img1.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 831 </span><span class="caption-text">Sección de perfil</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Una vez en la sección de Aplicaciones y claves, haga clic en <strong>Añadir aplicación y clave de integración</strong>.</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/img2.png"><img alt="_images/img2.png" src="_images/img2.png" style="width: 1000px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 832 </span><span class="caption-text">Sección de vista general de aplicación y claves</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Ingrese un nombre para identificar su nueva aplicación, en este ejemplo utilizamos el nombre “DocuSign-Qflow”.</p></li>
+<li><p>Una vez ingresado el nombre seleccione <strong>Crear aplicación</strong>.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/img3.png"><img alt="_images/img3.png" src="_images/img3.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 833 </span><span class="caption-text">Sección de creación de aplicación</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Al crear una nueva aplicación se le redirigirá a la sección de configuración de la misma donde encontrará distintas configuraciones disponibles.</p></li>
+<li><p>En esta sección encontrará el apartado <strong>Integración del servicio</strong>, donde deberá seleccionar <strong>Generar RSA</strong>.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/img4.png"><img alt="_images/img4.png" src="_images/img4.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 834 </span><span class="caption-text">Sección de integración del servicio</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Al seleccionar <strong>Generar RSA</strong> se le generan dos claves de las cuales debe identificar la que está bajo el nombre <strong>Clave privada</strong>. Esta clave es la que debe colocar en el parámetro <strong>Clave privada RSA</strong>, por lo que deberá copiarla y guardarla para usarla más adelante.</p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="_images/img5.png"><img alt="_images/img5.png" src="_images/img5.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 835 </span><span class="caption-text">Sección de claves RSA</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Dentro de las configuraciones de la aplicación también encontrará el apartado <strong>Configuración adicional</strong>, en este debe seleccionar <strong>Añadir URL</strong> en la parte de <strong>Redireccionar URLs</strong>.</p>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="_images/img6.png"><img alt="_images/img6.png" src="_images/img6.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 836 </span><span class="caption-text">Sección de configuración adicional</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Debe ingresar la siguiente URL: <strong>https://developers.docusign.com/platform/auth/consent</strong>.</p>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="_images/img7.png"><img alt="_images/img7.png" src="_images/img7.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 837 </span><span class="caption-text">Sección de configuración adicional</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Una vez realizados los pasos anteriormente mencionados, en la parte inferior de la página debe seleccionar <strong>Guardar</strong>.</p>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="_images/img8.png"><img alt="_images/img8.png" src="_images/img8.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 838 </span><span class="caption-text">Sección de guardar cambios</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Al guardar los cambios se le mostrará nuevamente la sección de Aplicaciones y claves, donde en <strong>Información de mi cuenta</strong> encontrará el parámetro <strong>Identificador de usuario</strong>.</p>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="_images/img9.png"><img alt="_images/img9.png" src="_images/img9.png" style="width: 1000px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 839 </span><span class="caption-text">Sección aplicaciones y claves</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>En esta misma sección más abajo encontrará <strong>Aplicaciones y claves de integración</strong> donde podrá visualizar las aplicaciones que haya creado identificadas por su nombre. Aquí debe buscar la aplicación creada y configurada previamente y copiar el parámetro <strong>Clave de integración</strong>.</p>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="_images/img10.png"><img alt="_images/img10.png" src="_images/img10.png" style="width: 1000px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 840 </span><span class="caption-text">Sección aplicaciones y claves</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+</ol>
+<p>Siguiendo los pasos de esta guía habrá podido obtener tres de los cuatro parámetros necesarios para la conexión:</p>
+<ul class="simple">
+<li><p><strong>Clave de integración</strong></p></li>
+<li><p><strong>Identificador del usuario</strong></p></li>
+<li><p><strong>Clave privada RSA</strong></p></li>
+</ul>
+<p>Con lo que respecta al parámetro <strong>Servidor de autenticación</strong>, por defecto el valor que debe usar es <strong>“account-d.docusign.com”</strong>. Este valor solo cambia si usted desea usar otro servidor para la autenticación con DocuSign, en cuyo caso deberá usar el servidor que elija.</p>
+<p>Una vez obtenidos todos los parámetros necesarios para la conexión, la primera vez que los utilice deberá otorgar acceso a la aplicación previamente creada para que Qflow pueda comunicarse con la misma.
+Esto lo puede hacer directamente cuando cree el parámetro de conexión desde la tarea de servicio de la siguiente manera:</p>
+<ol class="arabic">
+<li><p>En la parte inferior del panel de <strong>Conexión</strong> de la integración con DocuSign, una vez ingresados los cuatro parámetros, seleccione <strong>Conceder acceso a DocuSign</strong>.</p>
+<figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="_images/img11.png"><img alt="_images/img11.png" src="_images/img11.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 841 </span><span class="caption-text">Sección de Conexión de DocuSign</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+<li><p>Una vez hecho eso, se le abrirá una ventana donde se le pedirá iniciar sesión en su cuenta de desarrollador de DocuSign si es que no está ingresado ya, y luego se le mostrará la siguiente ventana donde deberá seleccionar <strong>Permitir acceso</strong>.</p>
+<figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="_images/img12.png"><img alt="_images/img12.png" src="_images/img12.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 842 </span><span class="caption-text">Sección de permitir acceso de DocuSign</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><p style="margin-top: 2em;"></p></p>
+</li>
+</ol>
+<p>Una vez realizados estos pasos, ya podrá usar su parámetro de conexión con DocuSign.</p>
+</section>
+</section>
+<section id="id1">
+<h2>Acciones<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>Se pueden realizar las siguientes acciones con DocuSign:</p>
+<section id="enviar-documento-a-firmar">
+<h3>Enviar documento a firmar<a class="headerlink" href="#enviar-documento-a-firmar" title="Link to this heading"></a></h3>
+<p>Esta acción permite seleccionar documentos y enviarlos a firmar utilizando DocuSign. Se debe proporcionar los correos electrónicos de los firmantes y el nombre de los mismos obligatoriamente. Opcionalmente se pueden agregar otros campos que se listan debajo.
+Al enviar los documentos a ser firmados, se recibe una clave que identifica el sobre en DocuSign, con la cual más adelante se puede obtener el estado de los documentos, cancelar el envío o obtener los documentos.</p>
+<table class="docutils align-center" id="id17" style="width: 100%">
+<caption><span class="caption-number">Tabla 33 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id17" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Entrada</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Correos electrónicos de los firmantes</p></td>
+<td><p><strong>Requerido.</strong> Correos electrónicos de las personas responsables de firmar el o los documentos. Deben estar en el mismo orden que “Nombres de los firmantes”.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nombres de los firmantes</p></td>
+<td><p><strong>Requerido.</strong> Nombre de las personas responsables de firmar el o los documentos. Deben estar en el mismo orden que “Correos electrónicos de los firmantes”.</p></td>
+</tr>
+<tr class="row-even"><td><p>Documentos</p></td>
+<td><p><strong>Requerido.</strong> Documentos que se quieran enviar para ser firmados.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Asunto del correo electrónico</p></td>
+<td><p><strong>Requerido.</strong> Asunto del correo electrónico que se enviará con los documentos a ser firmados.</p></td>
+</tr>
+<tr class="row-even"><td><p>Correos electrónicos en copia (CC)</p></td>
+<td><p>Correo electrónico de las personas a los que se quiera tener en copia en el correo al enviar a firmar los documentos. Deben estar en el mismo orden que “Nombres de los destinatarios en copia (CC)”.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nombres de los destinatarios en copia (CC)</p></td>
+<td><p>Nombres de los destinatarios a los que se quiera tener en copia en el correo al enviar a firmar los documentos. Deben estar en el mismo orden que “Correos electrónicos en copia (CC)”.</p></td>
+</tr>
+<tr class="row-even"><td><p>Orden de firmas</p></td>
+<td><p>Orden en el que se envía el correo a los destinatarios para firmar los documentos. Si se especifica un orden numérico igual o mayor a 1 a los destinatarios, se les enviará los documentos secuencialmente en función de ese orden, del más bajo primero al más alto por último. Si a algunos no se les asigna ningún orden o se les asigna el orden 0, estos los recibirán al mismo tiempo después de que se finalice el envío en orden secuencial. Si no se asigna ningún orden a ningún destinatario, se les enviará a todos al mismo tiempo. Por ejemplo, si quiero enviar el documento primero a “Persona 1” y luego a “Persona 2”, debo asignarle “1” a “Persona 1” y a “Persona 2” podría tanto asignarle el orden “2” o directamente no asignarle ningún orden. El orden se asigna en el mismo orden en que se ponen los destinatarios, es decir, si yo agrego el destinatario “Persona 1” y luego “Persona 2”, el orden que se agregue primero corresponderá a “Persona 1” y el segundo a “Persona 2”. En caso de solo querer asignar un orden a “Persona 2” el primer orden que agregue debe ser vacío.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Habilitar expiración</p></td>
+<td><p>Si esta opción se activa, la posibilidad de firmar el documento expirará después de que transcurran la cantidad de días indicada en “Validez (días)”. También permite agregar un aviso de expiración.</p></td>
+</tr>
+<tr class="row-even"><td><p>Validez</p></td>
+<td><p>Cantidad de días en los que el documento estará disponible para ser firmado. Este campo solo se tendrá en cuenta si la opción “Habilitar expiración” está activada.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Aviso de expiración</p></td>
+<td><p>Cantidad de días restantes antes de que expire la posibilidad de firmar el documento, momento en el cual se enviará una notificación a los destinatarios. Este campo solo se tendrá en cuenta si la opción “Habilitar expiración” está activada y el campo “Validez (días)” está completo.</p></td>
+</tr>
+<tr class="row-even"><td><p>Habilitar recordatorio</p></td>
+<td><p>Si esta opción se activa, los destinatarios recibirán un recordatorio luego de que pase la cantidad de días indicada en «Primer recordatorio (días)», además de volver a enviarse el recordatorio según lo indicado en “Intervalo entre recordatorios (días)”.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Primer recordatorio (días)</p></td>
+<td><p>Cantidad de días entre el envío de los documentos para firmar y el primer recordatorio a los destinatarios de realizar esta acción. Este campo solo será tenido en cuenta si la opción “Recordatorio” está activada.</p></td>
+</tr>
+<tr class="row-even"><td><p>Intervalo entre recordatorios (días)</p></td>
+<td><p>Cantidad de días que pasan entre envíos de recordatorios a los destinatarios de firmar los documentos. Este campo solo será tenido en cuenta si la opción “Habilitar recordatorio” está activada y el campo “Primer recordatorio (días)” está completo.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id18" style="width: 100%">
+<caption><span class="caption-number">Tabla 34 </span><span class="caption-text">Salidas</span><a class="headerlink" href="#id18" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Salida</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Identificador del sobre</p></td>
+<td><p>Identificador del sobre retornado por DocuSign para poder obtener información del estado de los documentos enviados a firmar, obtener los documentos firmados o cancelar el envío de los documentos a firmar. El sobre es generado por DocuSign, es el que contiene el conjunto de documentos enviados a firmar.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h3>Obtener estado de documentos enviados a firmar<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>Esta acción consulta el avance de la solicitud de firma ingresando el identificador del sobre generado al enviar documentos a firmar por DocuSign.</p>
+<table class="docutils align-center" id="id19" style="width: 100%">
+<caption><span class="caption-number">Tabla 35 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id19" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Entrada</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Identificador del sobre</p></td>
+<td><p><strong>Requerido.</strong> Identificador del sobre retornado por DocuSign al enviar documentos a firmar.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id20" style="width: 100%">
+<caption><span class="caption-number">Tabla 36 </span><span class="caption-text">Salidas</span><a class="headerlink" href="#id20" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Salida</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Fecha de modificación del estado</p></td>
+<td><p>Última fecha en la cual el archivo cambió de estado.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Estado</p></td>
+<td><p>Estado en el cual se encuentran los documentos enviados a firmar. Puede consultar la lista de posibles estados en la documentación de DocuSign <a href="https://developers.docusign.com/docs/esign-rest-api/esign101/concepts/envelopes/status-codes/#envelope-status-code-descriptions" target="_blank">desde aquí</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Fecha de envío</p></td>
+<td><p>Fecha en la que fueron enviados los documentos a firmar.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h3>Obtener documentos firmados desde DocuSign<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>Esta acción obtiene los documentos con las firmas realizadas hasta el momento en formato PDF ingresando el identificador del sobre recibido al ser enviados, además de un documento PDF con el estado del proceso de firmas.</p>
+<table class="docutils align-center" id="id21" style="width: 100%">
+<caption><span class="caption-number">Tabla 37 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id21" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Entrada</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Identificador del sobre</p></td>
+<td><p><strong>Requerido.</strong> Identificador del sobre retornado por DocuSign al enviar documentos a firmar.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id22" style="width: 100%">
+<caption><span class="caption-number">Tabla 38 </span><span class="caption-text">Salidas</span><a class="headerlink" href="#id22" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Salida</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Documentos</p></td>
+<td><p>Documentos enviados a firmar previamente usando DocuSign.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Resumen</p></td>
+<td><p>Documento que contiene el contexto general del proceso de firmas, tales como estado actual, la cantidad de firmas hasta el momento y los eventos que han ocurrido.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id4">
+<h3>Cancelar firma de documentos<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p>Esta acción cancela la solicitud de firma, ingresando el identificador del sobre recibido al enviar los documentos y el motivo de la cancelación.</p>
+<table class="docutils align-center" id="id23" style="width: 100%">
+<caption><span class="caption-number">Tabla 39 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id23" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Entrada</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Identificador del sobre</p></td>
+<td><p><strong>Requerido.</strong> Identificador del sobre retornado por DocuSign al enviar documentos a firmar.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Motivo de cancelación</p></td>
+<td><p><strong>Requerido.</strong> Motivo por el cual desea cancelar la firma de los documentos.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="36.7-RedmineConnector.html" class="btn btn-neutral float-left" title="Redmine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="36.9-GoogleCalendarConnector.html" class="btn btn-neutral float-right" title="Google Calendar" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

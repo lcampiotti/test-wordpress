@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenAI &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/36.5-OpenAIConnector.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Jira Cloud" href="36.6-JiraCloudConnector.html" />
+    <link rel="prev" title="Trello" href="36.4-TrelloConnector.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="35-ConnectorParameterConfig.html">Configuración de Conectores desde una Tarea de Servicio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.1-MicrosoftTeamsConnector.html">Microsoft Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.2-OutlookConnector.html">Outlook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.3-SlackConnector.html">Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.4-TrelloConnector.html">Trello</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">OpenAI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduccion">Introducción</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prerrequisitos">Prerrequisitos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parametro-de-aplicacion">Parámetro de aplicación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#acciones">Acciones</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36.6-JiraCloudConnector.html">Jira Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.7-RedmineConnector.html">Redmine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.8-DocuSignConnector.html">DocuSign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.9-GoogleCalendarConnector.html">Google Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.11-DropboxConnector.html">Dropbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.12-OneDriveConnector.html">OneDrive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.13-WhatsAppTwilioConnector.html">WhatsApp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.14-MicrosoftWordConnector.html">Microsoft Word</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.15-ILovePDFConnector.html">ILovePDF</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="34-ConnectorsIndex.html">Conectores</a></li>
+      <li class="breadcrumb-item active">OpenAI</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="openai">
+<h1>OpenAI<a class="headerlink" href="#openai" title="Link to this heading"></a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading"></a></h2>
+<p>El propósito de este manual es detallar cómo configurar e integrar Qflow
+con OpenAI para permitir la interacción entre ambas plataformas,
+permitiendo utilizar los servicios de OpenAI, como la moderación de contenido y
+ChatGPT, desde Qflow.</p>
+<p>OpenAI cuenta con las siguientes acciones:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#id1">Moderar contenido</a></p></li>
+<li><p><a class="reference external" href="#id2">Chat</a></p></li>
+</ul>
+</section>
+<section id="prerrequisitos">
+<h2>Prerrequisitos<a class="headerlink" href="#prerrequisitos" title="Link to this heading"></a></h2>
+<p>Es necesario contar con una cuenta de OpenAI.
+Si no tienes una, puedes crearla <a href="https://platform.openai.com/signup" target="_blank">aquí</a>.</p>
+</section>
+<section id="parametro-de-aplicacion">
+<h2>Parámetro de aplicación<a class="headerlink" href="#parametro-de-aplicacion" title="Link to this heading"></a></h2>
+<p>Para entablar la conexión es necesario contar con al menos un <strong>parámetro de aplicación</strong> (ver <a class="reference external" href="15-QflowDesign.html#parametros-de-aplicacion">Parámetros de aplicación</a>)
+que permita establecer la comunicación entre Qflow y OpenAI.
+Este parámetro puede ser creado desde la configuración de la tarea de servicio en Qflow, donde también se utiliza para establecer
+la comunicación entre Qflow y OpenAI. (ver <a class="reference external" href="35-ConnectorParameterConfig.html">Configuración de Conectores desde una Tarea de Servicio</a>)</p>
+<p>Para crear un parámetro de aplicación de OpenAI, se deben seguir los pasos
+que se detallan a continuación.</p>
+<section id="parametro-de-aplicacion-utilizando-una-api-key">
+<h3>Parámetro de aplicación utilizando una API Key<a class="headerlink" href="#parametro-de-aplicacion-utilizando-una-api-key" title="Link to this heading"></a></h3>
+<p>Este tipo de parámetro de aplicación requiere lo siguiente:</p>
+<ul class="simple">
+<li><p><strong>API Key</strong>: Es la clave con la cual Qflow se autenticará en OpenAI
+para poder realizar las acciones disponibles.</p></li>
+</ul>
+<p>Para obtenerla se deben seguir los siguientes pasos:</p>
+<ol class="arabic">
+<li><p>Dirigirse a la siguiente <a href="https://platform.openai.com/api-keys" target="_blank">página</a>, y de ser necesario iniciar sesión.</p></li>
+<li><p>Una vez allí, hacer clic en el botón <cite>Create new secret key</cite>.</p>
+<blockquote>
+<div><figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/ApiKey1.png"><img alt="_images/ApiKey1.png" src="_images/ApiKey1.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 819 </span><span class="caption-text">Panel de control de API Keys de OpenAI</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</li>
+<li><p>Se abrirá una ventana en la que se podrán configurar los datos de la API Key.
+En el campo <cite>Name</cite> se puede asignar un nombre a la API Key, y en el campo
+<cite>Permissions</cite> se puede seleccionar el nivel de permisos que tendrá la API Key.
+Una vez configurados los datos, hacer clic en el botón <cite>Create secret key</cite>.</p>
+<blockquote>
+<div><figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/ApiKey2.png"><img alt="_images/ApiKey2.png" src="_images/ApiKey2.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 820 </span><span class="caption-text">Creación de una nueva API Key</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</li>
+<li><p>Una vez creada la API Key, se mostrará una ventana con la clave generada.
+Allí es importante copiar la clave con el botón <cite>Copy</cite> y guardarla en un lugar
+seguro, ya que no se podrá visualizar nuevamente. Es este el valor que se debe
+utilizar para el parámetro de aplicación en Qflow.</p>
+<blockquote>
+<div><figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/ApiKey3.png"><img alt="_images/ApiKey3.png" src="_images/ApiKey3.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 821 </span><span class="caption-text">API Key generada</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</li>
+</ol>
+<p>Una vez completados los pasos, será posible el uso de OpenAI con Qflow utilizando
+el parámetro de aplicación creado.</p>
+</section>
+</section>
+<section id="acciones">
+<h2>Acciones<a class="headerlink" href="#acciones" title="Link to this heading"></a></h2>
+<p>Se pueden realizar las siguientes acciones con OpenAI:</p>
+<section id="id1">
+<h3>Moderar contenido<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>Esta opción permite moderar contenido utilizando el servicio de moderación de OpenAI.</p>
+<table class="docutils align-center" id="id6" style="width: 100%">
+<caption><span class="caption-number">Tabla 16 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id6" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Entrada</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Texto</p></td>
+<td><p><strong>Requerido.</strong> Texto que se desea moderar.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id7" style="width: 100%">
+<caption><span class="caption-number">Tabla 17 </span><span class="caption-text">Salidas</span><a class="headerlink" href="#id7" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Salida</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Resultado de moderación</p></td>
+<td><p>Devuelve “verdadero” si el texto fue marcado como contenido no apropiado, y “falso” si no lo fue.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Categorías moderadas</p></td>
+<td><p>Devuelve un listado de las categorías en las que fue marcado el texto como contenido inapropiado,
+ordenados de mayor a menor puntuación, según que tan inapropiado fue considerado para esa categoría.
+Para ver todas las categorías posibles, ver la <a href="https://platform.openai.com/docs/api-reference/moderations/object" target="_blank">documentación de OpenAI</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Puntuación de categorías</p></td>
+<td><p>Devuelve un texto JSON con la puntuación de cada categoría en la que fue moderado el text.
+Un valor más alto indica que el texto fue considerado más inapropiado para esa categoría. Un ejemplo de salida sería el
+siguiente:</p>
+<div class="vertical-margin highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="nt">&quot;sexual&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.2282071e-06</span><span class="p">,</span>
+<span class="w">     </span><span class="nt">&quot;hate&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.010696256</span><span class="p">,</span>
+<span class="w">     </span><span class="nt">&quot;harassment&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.29842457</span><span class="p">,</span>
+<span class="w">     </span><span class="nt">&quot;self-harm&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.5236925e-08</span><span class="p">,</span>
+<span class="w">     </span><span class="nt">&quot;sexual/minors&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">5.7246268e-08</span><span class="p">,</span>
+<span class="w">     </span><span class="nt">&quot;hate/threatening&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0060676364</span><span class="p">,</span>
+<span class="w">     </span><span class="nt">&quot;violence/graphic&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">4.435014e-06</span><span class="p">,</span>
+<span class="w">     </span><span class="nt">&quot;self-harm/intent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">8.098441e-10</span><span class="p">,</span>
+<span class="w">     </span><span class="nt">&quot;self-harm/instructions&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.8498655e-11</span><span class="p">,</span>
+<span class="w">     </span><span class="nt">&quot;harassment/threatening&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.63055265</span><span class="p">,</span>
+<span class="w">     </span><span class="nt">&quot;violence&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99011886</span><span class="p">,</span>
+<span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h3>Chat<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>Esta opción permite interactuar con el servicio de ChatGPT de OpenAI.
+Permite generar respuestas a partir de un mensaje de un usuario y un modelo de ChatGPT. También se pueden
+enviar mensajes de sistema para dar contexto o instrucciones sobre lo que se espera
+en la respuesta y mantener un hilo de conversación a través de múltiples mensajes.</p>
+<table class="docutils align-center" id="id8" style="width: 100%">
+<caption><span class="caption-number">Tabla 18 </span><span class="caption-text">Entradas</span><a class="headerlink" href="#id8" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Entrada</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Modelo</p></td>
+<td><p><strong>Requerido.</strong> El modelo utilizado para generar la respuesta. Para conocer que modelos hay disponibles haga click <a href ="https://platform.openai.com/docs/models" target="_blank">aquí</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Formato de respuesta</p></td>
+<td><p>El formato en el que se desea recibir la respuesta. Los formatos disponibles son: <code class="docutils literal notranslate"><span class="pre">Text</span></code> y <code class="docutils literal notranslate"><span class="pre">Json</span></code>.
+Por defecto, se utilizará el formato <code class="docutils literal notranslate"><span class="pre">Text</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Prompt de sistema</p></td>
+<td><p>Texto que se utilizará como prompt para generar la respuesta. Puede servir para dar contexto o presentar
+instructiones sobre lo que se espera en la respuesta.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mensaje del usuario</p></td>
+<td><p><strong>Requerido.</strong> El mensaje que se desea enviar a ChatGPT para generar la respuesta.</p></td>
+</tr>
+<tr class="row-even"><td><p>Historial de mensajes en formato JSON</p></td>
+<td><p id="formato-historial-chat">Historial de la conversación en formato JSON que se utilizará para generar la respuesta. Puede servir para dar contexto
+o mantener un hilo de conversación a través de múltiples mensajes. Es una lista de objetos JSON, donde cada objeto tiene
+dos campos: <code class="docutils literal notranslate"><span class="pre">role</span></code> y <code class="docutils literal notranslate"><span class="pre">content</span></code>. <code class="docutils literal notranslate"><span class="pre">role</span></code> puede ser <code class="docutils literal notranslate"><span class="pre">system</span></code>, <code class="docutils literal notranslate"><span class="pre">user</span></code> o <code class="docutils literal notranslate"><span class="pre">assistant</span></code>, y <code class="docutils literal notranslate"><span class="pre">content</span></code> es el mensaje
+correspondiente. Un ejemplo de entrada sería el siguiente:</p>
+<div class="vertical-margin highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="p">[</span>
+<span class="w">     </span><span class="p">{</span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">},</span>
+<span class="w">     </span><span class="p">{</span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;What is the capital of France?&quot;</span><span class="p">},</span>
+<span class="w">     </span><span class="p">{</span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The capital of France is Paris.&quot;</span><span class="p">},</span>
+<span class="w">     </span><span class="p">{</span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;What is its population?&quot;</span><span class="p">}</span>
+<span class="w"> </span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Penalización de frecuencia</p></td>
+<td><p>Número entre -2.0 y 2.0. Los valores positivos penalizan los nuevos tokens en función de su frecuencia existente
+en el texto hasta el momento, disminuyendo la probabilidad de que el modelo repita la misma línea textualmente.
+<a href="https://platform.openai.com/docs/api-reference/chat/create#chat-create-frequency_penalty" target="_blank">Más información</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Número máximo de tokens</p></td>
+<td><p>El número máximo de tokens que se permitirán en la respuesta generada. Si no se especifica, se utilizará el
+máximo implícito del modelo.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cantidad de respuestas</p></td>
+<td><p>Número de respuestas que se desean generar. Por defecto, se generará una sola respuesta. Ten en cuenta que
+se te cobrará por el total de tokens generados en todas las respuestas.</p></td>
+</tr>
+<tr class="row-even"><td><p>Penalización por presencia</p></td>
+<td><p>Número entre -2.0 y 2.0. Los valores positivos penalizan los nuevos tokens en función de si aparecen en el texto hasta
+el momento, aumentando la probabilidad del modelo de hablar sobre nuevos temas. <a href="https://platform.openai.com/docs/api-reference/chat/create#chat-create-presence_penalty" target="_blank">Más información</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Temperatura</p></td>
+<td><p>Número entre 0 y 2. Se recomienda utilizar este campo o “Top P”, pero no ambos. Valores más altos harán que la salida sea
+más aleatoria, mientras que valores más bajos la harán más enfocada y determinística. <a href="https://platform.openai.com/docs/api-reference/chat/create#chat-create-temperature" target="_blank">Más información</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Top P</p></td>
+<td><p>Número entre 0 y 1. Es una alternativa al muestreo con temperatura, llamada muestreo de núcleo, donde el modelo considera
+los resultados de los tokens con la probabilidad de masa top_p. Así que 0.1 significa que solo se consideran los tokens que
+comprenden el 10% superior de la masa de probabilidad. Se recomienda utilizar este campo o “temperatura”, pero no ambos.
+<a href="https://platform.openai.com/docs/api-reference/chat/create#chat-create-top_p" target="_blank">Más información</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id9" style="width: 100%">
+<caption><span class="caption-number">Tabla 19 </span><span class="caption-text">Salidas</span><a class="headerlink" href="#id9" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Salida</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Respuestas</p></td>
+<td><p><strong>Requerido.</strong> Lista de respuestas generadas por ChatGPT. En caso de haberse solicitado más de una respuesta,
+se devolverán todas las respuestas generadas.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Historial de mensajes en formato JSON</p></td>
+<td><p>Historial de la conversación en formato JSON con todos los mensajes, incluyendo los generados por ChatGPT.
+Este campo puede ser usado como entrada en una llamada futura para mantener un hilo de conversación.
+Por ejemplo, suponiendo que en la entrada se envió el historial de mensajes, un prompt de sistema y se
+solicitaron dos respuestas, la salida podría ser la siguiente:</p>
+<div class="vertical-margin highlight-json notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="w"> </span><span class="p">[</span>
+<span class="linenos">2</span><span class="w">     </span><span class="p">{</span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;You are a helpful assistant.&quot;</span><span class="p">},</span>
+<span class="linenos">3</span><span class="w">     </span><span class="p">{</span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;What is the capital of France?&quot;</span><span class="p">},</span>
+<span class="linenos">4</span><span class="w">     </span><span class="p">{</span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The capital of France is Paris.&quot;</span><span class="p">},</span>
+<span class="linenos">5</span><span class="w">     </span><span class="p">{</span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;You are a lying assistant.&quot;</span><span class="p">},</span>
+<span class="linenos">6</span><span class="w">     </span><span class="p">{</span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;What is the capital of France?&quot;</span><span class="p">},</span>
+<span class="linenos">7</span><span class="w">     </span><span class="p">{</span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The capital of France is Madrid.&quot;</span><span class="p">},</span>
+<span class="linenos">8</span><span class="w">     </span><span class="p">{</span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The capital of France is London.&quot;</span><span class="p">}</span>
+<span class="linenos">9</span><span class="w"> </span><span class="p">]</span>
+</pre></div>
+</div>
+<p>En el ejemplo anterior, se puede ver que el historial de mensajes incluye los mensajes pasados (de la línea 2 a la 4),
+el prompt de sistema (línea 5), el mensaje del usuario (línea 6) y las respuestas generadas por ChatGPT (líneas 7 y 8).
+Para ver más detalles sobre el formato de este campo, ver <a class="reference internal" href="#formato-historial-chat"><span class="std std-ref">más arriba</span></a>.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Motivo de finalización</p></td>
+<td><p>Motivo por el cual se detuvo la generación de respuestas. Puede ser <code class="docutils literal notranslate"><span class="pre">stop</span></code>, <code class="docutils literal notranslate"><span class="pre">length</span></code>, <code class="docutils literal notranslate"><span class="pre">content_filter</span></code>,
+<code class="docutils literal notranslate"><span class="pre">tool_calls</span></code> o <code class="docutils literal notranslate"><span class="pre">function_call</span></code>. <a href="https://platform.openai.com/docs/api-reference/chat/object#chat/object-choices" target="_blank">Más información</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>JSON de respuesta</p></td>
+<td><p>Devuelve el JSON de respuesta tal cual lo devuelve OpenAI. Para más información, ver la <a href="https://platform.openai.com/docs/api-reference/chat/object" target="_blank">documentación de OpenAI</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Uso total</p></td>
+<td><p>Devuelve el uso total de tokens. Incluye tanto los tokens de entrada como los tokens generados en las respuestas.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="36.4-TrelloConnector.html" class="btn btn-neutral float-left" title="Trello" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="36.6-JiraCloudConnector.html" class="btn btn-neutral float-right" title="Jira Cloud" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>
