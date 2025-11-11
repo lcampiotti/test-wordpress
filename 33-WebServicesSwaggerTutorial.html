@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uso de API de servicios web con Swagger &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/33-WebServicesSwaggerTutorial.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="prev" title="Consumir Servicios REST desde dominios de Qflow" href="25-RESTDomainTutorial.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="31-Development.html">Desarrolladores</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="10-ScriptingInterface.html">Interfaz de scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-WebServicesAPI.html">Web services API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="32-JavaScriptLibraryReference.html">Referencia de la biblioteca JavaScript</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="31-Development.html#tutoriales">Tutoriales</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="25-RESTDomainTutorial.html">Consumir Servicios REST desde dominios de Qflow</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Uso de API de servicios web con Swagger</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="31-Development.html">Desarrolladores</a></li>
+      <li class="breadcrumb-item active">Uso de API de servicios web con Swagger</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="uso-de-api-de-servicios-web-con-swagger">
+<h1>Uso de API de servicios web con Swagger<a class="headerlink" href="#uso-de-api-de-servicios-web-con-swagger" title="Link to this heading"></a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading"></a></h2>
+<p>En este tutorial mostraremos un ejemplo breve del uso de los servicios web
+mediante el uso de Swagger. En este ejemplo, mostraremos como un usuario puede
+obtener su información y crear un grupo en su nodo organizacional.</p>
+</section>
+<section id="api-de-servicios">
+<h2>API de servicios<a class="headerlink" href="#api-de-servicios" title="Link to this heading"></a></h2>
+<p>Para invocar los servicios expuestos en instalaciones <strong>Cloud</strong>, se debe
+usar la URL <em>https://{espacioDeTrabajo}.api.qflowbpm.com</em>, donde <em>{espacioDeTrabajo}</em>
+debe ser reemplazado por el nombre de su espacio de trabajo sin espacios.
+Podemos acceder a la interfaz de swagger mediante el enlace
+<em>https://{espacioDeTrabajo}.api.qflowbpm.com/swagger/ui/index</em>.</p>
+<p>Es importante marcar el protocolo de seguridad como «HTTPS» para poder usar estos servicios
+correctamente. Esto se hace en el campo «Schemes» en la parte superior izquierda de la
+interfaz.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/WSTutorial-https.png"><img alt="Protocolo HTTPS" src="_images/WSTutorial-https.png" style="width: 20%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 867 </span><span class="caption-text">Protocolo HTTPS</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="autenticacion">
+<h2>1- Autenticación<a class="headerlink" href="#autenticacion" title="Link to this heading"></a></h2>
+<p>Antes de poder invocar cualquier método de los servicios web, es necesario autenticarnos.
+Podemos autenticarnos mediante un token que se puede conseguir con el método «Token»
+del grupo «Auth»:</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/WSTutorial-token.png"><img alt="Método &quot;Token&quot;" src="_images/WSTutorial-token.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 868 </span><span class="caption-text">Método «Token»</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Este método devuelve un token de autenticación al pasarle las
+credenciales de un usuario: logon (de la forma {proveedorDeSeguridad}\{nombreDeUsuario},
+reemplazando {proveedorDeSeguridad} por el nombre del proveedor y {nombreDeUsuario} por
+el login del usuario que va a usar los servicios), contraseña y el identificador del
+espacio de trabajo en el que se encuentra. Puede obtener este identificador contactandose
+con nosotros en «<a class="reference external" href="mailto:info&#37;&#52;&#48;qflowbpm&#46;com">info<span>&#64;</span>qflowbpm<span>&#46;</span>com</a>».</p>
+<p>Una vez que llenemos los datos, podemos correr el método con el botón de «Try it out», ubicado
+en la zona superior derecha del área del método.</p>
+<p>Si el método se ejecuta correctamente y las credenciales son válidas, obtendremos una respuesta
+la cual veremos debajo de los campos donde ingresamos las credenciales.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/WSTutorial-tokenResponse.png"><img alt="Respuesta de Método &quot;Token&quot;" src="_images/WSTutorial-tokenResponse.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 869 </span><span class="caption-text">Respuesta de Método «Token»</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Para autenticarnos debemos copiar el código que viene en el campo «access_token» sin comillas y
+dirigirnos a la opción «Authorize» localizada en la parte superior derecha de la interfaz de Swagger.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/WSTutorial-authorize.png"><img alt="Opción de &quot;Authorize&quot;" src="_images/WSTutorial-authorize.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 870 </span><span class="caption-text">Opción de «Authorize»</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Finalmente, para completar la autorización debemos ingresar a la opción de Autorizar, y en el
+campo de texto debemos ingresar «bearer {token}», reemplazando {token} por el código que copiamos
+y prestando atención al espacio entre la palabra «bearer» y el código.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/WSTutorial-authorizeExample.png"><img alt="Ejemplo de código de autorización" src="_images/WSTutorial-authorizeExample.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 871 </span><span class="caption-text">Ejemplo de código de autorización</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Una vez ingresado el código, seleccionamos «Authorize» para autenticarnos. Ahora podremos usar
+los servicios.</p>
+</section>
+<section id="uso-de-metodos">
+<h2>2- Uso de métodos<a class="headerlink" href="#uso-de-metodos" title="Link to this heading"></a></h2>
+<p>Para este ejemplo comenzaremos obteniendo la información del usuario. Hacemos esto para obtener
+datos como el identificador del usuario y el identificador del nodo al que pertenece, que serán
+necesarios para crear el grupo.</p>
+<p>Comenzamos invocando el método <strong>GetUserByLogon</strong> del controlador WebOrganization, para obtener
+la información del usuario en base a su logon (el mismo utilizado para obtener el token).</p>
+<p>Como resultado de este método, obtendremos un objeto JSON de información del usuario, donde la propiedad
+que nos interesa es «NodeId», siendo el identificador del nodo al que pertenece el usuario, en donde
+queremos crear nuestro grupo.</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/WSTutorial-userInfoExampleResponse.png"><img alt="Ejemplo de respuesta de método GetUserByLogon" src="_images/WSTutorial-userInfoExampleResponse.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 872 </span><span class="caption-text">Ejemplo de respuesta de método GetUserByLogon</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Teniendo este dato, podemos pasar a usar el método <strong>CreateGroup</strong> del controlador WebOrganization
+para crear el grupo.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/WSTutorial-createGroup.png"><img alt="Método CreateGroup" src="_images/WSTutorial-createGroup.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 873 </span><span class="caption-text">Método CreateGroup</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Este método recibe un objeto JSON con las propiedades «Name», «Description» y «GroupNodeId».
+Podemos editar estos datos usando la opción «Try it out» dentro de la ventana del método, lo que
+nos permite editar el objeto que se envía. Podemos asignar un nombre y descripción para nuestro
+nuevo grupo, y debemos dar el identificador del nodo en el cual queremos crear el grupo, que en
+nuestro caso obtuvimos en el paso anterior.</p>
+<p>Una vez que modificamos el objeto de entrada, damos «Execute» para correr el método. Si todo
+sale bien, veremos un código de respuesta 200, y una respuesta de identificador, que es el
+identificador del grupo creado. Este dato es útil ya que podemos verificar que se haya
+creado exitosamente usando el método <strong>GetGroup</strong> del controlador WebOrganization, pasando
+como parámetro el identificador que obtuvimos como resultado del método <strong>CreateGroup</strong>.
+Si el método nos devuelve los datos del grupo que creamos, entonces podemos verificar que
+el grupo se creó correctamente.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="25-RESTDomainTutorial.html" class="btn btn-neutral float-left" title="Consumir Servicios REST desde dominios de Qflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

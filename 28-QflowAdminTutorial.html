@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administra y monitorea el sistema &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/28-QflowAdminTutorial.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Crea tu formulario personalizado" href="37-QformTutorial.html" />
+    <link rel="prev" title="Configura el equipo" href="27-QflowTeamTutorial.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="26-QflowToolsTutorial.html">Introducción a las herramientas de Qflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-Tutorial.html">Crea tu primer proceso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="23-DesignTutorial.html">Diseña un proceso de quejas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="24-QflowTaskTutorial.html">Descubre Qflow Task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27-QflowTeamTutorial.html">Configura el equipo</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Administra y monitorea el sistema</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduccion">Introducción</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parametros-de-sistema">Parámetros de sistema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estadisticas">Estadísticas</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="37-QformTutorial.html">Crea tu formulario personalizado</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="TutorialsIndex.html">Tutoriales</a></li>
+      <li class="breadcrumb-item active">Administra y monitorea el sistema</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="administra-y-monitorea-el-sistema">
+<h1>Administra y monitorea el sistema<a class="headerlink" href="#administra-y-monitorea-el-sistema" title="Link to this heading"></a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading"></a></h2>
+<p>Este tutorial explica brevemente las funcionalidades de Qflow Admin, la herramienta que se utiliza para administrar y
+monitorear distintos aspectos del sistema como servicios y sitios, propiedades extendidas, licencias,
+servicios de notificación, espacios de trabajo y parámetros de sistema.</p>
+<p>Cada una de las opciones corresponde a una funcionalidad de la herramienta. A continuación se ejemplificará cómo
+se utilizan algunas de ellas.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/AdminTutorial-sideMenu.png"><img alt="Menú lateral" src="_images/AdminTutorial-sideMenu.png" style="width: 287px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 283 </span><span class="caption-text">Menú lateral</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="parametros-de-sistema">
+<h2>Parámetros de sistema<a class="headerlink" href="#parametros-de-sistema" title="Link to this heading"></a></h2>
+<p>Los parámetros del sistema son parámetros predefinidos que controlan varios aspectos del
+funcionamiento del producto. Pueden ser de tipo numérico, verdadero/falso (booleano), texto
+o imagen.</p>
+<p>Algunas aclaraciones sobre el listado:</p>
+<ul class="simple">
+<li><p>Si la fila con la información del parámetro está en color gris, eso significa que el parámetro es de sólo lectura y no puede ser editado.</p></li>
+<li><p>Al hacer clic sobre el ícono de información “i”, se mostrará una descripción del objetivo del parámetro. Haga clic sobre cualquier parte del listado para cerrarla.</p></li>
+</ul>
+<p>Para editar cualquier parámetro que lo permita, haga clic sobre él y luego en el botón de
+editar. Se abrirá un panel para editar su valor.</p>
+<p>Por ejemplo, se puede cambiar el tema de Qflow Task.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/AdminTutorial-siteTheme.gif"><img alt="Cambio de tema de Qflow Task" src="_images/AdminTutorial-siteTheme.gif" style="width: 1080px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 284 </span><span class="caption-text">Cambio de tema de Qflow Task</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Luego, Qflow Task quedará personalizado con el color negro:</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/AdminTutorial-blackTheme.png"><img alt="Tema negro" src="_images/AdminTutorial-blackTheme.png" style="width: 616px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 285 </span><span class="caption-text">Tema negro</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Otro parámetro que se puede editar es el logo de Qflow Task</p>
+<p>Se puede utilizar el valor por defecto o ingresar un logo personalizado.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/AdminTutorial-Logo.png"><img alt="Cambiar logo" src="_images/AdminTutorial-Logo.png" style="width: 348px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 286 </span><span class="caption-text">Cambiar logo</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="estadisticas">
+<h2>Estadísticas<a class="headerlink" href="#estadisticas" title="Link to this heading"></a></h2>
+<p>Dentro de la sección de “Estadísticas” el sitio muestra el uso de Qflow. Hay dos solapas dentro de la
+sección, una muestra el “Uso de los Q-points” y la otra un “Historial de consumo”.</p>
+<p>Si estamos trabajando desde el espacio de trabajo por defecto, veremos una lista desplegable en
+la esquina superior derecha de la sección. Esto nos permitirá seleccionar entre todos los espacios de
+trabajo existentes y ver estadísticas para cada uno de ellos. Para espacios de trabajo que no
+sean el espacio por defecto, se verán solamente sus propias estadísticas de consumo.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/AdminTutorial-WorkspaceSelector.png"><img alt="Selección de espacio de trabajo" src="_images/AdminTutorial-WorkspaceSelector.png" style="width: 350px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 287 </span><span class="caption-text">Selección de espacio de trabajo</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="uso-de-q-points">
+<h3>Uso de Q-points<a class="headerlink" href="#uso-de-q-points" title="Link to this heading"></a></h3>
+<p>En este reporte se encuentran dos gráficas, las dos relacionadas con el consumo de
+Q-points en el mes actual. En la primera gráfica se muestra el uso de Q-points a lo
+largo del mes actual. Por otro lado, la segunda gráfica indica lo mismo que la anterior
+pero agrupando los Q-points por plantilla de proceso.</p>
+<p>En las distintas gráficas se pueden ver los datos agrupados de diferentes maneras, se puede ver por
+día actual o por mes.</p>
+<p>La gráfica del uso total de Q-points se verá de la siguiente manera:</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/AdminTutorial-TotalQpoints.png"><img alt="Uso total de Q-points" src="_images/AdminTutorial-TotalQpoints.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 288 </span><span class="caption-text">Uso total de Q-points</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>La gráfica del uso de Q-points por plantilla se verá de la siguiente manera:</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/AdminTutorial-QpointsByTemplate.png"><img alt="Uso de Q-points por plantilla" src="_images/AdminTutorial-QpointsByTemplate.png" style="width: 813px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 289 </span><span class="caption-text">Uso de Q-points por plantilla</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="historial-de-consumo">
+<h3>Historial de consumo<a class="headerlink" href="#historial-de-consumo" title="Link to this heading"></a></h3>
+<p>Esta sección esta disponible únicamente para la versión Cloud. En la versión OnPremise no se genera
+un historial.</p>
+<p>Dentro de ésta, se desplegarán cinco gráficas. Las dos primeras indican la cantidad de tareas
+respondidas y procesos iniciados en un período de tiempo. Las gráficas restantes muestran el historial de
+consumo de Q-points, usuarios habilitados y uso de almacenamiento en el último año agrupadas por mes.</p>
+<p>En este tutorial se van a poder ver dentro del historial de consumo
+a los procesos iniciados y tareas respondidas en el mes de septiembre y octubre.</p>
+<p>Las gráficas se pueden generar con filtros. Existe la opción de agrupar por mes o por día (por defecto se
+agrupan por día), y también se puede establecer un período personalizado (por defecto este período es el mes actual).
+En este caso, el filtro aplicado agrupa las fechas por mes, del 1ero de septiembre al 31 de octubre de 2021.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/AdminTutorial-StatisticsDateFilter.png"><img alt="Filtros" src="_images/AdminTutorial-StatisticsDateFilter.png" style="width: 629px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 290 </span><span class="caption-text">Filtros</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>La gráfica de procesos iniciados se verá de la siguiente manera:</p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="_images/AdminTutorial-StartedFlow.png"><img alt="Gráfica de procesos iniciados" src="_images/AdminTutorial-StartedFlow.png" style="width: 610px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 291 </span><span class="caption-text">Gráfica de procesos iniciados</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>La gráfica de tareas respondidas se verá de la siguiente manera:</p>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="_images/AdminTutorial-AnsweredTasks.png"><img alt="Gráfica de tareas respondidas" src="_images/AdminTutorial-AnsweredTasks.png" style="width: 610px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 292 </span><span class="caption-text">Gráfica de tareas respondidas</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Las gráficas de estadísticas de Q-points utilizados, usuarios habilitados y estadísticas
+de almacenamiento se verán de la siguiente manera:</p>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="_images/AdminTutorial-ConsumptionHistory.png"><img alt="Gráficas de estadísticas de Q-points utilizados, usuarios habilitados y estadísticas de almacenamiento" src="_images/AdminTutorial-ConsumptionHistory.png" style="width: 882px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 293 </span><span class="caption-text">Gráficas de estadísticas de Q-points utilizados, usuarios habilitados y estadísticas de almacenamiento</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Por último, si quiere más información sobre el resto de las opciones del sitio
+que no se detallaron en el tutorial, puede ver el manual de <a class="reference external" href="19-QflowAdmin.html">Qflow Admin</a>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="27-QflowTeamTutorial.html" class="btn btn-neutral float-left" title="Configura el equipo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="37-QformTutorial.html" class="btn btn-neutral float-right" title="Crea tu formulario personalizado" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

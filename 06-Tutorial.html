@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crea tu primer proceso &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/06-Tutorial.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Diseña un proceso de quejas" href="23-DesignTutorial.html" />
+    <link rel="prev" title="Introducción a las herramientas de Qflow" href="26-QflowToolsTutorial.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="26-QflowToolsTutorial.html">Introducción a las herramientas de Qflow</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Crea tu primer proceso</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#objetivo">Objetivo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#descripcion-del-proceso">Descripción del proceso</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diseno-del-proceso">Diseño del proceso</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ejecucion-del-proceso">Ejecución del proceso</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="23-DesignTutorial.html">Diseña un proceso de quejas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="24-QflowTaskTutorial.html">Descubre Qflow Task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27-QflowTeamTutorial.html">Configura el equipo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="28-QflowAdminTutorial.html">Administra y monitorea el sistema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="37-QformTutorial.html">Crea tu formulario personalizado</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="TutorialsIndex.html">Tutoriales</a></li>
+      <li class="breadcrumb-item active">Crea tu primer proceso</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="crea-tu-primer-proceso">
+<h1>Crea tu primer proceso<a class="headerlink" href="#crea-tu-primer-proceso" title="Link to this heading"></a></h1>
+<section id="objetivo">
+<h2>Objetivo<a class="headerlink" href="#objetivo" title="Link to this heading"></a></h2>
+<p>El objetivo de este documento es introducir al usuario a la utilización
+de Qflow mediante un ejemplo práctico en el que se explica paso a paso
+cómo diseñar y ejecutar un proceso simple en Qflow.</p>
+<p>Para seguir este tutorial, es necesario que cuentes con un espacio de trabajo.
+Si aún no lo tienes, puedes crear uno <a class="reference external" href="https://client.qflowbpm.com/tenant/free/user">aquí</a>.</p>
+<p>Por explicaciones más detalladas acerca de los temas aquí presentados y
+otros temas, puede consultar en los manuales de Qflow.</p>
+</section>
+<section id="descripcion-del-proceso">
+<h2>Descripción del proceso<a class="headerlink" href="#descripcion-del-proceso" title="Link to this heading"></a></h2>
+<p>El proceso que implementaremos con Qflow es un proceso de autorización
+de gastos. Los actores del proceso son los siguientes:</p>
+<ul class="simple">
+<li><p><strong>Solicitante:</strong> es quien solicita la autorización de gastos y por lo
+tanto el iniciador del proceso de negocio.</p></li>
+<li><p><strong>Encargado de compras:</strong> es la primera persona encargada de aprobar
+o rechazar el gasto solicitado por el solicitante y la única en
+casos en los cuales el monto sea menor a 500 dólares.</p></li>
+<li><p><strong>Gerente de compras:</strong> es la segunda persona encargada de aprobar o
+rechazar el gasto solicitado en casos en los cuales el monto sea
+mayor o igual a 500 dólares.</p></li>
+<li><p><strong>Director:</strong> es, junto al gerente de compras, encargado de aprobar o
+rechazar el gasto solicitado en los cuales el monto sea mayor o
+igual a 1000 dólares.</p></li>
+</ul>
+<p>El proceso es iniciado por el solicitante, quien ingresa la solicitud de
+autorización de gastos. En el ingreso de dicha solicitud, el solicitante
+especifica la razón de la compra, cuáles son los productos y el monto
+del gasto que pretende realizar para cada uno de ellos. Además, puede
+adjuntar una imagen de cada producto.</p>
+<p>La solicitud de gastos debe ser aprobada por diferentes personas
+dependiendo del monto del gasto. Si el monto total no es superior a 500
+dólares, sólo se necesita la aprobación del encargado de compras. En
+caso de que éste exceda los 500 dólares, se necesita además la
+aprobación del gerente de compras y si el monto es superior a 1000
+dólares, también deberá ser aprobado por el director.</p>
+<p>En cualquiera de las aprobaciones, si el tiempo de respuesta es mayor a
+24 horas, se considera que la solicitud fue rechazada.</p>
+<p>En cualquier caso, se debe notificar mediante un e-mail al solicitante
+cuál fue el resultado de su solicitud.</p>
+</section>
+<section id="diseno-del-proceso">
+<h2>Diseño del proceso<a class="headerlink" href="#diseno-del-proceso" title="Link to this heading"></a></h2>
+<p>Para diseñar el proceso usaremos Qflow Design.</p>
+<section id="ingreso-a-qflow-design">
+<h3>Ingreso a Qflow Design<a class="headerlink" href="#ingreso-a-qflow-design" title="Link to this heading"></a></h3>
+<p>Para ingresar a la herramienta Design diríjete a Qflow Access (<em>https://{espacioDeTrabajo}.access.qflowbpm.com</em>,
+donde {espacioDeTrabajo} debe ser reemplazado por el nombre de tu espacio de trabajo sin espacios),
+aparece una ventana como la que se puede ver en la <a class="reference internal" href="#loginqflowaccess"><span class="std std-numref">Figura 128</span></a>. Esta
+ventana permite iniciar la sesión en el servidor de Qflow:</p>
+<ul class="simple">
+<li><p><strong>Nombre de usuario:</strong> Aquí debe estar tu nombre de usuario</p></li>
+<li><p><strong>Contraseña:</strong> Aquí debes introducir tu contraseña privada para
+iniciar sesión en Qflow.</p></li>
+</ul>
+<p>Una vez ingresados estos campos, haz clic en entrar para iniciar sesión
+en Qflow.</p>
+<p>También puedes autenticarte con una cuenta de Microsoft y Google (sólo en
+caso de que el usuario exista en el sistema de Qflow).</p>
+<p>El espacio de trabajo al que se accede se identifica por un nombre único
+que forma parte de la URL de la herramienta (<a class="reference internal" href="#loginqflowaccess"><span class="std std-numref">Figura 128</span></a>).</p>
+<figure class="align-center" id="id3">
+<span id="loginqflowaccess"></span><a class="reference internal image-reference" href="_images/login.png"><img alt="Iniciar sesión" src="_images/login.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 128 </span><span class="caption-text">Iniciar sesión</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Una vez iniciada tu sesión verás una pantalla como la que se muestra en la <a class="reference internal" href="#qflowaccess"><span class="std std-numref">Figura 129</span></a></p>
+<figure class="align-center" id="id4">
+<span id="qflowaccess"></span><a class="reference internal image-reference" href="_images/myaccesshome.PNG"><img alt="Qflow Access" src="_images/myaccesshome.PNG" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 129 </span><span class="caption-text">Qflow Access</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Deberás hacer clic en el cuadro de Qflow Design para acceder a la herramienta.</p>
+<p>Cuando ingreses por primera vez, en la parte inferior aparecerá un cartel
+informando sobre el uso de cookies (<a class="reference internal" href="#qflowdesignhome"><span class="std std-numref">Figura 130</span></a>). Puede ver la información
+de las cookies utilizadas haciendo clic en “<em>política de cookies</em>”.
+Si continúas navegando por la herramienta, se asumirá que aceptas las
+cookies. Para cerrar el mensaje y que no se vuelva a mostrar, debes apretar el botón “Aceptar”.</p>
+<figure class="align-center" id="id5">
+<span id="qflowdesignhome"></span><a class="reference internal image-reference" href="_images/qflowdesignfirstlogin.PNG"><img alt="Qflow Design Cloud Home Screen" src="_images/qflowdesignfirstlogin.PNG" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 130 </span><span class="caption-text">Pantalla principal de Qflow Design</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Opcionalmente se puede acceder directamente a la dirección de Qflow Design
+(<em>https://{espacioDeTrabajo}.design.qflowbpm.com</em>, donde {espacioDeTrabajo} debe
+ser reemplazado por el nombre de su espacio de trabajo sin espacios)</p>
+</section>
+<section id="creacion-de-la-plantilla-de-proceso">
+<h3>Creación de la plantilla de proceso<a class="headerlink" href="#creacion-de-la-plantilla-de-proceso" title="Link to this heading"></a></h3>
+<p>Para crear una plantilla de proceso:</p>
+<ol class="arabic simple">
+<li><p>Haz clic en «Plantilla BPMN vacía»</p></li>
+<li><p>Se mostrará un formulario como el de la <a class="reference internal" href="#addnewtemplate"><span class="std std-numref">Figura 131</span></a>.</p></li>
+<li><p>Ingresa el nombre (para este ejemplo usaremos el nombre “Tutorial”).</p></li>
+<li><p>En el apartado «paquete padre» deberás seleccionar el paquete donde se alojará la nueva plantilla.
+Si recién estás empezando a trabajar con Qflow, el único paquete disponible es el paquete Raíz.</p></li>
+<li><p>Marca la opción crear subpaquete contenedor del proceso, esto hará que al crearse la plantilla se cree
+también un paquete que la contiene, con su mismo nombre.</p></li>
+<li><p>Si lo deseas, agrega también una breve descripción.</p></li>
+<li><p>Haz clic en el tic que se encuentra arriba a la derecha del panel.</p></li>
+</ol>
+<figure class="align-center" id="id6">
+<span id="addnewtemplate"></span><a class="reference internal image-reference" href="_images/image913.png"><img alt="Crear una nueva plantilla de proceso" src="_images/image913.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 131 </span><span class="caption-text">Crear una nueva plantilla de proceso</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Luego de hacer esto veremos que apareció en el explorador de soluciones
+una plantilla de proceso con el nombre que ingresamos. La misma se
+muestra debajo de un paquete con su mismo nombre.
+Junto al nombre de esta plantilla veremos entre paréntesis un “1.0”,
+el cual indica la versión de la plantilla sobre la que estamos trabajando.
+Cada plantilla de proceso puede tener varias versiones, pero sólo se
+puede trabajar en una versión a la vez.
+La <a class="reference internal" href="#newtemplate"><span class="std std-numref">Figura 132</span></a> muestra el explorador de soluciones luego de haber sido creada la plantilla de proceso.</p>
+<figure class="align-center" id="id7">
+<span id="newtemplate"></span><img alt="Nueva plantilla de proceso creada" src="_images/image1113.png" />
+<figcaption>
+<p><span class="caption-number">Figura 132 </span><span class="caption-text">Nueva plantilla de proceso creada</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="pasos-del-proceso">
+<h3>Pasos del proceso<a class="headerlink" href="#pasos-del-proceso" title="Link to this heading"></a></h3>
+<p>Nuestro objetivo, ahora que ya hemos creado una plantilla de proceso con
+su respectiva versión, es editarla para crear el proceso que
+definimos en la sección <a class="reference internal" href="#descripcion-del-proceso"><span class="std std-ref">Descripción del proceso</span></a>.</p>
+<p>El diseño de proceso es el diagrama que representa el proceso de
+negocio. Está compuesto por pasos y conexiones entre estos pasos, que
+determinan el orden en que éstos deberían darse en un proceso.</p>
+<p>Cuando se crea la plantilla podemos ver el diseño de proceso de la versión inicial.
+Esta ya contiene dos pasos: un paso de inicio y un paso de fin (<a class="reference internal" href="#newtemplatediagram"><span class="std std-numref">Figura 133</span></a>).</p>
+<figure class="align-center" id="id8">
+<span id="newtemplatediagram"></span><a class="reference internal image-reference" href="_images/image1213.png"><img alt="Diagrama de una nueva plantilla de proceso" src="_images/image1213.png" style="width: 5.7375in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 133 </span><span class="caption-text">Diagrama de una nueva plantilla de proceso</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Para agregar pasos al diseño de proceso disponemos de la
+barra de herramientas (<a class="reference internal" href="#bpmgraphtoolbar"><span class="std std-numref">Figura 134</span></a>). La misma se encuentra en la zona
+izquierda del diseñador.</p>
+<p>Un paso se puede agregar al documento, arrastrándolo desde la barra de herramientas
+al diagrama.</p>
+<figure class="align-center" id="id9">
+<span id="bpmgraphtoolbar"></span><img alt="Barra de herramientas" src="_images/image1313.png" />
+<figcaption>
+<p><span class="caption-number">Figura 134 </span><span class="caption-text">Barra de herramientas</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Existen muchos tipos de paso, pero para implementar el proceso que
+queremos, sólo necesitaremos algunos de ellos, que se describen a
+continuación.</p>
+<section id="evento-de-inicio">
+<h4>Evento de inicio<a class="headerlink" href="#evento-de-inicio" title="Link to this heading"></a></h4>
+<p>Un paso que es indispensable en todo proceso es el evento de “Inicio”.
+Este paso es el punto de entrada del proceso y como tal, sólo puede
+haber uno en cada flujo de trabajo. Este paso representa el momento en que el usuario que
+inicia el proceso completa los datos necesarios en el formulario web y
+da inicio al nuevo proceso. Cuando se crea una nueva plantilla de proceso,
+automáticamente incluye un evento de inicio.</p>
+</section>
+<section id="evento-de-fin">
+<h4>Evento de fin<a class="headerlink" href="#evento-de-fin" title="Link to this heading"></a></h4>
+<p>Otro paso que es fundamental es el evento de “Fin”, el cual marca la
+finalización del proceso. Es posible tener más de un evento de fin en el
+proceso y utilizar cada uno para marcar un fin de proceso diferente. Por
+ejemplo, en nuestro proceso tenemos un “Fin aprobada” en que la
+solicitud de gasto es aprobada y un “Fin rechazada”, en que la solicitud
+es rechazada. Cuando se crea una nueva plantilla de proceso, ésta ya
+viene con un evento de fin, dado que todo proceso debe tener al menos
+uno.</p>
+</section>
+<section id="compuerta-exclusiva">
+<h4>Compuerta exclusiva<a class="headerlink" href="#compuerta-exclusiva" title="Link to this heading"></a></h4>
+<p>Una compuerta exclusiva sirve para evaluar condiciones del proceso y
+continuar por uno de los diferentes caminos posibles, según el resultado
+de la evaluación. En particular, en nuestro proceso puede utilizarse
+para evaluar el monto del gasto solicitado. En caso que dicho gasto sea
+menor a 500, deberá ser aprobado por el encargado de compras. Si el
+gasto se encuentra entre 500 y 1000, se necesitará una aprobación
+adicional del gerente general. Finalmente, si el gasto es mayor a 1000,
+la aprobación adicional debe ser realizada por el gerente general y por
+el director. También lo utilizaremos para evaluar las respuestas de los
+distintos participantes del proceso, quienes deciden si se aprueba o no
+el gasto.</p>
+</section>
+<section id="tarea-de-usuario">
+<h4>Tarea de usuario<a class="headerlink" href="#tarea-de-usuario" title="Link to this heading"></a></h4>
+<p>Una tarea de usuario permite interactuar con usuarios mediante el envío
+de una pregunta que debe ser respondida. La pregunta y las posibles
+respuestas a ella son definidas en el diseño del proceso. En nuestro
+proceso utilizaremos pasos de este tipo para preguntar al encargado de
+compras, gerente de compras y director si aprueban el gasto del
+solicitante.</p>
+<p>Cuando una tarea de usuario define un vencimiento, es necesario incluir
+un evento temporizador de borde, a partir del cual, se definirá el flujo
+cuando dicho vencimiento se cumpla y se desee seguir un curso
+alternativo.</p>
+</section>
+<section id="tarea-de-notificacion-a-usuario">
+<h4>Tarea de notificación a usuario<a class="headerlink" href="#tarea-de-notificacion-a-usuario" title="Link to this heading"></a></h4>
+<p>Una tarea de notificación a usuario envía una notificación de Qflow y
+en caso de estar correctamente configurado, un mensaje de correo
+electrónico a los usuarios. En el proceso que estamos implementando
+podemos usar estos pasos para notificar al solicitante el resultado de
+su solicitud.</p>
+</section>
+<section id="tarea-de-formula">
+<h4>Tarea de fórmula<a class="headerlink" href="#tarea-de-formula" title="Link to this heading"></a></h4>
+<p>Un paso de fórmula permite asignarle valores a datos de aplicación y
+roles del proceso, dependiendo de una o más condiciones definidas dentro
+del mismo paso. En nuestro proceso utilizaremos pasos de este tipo para
+calcular el monto total de todas las líneas que haya introducido el
+solicitante y seleccionar qué personas deben aprobar o rechazar el gasto
+dependiendo del gasto.</p>
+</section>
+</section>
+<section id="dibujo-del-proceso">
+<h3>Dibujo del proceso<a class="headerlink" href="#dibujo-del-proceso" title="Link to this heading"></a></h3>
+<p>Para dibujar el proceso se empieza por arrastrar desde la barra de
+herramientas los pasos que se van a utilizar y conectarlos.
+Esto nos lleva a implementar el proceso
+de manera “left-right” o de izquierda a derecha: primero construimos el
+esqueleto del proceso, dejando los detalles para después.</p>
+<p>La plantilla del proceso que se creó ya incluye un evento de inicio, de
+modo que no es necesario agregar uno. Pero podemos cambiarle el nombre a
+“Solicitar gasto”, haciendo doble clic en el nombre. También es posible
+cambiarlo en la ventana de propiedades (<a class="reference internal" href="#propertiespanel"><span class="std std-numref">Figura 135</span></a>). Esta ventana se abre
+al hacer doble clic en el evento de inicio. Para guardar los cambios en
+dicha ventana, debemos hacer clic en el ícono de tic.</p>
+<figure class="align-center" id="id10">
+<span id="propertiespanel"></span><a class="reference internal image-reference" href="_images/image1412.png"><img alt="Ventana de propiedades" src="_images/image1412.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 135 </span><span class="caption-text">Ventana de propiedades</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Luego, arrastramos una actividad desde la barra de herramientas al
+diagrama. Si se pone sobre la flecha que conecta el evento de inicio con
+el de fin, la tarea será la primera en ejecutarse una vez que se inicie
+el flujo. La <a class="reference internal" href="#newactivitybetweenstartandendevent"><span class="std std-numref">Figura 136</span></a> muestra cómo queda el diagrama una vez conectados
+los pasos de inicio y la tarea.</p>
+<figure class="align-center" id="id11">
+<span id="newactivitybetweenstartandendevent"></span><a class="reference internal image-reference" href="_images/image1512.png"><img alt="Nueva actividad entre los eventos de inicio y de fin" src="_images/image1512.png" style="width: 5.84375in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 136 </span><span class="caption-text">Nueva actividad entre los eventos de inicio y de fin</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Podemos renombrar la tarea en el momento que la agregamos al diagrama o
+haciendo doble clic sobre ella, en nuestro caso la llamaremos “Calcular
+monto total” para poder identificarla más fácilmente cuando agreguemos
+más pasos al flujo (<a class="reference internal" href="#renameactivity"><span class="std std-numref">Figura 137</span></a>). El nombre que se asigna en la tarea se
+conserva una vez que se cambia el tipo.</p>
+<figure class="align-center" id="id12">
+<span id="renameactivity"></span><a class="reference internal image-reference" href="_images/image1612.png"><img alt="Renombrar nombre de actividad" src="_images/image1612.png" style="width: 4.375in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 137 </span><span class="caption-text">Renombrar nombre de actividad</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>A continuación, se cambiará la actividad por una tarea de fórmula, la
+cual se encargará de calcular el total del monto de todos los productos
+que el solicitante haya ingresado. Para hacer esto, se debe seleccionar
+la tarea mediante un clic. Esta acción abre una pequeña barra de
+herramientas con 5 íconos a la derecha de la tarea (<a class="reference internal" href="#activitytoolbar"><span class="std std-numref">Figura 138</span></a>). Al
+seleccionar la primera opción, se desplegará un menú con las distintas
+actividades disponibles en Qflow (<a class="reference internal" href="#activitytypes"><span class="std std-numref">Figura 139</span></a>). Al seleccionar “Tarea de
+fórmula”, veremos que aparece el ícono de dicha actividad y el nombre se
+actualiza.</p>
+<figure class="align-center" id="id13">
+<span id="activitytoolbar"></span><a class="reference internal image-reference" href="_images/image1712.png"><img alt="Barra de herramientas de la actividad" src="_images/image1712.png" style="width: 5.94792in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 138 </span><span class="caption-text">Barra de herramientas de la actividad</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id14">
+<span id="activitytypes"></span><a class="reference internal image-reference" href="_images/image1812.png"><img alt="Tipos de actividades disponibles" src="_images/image1812.png" style="width: 2.80208in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 139 </span><span class="caption-text">Tipos de actividades disponibles</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>A continuación de la tarea de fórmula, colocaremos una nueva tarea
+que representará la aprobación por parte del encargado de
+compras y la nombraremos como “¿Aprueba encargado de compras?”. Para
+esto, cambiaremos el tipo de actividad por una tarea de usuario, de la
+misma forma que hicimos con el paso de fórmula anterior resultando en un
+diagrama similar al de la <a class="reference internal" href="#usertaskdiagram"><span class="std std-numref">Figura 140</span></a>.</p>
+<figure class="align-center" id="id15">
+<span id="usertaskdiagram"></span><a class="reference internal image-reference" href="_images/image1912.png"><img alt="Diagrama con la tarea de usuario" src="_images/image1912.png" style="width: 5.6875in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 140 </span><span class="caption-text">Diagrama con la tarea de usuario</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>La aprobación del encargado de compras puede tener dos resultados: o
+bien la solicitud es aprobada y se continúa con el proceso, o bien la
+solicitud es rechazada y se debe notificar al solicitante y finalizar el
+proceso. Las diferentes ramas que el proceso puede tomar luego del paso,
+se evaluarán en base a la respuesta de la tarea de usuario. Para esto,
+es necesario crear una compuerta exclusiva.</p>
+<p>Es posible que en este momento, no tengamos más espacio para seguir
+agregando pasos. El diseñador de procesos web permite desplazar uno o
+más ítems a la vez dentro del diagrama de varias maneras, en este caso,
+seleccionaremos el paso de fin y lo arrastraremos hacia la derecha para
+generar más espacio y así poder agregar nuevos pasos. Qflow te ayuda a
+mantener alineados los ítems mediante una línea naranja, pero
+puedes decidir si deseas mantenerlos de esta forma o desplazarlos hacia
+cualquier posición en el área de dibujo. Si deseas seleccionar más de un
+paso, puede hacerlo manteniendo la tecla control apretada mientras haces
+clic en los distintos pasos. Otra forma de mover más de un paso a la
+vez, es con la herramienta de crear/eliminar espacio.</p>
+<p>A continuación, crearemos la compuerta exclusiva. Este paso permite
+evaluar varias condiciones y decidir por qué camino debe continuar la
+ejecución del flujo, dependiendo de los resultados de las mismas. Para
+esto, se debe arrastrar el ícono de compuerta exclusiva desde la barra
+de herramientas al diagrama. A esta compuerta la nombraremos “¿Aprueba?”
+y lo haremos de la misma forma que nombramos el evento de inicio,
+haciendo doble clic en el nombre que aparece debajo del paso en el
+diagrama. El diagrama debería verse similar a la <a class="reference internal" href="#exclusivegatewaydiagram"><span class="std std-numref">Figura 141</span></a>.</p>
+<figure class="align-center" id="id16">
+<span id="exclusivegatewaydiagram"></span><a class="reference internal image-reference" href="_images/image2011.png"><img alt="Diagrama luego de agregar compuerta exclusiva" src="_images/image2011.png" style="width: 6.41667in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 141 </span><span class="caption-text">Diagrama luego de agregar compuerta exclusiva</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Luego veremos cómo especificar la respuesta que lleva a cada camino.
+Por ahora, nos limitaremos a trazar los caminos. Primero trazaremos el
+camino del rechazo de la solicitud. Este camino debe llevar a una tarea
+de notificación a usuario, que le envía un mensaje al solicitante,
+indicando que se rechazó su solicitud. Para crearla, debemos repetir el
+mismo proceso que con las actividades anteriores, agregando una
+actividad desde la barra de herramientas, renombrándola por
+“Notificar rechazo” y cambiando el tipo de tarea por una de
+notificación. También debemos tener un evento de fin que finalice el
+proceso. Como ya tenemos el evento de fin que se crea automáticamente al
+crear el proceso, utilizaremos ése, aunque lo renombraremos como
+“Rechazo compra” para indicar que corresponde a la finalización de un
+proceso que terminó en un rechazo. En la <a class="reference internal" href="#notifyuser"><span class="std std-numref">Figura 142</span></a> vemos cómo va
+quedando nuestro proceso.</p>
+<figure class="align-center" id="id17">
+<span id="notifyuser"></span><a class="reference internal image-reference" href="_images/image2111.png"><img alt="Proceso hasta la tarea de notificación a usuario por rechazo" src="_images/image2111.png" style="width: 6.41667in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 142 </span><span class="caption-text">Proceso hasta la tarea de notificación a usuario por rechazo</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>A continuación, debemos trazar el camino del proceso para el caso en que
+el encargado de compras aprueba el gasto. En ese caso, la aprobación del
+gerente de compras y del director podrían ser necesarias, pero eso
+depende del monto del gasto. Es necesario evaluar entonces, mediante una
+nueva compuerta exclusiva, si el monto se encuentra entre 500 y 1000
+dólares e incluir en la rama correspondiente otra tarea de usuario, que
+representa la aprobación del gerente de compras; o si el monto es mayor
+o igual a 1000 dólares, hacer una nueva rama en la que respondan tanto
+el gerente de compras como el director.</p>
+<p>Para crear una nueva rama saliente de la compuerta exclusiva, puede
+seleccionar dicha compuerta y hacer clic en la opción de compuerta
+exclusiva, esto creará una nueva compuerta exclusiva que se encontrará
+unida a la primera compuerta (<a class="reference internal" href="#newbranchfromexclusivegateway"><span class="std std-numref">Figura 143</span></a>).</p>
+<figure class="align-center" id="id18">
+<span id="newbranchfromexclusivegateway"></span><a class="reference internal image-reference" href="_images/image2211.png"><img alt="Proceso con una nueva rama saliendo de la compuerta exclusiva" src="_images/image2211.png" style="width: 5.48958in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 143 </span><span class="caption-text">Proceso con una nueva rama saliendo de la compuerta exclusiva</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Agregamos al diseño entonces, dos nuevas ramas. Cada una
+cuenta con un paso de fórmula, en los que luego asignaremos los
+destinatarios que deberán aprobar o rechazar el gasto dependiendo del
+monto. Para hacer esto, podemos seleccionar la compuerta exclusiva y
+elegir la opción “Agregar tarea” del menú contextual del paso. A estas
+tareas las llamaremos “Debe aprobar Gerente de compras” y “Deben aprobar
+gerente de compras y director”. También es posible agregarle nombre a
+las conexiones entre pasos haciendo doble clic en las flechas. A estas
+últimas dos las nombraremos “Monto entre 500 y 1000” y “Monto &gt; 1000”
+respectivamente. El proceso debería ser similar al de la <a class="reference internal" href="#flowwithtwotasks"><span class="std std-numref">Figura 144</span></a>.</p>
+<figure class="align-center" id="id19">
+<span id="flowwithtwotasks"></span><a class="reference internal image-reference" href="_images/image2312.png"><img alt="Proceso con nombres en las conexiones y 2 nuevas tareas de fórmulas" src="_images/image2312.png" style="width: 6.40585in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 144 </span><span class="caption-text">Proceso con nombres en las conexiones y 2 nuevas tareas de fórmulas</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Luego de esto, procederemos a crear una nueva tarea de usuario que
+llamaremos “Aprobación gerencial”, en la que tanto el gerente de compras
+como el director deberán responder, en caso de que ellos deban
+intervenir en el flujo. Para esto, se puede seleccionar cualquiera de
+las dos tareas de fórmula. Seleccionar la herramienta de nueva tarea,
+renombrarla al nombre mencionado y cambiarle el tipo a tarea de usuario.
+Para hacer que la segunda tarea de fórmula continúe hacia la nueva tarea
+de usuario, basta con seleccionar dicha tarea de fórmula y seleccionar
+la herramienta de “Conectar usando conexión o asociación” y hacer clic
+sobre la nueva tarea de usuario. Las tareas deberían quedar conectadas
+de forma similar a la de la <a class="reference internal" href="#twoformulatasks"><span class="std std-numref">Figura 145</span></a>.</p>
+<figure class="align-center" id="id20">
+<span id="twoformulatasks"></span><a class="reference internal image-reference" href="_images/image2512.png"><img alt="Las 2 tareas de fórmula conectadas a la misma tarea de usuario" src="_images/image2512.png" style="width: 6.40625in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 145 </span><span class="caption-text">Las 2 tareas de fórmula conectadas a la misma tarea de usuario</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Una vez más, debemos evaluar la respuesta que hagan los usuarios, por lo
+que debemos crear una nueva compuerta exclusiva que se encargará de
+enviar el flujo por el camino correspondiente, dependiendo de las
+respuestas de la tarea anterior.</p>
+<p>Si el gerente general rechaza el gasto, se notifica al solicitante de la
+misma manera que con el rechazo del encargado de compras. Para eso,
+conectamos la nueva compuerta exclusiva a la notificación que ya
+habíamos creado anteriormente. El flujo debería quedar similar al de la
+<a class="reference internal" href="#flowwithreject"><span class="std std-numref">Figura 146</span></a>.</p>
+<figure class="align-center" id="id21">
+<span id="flowwithreject"></span><a class="reference internal image-reference" href="_images/image2612.png"><img alt="Proceso con rechazo de la gerencia" src="_images/image2612.png" style="width: 6.42708in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 146 </span><span class="caption-text">Proceso con rechazo de la gerencia</span><a class="headerlink" href="#id21" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Como verás, la conexión entre la compuerta exclusiva y la notificación
+del rechazo pasa por arriba del paso de fin. El diseñador de procesos de
+negocio web de Qflow permite modificar el camino que recorren todas las
+conexiones de forma simple, para esto, hacer clic y mantener presionado
+sobre el punto que desea modificar, esto creará un nuevo punto de
+quiebre. Podemos modificar el camino de las conexiones cuantas veces sea
+necesario. La <a class="reference internal" href="#linkbetweenusertaskandnotification"><span class="std std-numref">Figura 147</span></a> muestra un paso a paso para crear puntos de
+quiebre en la conexión entre dos pasos.</p>
+<figure class="align-center" id="id22">
+<span id="linkbetweenusertaskandnotification"></span><a class="reference internal image-reference" href="_images/image27.gif"><img alt="Conexión entre aprueba y notificación modificada" src="_images/image27.gif" style="width: 6.41667in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 147 </span><span class="caption-text">Conexión entre aprueba y notificación modificada</span><a class="headerlink" href="#id22" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Resta por definir el camino “exitoso” del proceso, es decir, el camino
+en el cual la solicitud de gastos es aprobada. En ese caso, es necesario
+notificar al solicitante que su solicitud fue aprobada y finalizar el
+proceso.</p>
+<p>Para hacer esto, arrastramos una tarea de notificación que llamaremos
+“Notificar aprobación” y un evento de fin que llamaremos “Apruebo
+compra” desde la barra de herramientas. La solicitud se aprueba si pasa
+la aprobación gerencial, por lo que se debe crear una conexión de salida
+del paso de aprobación de la gerencia, al nuevo paso de notificación.
+Esto se hace de la misma forma que hicimos anteriormente, haciendo clic
+en la compuerta exclusiva de la aprobación gerencial y seleccionando la
+herramienta de “Conectar usando conexión o asociación”. El resultado
+debería ser similar al de la <a class="reference internal" href="#exclusivegatewaywithusertask"><span class="std std-numref">Figura 148</span></a>.</p>
+<figure class="align-center" id="id23">
+<span id="exclusivegatewaywithusertask"></span><a class="reference internal image-reference" href="_images/image283.png"><img alt="Compuerta exclusiva con la conexión a aprobación de compra" src="_images/image283.png" style="width: 2.86458in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 148 </span><span class="caption-text">Compuerta exclusiva con la conexión a aprobación de compra</span><a class="headerlink" href="#id23" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Además, si al momento de evaluar el monto, éste no es mayor a 500
+dólares, la solicitud estará aprobada, ya que en ese caso el único
+aprobador necesario sería el encargado de compras. Por lo tanto, desde
+la compuerta exclusiva que evalúa si se debe hacer la aprobación
+gerencial y quiénes deben participar de la misma, se debe trazar una
+conexión hasta el nuevo paso de notificación a la cual le agregaremos la
+etiqueta “Monto &lt; 500” tal como muestra la <a class="reference internal" href="#notificationwithtwopaths"><span class="std std-numref">Figura 149</span></a>.</p>
+<figure class="align-center" id="id24">
+<span id="notificationwithtwopaths"></span><a class="reference internal image-reference" href="_images/image293.png"><img alt="Se llega a la notificación de aprobación de compra por 2 caminos diferentes" src="_images/image293.png" style="width: 6.41667in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 149 </span><span class="caption-text">Se llega a la notificación de aprobación de compra por 2 caminos diferentes</span><a class="headerlink" href="#id24" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Qflow nos permite definir una conexión por defecto en caso de que no se
+cumpla ninguna condición dentro de la compuerta exclusiva. Para esto,
+debemos seleccionar la conexión correspondiente a “Monto &lt; 500” y
+cambiar el tipo de conexión (con la herramienta de Cambiar tipo) y
+seleccionar conexión por defecto. La <a class="reference internal" href="15-QflowDesign.html#defaultconnection"><span class="std std-numref">Figura 615</span></a> muestra la conexión por
+defecto, este tipo de conexión se ve por una línea en diagonal que corta
+la conexión entre la compuerta exclusiva y la tarea de notificar
+aprobación.</p>
+<figure class="align-center" id="id25">
+<span id="defaultconnection"></span><a class="reference internal image-reference" href="_images/image303.png"><img alt="Conexión por defecto (“Monto &lt; 500”)" src="_images/image303.png" style="width: 2.82292in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 150 </span><span class="caption-text">Conexión por defecto (“Monto &lt; 500”)</span><a class="headerlink" href="#id25" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>El diseño del proceso debería quedar similar al de la <a class="reference internal" href="#flowdiagram"><span class="std std-numref">Figura 151</span></a>.</p>
+<figure class="align-center" id="id26">
+<span id="flowdiagram"></span><a class="reference internal image-reference" href="_images/image314.png"><img alt="Grafo del proceso" src="_images/image314.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 151 </span><span class="caption-text">Grafo del proceso</span><a class="headerlink" href="#id26" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Falta tener en cuenta el tiempo de vencimiento de las aprobaciones.
+Luego de 1 día, si no hay respuesta de los aprobadores, se debe rechazar
+la solicitud. Las tareas de usuario permiten este comportamiento
+agregándole un evento temporizador de borde, el cual se agrega al
+diagrama arrastrando el ícono del círculo amarillo (evento intermedio)
+en la barra de herramientas y poniendo sobre la tarea de usuario a la
+que se le quiere agregar, como muestra la <a class="reference internal" href="#usertaskwithevent"><span class="std std-numref">Figura 152</span></a>.</p>
+<figure class="align-center" id="id27">
+<span id="usertaskwithevent"></span><a class="reference internal image-reference" href="_images/image323.png"><img alt="Tarea de usuario con evento de borde" src="_images/image323.png" style="width: 1.08333in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 152 </span><span class="caption-text">Tarea de usuario con evento de borde</span><a class="headerlink" href="#id27" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Una vez hecho esto, debemos cambiar el tipo de evento a uno de
+temporizador de borde seleccionando el evento y modificándolo con la
+herramienta de cambiar tipo. Luego, conectaremos el evento temporizador
+(es importante que la conexión sea desde el evento temporizador y no la
+tarea de usuario) con la tarea de notificar el rechazo (<a class="reference internal" href="#temporizereventwithnotification"><span class="std std-numref">Figura 153</span></a>).
+Repetir esto para las dos tareas de usuario del proceso.</p>
+<figure class="align-center" id="id28">
+<span id="temporizereventwithnotification"></span><a class="reference internal image-reference" href="_images/image333.png"><img alt="El evento temporizador de borde con su conexión a la notificación de rechazo del gasto" src="_images/image333.png" style="width: 6.40625in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 153 </span><span class="caption-text">El evento temporizador de borde con su conexión a la notificación de rechazo del gasto</span><a class="headerlink" href="#id28" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>El grafo del proceso debe quedar similar al de la <a class="reference internal" href="#flowdiagram2"><span class="std std-numref">Figura 154</span></a>.</p>
+<figure class="align-center" id="id29">
+<span id="flowdiagram2"></span><a class="reference internal image-reference" href="_images/image343.png"><img alt="Diagrama del proceso" src="_images/image343.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 154 </span><span class="caption-text">Diagrama del proceso</span><a class="headerlink" href="#id29" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="datos-de-aplicacion">
+<h3>Datos de aplicación<a class="headerlink" href="#datos-de-aplicacion" title="Link to this heading"></a></h3>
+<p>Los datos de aplicación proveen información estructurada del proceso.
+Cada dato está asociado a un dominio, el cual determina los posibles
+valores que el dato puede tomar (texto, número, etc.) y el control que
+se mostrará en Qflow Task para el dato (cuadro de texto, combo box,
+etc.).</p>
+<p>Pueden ser modificados a lo largo del proceso, tanto por usuarios como
+por Qflow en pasos de ejecución automática (aquellos que no requieren
+intervención del usuario).</p>
+<p>En pasos interactivos, como por ejemplo la tarea de usuario, se define
+una visibilidad para el dato. La visibilidad especifica si un dato puede ser
+modificado en determinado paso, si es mostrado, pero no se puede
+modificar o si está ausente en ese paso.</p>
+<p>En nuestro proceso, al utilizar la tarea de usuario, suponemos que el
+monto está en un dato de aplicación. Las compuertas exclusivas y las
+tareas de fórmula son pasos de ejecución automática que pueden evaluar
+condiciones que requieren consultar datos de aplicación. Por lo tanto,
+en este proceso creamos un dato de aplicación que represente el monto
+total de los productos.</p>
+<p>El dominio predeterminado para datos es “Texto”. En este caso queremos
+que el dato tenga el dominio “Número”. Esto permite, entre otras cosas,
+que se valide que sólo se ingresen valores numéricos para el dato. Para
+agregar un dato de aplicación:</p>
+<ol class="arabic simple">
+<li><p>Selecciona la opción “Datos” en la barra de acciones que se encuentra
+en la parte superior de la pantalla (<a class="reference internal" href="#actionbar"><span class="std std-numref">Figura 155</span></a>).</p></li>
+<li><p>En la nueva ventana que se abrió, haz clic en el ícono “+”.</p></li>
+<li><p>Ingresa un nombre, dominio y opcionalmente una descripción
+para el dato y haz clic en ícono del tic (<a class="reference internal" href="#newapplicationdatum"><span class="std std-numref">Figura 156</span></a>).</p></li>
+</ol>
+<figure class="align-center" id="id30">
+<span id="actionbar"></span><img alt="Barra de acciones" src="_images/image353.png" />
+<figcaption>
+<p><span class="caption-number">Figura 155 </span><span class="caption-text">Barra de acciones</span><a class="headerlink" href="#id30" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id31">
+<span id="newapplicationdatum"></span><a class="reference internal image-reference" href="_images/image363.png"><img alt="Panel de dato de aplicación" src="_images/image363.png" style="width: 3.08333in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 156 </span><span class="caption-text">Panel de dato de aplicación</span><a class="headerlink" href="#id31" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Luego de hacer esto, veremos que se agregó el dato a la lista de datos
+de la plantilla de proceso (<a class="reference internal" href="#documentapplicationdatum"><span class="std std-numref">Figura 157</span></a>). Si se desea volver al diseño
+del proceso se debe hacer clic en el botón «Grafo» de la barra de acciones.</p>
+<figure class="align-center" id="id32">
+<span id="documentapplicationdatum"></span><a class="reference internal image-reference" href="_images/image373.png"><img alt="Datos de aplicación" src="_images/image373.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 157 </span><span class="caption-text">Datos de aplicación</span><a class="headerlink" href="#id32" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En muchos casos podría ser útil que los aprobadores tengan la capacidad
+de realizar comentarios para que los lea el solicitante. Estos se podrían
+utilizar para brindar una explicación en caso de rechazo de la solicitud.
+Para habilitar los comentarios en un paso debemos abrir la configuración
+de este e ir a la solapa de “Formulario” y sobre el final de la sección de
+“Visibilidad” en la configuración de comentarios debemos marcar la opción
+“Permitir adición” (<a class="reference internal" href="#commentsallowaddition"><span class="std std-numref">Figura 158</span></a>).</p>
+<figure class="align-center" id="id33">
+<span id="commentsallowaddition"></span><img alt="Permitir adición de comentarios" src="_images/image873.png" />
+<figcaption>
+<p><span class="caption-number">Figura 158 </span><span class="caption-text">Permitir adición de comentarios</span><a class="headerlink" href="#id33" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Podemos configurar individualmente para cada respuesta si es obligatorio
+agregar un comentario al responder. También tenemos la opción de
+elegir si queremos que la clave de la respuesta se agregue a la
+bitácora de comentarios cuando la tarea se responda. Podemos hacer esto
+marcando la opción “Agregar respuesta a comentarios”
+(<a class="reference internal" href="#commentsresponseconfig"><span class="std std-numref">Figura 159</span></a>).</p>
+<figure class="align-center" id="id34">
+<span id="commentsresponseconfig"></span><a class="reference internal image-reference" href="_images/image883.png"><img alt="Configuración de comentarios en respuestas" src="_images/image883.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 159 </span><span class="caption-text">Configuración de comentarios en respuestas</span><a class="headerlink" href="#id34" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Además de estos datos, serán necesarios agregar datos para detallar cada
+producto que se desee agregar al gasto. Para esto, debemos crear tres
+datos de aplicación nuevos. Estos datos, deberán tener varios valores,
+dependiendo de cuántos productos distintos desee agregar el solicitante.
+Por esto, debemos permitir que los datos admitan múltiples valores y
+pertenezcan a un bloque de línea común, de manera que queden asociados
+entre sí. Crearemos los datos “Nombre” y “Monto” del dominio Texto y
+Número respectivamente, ambos pertenecientes al bloque de línea
+“Productos” y con la casilla “Acepta múltiples valores” marcada (<a class="reference internal" href="#multivalueddatum"><span class="std std-numref">Figura 160</span></a>).</p>
+<figure class="align-center" id="id35">
+<span id="multivalueddatum"></span><a class="reference internal image-reference" href="_images/image393.png"><img alt="Dato “Monto”, que acepta múltiples valores y pertenece al bloque de línea “Productos”" src="_images/image393.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 160 </span><span class="caption-text">Dato “Monto”, que acepta múltiples valores y pertenece al bloque de línea “Productos”</span><a class="headerlink" href="#id35" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>El tercer dato de aplicación correspondiente al bloque de productos es
+la imagen del producto. Qflow posee un dominio de datos del tipo
+documento que permite adjuntar cualquier archivo, pero en nuestro caso,
+queremos sólo archivos del tipo imagen. Por esta razón, utilizaremos un
+dominio de datos creado por nosotros mismos. Los dominios de datos se
+agregan de forma similar a los datos de aplicación. Para agregar un
+dominio de datos:</p>
+<ol class="arabic simple">
+<li><p>Haz clic en los tres puntos que se encuentran del lado izquierdo de la
+barra de acciones.</p></li>
+<li><p>Selecciona la opción “Dominios de dato”.</p></li>
+<li><p>En el nuevo panel que se abrió, haz clic en el ícono “+”.</p></li>
+<li><p>Ingresa un nombre, tipo de control y tipo de dato, opcionalmente
+agrega una descripción para el dominio y haz clic en ícono del
+tic (<a class="reference internal" href="#datadomainconfiguration"><span class="std std-numref">Figura 161</span></a>).</p></li>
+</ol>
+<figure class="align-center" id="id36">
+<span id="datadomainconfiguration"></span><a class="reference internal image-reference" href="_images/image403.png"><img alt="Configuración de un dominio de datos" src="_images/image403.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 161 </span><span class="caption-text">Configuración de un dominio de datos</span><a class="headerlink" href="#id36" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En nuestro caso, debemos seleccionar el tipo de control Documento, el cual nos
+permite adjuntar archivos al proceso y tipo de dato “Texto”.
+Adicionalmente, desplegaremos el panel de “Propiedades” haciendo clic
+sobre él y dentro de la solapa de Restricciones, agregaremos la
+siguiente expresión regular: “*.jpg; *.png; *.gif; *.jpeg” (sin las
+comillas). Esto nos permitirá limitar el tipo de documentos que se
+adjuntan, para que se admitan únicamente de este tipo de extensiones.
+También le agregaremos el siguiente mensaje de error: “El documento
+ingresado debe ser una imagen” como muestra la <a class="reference internal" href="#domainrestrictions"><span class="std std-numref">Figura 162</span></a>.</p>
+<figure class="align-center" id="id37">
+<span id="domainrestrictions"></span><a class="reference internal image-reference" href="_images/image423.png"><img alt="Restricciones del dominio de datos Imagen" src="_images/image423.png" style="width: 3.19792in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 162 </span><span class="caption-text">Restricciones del dominio de datos Imagen</span><a class="headerlink" href="#id37" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Una vez creado el dominio de datos, podemos crear un nuevo dato de
+aplicación llamado Imagen con las mismas características que Nombre y
+Monto, pero con el dominio de datos Imágenes que creamos anteriormente
+(<a class="reference internal" href="#dataproperties"><span class="std std-numref">Figura 163</span></a>).</p>
+<figure class="align-center" id="id38">
+<span id="dataproperties"></span><a class="reference internal image-reference" href="_images/image433.png"><img alt="Propiedades del dato de aplicación &quot;Imagen&quot;" src="_images/image433.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 163 </span><span class="caption-text">Propiedades del dato de aplicación «Imagen»</span><a class="headerlink" href="#id38" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Finalmente, agregaremos un nuevo dato de aplicación que será una
+justificación del gasto para que el solicitante pueda explicar las
+razones por las cuales desea efectuar el gasto. Lo llamaremos
+“Justificación de compra”, será del dominio de datos “Área de texto”. En
+este caso, no pertenecerá a ningún bloque de línea ni permitirá valores
+múltiples.</p>
+<figure class="align-center" id="id39">
+<a class="reference internal image-reference" href="_images/image443.png"><img alt="Datos de aplicación creados" src="_images/image443.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 164 </span><span class="caption-text">Datos de aplicación creados</span><a class="headerlink" href="#id39" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="roles-de-proceso">
+<h3>Roles de proceso<a class="headerlink" href="#roles-de-proceso" title="Link to this heading"></a></h3>
+<p>Los roles de proceso se utilizan como destinatarios para los pasos
+interactivos. Los roles se asocian a usuarios y será a quienes Qflow
+les asigna una tarea cuando un proceso llega a un paso interactivo. En
+el caso de nuestro proceso tenemos cuatro roles:</p>
+<ul class="simple">
+<li><p>Solicitante, que es quien inicia el proceso pidiendo la aprobación de
+un gasto.</p></li>
+<li><p>Encargado de compras, que aprobará o rechazará la solicitud.</p></li>
+<li><p>Gerente de compras, a quién se le solicita su aprobación en el caso
+de que el monto sea mayor a los 500 dólares.</p></li>
+<li><p>Director, a quién se le solicita su aprobación en el caso de que el
+monto sea mayor a los 1000 dólares.</p></li>
+</ul>
+<p>Los roles de proceso se agregan de forma similar a los datos de
+aplicación y dominios de datos. Para agregar un rol a la versión de
+proceso:</p>
+<ol class="arabic simple">
+<li><p>Selecciona la opción “Roles” en la barra de acciones.</p></li>
+<li><p>En la nueva ventana que se abrió, haz clic en el ícono “+”.</p></li>
+<li><p>Ingresa un nombre, miembros del rol, si permitirá múltiples
+usuarios y opcionalmente una descripción. También puedes seleccionar
+una regla de delegación automática de tareas aplicada a este rol.</p></li>
+<li><p>Haz clic en el ícono del tic.</p></li>
+</ol>
+<p>Para representar a el “Solicitante” en nuesto proceso, podemos utilizar el rol del usuario
+iniciador del proceso. Una vez iniciado el proceso,
+Qflow asignará a este rol el usuario que lo haya iniciado.</p>
+<p>Para asignar el usuario al rol del proceso, en la ventana de propiedades
+del rol (<a class="reference internal" href="#rolepanel"><span class="std std-numref">Figura 166</span></a>) diríjete al cuadro correspondiente a
+“Miembros del rol”.</p>
+<ol class="arabic">
+<li><p>Comienza a escribir “Usuario iniciador del proceso”. Qflow te mostrará un cuadro de
+sugerencias con los miembros de tu organización y otros roles
+(<a class="reference internal" href="#rolemembers"><span class="std std-numref">Figura 165</span></a>).</p>
+<figure class="align-center" id="id40">
+<span id="rolemembers"></span><a class="reference internal image-reference" href="_images/image453.png"><img alt="Miembros del rol con su correspondiente cuadro de sugerencias" src="_images/image453.png" style="width: 2.89583in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 165 </span><span class="caption-text">Miembros del rol con su correspondiente cuadro de sugerencias</span><a class="headerlink" href="#id40" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Selecciona la opción “Usuario iniciador del proceso” del cuadro (<a class="reference internal" href="#rolepanel"><span class="std std-numref">Figura 166</span></a>).</p></li>
+<li><p>Luego haga clic en el tic para confirmar los cambios realizados en el
+rol.</p></li>
+</ol>
+<figure class="align-center" id="id41">
+<span id="rolepanel"></span><a class="reference internal image-reference" href="_images/image463.png"><img alt="Ventana de propiedades del rol de proceso “Solicitante”" src="_images/image463.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 166 </span><span class="caption-text">Ventana de propiedades del rol de proceso “Solicitante”</span><a class="headerlink" href="#id41" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Repetiremos el proceso para los roles “Encargado de compras”, “Gerente
+de compras” y “Director”, pero seleccionando tu propio usuario dentro de
+la organización, para ser quien reciba las preguntas en las
+distintas tareas de usuario que ya hemos creado anteriormente. Esto nos
+permitirá iniciar el proceso y contestar tanto la pregunta que va
+dirigida al encargado de compras como la que va dirigida a la aprobación
+gerencial.</p>
+<p>Si el proceso se implementara en el mundo real, al rol “Encargado de
+compras” habría que asignarle el usuario correspondiente al encargado de
+compras y a los roles “Gerente de compras” y “Director” habría que
+asignarles el usuario correspondiente al gerente de compras y director
+respectivamente. Esas cuentas de usuario se crean en Qflow Team.</p>
+<p>Para que tanto el “Gerente de compras” como el “Director” puedan
+responder la tarea, debemos crear un rol que contenga a los mismos, al
+cual llamaremos “Aprobador gerencial” con las particularidades de que el
+nuevo rol permitirá tener múltiples usuarios asignados (marcar la
+casilla al crear el rol) y no tendrá ningún usuario asignado por el
+momento, esto lo haremos más adelante en las tareas de fórmula agregadas
+en el proceso.</p>
+<figure class="align-center" id="id42">
+<a class="reference internal image-reference" href="_images/image473.png"><img alt="Todos los roles del proceso creados" src="_images/image473.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 167 </span><span class="caption-text">Todos los roles del proceso creados</span><a class="headerlink" href="#id42" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="detallar-el-proceso">
+<h3>Detallar el proceso<a class="headerlink" href="#detallar-el-proceso" title="Link to this heading"></a></h3>
+<p>Ahora que tenemos definido el esqueleto del proceso y los recursos que
+éste involucra, restan por configurar los pasos, para que tengan el
+comportamiento deseado y utilicen los roles y datos que definimos.</p>
+<p>Comencemos revisando cada uno de los pasos y viendo las propiedades que
+necesitamos configurar en cada uno.</p>
+<section id="paso-de-inicio">
+<h4>Paso de inicio<a class="headerlink" href="#paso-de-inicio" title="Link to this heading"></a></h4>
+<p>En este paso, el iniciador del proceso debe ser capaz de ingresar varios
+productos con su costo correspondiente y si lo desea, su foto, además de
+una justificación de por qué quiere realizar dicho gasto. Los datos y
+roles que participan en cada paso se definen dentro de la configuración de
+visibilidad. Para configurar esto, se debe ingresar a los ajustes del
+paso haciendo doble clic sobre él y luego seleccionando la solapa de
+“Formulario”. Entonces se muestra un formulario como la de la
+<a class="reference internal" href="#tutorialdatascope"><span class="std std-numref">Figura 168</span></a>. Allí se listan los datos de
+aplicación que definimos anteriormente junto con la visibilidad que tienen
+en el paso. La visibilidad predeterminada es “Ausente” y para los datos
+“Justificación de compra”, “Monto” y “Nombre” debemos cambiarlos a
+“Requerido”, de manera que el usuario que inicia el proceso deba
+ingresar un valor para el dato.</p>
+<figure class="align-center" id="id43">
+<span id="tutorialdatascope"></span><a class="reference internal image-reference" href="_images/image492.png"><img alt="Visibilidad de datos" src="_images/image492.png" style="width: 6.41667in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 168 </span><span class="caption-text">Visibilidad de datos</span><a class="headerlink" href="#id43" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Esto se logra seleccionando las casillas correspondientes a cada uno de
+estos datos y haciendo clic en el botón “Requerido” (la opción de más a
+la izquierda). Luego de este cambio debemos seleccionar el dato “Imagen”
+y se lo pone en visibilidad “Editable” de modo que el solicitante pueda
+adjuntar una imagen pero que no esté obligado a hacerlo si no lo desea.
+Finalmente, en la configuración de instancias de línea, deben estar
+seleccionadas las casillas de permitir la adición y eliminación además
+de cambiar el número mínimo de instancias de 0 a 1, esto se logra
+haciendo clic en el 0 de dicha columna y cambiándolo por un 1
+(<a class="reference internal" href="#instancelineconfiguration"><span class="std std-numref">Figura 169</span></a>), de forma que el solicitante deba ingresar al menos un
+producto junto con todos los datos requeridos para dicho producto. La visibilidad
+del paso debería verse similar al de la <a class="reference internal" href="#finaldatascope"><span class="std std-numref">Figura 170</span></a>. Haz clic en
+el tic del paso para confirmar los cambios realizados a a visibilidad del
+paso.</p>
+<figure class="align-center" id="id44">
+<span id="instancelineconfiguration"></span><a class="reference internal image-reference" href="_images/image503.png"><img alt="Configuración de la instancia de línea" src="_images/image503.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 169 </span><span class="caption-text">Configuración de la instancia de línea</span><a class="headerlink" href="#id44" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id45">
+<span id="finaldatascope"></span><a class="reference internal image-reference" href="_images/image514.png"><img alt="Estado final de la visibilidad de los datos y del bloque de línea de los productos" src="_images/image514.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 170 </span><span class="caption-text">Estado final de la visibilidad de los datos y del bloque de línea de los productos</span><a class="headerlink" href="#id45" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Un cambio adicional que se puede hacer al paso, es cambiar la bandera.
+Este campo proporciona información adicional del estado del
+proceso al momento de iniciar el paso. Para cambiar la bandera hay que
+hacer clic en «Más opciones» en la solapa «General» de configuración del paso
+e ingresar la palabra “Autorizando” en el campo «Bandera», como
+se muestra en la <a class="reference internal" href="15-QflowDesign.html#starteventproperties"><span class="std std-numref">Figura 435</span></a>. Este cambio no es necesario para el
+funcionamiento del proceso, pero nos será útil a la hora de utilizar las
+funcionalidades de estadísticas de Qflow. Haga clic en el tic del paso
+para confirmar los cambios realizados.</p>
+<figure class="align-center" id="id46">
+<span id="starteventproperties"></span><a class="reference internal image-reference" href="_images/image523.png"><img alt="Ventana de propiedades del paso Ingreso solicitud" src="_images/image523.png" style="width: 6.41736in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 171 </span><span class="caption-text">Ventana de propiedades del paso Ingreso solicitud</span><a class="headerlink" href="#id46" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="calcular-monto-total">
+<h4>Calcular monto total<a class="headerlink" href="#calcular-monto-total" title="Link to this heading"></a></h4>
+<p>En este paso realizaremos la suma de los montos de todos los productos y
+se lo asignaremos al dato “Monto total”.</p>
+<p>Para esto, debemos entrar a los ajustes del paso. Dentro de la tabla de operaciones, que se encuentra vacía,
+debemos agregar una nueva operación con el botón “+” (<a class="reference internal" href="#formulatable"><span class="std std-numref">Figura 172</span></a>). Esta
+acción abrirá un panel llamado “Constructor de expresión de fórmula”.</p>
+<figure class="align-center" id="id47">
+<span id="formulatable"></span><a class="reference internal image-reference" href="_images/image533.png"><img alt="Tabla de fórmulas" src="_images/image533.png" style="width: 6.41736in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 172 </span><span class="caption-text">Tabla de fórmulas</span><a class="headerlink" href="#id47" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En el constructor de expresión de fórmula, debemos escribir el ítem de
+destino, que en este caso es el dato “Monto total”. En el cuadro de
+operando, utilizaremos el dato “Monto” que contiene todos los montos de
+los productos ingresados y en transformación utilizaremos “Sum” de modo
+que se sumen los valores de la variable (<a class="reference internal" href="#formulabuilder"><span class="std std-numref">Figura 173</span></a>).</p>
+<figure class="align-center" id="id48">
+<span id="formulabuilder"></span><a class="reference internal image-reference" href="_images/image543.png"><img alt="Constructor de expresión de fórmula" src="_images/image543.png" style="width: 5.33333in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 173 </span><span class="caption-text">Constructor de expresión de fórmula</span><a class="headerlink" href="#id48" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Al hacer clic en el tic, veremos que la tabla de operaciones del paso de
+fórmula se actualizó con la nueva fórmula que recién creamos. Hacer clic
+en el tic de este panel guarda los cambios del paso.</p>
+</section>
+<section id="aprueba-encargado-de-compras">
+<h4>¿Aprueba encargado de compras?<a class="headerlink" href="#aprueba-encargado-de-compras" title="Link to this heading"></a></h4>
+<p>A la primera tarea de usuario la llamaremos “¿Aprueba encargado de
+compras?” y le realizaremos los siguientes ajustes de forma tal que, en
+este paso, el encargado de compras pueda responder si aprueba o no el
+gasto. Para tomar la decisión se puede basar en el monto de éste e
+ingresar un comentario explicando su decisión. No puede, sin embargo,
+modificar el monto ingresado.</p>
+<p>Para lograr esto, es necesario cambiar la visibilidad del paso (de manera
+similar a como se hizo en el paso “Ingreso solicitud”), haciendo que los
+datos “Nombre”, “Monto”, “Imagen”, “Justificación de compra” y “Monto total”
+tengan la visibilidad “Sólo lectura”. Si los datos tienen la visibilidad
+“Ausente”, el encargado de compras no podrá verlos (<a class="reference internal" href="#task-data-scope"><span class="std std-numref">Figura 174</span></a>).</p>
+<figure class="align-center" id="id49">
+<span id="task-data-scope"></span><a class="reference internal image-reference" href="_images/image553.png"><img alt="Visibilidad de los distintos datos para la tarea" src="_images/image553.png" style="width: 6.40625in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 174 </span><span class="caption-text">Visibilidad de los distintos datos para la tarea</span><a class="headerlink" href="#id49" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Además, hay que configurar la pregunta y las respuestas a la misma, las cuales
+se utlizarán en la próxima compuerta exclusiva para determinar cómo continúa el flujo en
+base a estas.</p>
+<p>Las propiedades del mensaje de la tarea de usuario se editan en la
+solapa “General” de la configuración del paso. El campo “Asunto del mensaje”
+representa el título de la pregunta y el asunto del e-mail que es
+enviado al usuario de la tarea. Lo editamos poniendo el texto “Solicitud
+de gasto de”. Además, usaremos la funcionalidad de “Agregar etiqueta”
+para insertar una etiqueta que diga el nombre del usuario “Solicitante”
+al final del asunto. Nuevamente Qflow nos ofrece un cuadro que nos da
+sugerencias a medida que escribimos texto. Para activarlo hay que
+escribir “#” dentro del cuadro de asunto o apretar el botón a la derecha
+del recuadro de mensaje y escribiremos “Solicitante”.</p>
+<p>Con esto, se agregará al asunto la etiqueta “#%Role:»Solicitante»%#”.
+Durante la ejecución del proceso, Qflow reemplazará esa etiqueta por el
+nombre del miembro del rol “Solicitante”.</p>
+<p>El destinatario de la tarea debe ser el rol “Encargado de compras”. Para
+ingresar el destinatario:</p>
+<ol class="arabic simple">
+<li><p>Selecciona el recuadro de texto para ingresar el destinatario.</p></li>
+<li><p>Comienza a escribir “Encargado de compras”.</p></li>
+<li><p>Selecciona el rol “Encargado de compras” del recuadro.</p></li>
+</ol>
+<p>Las respuestas a la pregunta se configuran en la sección
+“Respuestas”. Para este paso queremos dos posibles respuestas: “Apruebo”
+y “Rechazo”. Para agregar las respuestas:</p>
+<ol class="arabic simple">
+<li><p>Haz clic en “+”.</p></li>
+<li><p>Ingresa el valor y la clave de la respuesta. La clave predeterminada
+es igual al valor, y no es necesario cambiar esto.</p></li>
+</ol>
+<p>En la <a class="reference internal" href="#usertaskpanel"><span class="std std-numref">Figura 175</span></a> se muestra cómo debería quedar la solapa “General” de
+las propiedades del paso.</p>
+<figure class="align-center" id="id50">
+<span id="usertaskpanel"></span><a class="reference internal image-reference" href="_images/image563.png"><img alt="Panel de propiedades del paso “¿Aprueba encargado de compras?” - Mensaje" src="_images/image563.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 175 </span><span class="caption-text">Panel de propiedades del paso “¿Aprueba encargado de compras?” - Mensaje</span><a class="headerlink" href="#id50" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>El vencimiento de la pregunta se configura en la solapa “Plazos” a la cual se accede
+desde el panel de configuración del paso. Queremos crear una acción
+temporal de tipo “vencimiento” que se dispare una vez transcurrido un
+día después del envío de la pregunta.</p>
+<p>Para crear la nueva acción temporal (<a class="reference internal" href="#newexpiration"><span class="std std-numref">Figura 176</span></a>):</p>
+<ol class="arabic">
+<li><p>Haz clic en “+”.</p></li>
+<li><p>En el panel “Configuración de acción temporizada”, selecciona
+“Vencimiento” (la opción de más a la derecha).</p></li>
+<li><p>En “Información de temporizador”, selecciona “Tiempo fijo”. Ingrese “1” en
+la cantidad de unidades de tiempo y seleccione “Días” como unidad
+de tiempo.</p></li>
+<li><p>Haz clic en el tic para agregar la acción a la tabla de control de
+tiempos.</p>
+<figure class="align-center" id="id51">
+<span id="newexpiration"></span><a class="reference internal image-reference" href="_images/image573.png"><img alt="Creación de vencimiento" src="_images/image573.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 176 </span><span class="caption-text">Creación de vencimiento</span><a class="headerlink" href="#id51" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<p>Luego de hacer esto la acción temporal aparecerá en la lista de acciones
+temporales del paso. En la <a class="reference internal" href="#timecontrolproperties"><span class="std std-numref">Figura 177</span></a> se muestra la
+sección “Plazos”, luego de haber creado la acción temporal.</p>
+<figure class="align-center" id="id52">
+<span id="timecontrolproperties"></span><a class="reference internal image-reference" href="_images/image583.png"><img alt="Menú de propiedades del paso ¿Aprueba encargado de compras? - Plazos" src="_images/image583.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 177 </span><span class="caption-text">Menú de propiedades del paso ¿Aprueba encargado de compras? - Plazos</span><a class="headerlink" href="#id52" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="aprueba">
+<h4>¿Aprueba?<a class="headerlink" href="#aprueba" title="Link to this heading"></a></h4>
+<p>En este paso definiremos si es necesario evaluar si el gerente de
+compras y el director deben responder la tarea o debemos notificarle el
+rechazo al solicitante. Para esto, debemos abrir la configuración
+del paso de compuerta exclusiva, donde podremos ver que las dos conexiones que
+tiene este paso (<a class="reference internal" href="#exclusivegatewaywithtwosteps"><span class="std std-numref">Figura 178</span></a>). Esto nos permite definir las condiciones
+que queremos que se cumplan para que el flujo continúe por dicho paso.</p>
+<figure class="align-center" id="id53">
+<span id="exclusivegatewaywithtwosteps"></span><a class="reference internal image-reference" href="_images/image593.png"><img alt="Compuerta exclusiva con los 2 pasos por los que continúa" src="_images/image593.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 178 </span><span class="caption-text">Compuerta exclusiva con los 2 pasos por los que continúa</span><a class="headerlink" href="#id53" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Debemos agregar para cada paso una nueva condición que dependiendo de la
+respuesta a la pregunta del paso anterior, se vaya en una dirección o la
+otra. Para el paso de “Tarea de notificación a usuario”, agregaremos una
+nueva condición con el botón de “+Condición” y comenzaremos a escribir
+“¿Aprueba el encargado de compras?” y seleccionaremos dicha tarea en el
+cuadro autocompletado. Entonces, en el segundo cuadro de texto
+comenzaremos a escribir la respuesta que deseamos, en este caso
+“Rechazo” como muestra la <a class="reference internal" href="#exclusive-gateway-configuration"><span class="std std-numref">Figura 179</span></a>.</p>
+<figure class="align-center" id="id54">
+<span id="exclusive-gateway-configuration"></span><a class="reference internal image-reference" href="_images/image615.png"><img alt="Configuración de la compuerta exclusiva para la tarea “Notificar rechazo” con su cuadro de autocompletado" src="_images/image615.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 179 </span><span class="caption-text">Configuración de la compuerta exclusiva para la tarea “Notificar rechazo” con su cuadro de autocompletado</span><a class="headerlink" href="#id54" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Para la compuerta exclusiva, repetiremos estos mismos pasos pero
+cambiaremos la respuesta del segundo cuadro de texto por “Apruebo”. La
+configuración de la compuerta exclusiva debería quedar similar a la
+<a class="reference internal" href="#configuredexclusivegateway"><span class="std std-numref">Figura 180</span></a>.</p>
+<figure class="align-center" id="id55">
+<span id="configuredexclusivegateway"></span><a class="reference internal image-reference" href="_images/image633.png"><img alt="Compuerta exclusiva correctamente configurada" src="_images/image633.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 180 </span><span class="caption-text">Compuerta exclusiva correctamente configurada</span><a class="headerlink" href="#id55" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="compuerta-exclusiva-1">
+<span id="id1"></span><h4>Compuerta exclusiva<a class="headerlink" href="#compuerta-exclusiva-1" title="Link to this heading"></a></h4>
+<p>El siguiente paso a configurar es similar al paso anterior, la
+diferencia es que lo configuraremos en dependencia de un dato de
+aplicación en lugar de una tarea. En este caso, veremos dos de los tres
+pasos a los cuales está conectada esta compuerta, ya que la tarea de
+notificación fue configurada como conexión por defecto cuando diseñamos
+el flujo. El proceso continuará por esta conexión cuando no se cumpla
+ninguna de las condiciones anteriores. Configurar las conexiones
+dependiendo del dato de aplicación es similar a cuando se evalúa una
+tarea de usuario.</p>
+<p>Debemos ingresar a la configuración de la compuerta exclusiva y
+para “Debe aprobar gerente de compras”, agregaremos una nueva condición.
+En el primer recuadro, debemos seleccionar el dato “Monto total”,
+cambiaremos igual por “Mayor a” y en el segundo recuadro escribiremos
+“500”. Luego, debemos agregar una segunda condición a esta misma tarea,
+la cual también tendrá el dato “Monto total”, pero con la condición
+“Menor o igual a” y en el segundo recuadro “1000”.</p>
+<p>Para “Deben aprobar gerente de compras y director”, debemos agregar una
+única condición, nuevamente con el dato “Monto total” pero con la
+condición “Mayor a” y luego “1000”. El resultado debería ser similar al
+de la <a class="reference internal" href="#secondexclusivegatewayconfiguration"><span class="std std-numref">Figura 181</span></a>.</p>
+<figure class="align-center" id="id56">
+<span id="secondexclusivegatewayconfiguration"></span><a class="reference internal image-reference" href="_images/image643.png"><img alt="Configuración de la segunda compuerta exclusiva" src="_images/image643.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 181 </span><span class="caption-text">Configuración de la segunda compuerta exclusiva</span><a class="headerlink" href="#id56" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="debe-aprobar-gerente-de-compras">
+<h4>Debe aprobar gerente de compras<a class="headerlink" href="#debe-aprobar-gerente-de-compras" title="Link to this heading"></a></h4>
+<p>En este paso, configuraremos el rol aprobador gerencial para que sea el
+mismo que el rol de “gerente de compras”. Para hacer esto, debemos
+agregar una nueva operación de la misma manera que cuando configuramos
+el paso “Calcular monto total”.</p>
+<p>Dentro del “Constructor de expresión de fórmula”, podemos también
+seleccionar un rol. En este caso, debemos seleccionar el “Aprobador
+gerencial” y en el operando, seleccionaremos el rol “Gerente de compras”
+(<a class="reference internal" href="#formulabuilder2"><span class="std std-numref">Figura 182</span></a>).</p>
+<figure class="align-center" id="id57">
+<span id="formulabuilder2"></span><a class="reference internal image-reference" href="_images/image653.png"><img alt="Constructor de expresión de fórmula para el Gerente de compras" src="_images/image653.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 182 </span><span class="caption-text">Constructor de expresión de fórmula para el Gerente de compras</span><a class="headerlink" href="#id57" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="deben-aprobar-gerente-de-compras-y-director">
+<h4>Deben aprobar gerente de compras y director<a class="headerlink" href="#deben-aprobar-gerente-de-compras-y-director" title="Link to this heading"></a></h4>
+<p>En este paso, configuraremos el rol aprobador gerencial al igual que en
+el paso anterior, sólo que, tendrá tanto el rol del “Gerente de
+compras”, como el de “Director”.</p>
+<p>En el “Constructor de expresión de fórmula”, seleccionaremos al
+“Aprobador gerencial” y en el operando, seleccionaremos el rol “Gerente
+de compras” de la misma forma que hicimos con el paso anterior, pero
+esta vez, además cambiaremos el operador por “+”. Hacer esto nos
+permitirá agregar un nuevo operando, al cual le asignaremos el rol
+“Director” (<a class="reference internal" href="#formulabuilder3"><span class="std std-numref">Figura 183</span></a>).</p>
+<figure class="align-center" id="id58">
+<span id="formulabuilder3"></span><a class="reference internal image-reference" href="_images/image663.png"><img alt="Constructor de expresión de fórmula para el Gerente de compras y el Director" src="_images/image663.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 183 </span><span class="caption-text">Constructor de expresión de fórmula para el Gerente de compras y el Director</span><a class="headerlink" href="#id58" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="aprobacion-gerencial">
+<h4>Aprobación gerencial<a class="headerlink" href="#aprobacion-gerencial" title="Link to this heading"></a></h4>
+<p>Este paso comparte muchas características con el paso “¿Aprueba
+encargado de compras?”, Qflow te permite copiar pasos incluida su
+configuración. Puedes hacer esto borrando el paso “Aprobación gerencial”
+y luego seleccionando el paso “¿Aprueba encargado de compras?” y
+presionando “Control + C” para copiar y luego “Control + V” para pegar.
+Luego en la configuración, debemos ajustarle el nombre, para que vuelva
+a ser “Aprobación gerencial” y cambiar el destinatario de la tarea (en
+la sección de “Participantes”) para que sea el “Aprobador gerencial”. De esta
+manera, la tarea notificará a todos los usuarios que estén en el rol del
+aprobador gerencial, que pueden ser solo el gerente de compras o el
+gerente y el director. También, en la sección de respuestas dentro del “Más opciones”,
+debemos cambiar el criterio de respuesta múltiple a “todos los usuarios han
+contestado” para que la tarea sólo pueda continuar una vez que todos los
+aprobadores hayan respondido en lugar de sólo uno (<a class="reference internal" href="#multipleresponse"><span class="std std-numref">Figura 184</span></a>).</p>
+<figure class="align-center" id="id59">
+<span id="multipleresponse"></span><a class="reference internal image-reference" href="_images/image673.png"><img alt="Criterio de respuesta múltiple" src="_images/image673.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 184 </span><span class="caption-text">Criterio de respuesta múltiple</span><a class="headerlink" href="#id59" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Una vez configurada la tarea, debemos volver a unir la tarea con las
+conexiones que tenía anteriormente. Recuerda que la conexión entre la
+tarea de usuario y la de notificación correspondiente a notificar el
+rechazo, se hace desde el evento temporizador de borde y no desde la
+tarea en sí misma.</p>
+</section>
+<section id="aprueba-1">
+<span id="id2"></span><h4>¿Aprueba?<a class="headerlink" href="#aprueba-1" title="Link to this heading"></a></h4>
+<p>Para esta compuerta exclusiva, debemos agregar nuevamente las
+condiciones para cada paso. En “Notificar rechazo” agregaremos una nueva
+condición en la primer casilla, debemos seleccionar el paso “Aprobación
+gerencial” y en la segunda casilla la respuesta “Rechazo”. Para la
+segunda tarea, también utilizaremos el paso “Aprobación gerencial”, pero
+en este caso, debemos cambiar la opción “Algún usuario contesto” por
+“Todos los usuarios contestaron” ya que queremos que se apruebe el gasto
+si y sólo si todos los participantes de la aprobación aprueban el gasto.
+Finalmente, en la segunda casilla seleccionaremos “Apruebo” como muestra
+la <a class="reference internal" href="#exclusivegatewayconfiguration2"><span class="std std-numref">Figura 185</span></a>.</p>
+<figure class="align-center" id="id60">
+<span id="exclusivegatewayconfiguration2"></span><a class="reference internal image-reference" href="_images/image683.png"><img alt="Configuración de paso compuerta exclusiva para la aprobación gerencial" src="_images/image683.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 185 </span><span class="caption-text">Configuración de paso compuerta exclusiva para la aprobación gerencial</span><a class="headerlink" href="#id60" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="notificar-rechazo">
+<h4>Notificar rechazo<a class="headerlink" href="#notificar-rechazo" title="Link to this heading"></a></h4>
+<p>Este paso, se debe configurar correctamente para que el solicitante
+reciba una notificación de Qflow, que indique que la solicitud ha sido
+rechazada. Para lograr esto, hay que editar las propiedades “Asunto del
+mensaje” y “Destinatarios”, que se encuentran en la solapa “General”,
+dentro del menú de propiedades del paso.</p>
+<p>Esto se hace de manera análoga a como ya se hizo en las tareas de
+usuario. En el asunto, ingresa “Su solicitud ha sido rechazada” y
+selecciona el rol “Solicitante” como destinatario. El panel de
+propiedades del paso, con estos cambios, se muestra en la <a class="reference internal" href="#rejectpropertiesmenu"><span class="std std-numref">Figura 186</span></a>.</p>
+<figure class="align-center" id="id61">
+<span id="rejectpropertiesmenu"></span><a class="reference internal image-reference" href="_images/image693.png"><img alt="Menú de propiedades del paso Notificar rechazo – Mensaje" src="_images/image693.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 186 </span><span class="caption-text">Menú de propiedades del paso Notificar rechazo – Mensaje</span><a class="headerlink" href="#id61" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Además, hay que cambiar la visibilidad de los datos en el paso, pues se
+quiere que el solicitante pueda ver todos los datos involucrados en este
+proceso. Esto se hace cambiando la visibilidad a
+“Sólo lectura” desde la solapa “Formulario” de las propiedades del paso.</p>
+</section>
+<section id="notificar-aprobacion">
+<h4>Notificar aprobación<a class="headerlink" href="#notificar-aprobacion" title="Link to this heading"></a></h4>
+<p>Este paso se configura igual que el paso “Notificar rechazo”, salvo que
+el nombre del paso debería ser “Notificar aprobación” y el asunto “Su
+solicitud ha sido aprobada”.</p>
+</section>
+<section id="rechazo-compra">
+<h4>Rechazo compra<a class="headerlink" href="#rechazo-compra" title="Link to this heading"></a></h4>
+<p>Este es el paso que marca el fin del proceso cuando la solicitud es
+rechazada. Se puede utilizar la “Bandera” para distinguir los
+procesos que finalizaron en este paso de los que terminaron en el otro
+paso de fin.</p>
+<p>Abre la ventana de propiedades del paso y escribe “Rechazada” en el
+campo “Bandera”. Además, se puede chequear la opción “Progreso
+= 100%” para que, al terminar, el flujo quede marcado con un progreso de
+100%.</p>
+<figure class="align-center" id="id62">
+<a class="reference internal image-reference" href="_images/image703.png"><img alt="Menú de propiedades del paso Rechazo compra" src="_images/image703.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 187 </span><span class="caption-text">Menú de propiedades del paso Rechazo compra</span><a class="headerlink" href="#id62" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="apruebo-compra">
+<h4>Apruebo compra<a class="headerlink" href="#apruebo-compra" title="Link to this heading"></a></h4>
+<p>Este paso se configura igual que el paso “Rechazo compra”, salvo que el
+nombre es distinto y la bandera se debería cambiar por “Aprobada”.</p>
+<p>El diseño final del proceso debería verse similar al de la <a class="reference internal" href="#flowfinaldesign"><span class="std std-numref">Figura 188</span></a>.</p>
+<figure class="align-center" id="id63">
+<span id="flowfinaldesign"></span><a class="reference internal image-reference" href="_images/image713.png"><img alt="Diseño final del proceso" src="_images/image713.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 188 </span><span class="caption-text">Diseño final del proceso</span><a class="headerlink" href="#id63" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="publicacion">
+<h3>Publicación<a class="headerlink" href="#publicacion" title="Link to this heading"></a></h3>
+<p>Ahora que el proceso está terminado, es tiempo de guardarlo y publicarlo.</p>
+<p>Los cambios realizados en la plantilla se guardan automáticamente como una
+copia temporal. Sin embargo, estos cambios no se reflejarán en el proceso
+hasta que sean confirmados. Esto permite realizar modificaciones sin afectar
+a los procesos en ejecución. Para confirmar y aplicar los cambios al proceso real
+debes hacer clic en «Guardar» y seleccionar «Guardar y finalizar cambios».
+En caso de querer modificar la configuración en el futuro, haz clic en
+«Editar» para volver a habilitar la edición.</p>
+<p>Finalmente, para que se puedan iniciar procesos de la
+plantilla desde Qflow Task, es necesario publicarla.
+Para lograr esto, haz clic en el botón de publicar, ubicado
+en la parte derecha de la barra de acciones.
+Alternativamente, puedes hacer clic derecho sobre la
+plantilla en el explorador de soluciones y seleccionar “Publicar”.
+Una vez publicado el proceso se abrirá un cartel como el de la
+<a class="reference internal" href="#publishsuccess"><span class="std std-numref">Figura 189</span></a>. Si hacemos clic en “Iniciar”, se abrirá una nueva
+página en la que podremos iniciar un proceso de la plantilla recién
+publicada.</p>
+<figure class="align-center" id="id64">
+<span id="publishsuccess"></span><a class="reference internal image-reference" href="_images/publishSuccess.png"><img alt="Proceso publicado con éxito" src="_images/publishSuccess.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 189 </span><span class="caption-text">Proceso publicado con éxito</span><a class="headerlink" href="#id64" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="ejecucion-del-proceso">
+<h2>Ejecución del proceso<a class="headerlink" href="#ejecucion-del-proceso" title="Link to this heading"></a></h2>
+<p>Esta sección describe cómo ejecutar el proceso.</p>
+<section id="ingreso-a-qflow-task">
+<h3>Ingreso a Qflow Task<a class="headerlink" href="#ingreso-a-qflow-task" title="Link to this heading"></a></h3>
+<p>Ingresamos a él a través del menú de navegación de herramientas, como se muestra en la <a class="reference internal" href="#toolnavigation"><span class="std std-numref">Figura 190</span></a></p>
+<figure class="align-center" id="id65">
+<span id="toolnavigation"></span><a class="reference internal image-reference" href="_images/toolNavigation.gif"><img alt="Navegar por herramientas" src="_images/toolNavigation.gif" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 190 </span><span class="caption-text">Navegar por herramientas</span><a class="headerlink" href="#id65" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Opcionalmente, se puede también acceder con el navegador a <em>https://{espacioDeTrabajo}.task.qflowbpm.com</em>
+(donde {espacioDeTrabajo} debe ser reemplazado por el nombre de su espacio de trabajo sin espacios).</p>
+<p>Se ingresará con el usuario con el que se ingresó a Qflow Access.</p>
+<p>En cambio, si el usuario actual no tiene permisos, se pedirán las
+credenciales de un usuario que sí los tenga, tal como se muestra en la
+<a class="reference internal" href="#logintask"><span class="std std-numref">Figura 191</span></a>. En ese caso, se debe ingresar el nombre y la contraseña de un
+usuario que tenga permisos para ingresar a Qflow Task.</p>
+<p>También permite autenticarse con cuenta de Microsoft y Google (solo en
+caso de que el usuario exista en el sistema de Qflow)</p>
+<figure class="align-center" id="id66">
+<span id="logintask"></span><a class="reference internal image-reference" href="_images/login.png"><img alt="Login Qflow Task" src="_images/login.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 191 </span><span class="caption-text">Login Qflow Task</span><a class="headerlink" href="#id66" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="inicio-de-un-proceso">
+<h3>Inicio de un proceso<a class="headerlink" href="#inicio-de-un-proceso" title="Link to this heading"></a></h3>
+<p>Ahora ya estamos en Qflow Task, como se muestra en la
+<a class="reference internal" href="#qflowtaskhome"><span class="std std-numref">Figura 192</span></a>. Esta herramienta permite ejecutar todo tipo de operaciones
+relacionadas con los procesos en ejecución. Algunas de estas operaciones
+son: iniciar un proceso, responder preguntas o tareas pendientes y ver
+notificaciones recibidas.</p>
+<p>Comencemos por iniciar un proceso de la plantilla que acabamos de crear.
+Para esto iremos a “Iniciar proceso”, que está en el menú de la
+izquierda. Allí se muestra una lista con todas las plantillas de proceso
+que tienen una versión publicada.</p>
+<p>Si hace clic en una plantilla de la lista, el usuario es dirigido a la
+página de inicio del proceso. Allí se ingresa la información general del
+proceso y valores para los datos de aplicación que se marcaron como
+editables en el paso de inicio de la versión de plantilla. El formulario
+a completar se muestra en la <a class="reference internal" href="#startflowform"><span class="std std-numref">Figura 193</span></a>. Una vez que ingresemos los datos
+haremos clic en “Iniciar” para comenzar el proceso.</p>
+<figure class="align-center" id="id67">
+<span id="qflowtaskhome"></span><a class="reference internal image-reference" href="_images/qflowtaskfirstlogin.PNG"><img alt="Página principal de Qflow Task" src="_images/qflowtaskfirstlogin.PNG" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 192 </span><span class="caption-text">Página principal de Qflow Task</span><a class="headerlink" href="#id67" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id68">
+<span id="startflowform"></span><a class="reference internal image-reference" href="_images/image763.png"><img alt="Formulario de inicio del proceso para la plantilla creada" src="_images/image763.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 193 </span><span class="caption-text">Formulario de inicio del proceso para la plantilla creada</span><a class="headerlink" href="#id68" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="responder-preguntas">
+<h3>Responder preguntas<a class="headerlink" href="#responder-preguntas" title="Link to this heading"></a></h3>
+<p>Luego de iniciado el proceso, Qflow muestra una página con información
+general del proceso que fue iniciado. Desde esta página podremos acceder
+a una vista más detallada del proceso, haciendo clic en el botón <a class="reference internal" href="_images/image903.png"><img alt="image8" src="_images/image903.png" style="width: 0.18in; height: 0.18in;" /></a>
+en la esquina superior derecha y luego haciendo clic en “Detalles del proceso”.
+Esto nos llevará a una página que muestra información detallada
+del proceso, la cual está separada en varias solapas. En particular,
+resulta interesante observar la solapa “General”, que muestra una tabla
+con información general del proceso y la solapa “Diseño” (<a class="reference internal" href="#flowdetails"><span class="std std-numref">Figura 194</span></a>),
+que muestra el diagrama del proceso y qué pasos se han ejecutado. En
+esta última solapa se puede observar que el proceso está en el paso
+“¿Aprueba encargado de compras?”. El proceso se quedará en este paso
+hasta que la pregunta sea respondida o se cumpla el vencimiento.</p>
+<p>Para ir al formulario que se usa para responder la pregunta podemos
+hacer clic en el paso de pregunta en la solapa “Diseño” y luego en la
+tarea mostrada en la tabla “Tareas del paso”. Una alternativa es hacer
+clic en el vínculo “Tareas activas del proceso”, que se encuentra en el
+menú de páginas relacionadas en la esquina superior derecha y doble clic
+sobre la fila mostrada en la vista.</p>
+<p>El formulario de respuesta de la pregunta se muestra en la <a class="reference internal" href="#flowresponseform"><span class="std std-numref">Figura 195</span></a>.</p>
+<p>Allí, el encargado de compras puede ver en el campo “Asunto” el nombre
+del usuario solicitante (recordar que habíamos usado una etiqueta) y el
+monto del gasto solicitado. También puede ingresar un comentario si el
+paso tiene la configuración correspondiente. Luego, debe elegir cuál es
+su respuesta, seleccionando “Apruebo” o “Rechazo” en la lista en la que
+se puede seleccionar la respuesta. Finalmente, debe confirmar su
+respuesta, haciendo clic en “Responder”. Ingresa un comentario y
+responde la pregunta con la respuesta “Apruebo”.</p>
+<figure class="align-center" id="id69">
+<span id="flowdetails"></span><a class="reference internal image-reference" href="_images/image773.png"><img alt="Detalles del proceso" src="_images/image773.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 194 </span><span class="caption-text">Detalles del proceso</span><a class="headerlink" href="#id69" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id70">
+<span id="flowresponseform"></span><a class="reference internal image-reference" href="_images/image783.png"><img alt="Formulario de respuesta de la pregunta" src="_images/image783.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 195 </span><span class="caption-text">Formulario de respuesta de la pregunta</span><a class="headerlink" href="#id70" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="observacion-de-notificaciones">
+<h3>Observación de notificaciones<a class="headerlink" href="#observacion-de-notificaciones" title="Link to this heading"></a></h3>
+<p>Luego de responder la pregunta, diríjete nuevamente a la página de
+detalles del proceso. Observa en la solapa “Diseño” que el proceso ha
+terminado de ejecutar el paso “¿Aprueba encargado de compras?” y el
+grafo continuó automáticamente, dependiendo del monto que hayas ingresado
+en la tarea, si el monto ingresado es menor a 500 dólares, la tarea
+debería haber avanzado hasta el paso “Notificar aprobación”, en caso que
+hayas ingresado un valor mayor a 500 dólares, la tarea debió haber
+avanzado hasta el paso “Aprobación general” y deberás responder esta
+tarea para poder completar el proceso.</p>
+<p>Una vez contestadas todas las tareas de usuario del proceso, si accedes a
+la solapa “General”, puedes observar que el “Estado” es “Finalizado”.
+Esto indica que el proceso ha terminado su ejecución.</p>
+<p>Queda por ver la notificación enviada al solicitante, en la cual se
+indica que su solicitud de gasto ha sido aprobada. Esta notificación
+puede verse haciendo clic en el paso “Notificar aprobación” en el diseño
+y luego haciendo clic en la notificación en el panel “Tareas del paso”.
+En la <a class="reference internal" href="#notificationform"><span class="std std-numref">Figura 196</span></a> se muestra el formulario de la notificación. Allí, el
+solicitante ve en el asunto que su solicitud ha sido aprobada. También
+puede ver el comentario que ingresó el aprobador y el monto del gasto
+que había solicitado.</p>
+<p>Se recomienda, en este momento, ejecutar un buen número de procesos,
+probando los diferentes caminos que definimos en el diseño del proceso.
+Por ejemplo, ejecutar procesos donde el monto sea mayor a 500, 1000,
+etc. y dar respuestas diferentes a las preguntas de aprobación de la
+solicitud de gastos.</p>
+<figure class="align-center" id="id71">
+<span id="notificationform"></span><a class="reference internal image-reference" href="_images/image792.png"><img alt="Formulario de la notificación" src="_images/image792.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 196 </span><span class="caption-text">Formulario de la notificación</span><a class="headerlink" href="#id71" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="bitacora-de-comentarios">
+<h3>Bitácora de comentarios<a class="headerlink" href="#bitacora-de-comentarios" title="Link to this heading"></a></h3>
+<p>Si se configuraron las opciones de agregar comentarios, o de agregar
+comentarios a las respuestas, las podremos ver en la bitácora de
+comentarios. Para acceder a ella, debemos ir a los detalles de un
+proceso, y abrir la pestaña “Detalle”. Aquí podremos ver una linea
+temporal con las respuestas y los comentarios que se hayan guardado
+(<a class="reference internal" href="#commentslog"><span class="std std-numref">Figura 197</span></a>).</p>
+<figure class="align-center" id="id72">
+<span id="commentslog"></span><a class="reference internal image-reference" href="_images/image893.png"><img alt="Bitácora de comentarios" src="_images/image893.png" style="width: 6.41042in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 197 </span><span class="caption-text">Bitácora de comentarios</span><a class="headerlink" href="#id72" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="vistas">
+<h3>Vistas<a class="headerlink" href="#vistas" title="Link to this heading"></a></h3>
+<p>Podemos crear una vista personalizada que muestre solamente los procesos
+de la plantilla que acabamos de crear (la vista “Procesos”, que ya viene
+predefinida, muestra todos los procesos). Para ir a la página donde se
+crean las vistas haz clic en “Vistas”, en el menú lateral de Qflow Task.
+Una vez que hayas hecho clic en ese vínculo, Qflow muestra una página
+con las vistas disponibles.</p>
+<p>Para crear una vista de procesos, haz clic en el botón “+”. Al hacer
+esto, se mostrará la página de selección de paquete y tipo de ítems que
+listará la vista como se muestra en la <a class="reference internal" href="#packageselectionforview"><span class="std std-numref">Figura 198</span></a>. El paquete por defecto
+es el “Raíz” y se dejará ese valor. Como queríamos una vista sobre
+procesos, en el panel de la derecha hay que seleccionar el ítem
+“Procesos” y luego hacer clic en “Continuar”. Esto nos lleva a la página
+de edición de la nueva vista.</p>
+<figure class="align-center" id="id73">
+<span id="packageselectionforview"></span><a class="reference internal image-reference" href="_images/image802.png"><img alt="Selección de paquete e ítem para una nueva vista" src="_images/image802.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 198 </span><span class="caption-text">Selección de paquete e ítem para una nueva vista</span><a class="headerlink" href="#id73" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En el panel “Detalles” ingresa “Solicitudes de gasto”
+en el campo “Nombre”, y marca la opción “Vista destacada”.</p>
+<p>En el panel “Filtros” agregaremos un filtro para que la vista sólo
+muestre procesos de la plantilla que creamos anteriormente. Para agregar
+un filtro:</p>
+<ol class="arabic simple">
+<li><p>Haz clic en el botón “+” del panel “Filtros”. Eso hace que Qflow
+despliegue una tabla con tres solapas.</p></li>
+<li><p>En la solapa “Columnas de sistema”, haz haga doble clic sobre el elemento
+“Nombre de la plantilla”. Al hacerlo se agregará una fila en el
+árbol de filtros más abajo.</p></li>
+<li><p>En la fila agregada, deja el operador por defecto (“igual”) y en el
+campo a la derecha del operador ingresa el valor “Tutorial”.</p></li>
+</ol>
+<p>Luego de esto, la página debería verse como en la <a class="reference internal" href="#viewconfiguration"><span class="std std-numref">Figura 199</span></a>. Haz clic
+en “Listo” para crear la nueva vista. Nota que la vista aparece en el
+menú lateral, bajo el grupo “Vistas”. Al hacer clic en ese vínculo,
+podrás ver el listado de elementos de la vista (<a class="reference internal" href="#tutorialmanagetoolpermissions"><span class="std std-numref">Figura 200</span></a>).</p>
+<figure class="align-center" id="id74">
+<span id="viewconfiguration"></span><a class="reference internal image-reference" href="_images/image813.png"><img alt="Configuración de una vista" src="_images/image813.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 199 </span><span class="caption-text">Configuración de una vista</span><a class="headerlink" href="#id74" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id75">
+<span id="tutorialmanagetoolpermissions"></span><a class="reference internal image-reference" href="_images/image823.png"><img alt="Listado de la vista" src="_images/image823.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 200 </span><span class="caption-text">Listado de la vista</span><a class="headerlink" href="#id75" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="graficas">
+<h3>Gráficas<a class="headerlink" href="#graficas" title="Link to this heading"></a></h3>
+<p>Podemos crear gráficas personalizadas para realizar un seguimiento a más
+alto nivel de los procesos. Agregaremos una gráfica que muestre los
+procesos de la plantilla que creamos, discriminando por su bandera.</p>
+<p>Para crear una gráfica de procesos hay que acceder al vínculo gráficas
+del menú lateral y seguir el mismo procedimiento que en la creación de
+una vista. Luego de haber seleccionado el paquete “Raíz” y el ítem
+“Procesos” nos encontramos con la página de edición de la nueva gráfica.</p>
+<p>En el panel “Detalles” ingresa, en el campo “Nombre”, “Procesos por
+bandera”.</p>
+<p>En el panel “Apariencia” selecciona el tipo de gráfica “Columnas
+agrupadas” como se muestra en la <a class="reference internal" href="#chartcreation"><span class="std std-numref">Figura 201</span></a>. En “Medida” selecciona
+“Cantidad” como tipo de agregación y haz clic el botón de la barra
+debajo de “Columna” para desplegar los tipos de columnas disponibles.
+Haz doble clic en el elemento “ID correlativo del proceso” de la solapa
+“Columnas de sistema” para que cuente la cantidad de procesos
+distinguiéndolos por su identificador.</p>
+<figure class="align-center" id="id76">
+<span id="chartcreation"></span><a class="reference internal image-reference" href="_images/image833.png"><img alt="Creación de una gráfica: detalles y selección de apariencia" src="_images/image833.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 201 </span><span class="caption-text">Creación de una gráfica: detalles y selección de apariencia</span><a class="headerlink" href="#id76" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En el panel “Dimensiones” haz clic en el botón “+” para agregar como
+dimensión la columna “Bandera del proceso”. Selecciónala haciendo doble
+clic en la lista.</p>
+<p>Debemos incluir columnas que formarán parte de la vista generada a
+partir de la información de la gráfica y que nos brinden información
+útil sobre cada proceso. Para hacerlo, en el panel “Columnas” haz clic
+en el botón “+” y de la misma forma que con las dimensiones, se agregue
+las columnas “ID correlativo del proceso”, “Nombre del proceso”, “Fecha
+de inicio del proceso”, “Estado del proceso” y “Bandera del proceso”.</p>
+<p>Por último, si queremos que la gráfica refleje los datos de los procesos
+de la plantilla que creamos, se debe agregar un filtro por nombre de
+plantilla de la misma forma que se hizo para la vista anterior.</p>
+<p>Finalmente, la página debería verse como en la <a class="reference internal" href="#measuredimensionandcolumns"><span class="std std-numref">Figura 202</span></a>. Para finalizar
+la creación de la gráfica haz clic en “Listo”.</p>
+<figure class="align-center" id="id77">
+<span id="measuredimensionandcolumns"></span><a class="reference internal image-reference" href="_images/image843.png"><img alt="Creación de una gráfica: configuración de medida, dimensiones y columnas" src="_images/image843.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 202 </span><span class="caption-text">Creación de una gráfica: configuración de medida, dimensiones y columnas</span><a class="headerlink" href="#id77" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="tablero-de-control-principal">
+<h3>Tablero de control principal<a class="headerlink" href="#tablero-de-control-principal" title="Link to this heading"></a></h3>
+<p>Se dispone de un tablero de control en la página principal de Qflow Task, en
+el que se puede tener información útil al alcance de la mano. Es posible
+añadir vistas, indicadores y gráficas que estarán siempre actualizadas.</p>
+<p>Agregaremos al tablero de control principal la vista y la gráfica que
+creamos. Para hacerlo, primero hay que ir a la página de inicio,
+haciendo clic en el logo de Qflow Task, que está en el cabezal. Luego hay
+que hacer clic en el botón con ícono de lápiz para editar el tablero,
+que se encuentra en la parte superior derecha de la página principal. Se
+mostrará una tabla con tres solapas que lista los elementos que se
+pueden agregar al tablero, y debajo de ella un área que oficiará de
+contenedor donde se incluirán los elementos, como se muestra en la
+<a class="reference internal" href="#dashboardedition"><span class="std std-numref">Figura 203</span></a>. En la solapa “Vistas” navegaremos hasta el elemento
+“Solicitud de gasto” y lo agregaremos al área inferior arrastrándolo,
+con doble clic, con la opción “Agregar del menú contextual del elemento
+o con el botón “+” de la tabla. De la misma forma, en la solapa
+“Gráficas” seleccionamos la gráfica “Procesos por bandera” y la
+agregamos al tablero.</p>
+<p>Luego de hacer esto, se pueden modificar la disposición y dimensiones de
+la gráfica y la vista en el tablero para que ocupen todo el ancho de la
+página y tengan el largo suficiente para visualizar todo el contenido.
+Finalmente, para guardar los cambios haz clic en el botón con el ícono
+de disquete que se encuentra en la parte superior derecha de la página y
+el tablero de control principal se verá similar al de la <a class="reference internal" href="#editeddashboard"><span class="std std-numref">Figura 204</span></a>.</p>
+<figure class="align-center" id="id78">
+<span id="dashboardedition"></span><a class="reference internal image-reference" href="_images/editdashboard.png"><img alt="Modificación del tablero de control principal" src="_images/editdashboard.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 203 </span><span class="caption-text">Modificación del tablero de control principal</span><a class="headerlink" href="#id78" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id79">
+<span id="editeddashboard"></span><a class="reference internal image-reference" href="_images/editeddashboard.png"><img alt="Tablero de control principal modificado" src="_images/editeddashboard.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 204 </span><span class="caption-text">Tablero de control principal modificado</span><a class="headerlink" href="#id79" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="26-QflowToolsTutorial.html" class="btn btn-neutral float-left" title="Introducción a las herramientas de Qflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="23-DesignTutorial.html" class="btn btn-neutral float-right" title="Diseña un proceso de quejas" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

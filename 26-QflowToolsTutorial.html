@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introducción a las herramientas de Qflow &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/26-QflowToolsTutorial.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Crea tu primer proceso" href="06-Tutorial.html" />
+    <link rel="prev" title="Tutoriales" href="TutorialsIndex.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Introducción a las herramientas de Qflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduccion">Introducción</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qflow-design-disenador-web-de-procesos-de-negocio">Qflow Design: diseñador web de procesos de negocio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qflow-task-herramienta-de-tareas-y-procesos">Qflow Task: herramienta de tareas y procesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qflow-team-administrador-del-equipo-de-trabajo-y-su-estructura-organizacional">Qflow Team: administrador del equipo de trabajo y su estructura organizacional</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qflow-admin-administracion-y-monitoreo-del-sistema">Qflow Admin: administración y monitoreo del sistema</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="06-Tutorial.html">Crea tu primer proceso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="23-DesignTutorial.html">Diseña un proceso de quejas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="24-QflowTaskTutorial.html">Descubre Qflow Task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27-QflowTeamTutorial.html">Configura el equipo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="28-QflowAdminTutorial.html">Administra y monitorea el sistema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="37-QformTutorial.html">Crea tu formulario personalizado</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="TutorialsIndex.html">Tutoriales</a></li>
+      <li class="breadcrumb-item active">Introducción a las herramientas de Qflow</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduccion-a-las-herramientas-de-qflow">
+<h1>Introducción a las herramientas de Qflow<a class="headerlink" href="#introduccion-a-las-herramientas-de-qflow" title="Link to this heading"></a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading"></a></h2>
+<p>El objetivo de este tutorial es dar una breve introducción a Qflow y cada una de sus herramientas.</p>
+<p>Qflow es una plataforma para definir, automatizar y gestionar procesos de
+negocio o workflows empresariales.</p>
+<p>La misma se compone de 4 herramientas:</p>
+<ul class="simple">
+<li><p><strong>Qflow Design</strong></p></li>
+<li><p><strong>Qflow Task</strong></p></li>
+<li><p><strong>Qflow Team</strong></p></li>
+<li><p><strong>Qflow Admin</strong></p></li>
+</ul>
+<p>A través del portal de acceso común <strong>Qflow Access</strong> es posible ingresar
+a cada una de ellas, así como a sus respectivos manuales y tutoriales.</p>
+<figure class="align-center" id="id2">
+<img alt="Qflow Access" src="_images/QflowToolsTutorial-QflowAccess.png" />
+<figcaption>
+<p><span class="caption-number">Figura 109 </span><span class="caption-text">Qflow Access</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>A continuación se describen brevemente las particularidades de cada herramienta:</p>
+</section>
+<section id="qflow-design-disenador-web-de-procesos-de-negocio">
+<h2>Qflow Design: diseñador web de procesos de negocio<a class="headerlink" href="#qflow-design-disenador-web-de-procesos-de-negocio" title="Link to this heading"></a></h2>
+<p>Esta herramienta permite diseñar procesos para luego poder utilizarlos según las necesidades de cada cliente.</p>
+<figure class="align-center" id="id3">
+<img alt="Qflow Design" src="_images/QflowToolsTutorial-QflowDesign.png" />
+<figcaption>
+<p><span class="caption-number">Figura 110 </span><span class="caption-text">Qflow Design</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Qflow Design nos permite diseñar en base a procesos creados manualmente, o creados a partir de una descripción
+textual usando nuestro <a class="reference internal" href="15-QflowDesign.html#aiassistant"><span class="std std-ref">asistente de inteligencia artificial</span></a>, que es capaz de generar el flujo
+del proceso, así como también los datos y roles necesarios para su funcionamiento.</p>
+<p>Para comenzar a crear procesos es necesario acceder al árbol de paquetes en el panel izquierdo de la herramienta.
+Allí se encuentra el paquete “Raíz”, donde pueden crearse sub-paquetes por cada una de las áreas de la organización.
+Por último, desde la ruta donde se desea ubicar el proceso es necesario crear la plantilla de proceso.</p>
+<p>Dentro de cada plantilla de proceso es posible definir diferentes propiedades (ítems) para el
+proceso, tales como “Datos de aplicación”, “Roles de proceso”, “Dominios de dato”, “Integraciones”,
+“Manejadores de eventos”, “Validaciones”, “Bots” y “Parámetros de aplicación”.</p>
+<p>Detalles sobre algunos de los ítems:</p>
+<ul class="simple">
+<li><p>En los <strong>Datos de aplicación</strong> se definen diferentes datos que proveen información estructurada del proceso. Cada uno de ellos debe asociarse a un dominio. Para esto, es posible utilizar tanto aquellos que ya están definidos (número, texto), como los nuevos que deseen crearse dentro de <strong>Dominios de dato</strong>.</p></li>
+</ul>
+<p>Datos de aplicación:</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/QflowToolsTutorial-ApplicationDataList.png"><img alt="Listado de datos de aplicación" src="_images/QflowToolsTutorial-ApplicationDataList.png" style="width: 713px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 111 </span><span class="caption-text">Listado de datos de aplicación</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Dominios de dato:</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/QflowToolsTutorial-DataDomainList.png"><img alt="Listado de dominios de dato" src="_images/QflowToolsTutorial-DataDomainList.png" style="width: 708px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 112 </span><span class="caption-text">Listado de dominios de dato</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>Los <strong>roles de proceso</strong> se utilizan como destinatarios para los pasos interactivos. De esta forma, al asociar un rol de proceso a un determinado usuario, Qflow se encargará de asignarle una tarea cuando el proceso llegue a un paso interactivo. En el caso de los roles multivaluados, será posible asignarlos a más de un usuario.</p></li>
+</ul>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/QflowToolsTutorial-RoleDataList.png"><img alt="Listado de roles de proceso" src="_images/QflowToolsTutorial-RoleDataList.png" style="width: 702px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 113 </span><span class="caption-text">Listado de roles de proceso</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>Dentro de las <strong>integraciones</strong> es posible invocar otros sistemas.</p></li>
+<li><p>Por más detalles sobre los ítems restantes puede consultar el manual del <a class="reference external" href="15-QflowDesign.html">Qflow Design.</a></p></li>
+</ul>
+<p>Los procesos pueden ser definidos mediante diferentes elementos, como pueden ser los <strong>eventos, tareas,
+compuertas</strong> conectadas entre sí, entre otros. A su vez, cada elemento puede tener diferentes <strong>tipos</strong>.
+A modo de ejemplo, las tareas pueden ser tareas de usuario, fórmulas, etc.</p>
+<figure class="align-center" id="id7">
+<img alt="Ejemplo de plantilla de proceso de rendición de gastos" src="_images/QflowToolsTutorial-Template.png" />
+<figcaption>
+<p><span class="caption-number">Figura 114 </span><span class="caption-text">Ejemplo de plantilla de proceso de rendición de gastos</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Cada <strong>paso</strong> del proceso, dependiendo del tipo que se le asignó, tiene diferentes configuraciones. Por ejemplo,
+la tarea de usuario permite la interacción entre usuarios mediante el envío de una pregunta que
+debe ser respondida. Tanto la pregunta como sus posibles respuestas son definidas en las propiedades
+de la tarea.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/QflowToolsTutorial-PurchasingManagerApprovesTask.png"><img alt="Ejemplo de paso del tipo tarea de usuario" src="_images/QflowToolsTutorial-PurchasingManagerApprovesTask.png" style="width: 700px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 115 </span><span class="caption-text">Ejemplo de paso del tipo tarea de usuario</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En el paso anterior se le pregunta al Encargado de Compras si aprueba el gasto del solicitante.</p>
+</section>
+<section id="qflow-task-herramienta-de-tareas-y-procesos">
+<h2>Qflow Task: herramienta de tareas y procesos<a class="headerlink" href="#qflow-task-herramienta-de-tareas-y-procesos" title="Link to this heading"></a></h2>
+<p>Esta herramienta permite iniciar procesos y hacer un seguimiento de los mismos.</p>
+<figure class="align-center" id="id9">
+<img alt="Qflow Task" src="_images/QflowToolsTutorial-QflowTask.png" />
+<figcaption>
+<p><span class="caption-number">Figura 116 </span><span class="caption-text">Qflow Task</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Es posible realizar diferentes operaciones tales como iniciar un proceso, responder preguntas o tareas
+pendientes y ver notificaciones recibidas. Los <strong>procesos</strong> se inician dentro de la sección “Iniciar proceso”. En esta se encuentran disponibles
+todas las plantillas que tienen una versión publicada.</p>
+<figure class="align-center" id="id10">
+<img alt="Ejemplo de formulario de un proceso" src="_images/QflowToolsTutorial-FlowForm.gif" />
+<figcaption>
+<p><span class="caption-number">Figura 117 </span><span class="caption-text">Ejemplo de formulario de un proceso</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>La información de los procesos se puede ver mediante <strong>vistas, gráficas, indicadores y tableros de control</strong>.</p>
+<p>Dentro de la sección <strong>Vistas</strong> se pueden crear vistas personalizadas que muestren sólo los datos de
+los procesos que desean visualizarse.</p>
+<figure class="align-center" id="id11">
+<img alt="Ejemplo de vista personalizada" src="_images/QflowToolsTutorial-AmountsView.png" />
+<figcaption>
+<p><span class="caption-number">Figura 118 </span><span class="caption-text">Ejemplo de vista personalizada</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>A su vez, es posible crear diferentes <strong>gráficas personalizadas</strong> para realizar un seguimiento visual de los procesos.</p>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="_images/QflowToolsTutorial-AmountsChart.png"><img alt="Ejemplo de gráfica" src="_images/QflowToolsTutorial-AmountsChart.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 119 </span><span class="caption-text">Ejemplo de gráfica</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En el <strong>Tablero de control</strong> la información se despliega en forma ordenada tanto en vistas, como en graficas e indicadores, para que
+el usuario pueda visualizarlo todo a la vez.</p>
+<figure class="align-center" id="id13">
+<img alt="Ejemplo de tablero de control" src="_images/QflowToolsTutorial-AmountsDashboard.png" />
+<figcaption>
+<p><span class="caption-number">Figura 120 </span><span class="caption-text">Ejemplo de tablero de control</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="qflow-team-administrador-del-equipo-de-trabajo-y-su-estructura-organizacional">
+<h2>Qflow Team: administrador del equipo de trabajo y su estructura organizacional<a class="headerlink" href="#qflow-team-administrador-del-equipo-de-trabajo-y-su-estructura-organizacional" title="Link to this heading"></a></h2>
+<p>Esta herramienta se utiliza para representar en el sistema a la estructura de la organización y sus miembros. A su vez, es posible
+configurar diferentes propiedades de los usuarios y administrar aspectos de su configuración.</p>
+<figure class="align-center" id="id14">
+<img alt="Qflow Team" src="_images/QflowToolsTutorial-QflowTeamCloud.png" />
+<figcaption>
+<p><span class="caption-number">Figura 121 </span><span class="caption-text">Qflow Team</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>El modelo organizacional maneja tres tipos de miembros: <strong>nodos, grupos y usuarios.</strong></p>
+<p>Los <strong>nodos</strong> sirven para organizar de forma jerárquica la estructura del modelo organizacional. Existe un
+nodo que oficia de raíz de la estructura. Asimismo, un nodo puede contener grupos y usuarios. Es posible organizar los
+usuarios de forma análoga a la estructura real de la empresa.</p>
+<p>Los <strong>grupos</strong> permiten agrupar usuarios que comparten ciertas propiedades. A modo de ejemplo, es posible utilizarlos para agrupar usuarios que cumplen una
+misma función. Además de contener usuarios, un grupo puede contener otros grupos.</p>
+<p>Los <strong>usuarios</strong> representan a todos los usuarios de Qflow. Un usuario puede ser miembro de varios grupos, pero no
+puede estar en más de un nodo.</p>
+<p>Dentro de cada nodo se pueden crear usuarios y grupos.</p>
+<figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="_images/QflowToolsTutorial-UserCreation.png"><img alt="Paneles de creación de usuario y grupo" src="_images/QflowToolsTutorial-UserCreation.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 122 </span><span class="caption-text">Paneles de creación de usuario y grupo</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Dentro de Qflow Team se pueden determinar diferentes <strong>configuraciones</strong>, tales como la administración de permisos de la
+herramienta, calendarios, roles de seguridad, proveedores de seguridad, reportes de ingresos y auditoría de permisos.</p>
+<p>La opción <strong>Calendarios</strong> permite personalizarlos para que distintos usuarios puedan ser regidos por distintos
+calendarios. A modo de ejemplo, esto puede resultar útil cuando una organización tiene filiales en varios países y, por lo
+tanto, esas filiales se rigen por calendarios diferentes (feriados, régimen de trabajo, etc.).</p>
+<figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="_images/QflowToolsTutorial-CalendarConfig.gif"><img alt="Configuración de calendario" src="_images/QflowToolsTutorial-CalendarConfig.gif" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 123 </span><span class="caption-text">Configuración de calendario</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>La opción <strong>Reporte de ingresos</strong> muestra qué usuarios han iniciado sesión en alguna herramienta de Qflow en
+determinado período de tiempo. También se muestran cierres de sesión e intentos fallidos de iniciar sesión.</p>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="_images/QflowToolsTutorial-LoginReport.png"><img alt="Panel de reporte de ingresos" src="_images/QflowToolsTutorial-LoginReport.png" style="width: 700px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 124 </span><span class="caption-text">Panel de reporte de ingresos</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="qflow-admin-administracion-y-monitoreo-del-sistema">
+<h2>Qflow Admin: administración y monitoreo del sistema<a class="headerlink" href="#qflow-admin-administracion-y-monitoreo-del-sistema" title="Link to this heading"></a></h2>
+<p>Esta herramienta permite configurar aspectos que contemplan a todo el sistema y diferentes elementos que afectan al
+funcionamiento en general, tales como propiedades extendidas, licencias, servicios de
+notificación y parámetros de sistema.</p>
+<figure class="align-center" id="id18">
+<img alt="Qflow Admin" src="_images/QflowToolsTutorial-QflowAdminCloud.png" />
+<figcaption>
+<p><span class="caption-number">Figura 125 </span><span class="caption-text">Qflow Admin</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Desde Qflow Admin es posible modificar los <strong>parámetros de sistema</strong>. Estos controlan varios aspectos del funcionamiento del producto.
+Por ejemplo, es posible configurar la duración de las sesiones, así como también permitir el login con Microsoft o Google,
+entre otras cosas.</p>
+<figure class="align-center" id="id19">
+<a class="reference internal image-reference" href="_images/QflowToolsTutorial-SystemParameters.gif"><img alt="Parámetros de sistema" src="_images/QflowToolsTutorial-SystemParameters.gif" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 126 </span><span class="caption-text">Parámetros de sistema</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Las <strong>propiedades extendidas</strong> son definidas por la organización y pueden verse en el panel de propiedades de
+cada miembro del modelo organizacional (usuario, grupo y nodo) en Qflow Team.</p>
+<p>También es posible administrar <strong>licencias</strong> de Qflow, visualizar cuáles son las que se encuentran vigentes, cuáles vencidas,
+agregar nuevas y consultar su consumo, entre otras.</p>
+<figure class="align-center" id="id20">
+<a class="reference internal image-reference" href="_images/QflowToolsTutorial-QFlowLicences.png"><img alt="Licencias de Qflow" src="_images/QflowToolsTutorial-QFlowLicences.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 127 </span><span class="caption-text">Licencias de Qflow</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>La sección de <strong>servicios de notificación</strong> permite visualizar y administrar los servicios, ya sea personalizándolos, habilitando o deshabilitando a los mismos.</p>
+<p>Por más información sobre cada una de las herramientas puede referirse a sus respectivos manuales. Allí encontrará tanto sus funcionalidades como sus posibles usos, detallados con mayor profundidad:</p>
+<ul class="simple">
+<li><p>Manual de <a class="reference external" href="04-QflowTask.html">Qflow Task</a></p></li>
+<li><p>Manual de <a class="reference external" href="15-QflowDesign.html">Qflow Design</a></p></li>
+<li><p>Manual de <a class="reference external" href="18-QflowTeam.html">Qflow Team</a></p></li>
+<li><p>Manual de <a class="reference external" href="19-QflowAdmin.html">Qflow Admin</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="TutorialsIndex.html" class="btn btn-neutral float-left" title="Tutoriales" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="06-Tutorial.html" class="btn btn-neutral float-right" title="Crea tu primer proceso" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

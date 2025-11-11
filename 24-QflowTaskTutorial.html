@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Descubre Qflow Task &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/24-QflowTaskTutorial.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Configura el equipo" href="27-QflowTeamTutorial.html" />
+    <link rel="prev" title="Diseña un proceso de quejas" href="23-DesignTutorial.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="26-QflowToolsTutorial.html">Introducción a las herramientas de Qflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-Tutorial.html">Crea tu primer proceso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="23-DesignTutorial.html">Diseña un proceso de quejas</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Descubre Qflow Task</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduccion">Introducción</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trabajo-con-procesos">Trabajo con procesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#herramientas-de-seguimiento-y-analisis-de-procesos">Herramientas de seguimiento y análisis de procesos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="27-QflowTeamTutorial.html">Configura el equipo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="28-QflowAdminTutorial.html">Administra y monitorea el sistema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="37-QformTutorial.html">Crea tu formulario personalizado</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="TutorialsIndex.html">Tutoriales</a></li>
+      <li class="breadcrumb-item active">Descubre Qflow Task</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="descubre-qflow-task">
+<h1>Descubre Qflow Task<a class="headerlink" href="#descubre-qflow-task" title="Link to this heading"></a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading"></a></h2>
+<p>El propósito de este tutorial es explicar brevemente el funcionamiento de Qflow
+Task. Esta herramienta permite a los usuarios iniciar procesos, interactuar con
+ellos y ver sus datos.</p>
+</section>
+<section id="trabajo-con-procesos">
+<h2>Trabajo con procesos<a class="headerlink" href="#trabajo-con-procesos" title="Link to this heading"></a></h2>
+<p>Los procesos que ya fueron publicados se ven dentro de la sección “Iniciar proceso” en el menú lateral izquierdo.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Menu-StartFlow.png"><img alt="Menú lateral izquierdo" src="_images/TaskTutorial-Menu-StartFlow.png" style="width: 20%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 228 </span><span class="caption-text">Menú lateral izquierdo</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Una vez iniciado un proceso, se generan tareas para las personas que participan de él.
+Consideremos el proceso de atender quejas planteado en el <a class="reference external" href="23-DesignTutorial.html">tutorial de Qflow Design</a>.
+En este caso a alguna persona o grupo de personas se le asigna la tarea de ingresar la queja (aquellas que inician el proceso)
+o atenderla (aquellas que les llega la tarea una vez inicializadas).
+Estos usuarios van a usar Qflow Task para responder a esas tareas.</p>
+<section id="iniciar-un-proceso">
+<h3>Iniciar un proceso<a class="headerlink" href="#iniciar-un-proceso" title="Link to this heading"></a></h3>
+<p>Dentro de esta sección, aparecen todas las plantillas que el usuario tiene disponible y él
+mismo debe buscar cuál es la que quiere inicializar, si hay muchas puede buscar por el nombre
+en el campo “Buscar”.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/TaskTutorial-TemplateVersions.png"><img alt="Plantillas disponibles" src="_images/TaskTutorial-TemplateVersions.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 229 </span><span class="caption-text">Plantillas disponibles</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Luego, haga clic en el ícono de la plantilla o en el nombre correspondiente, y después en el botón de “iniciar proceso”.
+Esto lo llevará al formulario de inicio.</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/TaskTutorial-StartFlowButton.png"><img alt="Botón de iniciar proceso" src="_images/TaskTutorial-StartFlowButton.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 230 </span><span class="caption-text">Botón de iniciar proceso</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Después, debe completar el formulario de inicio, incluye ingresar el nombre del proceso, datos,
+y posiblemente adjuntar archivos y seleccionar quiénes desempeñarían ciertos roles.</p>
+<p>Por último, haga clic en “iniciar” y se iniciará el proceso.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/TaskTutorial-StartFlowForm.png"><img alt="Formulario de inicio de proceso" src="_images/TaskTutorial-StartFlowForm.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 231 </span><span class="caption-text">Formulario de inicio de proceso</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="tareas">
+<h3>Tareas<a class="headerlink" href="#tareas" title="Link to this heading"></a></h3>
+<p>Si el usuario tiene tareas que le corresponden responder le aparecerán como pendientes para ser resueltas.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/TaskTutorial-MyTaskList.png"><img alt="Lista de tareas pendientes" src="_images/TaskTutorial-MyTaskList.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 232 </span><span class="caption-text">Lista de tareas pendientes</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Para responder una tarea, el usuario ingresa a la tarea y va a tener que completar ciertos datos
+para que la tarea pueda continuar por el flujo.</p>
+<p>Una vez que se ingresa a la tarea se pueden visualizar sus datos generales, tales como información del
+proceso, de la plantilla del proceso y de la tarea. En el caso de que en el proceso se haya definido que el
+alcance de los datos de aplicación sean visibles o editables también se podrán visualizar e interactuar con ellos.</p>
+<p>Al final, para que el usuario pueda responder la tarea, aparece la opción que se definió en el proceso.</p>
+<p>En este ejemplo, tomando en cuenta que la queja ingresada fue por mala atención y el usuario responsable de atenderla
+es el encargado de atención, éste debe enviarle un mensaje al cliente que ingresó la queja.
+El mensaje para enviarle al cliente puede ser editado por el encargado o se puede dejar el que se declaró cuando la
+queja fue ingresada.</p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="_images/TaskTutorial-TaskForm-1.png"><img alt="Formulario de tarea, parte 1" src="_images/TaskTutorial-TaskForm-1.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 233 </span><span class="caption-text">Formulario de tarea, parte 1</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="_images/TaskTutorial-TaskForm-2.png"><img alt="Formulario de tarea, parte 2" src="_images/TaskTutorial-TaskForm-2.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 234 </span><span class="caption-text">Formulario de tarea, parte 2</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Una vez que se incializan procesos y se responden tareas, se puede acceder a la sección “General” para poder
+acceder a información general sobre éstas.</p>
+</section>
+<section id="general">
+<h3>General<a class="headerlink" href="#general" title="Link to this heading"></a></h3>
+<p>Dentro de la sección general el usuario podrá ver las siguientes subopciones:</p>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Menu-General.png"><img alt="Subopciones de la sección general" src="_images/TaskTutorial-Menu-General.png" style="width: 20%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 235 </span><span class="caption-text">Subopciones de la sección general</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><strong>Tablero de control principal:</strong> dentro de esta sección se puede configurar un tablero de control como principal con las vistas, gráficas e indicadores disponibles. En una de las próximas secciones se explicará más en profundidad los tableros de control.</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>Procesos:</strong> dentro de esta sección se muestran todos los procesos que fueron inicializados, en este ejemplo, todas las quejas ingresadas para ser atendidas.</p></li>
+</ul>
+<blockquote>
+<div><p>Además, dentro de esta opción el usuario puede ver los detalles del proceso, como la información general, en qué paso del flujo se encuentra
+la tarea, el seguimiento, hilos, detalles e historial. Para acceder a esta información se selecciona la tarea y se hace clic en el botón
+con una “i”.</p>
+</div></blockquote>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="_images/TaskTutorial-FlowsView.png"><img alt="Vista de procesos" src="_images/TaskTutorial-FlowsView.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 236 </span><span class="caption-text">Vista de procesos</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="_images/TaskTutorial-FlowDetails.png"><img alt="Detalles de proceso" src="_images/TaskTutorial-FlowDetails.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 237 </span><span class="caption-text">Detalles de proceso</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En la sección de diseño se puede visualizar el grafo del proceso a medida que avanza la tarea. Por ejemplo, si la queja es por un
+producto defectuoso y el usuario es el encargado de atender la queja, el grafo se verá de la siguiente manera:</p>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="_images/TaskTutorial-FlowGraph.png"><img alt="Grafo de proceso" src="_images/TaskTutorial-FlowGraph.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 238 </span><span class="caption-text">Grafo de proceso</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><strong>Tareas:</strong> dentro de esta sección se muestran cuáles son las tareas pendientes que tiene el usuario, en este ejemplo las tareas pendientes de atención de quejas.</p></li>
+</ul>
+<figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="_images/TaskTutorial-TasksView.png"><img alt="Vista de tareas" src="_images/TaskTutorial-TasksView.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 239 </span><span class="caption-text">Vista de tareas</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><strong>Notificaciones:</strong> dentro de esta sección se muestran las notificaciones que tiene el usuario. Por ejemplo, podría ser que se rechace una solicitud de un gasto a un usuario y de esta manera le llegaría la notificación de rechazo.</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>Tareas respondidas por mí:</strong> dentro de esta sección se muestran todas las tareas respondidas por el usuario.</p></li>
+</ul>
+</section>
+<section id="colas-de-trabajo">
+<h3>Colas de trabajo<a class="headerlink" href="#colas-de-trabajo" title="Link to this heading"></a></h3>
+<p>Dentro de esta sección se encuentra una lista de las colas de trabajo a las que el usuario pertenece.</p>
+<p>Las tareas asignadas a una cola de trabajo pueden ser respondidas por cualquier usuario que tenga permiso
+para actuar en esa cola.</p>
+<p>Como estas tareas no están asignadas a ninguna persona concreta, no aparecen en la vista “Mis tareas” de
+ninguno de los usuarios. Se puede acceder a ellas si hace clic en el propio vínculo “Colas de Trabajo” y una vez
+en esa pantalla se accede seleccionándolo la que quiera. A su vez, también se puede acceder a una cola de trabajo
+directamente desde el menú lateral, haciendo clic en la flecha aparecen todas las que el usuario tiene
+disponible.</p>
+<p>En este ejemplo, cuando la queja es otra opción, no es ni por producto defectuoso o mala atención,
+los usuarios responsables de atender la queja podrían ser muchos. De esta manera, se diseña una cola de trabajo
+para que cualquiera de los usuarios que tienen acceso puedan responderla.</p>
+<figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Menu-WorkQueues.png"><img alt="Subopciones de la sección colas de trabajo" src="_images/TaskTutorial-Menu-WorkQueues.png" style="width: 20%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 240 </span><span class="caption-text">Subopciones de la sección colas de trabajo</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Una vez dentro de la bandeja de tareas de la cola, el usuario puede seleccionar la tarea para responderla.
+Cuando la toma, otros usuarios no podrán trabajar en ella, evitando que dos usuarios trabajen simultáneamente
+en una misma tarea.</p>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="_images/TaskTutorial-WorkQueueActiveTasksView.png"><img alt="Vista de tareas activas de la cola de trabajo" src="_images/TaskTutorial-WorkQueueActiveTasksView.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 241 </span><span class="caption-text">Vista de tareas activas de la cola de trabajo</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="herramientas-de-seguimiento-y-analisis-de-procesos">
+<h2>Herramientas de seguimiento y análisis de procesos<a class="headerlink" href="#herramientas-de-seguimiento-y-analisis-de-procesos" title="Link to this heading"></a></h2>
+<p>Una vez que se han ingresado tareas y se ha interactuado con ellas, se pueden diseñar diferentes opciones para
+poder ver su comportamiento.</p>
+<p>A continuación, se describen algunos elementos que permiten facilitar el seguimiento de los procesos, así
+como organizar su información. Estos elementos son:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Vistas</p></li>
+<li><p>Gráficas</p></li>
+<li><p>Indicadores</p></li>
+<li><p>Tableros de control</p></li>
+</ul>
+</div></blockquote>
+<section id="vistas">
+<h3>Vistas<a class="headerlink" href="#vistas" title="Link to this heading"></a></h3>
+<p>Una vista es la definición de un conjunto de elementos (por ejemplo, un conjunto de procesos o de tareas),
+incluyendo el orden en que se muestran, qué columnas se muestran, y qué elementos se muestran. Por ejemplo,
+un criterio para hacer una vista de procesos puede ser que los procesos pertenecientes a esa vista hayan
+sido iniciados en una determinada fecha.</p>
+<section id="crear-una-vista">
+<h4>Crear una vista<a class="headerlink" href="#crear-una-vista" title="Link to this heading"></a></h4>
+<p>Al crear una vista, se puede definir si ésta se mostrará en el menú lateral o no. Las vistas que se incluyen
+en el menú lateral se muestran como subopciones de la opción “Vistas” de ese menú. Las demás vistas son
+accesibles desde la pantalla de vistas, a la cual se accede mediante un clic en la opción “Vistas”.</p>
+<figure class="align-center" id="id18">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Menu-Views.png"><img alt="Subopciones de la sección vistas" src="_images/TaskTutorial-Menu-Views.png" style="width: 20%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 242 </span><span class="caption-text">Subopciones de la sección vistas</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id19">
+<a class="reference internal image-reference" href="_images/TaskTutorial-ViewsList.png"><img alt="Lista de vistas" src="_images/TaskTutorial-ViewsList.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 243 </span><span class="caption-text">Lista de vistas</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Una vista se puede crear desde cero, o también se puede copiar una vista ya existente. Si hace clic en el
+icono de agregar vista, Qflow lo lleva a la siguiente pantalla.</p>
+<figure class="align-center" id="id20">
+<a class="reference internal image-reference" href="_images/TaskTutorial-View-Create.png"><img alt="Crear vista" src="_images/TaskTutorial-View-Create.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 244 </span><span class="caption-text">Crear vista</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En este ejemplo se va a crear una vista para ver las quejas ingresadas. Se debe definir:</p>
+<p><strong>1)    El paquete al que pertenecerá la vista:</strong> una vista pertenece a un determinado paquete, de la misma forma que
+las plantillas de procesos, en este caso se creará en el paquete de operaciones.</p>
+<p><strong>2)    El tipo de vista:</strong> este indica qué tipo de ítem contiene la vista. Puede tener ítems públicos o
+privados/personales. Inicialmente se muestran los ítems públicos, se muestran si el usuario tiene permisos
+para el paquete seleccionado. Haciendo clic en el ícono de
+la estrella se muestran los ítems personales, serán vistas a las cuales únicamente podrá acceder
+el usuario que la creó. En este ejemplo se seleccionó el ítem público “Procesos”.</p>
+<figure class="align-center" id="id21">
+<a class="reference internal image-reference" href="_images/TaskTutorial-View-Create-SelectPackage.png"><img alt="Seleccionar paquete" src="_images/TaskTutorial-View-Create-SelectPackage.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 245 </span><span class="caption-text">Seleccionar paquete</span><a class="headerlink" href="#id21" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Una vez seleccionados el paquete y el tipo de la vista, haga clic en el botón “Continuar”. Esto lo lleva
+a la pantalla de definición de la vista.</p>
+<p>Dentro de la definición de la vista, se deben completar diferentes secciones:</p>
+<ul class="simple">
+<li><p>Detalles</p></li>
+<li><p>Columnas</p></li>
+<li><p>Filtros</p></li>
+<li><p>Ordenar</p></li>
+<li><p>Parámetros</p></li>
+<li><p>Permisos</p></li>
+</ul>
+</section>
+<section id="detalles">
+<h4>Detalles<a class="headerlink" href="#detalles" title="Link to this heading"></a></h4>
+<p>Esta sección muestra el paquete y el tipo de vista y permite definir el nombre, descripción,
+vista destacada (mostrar la vista en el árbol de navegación), tamaño de página y número de páginas para mostrar.</p>
+<figure class="align-center" id="id22">
+<a class="reference internal image-reference" href="_images/TaskTutorial-View-Create-Details.png"><img alt="Detalles de la vista" src="_images/TaskTutorial-View-Create-Details.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 246 </span><span class="caption-text">Detalles de la vista</span><a class="headerlink" href="#id22" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="columnas">
+<h4>Columnas<a class="headerlink" href="#columnas" title="Link to this heading"></a></h4>
+<p>Las vistas se muestran como tablas y esta sección permite definir cuáles van a ser las columnas que se van a ver en la tabla de la vista.
+Se pueden eliminar o modificar las propiedades de las columnas seleccionándolas.</p>
+<p>Para agregar otra columna a la vista haga clic en el botón “+”, esto hace que aparezca, en la parte superior
+de la sección de columnas, un recuadro que muestra una lista con las columnas disponibles. Se agrupan en
+“Columnas de sistema”, “Datos de aplicación” y “Roles de proceso”, para agregar una de ellas haga doble clic
+o clic y arrástrela a donde dice “Arrastre aquí”.</p>
+<p>En este ejemplo se va a agregar el dato de aplicación “Categoría”, además de las columnas que ya vienen cargadas
+por defecto.</p>
+<figure class="align-center" id="id23">
+<a class="reference internal image-reference" href="_images/TaskTutorial-View-Create-Columns.png"><img alt="Columnas de la vista, parte 1" src="_images/TaskTutorial-View-Create-Columns.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 247 </span><span class="caption-text">Columnas de la vista, parte 1</span><a class="headerlink" href="#id23" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id24">
+<a class="reference internal image-reference" href="_images/TaskTutorial-View-Create-Columns-2.png"><img alt="Columnas de la vista, parte 2" src="_images/TaskTutorial-View-Create-Columns-2.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 248 </span><span class="caption-text">Columnas de la vista, parte 2</span><a class="headerlink" href="#id24" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="filtros">
+<h4>Filtros<a class="headerlink" href="#filtros" title="Link to this heading"></a></h4>
+<p>Esta sección permite especificar qué propiedades debe cumplir un ítem para ser incluido en la vista.
+Existen filtros complejos, se permite construir combinaciones de condiciones de filtro.
+Los filtros de una vista pueden especificar condiciones para varias columnas, y en varias combinaciones.</p>
+<p>Al presionar el botón “+” se muestran todas las columnas disponibles para agregar los filtros y se seleccionan arrastrando
+la columna hacia donde dice “Arrastre aquí”. Cuando la columna fue agregada, se puede seleccionar desde la
+lista desplegable.</p>
+<p>Una vez seleccionada aparecen los operadores que se pueden utilizar en una lista desplegable, “igual”, “distinto”,
+“menor a”, entre otros.</p>
+<p>Luego al lado del operador se agrega el campo al que se le quiere agregar el filtro. Por ejemplo, “Nombre de la plantilla”,
+“igual”, “Quejas”.</p>
+<figure class="align-center" id="id25">
+<a class="reference internal image-reference" href="_images/TaskTutorial-View-Create-Filters.png"><img alt="Filtros de la vista" src="_images/TaskTutorial-View-Create-Filters.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 249 </span><span class="caption-text">Filtros de la vista</span><a class="headerlink" href="#id25" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="ordenar">
+<h4>Ordenar<a class="headerlink" href="#ordenar" title="Link to this heading"></a></h4>
+<p>Esta sección permite especificar en qué orden se deben mostrar los elementos de la vista.
+Cuando se crea una vista se incluye por defecto un criterio de ordenamiento, estos se pueden modificar o
+eliminar haciendo clic en el criterio. El procedimiento de agregar un criterio es similar al de la
+agregación de una columna, se hace clic en el criterio y se despliega una ventana con opciones para seleccionar.</p>
+<p>En este ejemplo se decide el criterio de ordenación por ID correlativo del proceso de manera descendente.</p>
+<figure class="align-center" id="id26">
+<a class="reference internal image-reference" href="_images/TaskTutorial-View-Create-Sort.png"><img alt="Orden de la vista" src="_images/TaskTutorial-View-Create-Sort.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 250 </span><span class="caption-text">Orden de la vista</span><a class="headerlink" href="#id26" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="parametros">
+<h4>Parámetros<a class="headerlink" href="#parametros" title="Link to this heading"></a></h4>
+<p>En la sección se pueden definir condiciones de filtro que, en lugar de comparar el valor de una columna con un
+valor fijo, lo compara con un valor que un usuario ingresa a la hora de ver la vista.</p>
+<p>Se agrega similar a todos los anteriores, se hace clic en el botón “+” y se despliegan las columnas disponibles,
+se seleccionan arrastrándolas. Una vez agregadas, si se les hace clic se pueden ver sus propiedades y modificarlas.</p>
+<p>Sin embargo, en este ejemplo no se agrega ningún parámetro.</p>
+</section>
+<section id="permisos">
+<h4>Permisos<a class="headerlink" href="#permisos" title="Link to this heading"></a></h4>
+<p>Esta sección permite restringir el conjunto de personas que pueden ver una vista. Solo está disponible para
+ítems públicos ya que los ítems personales sólo pueden ser vistos por el usuario que los creó.</p>
+<p>Seleccione el botón de “Restringir acceso” y luego donde dice “Acceso permitido a” o “Acceso denegado a” comience a escribir el rol al que
+le quiere restringir el acceso.</p>
+<figure class="align-center" id="id27">
+<a class="reference internal image-reference" href="_images/TaskTutorial-View-Create-Permissions.png"><img alt="Permisos de la vista" src="_images/TaskTutorial-View-Create-Permissions.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 251 </span><span class="caption-text">Permisos de la vista</span><a class="headerlink" href="#id27" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Al terminar de modificar las propiedades de cada una de esas secciones, debe hacer clic en “Listo”. Qflow validará
+los datos, y si hay errores, le avisará. Si hace clic en el aviso de los errores, Qflow lo lleva a la parte de la pantalla
+en la que puede corregir el error.</p>
+<p>El resultado final de la vista se verá de la siguiente manera:</p>
+<figure class="align-center" id="id28">
+<a class="reference internal image-reference" href="_images/TaskTutorial-View-Create-Result.png"><img alt="Vista de quejas" src="_images/TaskTutorial-View-Create-Result.png" style="width: 65%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 252 </span><span class="caption-text">Vista de quejas</span><a class="headerlink" href="#id28" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="graficas">
+<h3>Gráficas<a class="headerlink" href="#graficas" title="Link to this heading"></a></h3>
+<p>Qflow permite crear gráficas de varios tipos para facilitar la visualización de los datos de los procesos. Al igual que
+con las vistas, para cada gráfica se puede definir si ésta se mostrará en el menú lateral como una subopción de la opción
+“Gráficas” o no, accediendo a ellas dentro de la sección “Gráficas”.</p>
+<p>El proceso de creación de una gráfica es similar al de las vistas. Se debe hacer clic en el botón “+” y se abre una
+pantalla donde se debe seleccionar el paquete donde se va a crear la gráfica y el tipo de ítem que se utilizarán como
+datos de la gráfica. Los ítems son iguales que los de las vistas, se dividen en públicos y personales, sin embargo, se
+agregan dos más.</p>
+<p>Consulte la creación de una vista (<a class="reference internal" href="#crear-una-vista">Crear una vista</a>) para más detalles de cómo son los primeros pasos para crear una gráfica.</p>
+<p>La pantalla para la creación de una gráfica tiene las siguientes secciones: (todas las secciones menos “Apariencia”,
+“Medida” y “Dimensiones” se detallan en la definición de la creación de las <a class="reference internal" href="#vistas">Vistas</a>):</p>
+<ul class="simple">
+<li><p>Detalles</p></li>
+<li><p>Apariencia</p></li>
+<li><p>Medida</p></li>
+<li><p>Dimensiones</p></li>
+<li><p>Columnas</p></li>
+<li><p>Filtros</p></li>
+<li><p>Ordenar</p></li>
+<li><p>Parámetros</p></li>
+<li><p>Permisos</p></li>
+</ul>
+<p>Para este ejemplo se creará una gráfica de Columnas agrupadas para poder visualizar por qué se dieron las quejas,
+si por mala atención, producto defectuoso u otra razón.</p>
+<p>En la sección de Detalles se nombrará la gráfica “Quejas”. Dentro de la sección Columnas se agrega el dato de aplicación
+de “Categoría” y luego todo el resto de las secciones se crean de la misma manera que se crearon en la vista.</p>
+<figure class="align-center" id="id29">
+<a class="reference internal image-reference" href="_images/TaskTutorial-View-Create-Details.png"><img alt="Detalles de la gráfica" src="_images/TaskTutorial-View-Create-Details.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 253 </span><span class="caption-text">Detalles de la gráfica</span><a class="headerlink" href="#id29" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="apariencia">
+<h4>Apariencia<a class="headerlink" href="#apariencia" title="Link to this heading"></a></h4>
+<p>En esta sección se permite elegir el tipo de la gráfica, como ser una gráfica lineal, circular, entre otras.</p>
+<p>Los tipos disponibles son: anillo, área superpuesta, barras apiladas, circular, columnas apiladas, línea, área apilada,
+barras agrupadas, burbujas, columnas agrupadas y dispersión (XY).</p>
+<p>Para este ejemplo se va a seleccionar la opción de columnas agrupadas.</p>
+<figure class="align-center" id="id30">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Chart-Create-Appareance.png"><img alt="Apariencia de la gráfica" src="_images/TaskTutorial-Chart-Create-Appareance.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 254 </span><span class="caption-text">Apariencia de la gráfica</span><a class="headerlink" href="#id30" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="medida">
+<h4>Medida<a class="headerlink" href="#medida" title="Link to this heading"></a></h4>
+<p>La medida define los valores que se muestran gráficamente. Por ejemplo: en una gráfica de columnas, la medida es el valor
+que se utiliza para calcular la altura de cada una de las barras.</p>
+<p>La medida se crea por la definición de una columna y un tipo de agregación. La columna va a ser numérica a menos que se
+utilice “Cantidad” como tipo de agregación.</p>
+<p>El tipo de agregación define cómo se utilizará la columna indicada en medida para calcular los valores que se utilizarán
+en la gráfica. Las opciones son:</p>
+<ul class="simple">
+<li><p><strong>Cantidad:</strong> indica que se deben contar los valores no nulos de la columna indicada en “Medida”. Por ejemplo, si se quiere construir una gráfica que muestre cuántos procesos inició cada usuario, se puede utilizar el tipo de agregación “Cantidad” con la medida “Identificador correlativo del proceso”. La dimensión sería la columna “Usuario que inició el proceso”.</p></li>
+<li><p><strong>Máximo:</strong> de la columna indicada, toma el valor máximo. Por ejemplo, si para la medida se elige un dato de aplicación como columna, la gráfica mostrará el valor máximo de ese dato de aplicación.</p></li>
+<li><p><strong>Mínimo:</strong> de la columna indicada, toma el valor mínimo.</p></li>
+<li><p><strong>Promedio:</strong> la gráfica muestra el valor promedio de los valores que tiene la columna elegida como medida.</p></li>
+<li><p><strong>Suma:</strong> la gráfica muestra la suma de los valores de la columna elegida como medida.</p></li>
+</ul>
+<p>Para elegir una columna tiene que hacer clic en el botón que aparece a la izquierda en el campo “Columnas” y ahí se va a
+desplegar una lista con todas las columnas disponibles. Haga doble clic para seleccionar la que desee, para cambiarla haga lo
+mismo nuevamente.</p>
+<p>Para este ejemplo se va a tomar como tipo de agregación cantidad y como columna el dato de aplicación “Categoría”.</p>
+<figure class="align-center" id="id31">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Chart-Create-Measure.png"><img alt="Medida de la gráfica" src="_images/TaskTutorial-Chart-Create-Measure.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 255 </span><span class="caption-text">Medida de la gráfica</span><a class="headerlink" href="#id31" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="dimensiones">
+<h4>Dimensiones<a class="headerlink" href="#dimensiones" title="Link to this heading"></a></h4>
+<p>Dentro de esta sección se definen las columnas que definen los valores que se relacionan con la medida.
+Todas las gráficas tienen al menos una dimensión, pero para algunas se pueden definir varias.</p>
+<p>Los pasos para agregar una dimensión son similares a los de agregar una columna que se definió en la sección de <a class="reference internal" href="#vistas">Vistas</a>.
+Haga clic en el botón “+” y se van a desplegar todas las opciones posibles, haga doble clic en la que desea agregar o
+arrastre la opción a donde dice “Arrastre aquí”.</p>
+<p>Si hay más de una dimensión el orden de las dimensiones que se agregan sí importa. Por ejemplo, en una gráfica de columnas
+apiladas de dos dimensiones, la primera se usa para determinar los valores que van en el eje horizontal, y la segunda
+para determinar las categorías en las que se subdivide cada columna.</p>
+<p>En este ejemplo se utilizará solo una dimensión que es la categoría de la queja.</p>
+<figure class="align-center" id="id32">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Chart-Create-Dimensions.png"><img alt="Dimensiones de la gráfica" src="_images/TaskTutorial-Chart-Create-Dimensions.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 256 </span><span class="caption-text">Dimensiones de la gráfica</span><a class="headerlink" href="#id32" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Una vez definidas todas las propiedades haga clic en el botón “Listo”.</p>
+<p>El resultado final de la gráfica se verá de la siguiente manera:</p>
+<figure class="align-center" id="id33">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Chart-Create-Result.png"><img alt="Gráfica de quejas" src="_images/TaskTutorial-Chart-Create-Result.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 257 </span><span class="caption-text">Gráfica de quejas</span><a class="headerlink" href="#id33" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="indicadores">
+<h3>Indicadores<a class="headerlink" href="#indicadores" title="Link to this heading"></a></h3>
+<p>Qflow permite crear indicadores que hacen cálculos con los datos de los procesos y llegan a un resultado
+que se representa mediante un número y una figura que le agrega significado.</p>
+<p>Al igual que con las vistas y las gráficas se puede definir si el indicador aparece como subopción de
+la opción “Indicadores” o no.</p>
+<p>El proceso para crear un indicador es muy similar al de las vistas y gráficas, se crea uno nuevo haciendo clic
+en el botón “+”, luego se debe seleccionar el paquete donde se va a crear la gráfica y el tipo de ítem que se
+utilizará como datos de éste. Los tipos de ítems disponibles son los mismos que están disponibles para las gráficas.</p>
+<p>La pantalla para la creación de un indicador tiene las siguientes secciones: (todas las secciones menos “Detalles”,
+“Rangos” y “Fórmulas” se detallan en la definición de la creación de las <a class="reference internal" href="#vistas">Vistas</a>):</p>
+<ul class="simple">
+<li><p>Detalles</p></li>
+<li><p>Rangos</p></li>
+<li><p>Fórmulas</p></li>
+<li><p>Filtros</p></li>
+<li><p>Parámetros</p></li>
+<li><p>Permisos</p></li>
+</ul>
+<p>Para este tutorial se creará un indicador que muestre cuántas quejas van siendo ingresadas.</p>
+<p>Las secciones Filtros, Parámetros y Permisos se definen igual que los ejemplos anteriores. Dejando Parámetros y
+Permisos vacíos y los Filtros con el nombre de la plantilla igual a “Quejas”.</p>
+<section id="id1">
+<h4>Detalles<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<p>Esta sección es similar a la de vistas, pero contiene dos propiedades más:</p>
+<p><strong>-     Apariencia:</strong> indica la figura que se usará para representar el indicador:</p>
+<ul class="simple">
+<li><p><strong>Medidor:</strong> una aguja que marca un valor en una escala dividida por distintos colores</p></li>
+</ul>
+<figure class="align-center" id="id34">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Kpi-Gauge-Example.png"><img alt="Medidor" src="_images/TaskTutorial-Kpi-Gauge-Example.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 258 </span><span class="caption-text">Medidor</span><a class="headerlink" href="#id34" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><strong>Semáforo:</strong> se muestra el valor sobre un fondo del color correspondiente al rango al que pertenece</p></li>
+</ul>
+<figure class="align-center" id="id35">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Kpi-Semaphore-Example.png"><img alt="Semáforo" src="_images/TaskTutorial-Kpi-Semaphore-Example.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 259 </span><span class="caption-text">Semáforo</span><a class="headerlink" href="#id35" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><strong>Termómetro:</strong> se muestra el dibujo de un termómetro que marca el valor que se representa</p></li>
+</ul>
+<figure class="align-center" id="id36">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Kpi-Thermometer-Example.png"><img alt="Termómetro" src="_images/TaskTutorial-Kpi-Thermometer-Example.png" style="width: 10%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 260 </span><span class="caption-text">Termómetro</span><a class="headerlink" href="#id36" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>-     Dígitos decimales:</strong> la cantidad de dígitos decimales que se tendrán en cuenta para el resultado del cálculo del medidor</p>
+<p>Para este ejemplo se seleciona como apariencia el Medidor.</p>
+<figure class="align-center" id="id37">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Kpi-Create-Details.png"><img alt="Detalles del indicador" src="_images/TaskTutorial-Kpi-Create-Details.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 261 </span><span class="caption-text">Detalles del indicador</span><a class="headerlink" href="#id37" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="rangos">
+<h4>Rangos<a class="headerlink" href="#rangos" title="Link to this heading"></a></h4>
+<p>Dentro de esta sección se definen los rangos que permiten categorizar los valores que mostrará el indicador. Cada rango se
+asocia a un color. En las figuras anteriores, el valor que se muestra en los indicadores está en un rango que se asoció al
+color amarillo.</p>
+<p>Para agregar un rango haga clic en el botón “+”, esto va a ir agregando rangos a la lista de rangos que se van mostrando
+en una barra. El primer rango que se agrega la barra lo muestra con un nombre por defecto, un color cualquiera y con
+valores límite de 0 y 50, se pueden modificar estas propiedades haciendo clic en el rango.</p>
+<figure class="align-center" id="id38">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Kpi-Create-Ranges.png"><img alt="Rangos del indicador" src="_images/TaskTutorial-Kpi-Create-Ranges.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 262 </span><span class="caption-text">Rangos del indicador</span><a class="headerlink" href="#id38" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id39">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Kpi-Create-Ranges-Colors.png"><img alt="Colores de los rangos del indicador" src="_images/TaskTutorial-Kpi-Create-Ranges-Colors.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 263 </span><span class="caption-text">Colores de los rangos del indicador</span><a class="headerlink" href="#id39" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="formula">
+<h4>Fórmula<a class="headerlink" href="#formula" title="Link to this heading"></a></h4>
+<p>En esta sección se define cómo calcular el valor que se muestra en el indicador. La fórmula se representa mediante un árbol
+que tiene un nodo para cada operación y para cada operando.</p>
+<p>En el ejemplo se va a usar como fórmula el identificador correlativo del proceso para ir contabilizando la cantidad de quejas ingresadas.
+El árbol se define desde la raíz, en el tope, hacia abajo. Por lo tanto se define primero la última operación que se ejecuta
+(raíz), que es la que da como resultado el valor indicado. En este caso la cantidad de
+procesos inicializados.</p>
+<figure class="align-center" id="id40">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Kpi-Create-Formula.png"><img alt="Fórmula del indicador" src="_images/TaskTutorial-Kpi-Create-Formula.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 264 </span><span class="caption-text">Fórmula del indicador</span><a class="headerlink" href="#id40" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Los nodos del árbol pueden ser de varios tipos, cada uno de los cuales está asociado a un tipo de operación u operando. En el
+árbol, el tipo de un nodo se representa mediante un ícono.</p>
+<figure class="align-center" id="id41">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Kpi-Create-Formula-Types.png"><img alt="Tipos de nodos de la fórmula" src="_images/TaskTutorial-Kpi-Create-Formula-Types.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 265 </span><span class="caption-text">Tipos de nodos de la fórmula</span><a class="headerlink" href="#id41" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><strong>Agregación:</strong> un nodo de agregación es una operación que toma un conjunto de datos y los utiliza para calcular un valor. Puede ser un promedio, cantidad, máximo, mínimo o suma.</p></li>
+<li><p><strong>Columna:</strong> una columna de sistema o dato de aplicación. Una columna determina un conjunto de datos que pueden ser utilizados como entrada de una operación de agregación.</p></li>
+<li><p><strong>Constante:</strong> un valor fijo de algún tipo.</p></li>
+<li><p><strong>Conversión:</strong> operación que convierte el parámetro de entrada al tipo de dato que espera la operación que utiliza su resultado como entrada.</p></li>
+<li><p><strong>Función:</strong> una función toma parámetros y les aplica alguna función estándar, como, por ejemplo, las operaciones aritméticas. También hay funciones de manipulación de fechas o de cadenas de texto.</p></li>
+</ul>
+<p>El resultado final del indicador se verá de la siguiente manera:</p>
+<figure class="align-center" id="id42">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Kpi-Create-Result.png"><img alt="Indicador de quejas" src="_images/TaskTutorial-Kpi-Create-Result.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 266 </span><span class="caption-text">Indicador de quejas</span><a class="headerlink" href="#id42" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="tableros-de-control">
+<h3>Tableros de control<a class="headerlink" href="#tableros-de-control" title="Link to this heading"></a></h3>
+<p>Un tablero de control es una página que combina <a class="reference internal" href="#vistas">Vistas</a>, <a class="reference internal" href="#indicadores">Indicadores</a> y <a class="reference internal" href="#graficas">Gráficas</a>.
+Al igual que las vistas, gráficas e indicadores se pueden ver como una subopción de la opción “Tablero de Control” o no.
+Los pasos para crear un tablero de control son similares a las demás secciones, haciendo clic en el botón “+” se despliega
+la opción de seleccionar dentro de qué paquete se va a crear el tablero y determinar si va a ser uno público o personal.
+Las diferentes opciones aparecen haciendo clic en el botón de la estrella.</p>
+<p>Para este tutorial se creará un tablero de control que muestre información sobre el proceso de quejas con la vista, gráfica e indicador
+que se creó anteriormente.</p>
+<p>La pantalla para la creación de un tablero de control tiene las siguientes secciones:</p>
+<section id="id2">
+<h4>Detalles<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<p>Los detalles del tablero son similares a los de las vistas: incluyen su nombre, su descripción, y un
+campo que permite indicar si el tablero se debe incluir en el menú lateral (“Tablero de control destacado”).</p>
+<figure class="align-center" id="id43">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Dashboard-Create-Details.png"><img alt="Detalles del tablero de control" src="_images/TaskTutorial-Dashboard-Create-Details.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 267 </span><span class="caption-text">Detalles del tablero de control</span><a class="headerlink" href="#id43" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id3">
+<h4>Permisos<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<p>Para un tablero hay más de un permiso, dado que la página en la que se ve un tablero es también la página en la que lo
+edita para decidir qué elementos lo componen. Los permisos de un tablero indican si se lo puede ver, pero también si se
+lo puede modificar. Al agregar un miembro a la lista de miembros con permisos, aparece una tabla en la que se debe
+marcar “Permitido” o “Denegado” en cada permiso.</p>
+</section>
+<section id="modificacion-de-lo-que-se-muestra-en-el-tablero-de-control">
+<h4>Modificación de lo que se muestra en el tablero de control<a class="headerlink" href="#modificacion-de-lo-que-se-muestra-en-el-tablero-de-control" title="Link to this heading"></a></h4>
+<p>Para definir qué elementos se muestran en un tablero se utiliza la misma página en la que se ve el tablero. Sólo usuarios
+que tienen permiso de modificar el tablero pueden cambiar los elementos que se muestran en él.</p>
+<p>Si el tablero está vacío se indicará en la pantalla y para agregar elementos haga clic en el vínculo que dice “Agregue
+nuevos elementos haciendo clic aquí” o en el botón del lápiz arriba a la derecha. Entonces, Qflow mostrará los elementos
+disponibles, cada tipo en una solapa (vistas, gráficas e indicadores).</p>
+<figure class="align-center" id="id44">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Dashboard-Create-Empty.png"><img alt="Tablero de control vacío" src="_images/TaskTutorial-Dashboard-Create-Empty.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 268 </span><span class="caption-text">Tablero de control vacío</span><a class="headerlink" href="#id44" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Para agregar un elemento haga doble clic en él o selecciónelo y haga clic en el botón “+” que está arriba.</p>
+<figure class="align-center" id="id45">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Dashboard-Edit.png"><img alt="Tablero de control editado" src="_images/TaskTutorial-Dashboard-Edit.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 269 </span><span class="caption-text">Tablero de control editado</span><a class="headerlink" href="#id45" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Una vez seleccionado el elemento, puede eliminarlo con la cruz que se encuentra arriba a la derecha o puede modificar cómo
+va a estar plasmado en la pantalla. Generalmente se tendrá que modificar su tamaño, se puede hacer con cualquiera de las
+dos flechas que aparecen en las esquinas inferiores del elemento. Mantenga el botón del ratón apretado, y muévalo hasta
+que el elemento alcance el tamaño deseado.</p>
+<figure class="align-center" id="id46">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Dashboard-Add-View.png"><img alt="Agregar vista al tablero de control" src="_images/TaskTutorial-Dashboard-Add-View.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 270 </span><span class="caption-text">Agregar vista al tablero de control</span><a class="headerlink" href="#id46" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Puede agregar cuantos elementos quiera y una vez finalizada la edición, haga clic en el botón de “Guardar” que se ubica arriba
+a la derecha.</p>
+<p>Finalmente, el tablero de control se verá de la siguiente manera:</p>
+<figure class="align-center" id="id47">
+<a class="reference internal image-reference" href="_images/TaskTutorial-Dashboard-Edited.png"><img alt="Tablero de control final" src="_images/TaskTutorial-Dashboard-Edited.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 271 </span><span class="caption-text">Tablero de control final</span><a class="headerlink" href="#id47" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Por último, si quiere mas información que no se detalló en el tutorial, puede ver el manual de <a class="reference external" href="04-QflowTask.html">Qflow Task</a>.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="23-DesignTutorial.html" class="btn btn-neutral float-left" title="Diseña un proceso de quejas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="27-QflowTeamTutorial.html" class="btn btn-neutral float-right" title="Configura el equipo" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

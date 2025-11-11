@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Novedades &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/29-ReleaseNote.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="v6.0" href="29.13-ReleaseNote6_0.html" />
+    <link rel="prev" title="Bienvenido a la documentación de Qflow" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="29.13-ReleaseNote6_0.html">v6.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.12-ReleaseNote5_6_2.html">v5.6.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.11-ReleaseNote5_6_1.html">v5.6.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.10-ReleaseNote5_6.html">v5.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.9-ReleaseNote5_5_4.html">v5.5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.8-ReleaseNote5_5_3.html">v5.5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.7-ReleaseNote5_5_1.html">v5.5.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.6-ReleaseNote5_5.html">v5.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.5-ReleaseNote5_4.html">v5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.4-ReleaseNote5_3.html">v5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.3-ReleaseNote5_2.html">v5.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html">v5.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html">v5.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_Cloud.html">v5.1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="novedades-news-icon">
+<h1>Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i><a class="headerlink" href="#novedades-news-icon" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">v6.0</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="29.13-ReleaseNote6_0.html">v6.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="29.13-ReleaseNote6_0.html#disenador-de-formularios">Diseñador de formularios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.13-ReleaseNote6_0.html#nueva-accion-agregar-adjuntos-a-incidencia-en-jira">Nueva acción: agregar adjuntos a incidencia en JIRA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.13-ReleaseNote6_0.html#eliminar-proceso-finalizado">Eliminar proceso finalizado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.13-ReleaseNote6_0.html#nuevo-modelo-de-visibilidad-de-datos">Nuevo modelo de visibilidad de datos</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">v5.6.2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="29.12-ReleaseNote5_6_2.html">v5.6.2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="29.12-ReleaseNote5_6_2.html#resumen-de-caracteristicas">Resumen de características</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.12-ReleaseNote5_6_2.html#nuevo-conector-con-ilovepdf">Nuevo conector con ILovePDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.12-ReleaseNote5_6_2.html#mejoras-en-el-conector-con-microsoft-word">Mejoras en el conector con Microsoft Word</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.12-ReleaseNote5_6_2.html#rediseno-del-componente-de-datos-tipo-documento">Rediseño del componente de datos tipo documento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.12-ReleaseNote5_6_2.html#nuevo-tipo-de-conexion-para-conectores-de-outlook">Nuevo tipo de conexión para conectores de Outlook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.12-ReleaseNote5_6_2.html#rediseno-de-mensajes-de-confirmacion-en-qflow-task">Rediseño de mensajes de confirmación en Qflow Task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.12-ReleaseNote5_6_2.html#correccion-de-errores-y-mejoras">Corrección de errores y mejoras</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">v5.6.1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="29.11-ReleaseNote5_6_1.html">v5.6.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="29.11-ReleaseNote5_6_1.html#resumen-de-caracteristicas">Resumen de características</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.11-ReleaseNote5_6_1.html#nuevas-funcionalidades">Nuevas funcionalidades</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.11-ReleaseNote5_6_1.html#servicios-de-correo-mas-seguros-y-faciles-de-usar">Servicios de correo: ¡más seguros y fáciles de usar!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.11-ReleaseNote5_6_1.html#respuesta-de-tareas-directamente-desde-el-correo">Respuesta de tareas directamente desde el correo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.11-ReleaseNote5_6_1.html#botones-con-las-respuestas-para-tareas">Botones con las respuestas para tareas</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.11-ReleaseNote5_6_1.html#correccion-de-errores">Corrección de errores</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">v5.6</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="29.10-ReleaseNote5_6.html">v5.6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="29.10-ReleaseNote5_6.html#resumen-de-caracteristicas">Resumen de características</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.10-ReleaseNote5_6.html#nuevas-funcionalidades">Nuevas funcionalidades</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.10-ReleaseNote5_6.html#cambio-de-conceptos-en-qflow-design">Cambio de conceptos en Qflow Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.10-ReleaseNote5_6.html#barra-de-acciones-procesos-en-marcha-con-menos-clics">Barra de acciones: ¡procesos en marcha con menos clics!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.10-ReleaseNote5_6.html#cambios-de-navegacion-adios-a-las-pestanas">Cambios de navegación: ¡adiós a las pestañas!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.10-ReleaseNote5_6.html#rediseno-del-panel-izquierdo">Rediseño del panel izquierdo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.10-ReleaseNote5_6.html#union-de-plantilla-y-versiones">Unión de plantilla y versiones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.10-ReleaseNote5_6.html#rediseno-de-paneles-de-configuracion-de-pasos">Rediseño de paneles de configuración de pasos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.10-ReleaseNote5_6.html#autoguardado">Autoguardado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.10-ReleaseNote5_6.html#tareas-con-autenticacion-en-dos-pasos">Tareas con autenticación en dos pasos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.10-ReleaseNote5_6.html#correccion-de-errores-y-mejoras">Corrección de errores y mejoras</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">v5.5.4</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="29.9-ReleaseNote5_5_4.html">v5.5.4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="29.9-ReleaseNote5_5_4.html#resumen-de-caracteristicas">Resumen de características</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.9-ReleaseNote5_5_4.html#nuevas-funcionalidades">Nuevas funcionalidades</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.9-ReleaseNote5_5_4.html#conector-con-whatsapp">Conector con WhatsApp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.9-ReleaseNote5_5_4.html#conector-con-microsoft-word">Conector con Microsoft Word</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.9-ReleaseNote5_5_4.html#correccion-de-errores-y-mejoras">Corrección de errores y mejoras</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">v5.5.3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="29.8-ReleaseNote5_5_3.html">v5.5.3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="29.8-ReleaseNote5_5_3.html#resumen-de-caracteristicas">Resumen de características</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.8-ReleaseNote5_5_3.html#nuevas-funcionalidades">Nuevas funcionalidades</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.8-ReleaseNote5_5_3.html#conectores-con-dropbox-y-onedrive">Conectores con Dropbox y OneDrive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.8-ReleaseNote5_5_3.html#plantilla-pre-creada-de-soporte-de-incidentes">Plantilla pre-creada de «Soporte de incidentes»</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.8-ReleaseNote5_5_3.html#uso-de-regla-de-asignacion-en-pasos-de-formula">Uso de regla de asignación en pasos de fórmula</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.8-ReleaseNote5_5_3.html#correccion-de-errores-y-mejoras">Corrección de errores y mejoras</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.8-ReleaseNote5_5_3.html#cambios-tecnicos">Cambios técnicos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">v5.5.1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="29.7-ReleaseNote5_5_1.html">v5.5.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="29.7-ReleaseNote5_5_1.html#resumen-de-caracteristicas">Resumen de características</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.7-ReleaseNote5_5_1.html#nuevas-funcionalidades">Nuevas funcionalidades</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.7-ReleaseNote5_5_1.html#cambio-de-concepto-asignar-como-version-en-produccion-pasa-a-ser-publicar">Cambio de concepto: «Asignar como versión en producción» pasa a ser «Publicar»</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.7-ReleaseNote5_5_1.html#boton-para-publicar-en-vista-de-diseno-del-proceso">Botón para publicar en vista de diseño del proceso</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.7-ReleaseNote5_5_1.html#acceso-directo-para-iniciar-proceso-al-publicar">Acceso directo para iniciar proceso al publicar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.7-ReleaseNote5_5_1.html#chat-de-asistencia-con-inteligencia-artificial">Chat de asistencia con inteligencia artificial</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.7-ReleaseNote5_5_1.html#correccion-de-errores-y-mejoras">Corrección de errores y mejoras</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">v5.5</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="29.6-ReleaseNote5_5.html">v5.5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="29.6-ReleaseNote5_5.html#resumen-de-caracteristicas">Resumen de características</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.6-ReleaseNote5_5.html#conectores">Conectores</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.6-ReleaseNote5_5.html#personalizacion-completa-de-menu-lateral">Personalización completa de menú lateral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.6-ReleaseNote5_5.html#exportar-a-excel-desde-vistas">Exportar a Excel desde vistas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.6-ReleaseNote5_5.html#captcha-inicio-anonimo">Captcha inicio anónimo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.6-ReleaseNote5_5.html#manejo-de-zonas-horarias-en-formularios-de-usuarios-externos-anonimos">Manejo de zonas horarias en formularios de usuarios externos/anónimos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.6-ReleaseNote5_5.html#mejoras-de-performance">Mejoras de performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.6-ReleaseNote5_5.html#configuracion-de-columnas-consideradas-en-busqueda-rapida-de-vistas">Configuración de columnas consideradas en búsqueda rápida de vistas</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.6-ReleaseNote5_5.html#correccion-de-errores-y-mejoras">Corrección de errores y mejoras</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.6-ReleaseNote5_5.html#qflow-task">Qflow Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.6-ReleaseNote5_5.html#qflow-team">Qflow Team</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.6-ReleaseNote5_5.html#qflow-admin">Qflow Admin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.6-ReleaseNote5_5.html#generales">Generales</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">v5.4</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="29.5-ReleaseNote5_4.html">v5.4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="29.5-ReleaseNote5_4.html#resumen-de-caracteristicas">Resumen de características</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.5-ReleaseNote5_4.html#respuesta-de-tarea-por-usuarios-externos">Respuesta de tarea por usuarios externos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.5-ReleaseNote5_4.html#mensaje-de-confirmacion-en-tareas">Mensaje de confirmación en tareas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.5-ReleaseNote5_4.html#nueva-regla-de-asignacion-automatica-distribucion-equitativa-round-robin">Nueva regla de asignación automática: Distribución equitativa (Round Robin)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.5-ReleaseNote5_4.html#nueva-plantilla-votacion-de-junta-directiva">Nueva plantilla: Votación de junta directiva</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.5-ReleaseNote5_4.html#parametros-de-aplicacion-de-tipo-texto-en-condiciones-de-compuertas">Parámetros de aplicación de tipo texto en condiciones de compuertas</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.5-ReleaseNote5_4.html#correccion-de-errores-y-mejoras">Corrección de errores y mejoras</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.5-ReleaseNote5_4.html#qflow-task">Qflow Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.5-ReleaseNote5_4.html#qflow-design">Qflow Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.5-ReleaseNote5_4.html#web-services-technical-icon">Web Services </a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.5-ReleaseNote5_4.html#cambio-en-interfaz-de-scripting-technical-icon">Cambio en interfaz de scripting </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">v5.3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="29.4-ReleaseNote5_3.html">v5.3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="29.4-ReleaseNote5_3.html#asistente-de-inteligencia-artificial-para-la-generacion-de-procesos-de-negocio">Asistente de Inteligencia Artificial para la generación de procesos de negocio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.4-ReleaseNote5_3.html#inicio-de-procesos-por-usuarios-externos-o-anonimos">Inicio de procesos por usuarios externos o anónimos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.4-ReleaseNote5_3.html#nueva-vista-tareas-respondidas-por-mi">Nueva vista: “Tareas respondidas por mí”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.4-ReleaseNote5_3.html#respuesta-rapida-en-vistas-personalizadas-de-mis-tareas">Respuesta rápida en vistas personalizadas de “Mis tareas”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.4-ReleaseNote5_3.html#nuevos-formatos-de-columnas-para-vistas-personalizadas">Nuevos formatos de columnas para vistas personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.4-ReleaseNote5_3.html#inicio-de-sesion-con-qflow">Inicio de sesión con Qflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.4-ReleaseNote5_3.html#qflow-design-home-renovada-y-nueva-galeria-de-plantillas-pre-creadas">Qflow Design: Home renovada y nueva galería de plantillas pre-creadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.4-ReleaseNote5_3.html#correcciones-y-mejoras">Correcciones y mejoras</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.4-ReleaseNote5_3.html#general">General</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.4-ReleaseNote5_3.html#qflow-task">Qflow Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.4-ReleaseNote5_3.html#qflow-design">Qflow Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.4-ReleaseNote5_3.html#qflow-team">Qflow Team</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.4-ReleaseNote5_3.html#qflow-admin">Qflow Admin</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">v5.2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="29.3-ReleaseNote5_2.html">v5.2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="29.3-ReleaseNote5_2.html#mejoras-generales">Mejoras generales</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.3-ReleaseNote5_2.html#renovacion-de-nombres-y-logos">Renovación de nombres y logos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.3-ReleaseNote5_2.html#unificacion-de-acceso-al-producto">Unificación de acceso al producto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.3-ReleaseNote5_2.html#integracion-con-gravatar">Integración con gravatar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.3-ReleaseNote5_2.html#optimizaciones-en-navegacion-technical-icon">Optimizaciones en navegación </a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.3-ReleaseNote5_2.html#qflow-task">Qflow Task</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.3-ReleaseNote5_2.html#responder-multiples-tareas-de-manera-simple">Responder múltiples tareas de manera simple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.3-ReleaseNote5_2.html#almacenamiento-de-adjuntos-en-base-de-datos-externa-onpremise-icon-2x-technical-icon">Almacenamiento de adjuntos en base de datos externa <i class="fa fa-server fa-2x" style="color: orange;font-size: 20px;"></i> </a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.3-ReleaseNote5_2.html#actualizacion-de-formularios-por-defecto">Actualización de formularios por defecto</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.3-ReleaseNote5_2.html#qflow-design">Qflow Design</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.3-ReleaseNote5_2.html#plantillas-de-proceso-pre-creadas">Plantillas de proceso pre-creadas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.3-ReleaseNote5_2.html#nos-integramos-con-sharepoint-365">¡Nos integramos con Sharepoint 365!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.3-ReleaseNote5_2.html#nuevos-dominios-por-defecto">Nuevos dominios por defecto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.3-ReleaseNote5_2.html#errores-corregidos">Errores corregidos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.3-ReleaseNote5_2.html#qflow-team">Qflow Team</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.3-ReleaseNote5_2.html#enviar-bienvenida-al-usuario-creado">Enviar bienvenida al usuario creado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.3-ReleaseNote5_2.html#configuracion-de-proveedor-de-seguridad-predeterminado">Configuración de proveedor de seguridad predeterminado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.3-ReleaseNote5_2.html#configuracion-de-propiedades-por-defecto-para-nuevos-usuarios">Configuración de propiedades por defecto para nuevos usuarios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.3-ReleaseNote5_2.html#mejoras-en-panel-de-usuario">Mejoras en panel de usuario</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.3-ReleaseNote5_2.html#backend">Backend</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.3-ReleaseNote5_2.html#actualizacion-de-estilos-de-notificaciones-de-correo-segun-tema-del-espacio-de-trabajo">Actualización de estilos de notificaciones de correo según tema del espacio de trabajo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.3-ReleaseNote5_2.html#contemplar-zona-horaria-en-addsubstitution-en-tarea-de-codigo-technical-icon">Contemplar zona horaria en AddSubstitution en tarea de código </a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.3-ReleaseNote5_2.html#id1">Errores corregidos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.3-ReleaseNote5_2.html#qflow-admin">Qflow Admin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.3-ReleaseNote5_2.html#nuevos-parametros-de-sistema-technical-icon">Nuevos parámetros de sistema </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">v5.1.2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html">v5.1.2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#mejoras-generales">Mejoras generales</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#recordar-usuario">Recordar usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#foro-de-q-flow">Foro de Q-flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#acceso-al-foro-desde-los-sitios">Acceso al foro desde los sitios</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#sitio-web">Sitio Web</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#almacenamiento-de-adjuntos-en-azure">Almacenamiento de adjuntos en Azure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#errores-corregidos">Errores corregidos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#bpm-web">BPM Web</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#dejar-grafo-desprotegido-al-crear-una-plantilla">Dejar grafo desprotegido al crear una plantilla</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#permitir-crear-paquete-padre-al-crear-plantilla">Permitir crear paquete padre al crear plantilla</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#nuevos-roles-por-defecto-iniciador-y-supervisor">Nuevos roles por defecto: Iniciador y Supervisor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#sam-web">SAM Web</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#mejoras-de-estilos-en-graficas-de-consumo">Mejoras de estilos en gráficas de consumo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#id1">Errores corregidos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#omm-web">OMM Web</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#id2">Errores corregidos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#client-registration">Client Registration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#espacio-de-trabajo">Espacio de trabajo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#cambio-de-tipo-de-licencia-en-uso">Cambio de tipo de licencia en uso</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#permitir-pago-manual-con-transferencia-bancaria">Permitir pago manual con transferencia bancaria</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html#otras-mejoras">Otras mejoras</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">v5.1.1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html">v5.1.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#mejoras-generales">Mejoras generales</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#actualizacion-de-menu-superior">Actualización de menú superior</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#unificar-estilos-de-los-mails">Unificar estilos de los mails</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#utilizar-idioma-del-usuario-destinatario-en-notificaciones">Utilizar idioma del usuario destinatario en Notificaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#soporte-de-globalizacion-de-la-hora">Soporte de globalización de la hora</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#permitir-utilizar-website-webservices-y-bpm-app-en-diferentes-instancias-5-0-5-1">Permitir utilizar WebSite, WebServices y BPM App en diferentes instancias [5.0] [5.1]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#quitar-boton-de-de-expandir-paneles-en-version-movil-5-1">Quitar botón de “…” de expandir paneles en versión móvil [5.1]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#boton-de-cambiar-tenant-en-sitios-web-5-1">Botón de cambiar tenant en sitios web [5.1]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#se-puede-configurar-redis-como-cache-5-1-technical-icon">Se puede configurar Redis como caché [5.1] </a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#logs-de-webapi-en-version-release-5-0-5-1-technical-icon">Logs de webapi en versión release [5.0] [5.1] </a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#crear-servicio-web-para-eliminar-instancias-5-1-technical-icon">Crear servicio web para eliminar instancias [5.1] </a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#errores-corregidos">Errores corregidos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#omm-web">OMM Web</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#actualizacion-de-la-home">Actualización de la home</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#nuevo-proveedor-de-seguridad-azure-active-directory">Nuevo proveedor de seguridad: Azure Active Directory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#id1">Errores corregidos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#bpm-web">BPM Web</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#mejoras-de-estilos">Mejoras de estilos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#advertencia-de-duplicados">Advertencia de duplicados</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#encabezados-http-en-dominios-e-integraciones-rest-technical-icon">Encabezados HTTP en dominios e integraciones REST </a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#se-agrega-columna-de-id-en-listado-de-bots">Se agrega columna de Id en listado de bots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#mejoras-en-panel-de-datos-5-1">Mejoras en panel de datos [5.1]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#icono-de-home-no-alineado-5-1">Ícono de home no alineado [5.1]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#icono-desalineado-en-asignar-valor-de-una-integracion-5-0-5-1">Ícono desalineado en asignar valor de una integración [5.0] [5.1]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#alinear-ordenado-de-grupos-con-el-resto-de-los-componentes-5-1">Alinear ordenado de grupos con el resto de los componentes [5.1]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#mapeo-en-actividad-de-llamadas-4-3-5-0-5-1">Mapeo en actividad de llamadas [4.3] [5.0] [5.1]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#quitar-valores-por-defecto-no-usados-de-parametros-de-integracion-y-bots-5-0-5-1">Quitar valores por defecto no usados de parámetros de integración y bots [5.0] [5.1]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#agregar-los-paquetes-en-indexeddb-5-0-5-1-technical-icon">Agregar los paquetes en IndexedDB [5.0] [5.1] </a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#id3">Errores corregidos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#sam-web">SAM Web</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#id4">Actualización de la home</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#dar-de-baja-instancia">Dar de baja instancia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#actualizacion-de-estadisticas">Actualización de estadísticas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#id5">Errores corregidos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#sitio-web">Sitio web</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#notificar-al-usuario-que-no-subio-adjunto-antes-de-iniciar-proceso-o-responder-tarea-5-1">Notificar al usuario que no subió adjunto antes de iniciar proceso o responder tarea [5.1]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#id6">Errores corregidos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#nuevos-manuales-y-tutoriales">Nuevos manuales y tutoriales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html#se-depreca-la-compatibilidad-de-oracle-a-partir-de-la-version-5-2">Se depreca la compatibilidad de Oracle a partir de la versión 5.2</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">v5.1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="29.1-ReleaseNote5_1_Cloud.html">v5.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_Cloud.html#client-registration">Client Registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_Cloud.html#omm-web">OMM Web</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_Cloud.html#actualizacion-de-la-home">Actualización de la home</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_Cloud.html#sam-web">SAM Web</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_Cloud.html#id1">Actualización de la home</a></li>
+<li class="toctree-l3"><a class="reference internal" href="29.1-ReleaseNote5_1_Cloud.html#actualizacion-de-estadisticas">Actualización de estadísticas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="index.html" class="btn btn-neutral float-left" title="Bienvenido a la documentación de Qflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="29.13-ReleaseNote6_0.html" class="btn btn-neutral float-right" title="v6.0" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

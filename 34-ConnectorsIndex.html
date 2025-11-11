@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conectores &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/34-ConnectorsIndex.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Configuración de Conectores desde una Tarea de Servicio" href="35-ConnectorParameterConfig.html" />
+    <link rel="prev" title="Consumo de Q-points" href="21-Q-pointsConsumption.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Conectores</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="35-ConnectorParameterConfig.html">Configuración de Conectores desde una Tarea de Servicio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.1-MicrosoftTeamsConnector.html">Microsoft Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.2-OutlookConnector.html">Outlook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.3-SlackConnector.html">Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.4-TrelloConnector.html">Trello</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.5-OpenAIConnector.html">OpenAI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.6-JiraCloudConnector.html">Jira Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.7-RedmineConnector.html">Redmine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.8-DocuSignConnector.html">DocuSign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.9-GoogleCalendarConnector.html">Google Calendar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.11-DropboxConnector.html">Dropbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.12-OneDriveConnector.html">OneDrive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.13-WhatsAppTwilioConnector.html">WhatsApp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.14-MicrosoftWordConnector.html">Microsoft Word</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.15-ILovePDFConnector.html">ILovePDF</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Conectores</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="conectores">
+<h1>Conectores<a class="headerlink" href="#conectores" title="Link to this heading"></a></h1>
+<p>Los conectores permiten integrar de manera sencilla y sin necesidad de programación
+servicios de terceros con Qflow.
+A continuación, se detallan las aplicaciones disponibles para conectarse, así como los
+pasos necesarios para configurar cada conector en una tarea de servicio en Qflow.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="35-ConnectorParameterConfig.html">Configuración de Conectores desde una Tarea de Servicio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="36.1-MicrosoftTeamsConnector.html">Microsoft Teams</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="36.1-MicrosoftTeamsConnector.html#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.1-MicrosoftTeamsConnector.html#parametro-de-aplicacion">Parámetro de aplicación</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.1-MicrosoftTeamsConnector.html#parametro-de-aplicacion-utilizando-un-webhook">Parámetro de aplicación utilizando un Webhook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36.1-MicrosoftTeamsConnector.html#acciones">Acciones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.1-MicrosoftTeamsConnector.html#id1">Publicar en canal</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="36.2-OutlookConnector.html">Outlook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="36.2-OutlookConnector.html#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.2-OutlookConnector.html#prerrequisitos">Prerrequisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.2-OutlookConnector.html#parametro-de-aplicacion">Parámetro de aplicación</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.2-OutlookConnector.html#parametro-de-aplicacion-utilizando-oauth">Parámetro de aplicación utilizando OAuth</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36.2-OutlookConnector.html#id1">Acciones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.2-OutlookConnector.html#id2">Agendar reunión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.2-OutlookConnector.html#id3">Actualizar reunión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.2-OutlookConnector.html#id4">Cancelar reunión</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="36.3-SlackConnector.html">Slack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="36.3-SlackConnector.html#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.3-SlackConnector.html#prerrequisitos">Prerrequisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.3-SlackConnector.html#parametro-de-aplicacion">Parámetro de aplicación</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.3-SlackConnector.html#parametro-de-aplicacion-utilizando-token-de-autenticacion-oauth">Parámetro de aplicación utilizando Token de Autenticación OAuth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.3-SlackConnector.html#parametro-de-aplicacion-utilizando-webhook">Parámetro de aplicación utilizando Webhook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36.3-SlackConnector.html#acciones">Acciones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.3-SlackConnector.html#id1">Enviar mensaje (Slack App)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.3-SlackConnector.html#id2">Enviar mensaje (Webhook)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="36.4-TrelloConnector.html">Trello</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="36.4-TrelloConnector.html#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.4-TrelloConnector.html#prerrequisitos">Prerrequisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.4-TrelloConnector.html#parametro-de-aplicacion">Parámetro de aplicación</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.4-TrelloConnector.html#parametro-de-aplicacion-utilizando-api-key-y-token">Parámetro de aplicación utilizando API Key y Token</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36.4-TrelloConnector.html#acciones">Acciones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.4-TrelloConnector.html#id1">Crear tarjeta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.4-TrelloConnector.html#id2">Agregar comentario a tarjeta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.4-TrelloConnector.html#id3">Mover tarjeta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.4-TrelloConnector.html#id4">Agregar miembro a tarjeta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.4-TrelloConnector.html#id5">Eliminar miembro de la tarjeta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.4-TrelloConnector.html#id6">Eliminar tarjeta</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="36.5-OpenAIConnector.html">OpenAI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="36.5-OpenAIConnector.html#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.5-OpenAIConnector.html#prerrequisitos">Prerrequisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.5-OpenAIConnector.html#parametro-de-aplicacion">Parámetro de aplicación</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.5-OpenAIConnector.html#parametro-de-aplicacion-utilizando-una-api-key">Parámetro de aplicación utilizando una API Key</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36.5-OpenAIConnector.html#acciones">Acciones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.5-OpenAIConnector.html#id1">Moderar contenido</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.5-OpenAIConnector.html#id2">Chat</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="36.6-JiraCloudConnector.html">Jira Cloud</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="36.6-JiraCloudConnector.html#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.6-JiraCloudConnector.html#prerrequisitos">Prerrequisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.6-JiraCloudConnector.html#parametro-de-aplicacion">Parámetro de aplicación</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.6-JiraCloudConnector.html#parametro-de-aplicacion-utilizando-api-token">Parámetro de aplicación utilizando API Token</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36.6-JiraCloudConnector.html#acciones">Acciones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.6-JiraCloudConnector.html#id1">Crear incidencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.6-JiraCloudConnector.html#id2">Agregar comentario a incidencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.6-JiraCloudConnector.html#id3">Actualizar fecha de vencimiento en incidencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.6-JiraCloudConnector.html#id4">Actualizar prioridad en incidencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.6-JiraCloudConnector.html#id5">Actualizar estado de incidencia</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.6-JiraCloudConnector.html#id6">Actualizar usuario asignado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.6-JiraCloudConnector.html#id7">Eliminar incidencia</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="36.7-RedmineConnector.html">Redmine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="36.7-RedmineConnector.html#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.7-RedmineConnector.html#prerrequisitos">Prerrequisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.7-RedmineConnector.html#parametro-de-aplicacion">Parámetro de aplicación</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.7-RedmineConnector.html#parametro-de-aplicacion-utilizando-api-key">Parámetro de aplicación utilizando API Key</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36.7-RedmineConnector.html#acciones">Acciones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.7-RedmineConnector.html#id1">Crear petición</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.7-RedmineConnector.html#id2">Actualizar petición</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.7-RedmineConnector.html#id3">Eliminar petición</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="36.8-DocuSignConnector.html">DocuSign</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="36.8-DocuSignConnector.html#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.8-DocuSignConnector.html#prerrequisitos">Prerrequisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.8-DocuSignConnector.html#parametro-de-aplicacion">Parámetro de aplicación</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.8-DocuSignConnector.html#parametro-de-aplicacion-utilizando-json-web-token">Parámetro de aplicación utilizando JSON Web Token</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36.8-DocuSignConnector.html#id1">Acciones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.8-DocuSignConnector.html#enviar-documento-a-firmar">Enviar documento a firmar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.8-DocuSignConnector.html#id2">Obtener estado de documentos enviados a firmar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.8-DocuSignConnector.html#id3">Obtener documentos firmados desde DocuSign</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.8-DocuSignConnector.html#id4">Cancelar firma de documentos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="36.9-GoogleCalendarConnector.html">Google Calendar</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="36.9-GoogleCalendarConnector.html#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.9-GoogleCalendarConnector.html#prerrequisitos">Prerrequisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.9-GoogleCalendarConnector.html#parametro-de-aplicacion">Parámetro de aplicación</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.9-GoogleCalendarConnector.html#parametro-de-aplicacion-utilizando-delegacion-en-todo-el-dominio">Parámetro de aplicación utilizando Delegación en todo el Dominio</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36.9-GoogleCalendarConnector.html#id1">Acciones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.9-GoogleCalendarConnector.html#id2">Crear evento</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.9-GoogleCalendarConnector.html#id3">Actualizar evento</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.9-GoogleCalendarConnector.html#id4">Eliminar evento</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="36.11-DropboxConnector.html">Dropbox</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="36.11-DropboxConnector.html#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.11-DropboxConnector.html#prerrequisitos">Prerrequisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.11-DropboxConnector.html#parametro-de-aplicacion">Parámetro de aplicación</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.11-DropboxConnector.html#parametro-de-aplicacion-utilizando-oauth">Parámetro de aplicación utilizando OAuth</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36.11-DropboxConnector.html#id1">Acciones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.11-DropboxConnector.html#id2">Subir archivo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.11-DropboxConnector.html#id3">Obtener archivo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.11-DropboxConnector.html#id4">Obtener vínculo para visualización web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.11-DropboxConnector.html#id5">Eliminar archivo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="36.12-OneDriveConnector.html">OneDrive</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="36.12-OneDriveConnector.html#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.12-OneDriveConnector.html#prerrequisitos">Prerrequisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.12-OneDriveConnector.html#parametro-de-aplicacion">Parámetro de aplicación</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.12-OneDriveConnector.html#parametro-de-aplicacion-utilizando-oauth">Parámetro de aplicación utilizando OAuth</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36.12-OneDriveConnector.html#id1">Acciones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.12-OneDriveConnector.html#id2">Subir archivo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.12-OneDriveConnector.html#id3">Obtener archivo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.12-OneDriveConnector.html#id4">Eliminar archivo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.12-OneDriveConnector.html#id5">Obtener vínculo para visualización web</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="36.13-WhatsAppTwilioConnector.html">WhatsApp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="36.13-WhatsAppTwilioConnector.html#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.13-WhatsAppTwilioConnector.html#prerrequisitos">Prerrequisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.13-WhatsAppTwilioConnector.html#parametro-de-aplicacion">Parámetro de aplicación</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.13-WhatsAppTwilioConnector.html#parametro-de-aplicacion-utilizando-sid-de-cuenta-token-de-autenticacion-y-numero-de-telefono">Parámetro de aplicación utilizando sid de cuenta, token de autenticación y número de teléfono</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36.13-WhatsAppTwilioConnector.html#id1">Acciones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.13-WhatsAppTwilioConnector.html#id2">Enviar mensaje con plantilla</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.13-WhatsAppTwilioConnector.html#id3">Obtener estado de mensajes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="36.14-MicrosoftWordConnector.html">Microsoft Word</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="36.14-MicrosoftWordConnector.html#introduccion">Introducción</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.14-MicrosoftWordConnector.html#formatos">Formatos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36.14-MicrosoftWordConnector.html#prerrequisitos">Prerrequisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.14-MicrosoftWordConnector.html#acciones">Acciones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.14-MicrosoftWordConnector.html#id1">Crear documentos personalizados con plantillas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="36.15-ILovePDFConnector.html">ILovePDF</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="36.15-ILovePDFConnector.html#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.15-ILovePDFConnector.html#prerrequisitos">Prerrequisitos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36.15-ILovePDFConnector.html#parametro-de-aplicacion">Parámetro de aplicación</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.15-ILovePDFConnector.html#parametro-de-aplicacion-utilizando-api-key-publica">Parámetro de aplicación utilizando <strong>API Key pública</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36.15-ILovePDFConnector.html#acciones">Acciones</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36.15-ILovePDFConnector.html#id1">Convertir archivo Office</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.15-ILovePDFConnector.html#id2">Unir archivos PDF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36.15-ILovePDFConnector.html#id3">Convertir imagen a PDF</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="21-Q-pointsConsumption.html" class="btn btn-neutral float-left" title="Consumo de Q-points" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="35-ConnectorParameterConfig.html" class="btn btn-neutral float-right" title="Configuración de Conectores desde una Tarea de Servicio" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

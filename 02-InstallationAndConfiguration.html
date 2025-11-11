@@ -1,0 +1,3256 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instalación y configuración &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/02-InstallationAndConfiguration.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Instalación y configuración</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="instalacion-y-configuracion">
+<h1>Instalación y configuración<a class="headerlink" href="#instalacion-y-configuracion" title="Link to this heading"></a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading"></a></h2>
+<p>Este manual describe los requisitos de instalación de Qflow y el
+procedimiento de instalación de todos sus componentes. También explica
+cómo configurar Qflow.</p>
+<p>Para comprender mejor el proceso de instalación, es conveniente saber
+cuáles son los componentes de Qflow:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>La base de datos de Qflow</p></li>
+<li><p>Los servicios de <em>backend</em>: acceden a la base de datos y le proveen
+servicios a los sitios <em>web</em>, a los <em>web services</em> y a las
+herramientas cliente.</p></li>
+<li><p>Los sitios web, son sitios que utilizan los usuarios finales, los que
+diseñan procesos y los que administran el sistema y el organigrama:</p>
+<ul>
+<li><p>Qflow Access: brinda un punto único de acceso a todas las herramientas de Qflow.</p></li>
+<li><p>Qflow Task: donde los usuarios finales pueden iniciar procesos e interactúar con ellos.</p></li>
+<li><p>Qflow Design: sitio en el que se diseñan los procesos para luego ser iniciados en Qflow Task.</p></li>
+<li><p>Qflow Team: donde se crean y administran las cuentas de usuario, definen
+relaciones jerárquicas entre ellos y modela la estructura de la organización.</p></li>
+<li><p>Qflow Admin: permite administrar el sistema, monitorear el estado de los distintos sitios y
+servicios de Qflow. Además, brinda la posibilidad de administrar propiedades extendidas,
+parámetros de sistema y licencias.</p></li>
+</ul>
+</li>
+<li><p>Los <em>web services</em></p></li>
+<li><p>Las herramientas cliente, son aplicaciones que utilizan los usuarios
+que diseñan procesos y se encargan de tareas de administración:</p>
+<ul>
+<li><p>El diseñador de procesos de negocio [deprecada]</p></li>
+<li><p>El administrador de procesos del negocio</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p>Todos estos componentes pueden estar albergados en diferentes equipos.
+La instalación de los web services es opcional, puesto que sólo son
+necesarios si la organización desea desarrollar alguna aplicación que
+utilice Qflow como base.</p>
+</section>
+<section id="organizacion-de-este-manual">
+<h2>Organización de este manual<a class="headerlink" href="#organizacion-de-este-manual" title="Link to this heading"></a></h2>
+<p>Este manual está dividido en las siguientes secciones:</p>
+<ul class="simple">
+<li><p><strong>Requisitos para la instalación estándar:</strong> describe los requisitos
+de software y de hardware de cada componente de Qflow.</p></li>
+<li><p><strong>Instalación:</strong> describe los prerrequisitos y los permisos
+necesarios para instalar cada componente y el procedimiento para
+instalarlos.</p></li>
+<li><p><strong>Licenciamiento:</strong> explica cómo cargar las licencias de Qflow.</p></li>
+<li><p><strong>Configuración:</strong> explica cómo utilizar la herramienta de
+configuración de Qflow y describe los parámetros que pueden
+ser modificados. También como realizar configuraciones referidas al
+almacenamiento de adjuntos, sesión unificada o envio de correos con
+Google SMTP.</p></li>
+<li><p><strong>Instalación de otros componentes:</strong> explica cómo instalar y
+configurar el servicio de sincronización de directorio, que es un
+servicio que permite actualizar periódicamente el modelo
+organizacional de Qflow en base al modelo definido en un directorio
+compatible con LDAP.</p></li>
+<li><p><strong>Dimensionamiento:</strong> habla del dimensionamiento de Qflow,
+analizando varios escenarios.</p></li>
+<li><p><strong>Arquitectura y despliegue:</strong> presenta opciones de despliegue de
+Qflow.</p></li>
+</ul>
+</section>
+<section id="requisitos-para-la-instalacion">
+<h2>Requisitos para la instalación<a class="headerlink" href="#requisitos-para-la-instalacion" title="Link to this heading"></a></h2>
+<p>Esta sección describe los requisitos de instalación de cada componente
+de Qflow.</p>
+<p>A continuación, se describen los requisitos de software. Los requisitos
+de hardware son los requisitos del software requerido. Por ejemplo:
+todos los componentes de Qflow requieren que esté instalado Microsoft
+.NET Framework 4.7.2. Los requisitos de hardware de los componentes son
+los requisitos de ese <em>framework</em>.</p>
+<section id="instalacion-de-microsoft-net-framework-4-7-2">
+<h3>Instalación de Microsoft .NET Framework 4.7.2<a class="headerlink" href="#instalacion-de-microsoft-net-framework-4-7-2" title="Link to this heading"></a></h3>
+<p>Todos los componentes de Qflow requieren que esté instalado el .NET
+Framework 4.7.2 (o alguna versión posterior compatible, como la versión
+4.8). Usuarios que solamente utilicen el sitio web de Qflow no
+necesitan instalar ningún componente de Qflow y por lo tanto no
+necesitan tener instalado el <em>framework</em>.</p>
+<p>Si al momento de instalar un componente se detecta que el <em>framework</em> no
+está instalado en el equipo en el que se está haciendo la instalación,
+aparecerá un mensaje indicando que el <em>framework</em> 4.7.2 es requerido.</p>
+<section id="requisitos-de-microsoft-net-framework-4-7-2">
+<h4>Requisitos de Microsoft .NET Framework 4.7.2<a class="headerlink" href="#requisitos-de-microsoft-net-framework-4-7-2" title="Link to this heading"></a></h4>
+<p>Como todos los componentes de Qflow utilizan Microsoft .NET Framework
+4.7.2, los requisitos de éste son requisitos para todos los componentes
+de Qflow. Estos son los siguientes.</p>
+</section>
+<section id="requisitos-de-software">
+<h4>Requisitos de software<a class="headerlink" href="#requisitos-de-software" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Alguno de los siguientes sistemas operativos para el cliente:</p>
+<ul>
+<li><p>Windows 7 SP1</p></li>
+<li><p>Windows 8.1</p></li>
+<li><p>Windows 10</p></li>
+<li><p>Windows 11</p></li>
+</ul>
+</li>
+<li><p>Alguno de los siguientes sistemas operativos para el servidor:</p>
+<ul>
+<li><p>Windows Server 2008 R2 SP1 o superior</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="requisitos-de-hardware">
+<h4>Requisitos de hardware<a class="headerlink" href="#requisitos-de-hardware" title="Link to this heading"></a></h4>
+<p>Los requisitos de hardware de Microsoft .NET Framework 4.7.2 son los
+siguientes:</p>
+<ul class="simple">
+<li><p>Procesador de 1 GHz o más</p></li>
+<li><p>512 MB de RAM</p></li>
+<li><p>4.5 GB de espacio en disco</p></li>
+</ul>
+</section>
+</section>
+<section id="requisitos-de-los-clientes-web">
+<h3>Requisitos de los clientes web<a class="headerlink" href="#requisitos-de-los-clientes-web" title="Link to this heading"></a></h3>
+<p>Los usuarios de Qflow, aquellos que participan de procesos, diseñan
+plantillas de procesos, administran el modelo organizacional o
+administran y monitorean el sistema, sólo necesitan disponer de un
+navegador web. Pueden también utilizar un cliente de correo electrónico
+para recibir notificaciones de Qflow por esa vía, pero esto no es
+imprescindible.</p>
+<p>El navegador web utilizado por los usuarios que participan de procesos
+debe ser:</p>
+<ul class="simple">
+<li><p>Google Chrome</p></li>
+<li><p>Mozilla Firefox</p></li>
+<li><p>Microsoft Edge</p></li>
+</ul>
+<p>En cuanto a los diseñadores de procesos, administradores del modelo
+organizacional y administradores y monitores del sistema, el navegador
+web debe ser:</p>
+<ul class="simple">
+<li><p>Google Chrome</p></li>
+<li><p>Mozilla Firefox</p></li>
+<li><p>Microsoft Edge</p></li>
+</ul>
+</section>
+<section id="requisitos-de-las-herramientas-cliente">
+<h3>Requisitos de las herramientas cliente<a class="headerlink" href="#requisitos-de-las-herramientas-cliente" title="Link to this heading"></a></h3>
+<p>Las herramientas cliente (diseñador de procesos de negocio y
+administrador de procesos del negocio) requieren solamente que Microsoft
+.NET Framework 4.7.2 esté instalado en los equipos en los que estén
+instaladas. Además, deben tener acceso a través de la red a los
+servicios de <em>backend</em>.</p>
+</section>
+<section id="requisitos-del-servidor-web">
+<h3>Requisitos del servidor web<a class="headerlink" href="#requisitos-del-servidor-web" title="Link to this heading"></a></h3>
+<p>El servidor web es el servidor en el cual se ejecutará Qflow Task.
+El mismo servidor puede albergar los <em>web services</em>.</p>
+<p>Tiene los siguientes requisitos:</p>
+<ul class="simple">
+<li><p>Microsoft .NET Framework 4.7.2</p></li>
+<li><p>Windows (cualquiera de las versiones compatibles con Microsoft .NET
+Framework 4.7.2, pero no pueden ser ediciones Home o Starter)</p></li>
+<li><p>Internet Information Services 7 o superior</p></li>
+</ul>
+<p>Además, requiere que estén instalados algunos componentes de Windows:</p>
+<ul class="simple">
+<li><p>ASP.NET</p></li>
+<li><p>Autenticación Windows</p></li>
+</ul>
+<p>Estos componentes pueden estar instalados sin estar habilitados. Por
+información acerca de cómo habilitarlos, consulte la sección
+<a class="reference internal" href="#enableiiscomponents"><span class="std std-ref">Habilitación de componentes de IIS</span></a>. La edición de Windows que utilice
+en el servidor web debe ser capaz de albergar estos componentes. Por
+ejemplo, en un equipo que cuente con la edición Home o Starter de
+Windows no se puede instalar el componente de autenticación Windows. Por
+lo tanto, en ese equipo no podrá utilizar la autenticación integrada de
+Windows.</p>
+<section id="habilitacion-de-componentes-de-iis">
+<span id="enableiiscomponents"></span><h4>Habilitación de componentes de IIS<a class="headerlink" href="#habilitacion-de-componentes-de-iis" title="Link to this heading"></a></h4>
+<p>Los componentes de Internet Information Services (IIS) que se necesitan
+para instalar los sitios web pueden estar presentes sin estar
+habilitados. En estos casos, antes de ejecutar el instalador, hay que
+habilitar las funcionalidades requeridas por Qflow. Esta sección
+explica cómo hacer esto para versiones de Windows no específicas para
+servidores. En versiones de Windows Server, el procedimiento es
+diferente.</p>
+<ol class="arabic simple">
+<li><p>Abra el Panel de Control (<em>Control Panel</em>).</p></li>
+<li><p>Dentro del Panel de Control, entre en Programas (<em>Programs</em>)</p></li>
+<li><p>Seleccione la opción “Activar o desactivar características de
+Windows” (“<em>Turn Windows Features On or Off</em>”).</p></li>
+<li><p>En la ventana de características de Windows (<em>Windows features</em>),
+active los siguientes componentes:</p>
+<ol class="loweralpha simple">
+<li><p><strong>ASP.NET</strong> Internet Information Services/World Wide Web
+Services/Application Development Features/ASP.NET (ver
+<code class="xref std std-numref docutils literal notranslate"><span class="pre">ASPNet_Activation</span></code>). Desde Windows 8 en adelante, esto es equivalente a
+activar los componentes ASP .NET en sus versiones disponibles.
+En la <code class="xref std std-numref docutils literal notranslate"><span class="pre">ASPNet_Win10_Activation</span></code> las versiones son ASP .NET 3.5 y 4.7.2, las
+disponibles en Windows 10 y Windows 11.</p></li>
+<li><p><strong>Windows Authentication:</strong> Internet Information Services/World
+Wide Web Services/Security/Windows Authentication (ver
+<code class="xref std std-numref docutils literal notranslate"><span class="pre">Windows_Auth_Activation</span></code>).</p></li>
+<li><p><strong>Static Content:</strong> Internet Information Services/World Wide Web
+Services/CommonHTTP Features/Static Content</p></li>
+</ol>
+</li>
+</ol>
+<figure class="align-center" id="id9">
+<span id="aspnet-activation"></span><a class="reference internal image-reference" href="_images/image3.jpeg"><img alt="_images/image3.jpeg" src="_images/image3.jpeg" style="width: 4.0085in; height: 3.50394in;" /></a>
+<figcaption>
+<p><span class="caption-text">Activación de ASP.NET.</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id10">
+<span id="aspnet-win10-activation"></span><img alt="_images/ActivationOfASPNET.png" src="_images/ActivationOfASPNET.png" />
+<figcaption>
+<p><span class="caption-text">Activación de ASP .NET en Windows 11</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id11">
+<span id="windows-auth-activation"></span><img alt="_images/WindowsAuthentication.png" src="_images/WindowsAuthentication.png" />
+<figcaption>
+<p><span class="caption-text">Autenticación Windows</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="habilitacion-de-componentes-de-iis-en-windows-server">
+<h4>Habilitación de componentes de IIS en Windows Server<a class="headerlink" href="#habilitacion-de-componentes-de-iis-en-windows-server" title="Link to this heading"></a></h4>
+<p>Los componentes de Internet Information Services (IIS) que se necesitan
+para instalar los sitios web pueden estar presentes sin estar
+habilitados. En estos casos, antes de ejecutar el instalador, hay que
+habilitar las funcionalidades requeridas por Qflow. Esta sección
+explica cómo hacer esto en Windows Server. Para versiones de Windows no
+específicas para servidores ir a la sección Habilitación de componentes
+de IIS.</p>
+<ol class="arabic simple">
+<li><p>Abrir el Server Manager</p></li>
+<li><p>Seleccionar la opción Agregar roles y características (<em>Add roles and
+features</em>)</p></li>
+<li><p>En la sección Roles seleccionar las siguientes opciones:</p>
+<ol class="loweralpha simple">
+<li><p><strong>ASP.NET</strong> Web Server (IIS)/Web Server/Application
+Development/ ASP .NET 3.5 y 4.7 (ver <code class="xref std std-numref docutils literal notranslate"><span class="pre">AspNetActivationAndWindowsAuthentication</span></code>).</p></li>
+<li><p><strong>Autenticación Windows:</strong> Web Server (IIS)/Web Server/
+Security/Windows Authentication (Ver <code class="xref std std-numref docutils literal notranslate"><span class="pre">AspNetActivationAndWindowsAuthentication</span></code>).</p></li>
+<li><p><strong>Static Content:</strong> Web Server (IIS)/Web Server/Common HTTP
+Features/Static Content</p></li>
+</ol>
+</li>
+</ol>
+<figure class="align-center" id="id12">
+<span id="aspnetactivationandwindowsauthentication"></span><a class="reference internal image-reference" href="_images/image61.png"><img alt="_images/image61.png" src="_images/image61.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-text">Activación ASP.NET y Autenticación Windows para Windows
+Services</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="requisitos-del-servidor-de-backend">
+<h3>Requisitos del servidor de <em>backend</em><a class="headerlink" href="#requisitos-del-servidor-de-backend" title="Link to this heading"></a></h3>
+<p>En el servidor de <em>backend</em> se ejecutan los servicios que son utilizados
+por los otros componentes de Qflow. Este tiene los siguientes
+requisitos:</p>
+<ul class="simple">
+<li><p>Microsoft .NET Framework 4.7.2</p></li>
+<li><p>Windows (cualquiera de las versiones compatibles con Microsoft .NET
+Framework 4.7.2, pero no pueden ser ediciones Home o Starter)</p></li>
+<li><p>Internet Information Services 7 o superior</p></li>
+</ul>
+<p>Además, requiere que estén instalados algunos componentes de Windows:</p>
+<ul class="simple">
+<li><p>ASP.NET</p></li>
+</ul>
+<p>Opcionales:</p>
+<ul class="simple">
+<li><p>Servidor de correo SMTP</p></li>
+<li><p>Servidor de correo Exchange (envío de mensajes de correo
+electrónico)</p></li>
+</ul>
+<p>Cada sitio de Qflow accede a la <em>BackendAPI</em> utilizando el protocolo
+<em>http</em>, utilizando puertos estándar, salvo que se especifique lo
+contrario.</p>
+<p>Sin embargo, en caso de ser necesaria la instalación de alguna de las
+herramientas que se encuentran deprecadas, cada una de ellas, incluyendo
+el sitio web y <em>web services asmx</em>, accede a su correspondiente servicio
+de <em>backend</em> a través de un determinado puerto. Estos puertos deben ser
+tenidos en cuenta en la configuración del <em>firewall</em>. Por defecto, los
+puertos correspondientes al servicio de cada herramienta son los que
+aparecen en la siguiente tabla:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Herramienta / Sitio</strong></p></th>
+<th class="head"><p><strong>Puerto</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Diseñador de Procesos del Negocio</p></td>
+<td><p>6000</p></td>
+</tr>
+<tr class="row-odd"><td><p>Administrador de Procesos del Negocio</p></td>
+<td><p>6006</p></td>
+</tr>
+<tr class="row-even"><td><p>Sitio web WebForms/Web services .asmx</p></td>
+<td><p>6003</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="base-de-datos">
+<h3>Base de datos<a class="headerlink" href="#base-de-datos" title="Link to this heading"></a></h3>
+<p>Los requisitos que debe cumplir el equipo que alberga la base de datos
+son los siguientes:</p>
+<ul class="simple">
+<li><p>Alguna de las versiones de Windows mencionadas anteriormente.</p></li>
+<li><p>Alguno de los siguientes gestores de base de datos:</p>
+<ul>
+<li><p>SQL Server 2012 o superior</p></li>
+<li><p>SQL Server 2012 Express o superior (no recomendado para ambientes
+de producción)</p></li>
+</ul>
+</li>
+<li><p>Opcionales:</p>
+<ul>
+<li><p>Acrobat Reader 7.0.5 o superior (requisito para realizar búsquedas
+<em>full-text</em> de documentos en formato PDF).</p></li>
+<li><p>Microsoft Filter Pack 2010 (requisito para realizar búsquedas
+<em>full-text</em> de documentos en formatos de Office 2007 o
+versiones más recientes de Office).</p></li>
+<li><p>Las búsquedas <em>full-text</em> sobre archivos de otros tipos requieren
+componentes específicos (iFilter correspondiente).</p></li>
+</ul>
+</li>
+</ul>
+<p>Los requisitos de <em>hardware</em> dependen del gestor de base de datos
+utilizado. Consulte la documentación del gestor de la base de datos para
+obtener más información.</p>
+</section>
+<section id="requisitos-de-infraestructura">
+<h3>Requisitos de infraestructura<a class="headerlink" href="#requisitos-de-infraestructura" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Servicios de correo SMTP o Exchange</p></li>
+<li><p>Active Directory (recomendado), proveedor de seguridad LDAP o
+NTDomain</p></li>
+</ul>
+</section>
+<section id="requisitos-de-permisos-y-cuentas-de-usuario">
+<h3>Requisitos de permisos y cuentas de usuario<a class="headerlink" href="#requisitos-de-permisos-y-cuentas-de-usuario" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Se debe contar con una cuenta del servidor de base de datos que
+permita la creación de nuevas bases de datos (SQL Server).</p></li>
+<li><p>Se debe utilizar una cuenta de Windows con permisos suficientes para
+actuar como un servicio: deberá tener activados los permisos <em>Log
+on as a service</em> y <em>Log on locally</em>. Además, se recomiendan los
+permisos avanzados <em>Act as a part of the operating System</em> y <em>Log
+on as a batch job</em>.</p></li>
+<li><p>Para envío de notificaciones:</p>
+<ul>
+<li><p>SMTP</p>
+<ul>
+<li><p>Se deberá proveer una cuenta de correo para el servicio</p></li>
+</ul>
+</li>
+<li><p>Exchange</p>
+<ul>
+<li><p>Crear una <em>MailBox</em> para envío de correo. Esta <em>MailBox</em> debe
+estar asociada a la cuenta creada en el paso anterior (se
+aplica si se está utilizando Exchange)</p></li>
+<li><p>Crear un perfil de correo en el perfil de usuario y asociarlo a
+la de <em>MailBox</em> creada anteriormente (sólo para Extended
+MAPI).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="instalacion">
+<h2>Instalación<a class="headerlink" href="#instalacion" title="Link to this heading"></a></h2>
+<p>Para instalar Qflow:</p>
+<ol class="arabic simple">
+<li><p>Ejecute el archivo Setup.exe del CD. Si el control de cuentas del
+usuario se encuentra activo, Windows le preguntará si desea permitir
+que el programa Setup.exe modifique su computadora. Conteste “Sí”.</p></li>
+<li><p>La <code class="xref std std-numref docutils literal notranslate"><span class="pre">Window_Installer_SQLServer</span></code> muestra la pantalla principal del instalador.
+Se muestran en el orden en que deben ser ejecutados, los instaladores de
+todos los componentes de Qflow. Esos instaladores son los siguientes:</p>
+<ol class="loweralpha simple">
+<li><p>Instalador de la base de datos (<em>Database</em>)</p></li>
+<li><p>Instalador de los servicios de <em>backend</em> (<em>Backend Services</em>).</p></li>
+<li><p>Instalador de la API del <em>backend</em> (<em>Backend API</em>)</p></li>
+<li><p>Instalador de los web services (<em>Web Services API</em>).</p></li>
+<li><p>Instalador de <em>Qflow Task</em> (<em>Task</em>).</p></li>
+<li><p>Instalador de <em>Qflow Design</em> (<em>Design</em>).</p></li>
+<li><p>Instalador de <em>Qflow Team</em> (<em>Team</em>).</p></li>
+<li><p>Instalador de <em>Qflow Admin</em> (<em>Admin</em>).</p></li>
+<li><p>Instalador de <em>Qflow Access</em> (<em>Access</em>).</p></li>
+</ol>
+</li>
+</ol>
+<figure class="align-center" id="id13">
+<span id="window-installer-sqlserver"></span><a class="reference internal image-reference" href="_images/image8.png"><img alt="Pantalla principal del instalador de Qflow" src="_images/image8.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-text">Pantalla principal del instalador de Qflow</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>NOTA:</strong> si bien las herramientas funcionan correctamente utilizando el
+protocolo HTTP, por motivos de seguridad se recomienda el uso de HTTPS en
+su lugar. Además, para los sitios web, esto posibilita la ejecución de un
+<em>service worker</em> que mejora la experiencia de los usuarios, manteniendo en
+<em>cache</em> algunos recursos o manejando notificaciones en tiempo real.</p>
+<section id="instalacion-de-la-base-de-datos-en-sql-server">
+<h3>Instalación de la base de datos en SQL Server<a class="headerlink" href="#instalacion-de-la-base-de-datos-en-sql-server" title="Link to this heading"></a></h3>
+<p>Esta sección explica cómo instalar la base de datos de Qflow en <strong>SQL
+Server</strong>.</p>
+<section id="prerrequisitos">
+<h4>Prerrequisitos<a class="headerlink" href="#prerrequisitos" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Alguno de los siguientes gestores de base de datos:</p>
+<ul>
+<li><p>SQL Server 2012 o superior</p></li>
+<li><p>SQL Server Express 2012 o superior</p></li>
+</ul>
+</li>
+<li><p>Microsoft .NET Framework 4.7.2 en el equipo donde se ejecuta la
+instalación.</p></li>
+</ul>
+</section>
+<section id="permisos">
+<h4>Permisos<a class="headerlink" href="#permisos" title="Link to this heading"></a></h4>
+<p>El usuario que realice la instalación debe poseer los siguientes
+permisos:</p>
+<ul class="simple">
+<li><p>Permiso para crear bases de datos (sólo necesario durante la
+instalación)</p></li>
+<li><p>No es necesario hacer <em>login</em> en el servidor de la base de datos para
+hacer la instalación.</p></li>
+</ul>
+</section>
+<section id="procedimiento">
+<h4>Procedimiento<a class="headerlink" href="#procedimiento" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Ejecute el instalador de Qflow, posicione el cursor sobre el ícono
+“Database” y seleccione la opción “SQL Server” (ver <code class="xref std std-numref docutils literal notranslate"><span class="pre">Window_Installer_SQLServer</span></code>). Esto
+iniciará el instalador de la base de datos (<code class="xref std std-numref docutils literal notranslate"><span class="pre">First_Windows_Installer_Database_SQL_Server</span></code>). Haga clic en
+el botón “Next”.</p></li>
+</ol>
+<figure class="align-center" id="id14">
+<span id="first-windows-installer-database-sql-server"></span><a class="reference internal image-reference" href="_images/image9.png"><img alt="_images/image9.png" src="_images/image9.png" style="width: 4.59978in; height: 3.81667in;" /></a>
+<figcaption>
+<p><span class="caption-text">Primera pantalla del instalador de la base de datos (SQL
+Server)</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>En la nueva pantalla, si está realizando una instalación nueva de
+Qflow, seleccione la opción “Create new Qflow database” (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Second_Windows_Installer</span></code>). Si, por el contrario, ya tiene una base de datos de Qflow
+instalada y desea actualizarla, seleccione la opción “Update
+Qflow database”.</p></li>
+</ol>
+<p>Haga clic en el botón “Next”.</p>
+<figure class="align-center" id="id15">
+<span id="second-windows-installer"></span><a class="reference internal image-reference" href="_images/image10.png"><img alt="_images/image10.png" src="_images/image10.png" style="width: 4.38888in; height: 3.64167in;" /></a>
+<figcaption>
+<p><span class="caption-text">Segunda pantalla del instalador</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>La siguiente pantalla (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Configuration_Connection_SQL_Server</span></code>) le pedirá que ingrese ciertos datos.
+Éstos son:</p>
+<ul class="simple">
+<li><p><strong>Server name:</strong> es el nombre del servidor de la base de datos.</p></li>
+<li><p><strong>Windows authentication:</strong> marque esta opción si el SQL Server
+del servidor cuyo nombre introdujo más arriba está configurado
+para utilizar autenticación Windows, o si utiliza autenticación
+mixta, pero desea conectarse utilizando el usuario Windows
+actual.</p></li>
+<li><p><strong>SQL Server authentication:</strong> marque esta opción si el SQL Server
+del servidor cuyo nombre introdujo más arriba está configurado
+para utilizar seguridad mixta. En ese caso, deberá introducir
+el nombre de usuario (“<strong>User name</strong>”) y la contraseña
+(“<strong>Password</strong>”).</p></li>
+<li><p><strong>Database:</strong> nombre que se quiere dar a la base de datos.</p></li>
+<li><p><strong>Test connection:</strong> permite probar la conexión antes de seguir,
+para comprobar que los datos ingresados son correctos. El botón
+“Next” no se habilitará a menos que se haya probado la conexión
+y se haya comprobado que funciona.</p></li>
+</ul>
+</li>
+</ol>
+<p>Una vez ingresados los datos, haga clic en “Next”.</p>
+<p><strong>NOTA:</strong> recuerde que el usuario con el que se conecte a la base de
+datos debe tener permisos para crear una base de datos.</p>
+<figure class="align-center" id="id16">
+<span id="configuration-connection-sql-server"></span><a class="reference internal image-reference" href="_images/image11.png"><img alt="_images/image11.png" src="_images/image11.png" style="width: 4.5407in; height: 3.81106in;" /></a>
+<figcaption>
+<p><span class="caption-text">Configuración de la conexión a la base de datos</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>La siguiente pantalla (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Configuration_User_And_Language</span></code>) permite configurar las siguientes
+propiedades:</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Content properties</strong></p>
+<ul>
+<li><p><strong>Language:</strong> lenguaje por defecto de Qflow. Los nombres de las
+vistas del sistema y de otros elementos predefinidos de la base
+de datos de Qflow serán creados en el idioma seleccionado
+aquí.</p></li>
+</ul>
+</li>
+<li><p><strong>Default user properties</strong></p>
+<ul>
+<li><p><strong>User name:</strong> nombre de usuario del usuario por defecto. El
+usuario por defecto es el primer usuario de Qflow que se crea.</p></li>
+<li><p><strong>Domain name:</strong> nombre del dominio que se usará para autenticar
+el usuario por defecto.</p></li>
+<li><p><strong>Logon name:</strong> nombre del usuario Windows correspondiente al
+usuario por defecto.</p></li>
+</ul>
+</li>
+</ul>
+<p>Haga clic en “Next” para continuar.</p>
+<figure class="align-center" id="id17">
+<span id="configuration-user-and-language"></span><a class="reference internal image-reference" href="_images/image12.png"><img alt="_images/image12.png" src="_images/image12.png" style="width: 4.08329in; height: 3.42715in;" /></a>
+<figcaption>
+<p><span class="caption-text">Configuración del usuario y del lenguaje por defecto</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="5">
+<li><p>La siguiente pantalla (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Configuration_Organization_Name_Server_And_Virtual_Directory_Name</span></code>) permite configurar las siguientes
+propiedades:</p>
+<ul class="simple">
+<li><p><strong>Organization name:</strong> nombre de su organización. Qflow utiliza
+este nombre para validar las licencias. Por lo tanto, si ya
+dispone de licencias, es importante que utilice el mismo nombre
+que utilizó para generarlas. Si aún no dispone de licencias, al
+solicitarlas recuerde que este es el nombre que debe ser
+utilizado.</p></li>
+<li><p><strong>Web server name:</strong> es el nombre del servidor que albergará a Qflow Task.</p></li>
+<li><p><strong>Virtual directory name:</strong> nombre de la aplicación web en IIS que
+albergará a Qflow Task.</p></li>
+</ul>
+</li>
+</ol>
+<p>Haga clic en “Next” para continuar.</p>
+<figure class="align-center" id="id18">
+<span id="configuration-organization-name-server-and-virtual-directory-name"></span><a class="reference internal image-reference" href="_images/image13.png"><img alt="_images/image13.png" src="_images/image13.png" style="width: 3.90625in; height: 3.28125in;" /></a>
+<figcaption>
+<p><span class="caption-text">Configuración del nombre de la organización, nombre del
+servidor y directorio virtual</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="6">
+<li><p>La siguiente pantalla muestra los datos ingresados en las pantallas
+anteriores. Revise los datos ingresados. Si encuentra que alguno no
+es correcto, haga clic en “Previous” hasta volver a la pantalla donde
+lo ingresó y modifíquelo. De lo contrario, haga clic en “Next” para
+iniciar la instalación.</p></li>
+</ol>
+<figure class="align-center" id="id19">
+<a class="reference internal image-reference" href="_images/image14.png"><img alt="_images/image14.png" src="_images/image14.png" style="width: 3.99719in; height: 3.31667in;" /></a>
+<figcaption>
+<p><span class="caption-text">Instalación de la base de datos</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="instalacion-de-la-base-de-datos-externa-en-sql-server-opcional">
+<span id="external-database-installation"></span><h3>Instalación de la base de datos externa en SQL Server [Opcional]<a class="headerlink" href="#instalacion-de-la-base-de-datos-externa-en-sql-server-opcional" title="Link to this heading"></a></h3>
+<p>Los procesos que se ejecutan en Qflow pueden tener archivos adjuntos, que pueden ser
+almacenados en la misma base que el resto de los datos, en contenedores de Azure o en
+una base de datos externa.
+Esta sección explica cómo instalar una base de datos externa de Qflow en <strong>SQL
+Server</strong>.</p>
+<section id="id1">
+<h4>Prerrequisitos<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Alguno de los siguientes gestores de base de datos:</p>
+<ul>
+<li><p>SQL Server 2012 o superior</p></li>
+<li><p>SQL Server Express 2012 o superior</p></li>
+</ul>
+</li>
+<li><p>Microsoft .NET Framework 4.7.2 en el equipo donde se ejecuta la
+instalación.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h4>Permisos<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<p>El usuario que realice la instalación debe poseer los siguientes
+permisos:</p>
+<ul class="simple">
+<li><p>Permiso para crear bases de datos (sólo necesario durante la
+instalación)</p></li>
+<li><p>No es necesario hacer <em>login</em> en el servidor de la base de datos para
+hacer la instalación.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h4>Procedimiento<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Ejecute el instalador de Qflow, posicione el cursor sobre el ícono
+“Database” y seleccione la opción “SQL Server” (ver <code class="xref std std-numref docutils literal notranslate"><span class="pre">Window_Installer_SQLServer</span></code>). Esto
+iniciará el instalador de la base de datos (<code class="xref std std-numref docutils literal notranslate"><span class="pre">First_Windows_Installer_Database_SQL_Server</span></code>). Haga clic en
+el botón “Next”.</p></li>
+<li><p>En la nueva pantalla, seleccione la opción “Create new attachments database (optional)” (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Second_Windows_AttDB_Installer</span></code>).</p></li>
+</ol>
+<p>Haga clic en el botón “Next”.</p>
+<figure class="align-center" id="id20">
+<span id="second-windows-attdb-installer"></span><a class="reference internal image-reference" href="_images/image17.png"><img alt="_images/image17.png" src="_images/image17.png" style="width: 4.38888in; height: 3.64167in;" /></a>
+<figcaption>
+<p><span class="caption-text">Segunda pantalla del instalador</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>La siguiente pantalla (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Configuration_Connection_AttDB_SQL_Server</span></code>) le pedirá que ingrese ciertos datos.
+Éstos son:</p>
+<ul class="simple">
+<li><p><strong>Server name:</strong> es el nombre del servidor de la base de datos.</p></li>
+<li><p><strong>Windows authentication:</strong> marque esta opción si el SQL Server
+del servidor cuyo nombre introdujo más arriba está configurado
+para utilizar autenticación Windows, o si utiliza autenticación
+mixta, pero desea conectarse utilizando el usuario Windows
+actual.</p></li>
+<li><p><strong>SQL Server authentication:</strong> marque esta opción si el SQL Server
+del servidor cuyo nombre introdujo más arriba está configurado
+para utilizar seguridad mixta. En ese caso, deberá introducir
+el nombre de usuario (“<strong>User name</strong>”) y la contraseña
+(“<strong>Password</strong>”).</p></li>
+<li><p><strong>Database:</strong> nombre que se quiere dar a la base de datos.</p></li>
+<li><p><strong>Test connection:</strong> permite probar la conexión antes de seguir,
+para comprobar que los datos ingresados son correctos. El botón
+“Next” no se habilitará a menos que se haya probado la conexión
+y se haya comprobado que funciona.</p></li>
+</ul>
+</li>
+</ol>
+<p>Una vez ingresados los datos, haga clic en “Next”.</p>
+<p><strong>NOTA:</strong> recuerde que el usuario con el que se conecte a la base de
+datos debe tener permisos para crear una base de datos.</p>
+<figure class="align-center" id="id21">
+<span id="configuration-connection-attdb-sql-server"></span><a class="reference internal image-reference" href="_images/image18.png"><img alt="_images/image18.png" src="_images/image18.png" style="width: 4.5407in; height: 3.81106in;" /></a>
+<figcaption>
+<p><span class="caption-text">Configuración de la conexión a la base de datos</span><a class="headerlink" href="#id21" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>La siguiente pantalla muestra los datos ingresados en la pantalla
+anterior. Revise los datos ingresados. Si encuentra que alguno no
+es correcto, haga clic en “Previous” hasta volver a la pantalla donde
+lo ingresó y modifíquelo. De lo contrario, haga clic en “Next” para
+iniciar la instalación.</p></li>
+</ol>
+<figure class="align-center" id="id22">
+<a class="reference internal image-reference" href="_images/image19.png"><img alt="_images/image19.png" src="_images/image19.png" style="width: 3.99719in; height: 3.31667in;" /></a>
+<figcaption>
+<p><span class="caption-text">Instalación de la base de datos</span><a class="headerlink" href="#id22" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="solucion-de-problemas">
+<h4>Solución de problemas<a class="headerlink" href="#solucion-de-problemas" title="Link to this heading"></a></h4>
+<p>Esta sección describe algunos de los errores más comunes que pueden
+ocurrir durante la instalación de la base de datos.</p>
+<p>El error de la <code class="xref std std-numref docutils literal notranslate"><span class="pre">Error_Name_Database</span></code> aparece cuando se intenta actualizar una base
+de datos ya existente y el instalador no encuentra una base de datos con
+el nombre indicado. En ese caso, revise que escribió correctamente el
+nombre de la base de datos. Este error aparecerá en el momento de probar
+la conexión.</p>
+<figure class="align-center" id="id23">
+<span id="error-name-database"></span><a class="reference internal image-reference" href="_images/image15.png"><img alt="_images/image15.png" src="_images/image15.png" style="width: 4.8125in; height: 1.66667in;" /></a>
+<figcaption>
+<p><span class="caption-text">Nombre erróneo de base de datos</span><a class="headerlink" href="#id23" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Si aparece el error de la <code class="xref std std-numref docutils literal notranslate"><span class="pre">Inability_To_Connect_To_The_Server</span></code>, revise que el servidor de la base
+de datos es accesible y está funcionando. Este error debería ser muy
+raro, puesto que el instalador exige probar la conexión antes de
+proseguir. Si ocurre este error es porque el servidor quedó inaccesible
+o tuvo un problema después que la conexión fue probada.</p>
+<figure class="align-center" id="id24">
+<span id="inability-to-connect-to-the-server"></span><a class="reference internal image-reference" href="_images/image16.png"><img alt="_images/image16.png" src="_images/image16.png" style="width: 5.02083in; height: 2.11458in;" /></a>
+<figcaption>
+<p><span class="caption-text">Imposibilidad de establecer conexión con el servidor</span><a class="headerlink" href="#id24" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>El error “Incorrect syntax near ‘XML’ probablemente indica que no se
+tiene el permiso “CREATE XML SCHEMA COLLECTION”.</p>
+</section>
+<section id="habilitacion-de-busqueda-full-text">
+<h4>Habilitación de búsqueda <em>full-text</em><a class="headerlink" href="#habilitacion-de-busqueda-full-text" title="Link to this heading"></a></h4>
+<p>Qflow provee la posibilidad de buscar palabras y frases en el contenido
+de los archivos adjuntos (búsqueda <em>full-text</em>). Para que esta
+funcionalidad esté disponible, hay que habilitar el servicio de búsqueda
+full-text de SQL Server. Tenga en cuenta que, si su motor de base de
+datos es SQL Server Express, esa funcionalidad no está disponible, a
+menos que disponga de la versión SQL Server Express with Advanced
+Services.</p>
+<p>Por defecto, SQL Server indexa el contenido de un número acotado de
+archivos, por lo que, si bien indexa documentos con extensiones DOC y
+varias otras, no indexa por defecto archivos en otros formatos comunes,
+como los archivos PDF. Sin embargo, es posible hacer que SQL Server
+indexe esos otros archivos mediante la utilización de iFilters, que son
+componentes que, una vez instalados, permiten obtener el contenido de un
+documento en distintos formatos.</p>
+<p>Para que SQL Server indexe archivos en formato Office 2007, o de una
+versión más reciente de Office, instale el iFilter que se puede
+descargar en la siguiente URL: <a class="reference external" href="http://support.microsoft.com/kb/945934/en-us">http://support.microsoft.com/kb/945934/en-us</a>.</p>
+<p>Para que SQL Server indexe archivos en formato PDF, debe instalar Adobe
+Reader 7.0.5, o una versión más reciente de ese producto (se recomienda
+instalar la versión más reciente), siempre y cuando se necesite la
+versión de 32 bits. Si se necesita la versión de 64 bits, se debe
+descargar el iFilter desde la siguiente dirección:
+<a class="reference external" href="http://ftp.adobe.com/pub/adobe/acrobat/win/11.x/PDFFilter64Setup.msi">http://ftp.adobe.com/pub/adobe/acrobat/win/11.x/PDFFilter64Setup.msi</a>. Podría
+ser necesario además agregar a la variable de entorno “PATH” la ruta a
+la carpeta donde se encuentra el componente iFilter.</p>
+<p>Una vez instalado cualquiera de estos componentes, haga lo siguiente:</p>
+<ul class="simple">
+<li><p>Ejecute los siguientes scripts en el servidor de la base de datos:</p>
+<ul>
+<li><p>exec sp_fulltext_service 'load_os_resources', 1</p></li>
+<li><p>exec sp_fulltext_service 'verify_signature', 0</p></li>
+</ul>
+</li>
+<li><p>Reinicie el servicio del motor de SQL Server.</p></li>
+</ul>
+<p>Para verificar que las extensiones de archivos son ahora indexadas,
+ejecute la siguiente consulta SQL:</p>
+<blockquote>
+<div><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">document_type</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">sys</span><span class="p">.</span><span class="n">fulltext_document_types</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Esta consulta muestra una lista de todas las extensiones de archivos que
+son indexados por el servicio de <em>full-text</em>.</p>
+</section>
+</section>
+<section id="instalacion-de-los-servicios-de-backend">
+<h3>Instalación de los servicios de <em>backend</em><a class="headerlink" href="#instalacion-de-los-servicios-de-backend" title="Link to this heading"></a></h3>
+<section id="prerrequisitos-2">
+<span id="id4"></span><h4>Prerrequisitos<a class="headerlink" href="#prerrequisitos-2" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Microsoft .NET Framework 4.7.2</p></li>
+<li><p>Opcional: Cliente para servicio de mensajería (SMTP o MAPI)</p></li>
+</ul>
+</section>
+<section id="installation-permissions-2">
+<span id="id5"></span><h4>Permisos<a class="headerlink" href="#installation-permissions-2" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Para la instalación:</p>
+<ul>
+<li><p>Administrador local con permisos para hacer <em>login</em>
+interactivamente en el servidor (para instalar).</p></li>
+</ul>
+</li>
+<li><p>Para ejecutar los servicios (permisos del usuario que ejecutará los
+servicios)</p>
+<ul>
+<li><p>Run as service</p></li>
+<li><p>Execute as batch process</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="procedimiento-2">
+<span id="id6"></span><h4>Procedimiento<a class="headerlink" href="#procedimiento-2" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Ejecute el instalador de Qflow y seleccione la opción “<em>Backend
+Services</em>”. Windows iniciará el instalador de los servicios de
+<em>backend</em> (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Installer_Backend_Services</span></code>).</p></li>
+</ol>
+<figure class="align-center" id="id25">
+<span id="installer-backend-services"></span><a class="reference internal image-reference" href="_images/image23.png"><img alt="_images/image23.png" src="_images/image23.png" style="width: 4.56247in; height: 3.73958in;" /></a>
+<figcaption>
+<p><span class="caption-text">Instalador de los servicios de <em>backend</em></span><a class="headerlink" href="#id25" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>Haga clic en “Next”.</p></li>
+<li><p>En la siguiente pantalla (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Select_Folder_Install_Backend_Services</span></code>), escriba, donde dice “Folder”,
+la ruta de la carpeta donde desea instalar los servicios de
+<em>backend</em> de Qflow. Si desea instalar los servicios para todos
+los usuarios de la máquina, marque el casillero que dice
+“Everyone”. De lo contrario, marque el casillero “Just me”. Haga
+clic en “Next”.</p></li>
+</ol>
+<figure class="align-center" id="id26">
+<span id="select-folder-install-backend-services"></span><a class="reference internal image-reference" href="_images/image24.png"><img alt="_images/image24.png" src="_images/image24.png" style="width: 4.56247in; height: 3.73958in;" /></a>
+<figcaption>
+<p><span class="caption-text">Selección de la carpeta donde instalar los servicios de
+<em>backend</em> de Qflow</span><a class="headerlink" href="#id26" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>En este punto (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Screen_Prior_To_first_Part_Installation</span></code>), todo estará listo para realizar la primera
+parte de la instalación. Haga clic en “Next” para continuar.</p></li>
+</ol>
+<figure class="align-center" id="id27">
+<span id="screen-prior-to-first-part-installation"></span><a class="reference internal image-reference" href="_images/image25.png"><img alt="_images/image25.png" src="_images/image25.png" style="width: 4.52431in; height: 3.7083in;" /></a>
+<figcaption>
+<p><span class="caption-text">Pantalla previa a la primera parte de la instalación</span><a class="headerlink" href="#id27" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id28">
+<a class="reference internal image-reference" href="_images/image26.png"><img alt="_images/image26.png" src="_images/image26.png" style="width: 4.66414in; height: 3.82292in;" /></a>
+<figcaption>
+<p><span class="caption-text">Ejecución de la primera parte de la instalación</span><a class="headerlink" href="#id28" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="5">
+<li><p>Una vez terminada la primera parte de la instalación, aparecerá una
+ventana (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Configuration_Login_Service</span></code>) que pedirá ingresar un nombre de usuario y una
+contraseña. Éste es el usuario que ejecutará los servicios de
+<em>backend</em>. Recuerde que este usuario debe tener permisos para
+ejecutar servicios (en caso de dudas, mire la sección sobre permisos
+necesarios). <strong>El nombre de usuario debe ir precedido del nombre del
+dominio al que pertenece y de una barra (en la figura, el nombre del
+dominio es “soft”).</strong></p></li>
+</ol>
+<figure class="align-center" id="id29">
+<span id="configuration-login-service"></span><a class="reference internal image-reference" href="_images/image27.png"><img alt="_images/image27.png" src="_images/image27.png" style="width: 3.52083in; height: 1.54917in;" /></a>
+<figcaption>
+<p><span class="caption-text">Configuración del <em>login</em> del servicio</span><a class="headerlink" href="#id29" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="6">
+<li><p>A continuación, aparecerá una ventana (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Installation_Parameter</span></code>) que le permitirá
+configurar varios parámetros del servicio:</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Data</strong> <strong>base properties</strong></p>
+<ul>
+<li><p><strong>Data provider:</strong> proveedor de base de datos (por ejemplo, SQL
+Server).</p></li>
+<li><p><strong>Server name:</strong> nombre del servidor que alberga la base de datos
+de Qflow. Ésta tiene que haber sido instalada anteriormente.</p></li>
+<li><p><strong>Database name:</strong> nombre de la base de datos de Qflow creada con
+el instalador de la base de datos.</p></li>
+<li><p><strong>Integrated security:</strong> especifica si los servicios de <em>backend</em>
+deben conectarse a la base de datos utilizando seguridad
+integrada. Si la opción queda marcada, Qflow se conectará a la
+base de datos con seguridad integrada, utilizando el usuario
+que ejecute el servicio. De lo contrario, el instalador
+habilitará dos cajas de texto para ingresar el nombre de
+usuario de SQL Server y la contraseña a utilizar para
+conectarse a la base de datos utilizando la seguridad de SQL
+Server.</p></li>
+</ul>
+</li>
+<li><p><strong>Notification services:</strong> seleccione los servicios de correo que
+desee utilizar. Puede elegir más de uno y más tarde configurar los
+usuarios de Qflow para que utilicen diferentes servicios. Estos
+servicios luego de instalados, deberán configurarse correctamente
+desde el sitio de Administración y monitoreo del sistema, consulte
+su manual para ver la configuración necesaria.</p>
+<ul>
+<li><p><strong>SMTP:</strong> utiliza SMTP para el envío de correo. El paso de mail
+(vea el manual del diseñador de procesos del negocio por más
+información) utiliza la configuración de este servicio, por lo
+que si no lo va a instalar debería al menos agregar la
+configuración de sistema de forma manual, como se explica en la
+sección “Configuración del servicio de ”.</p></li>
+<li><p><strong>Extended MAPI:</strong> correo MAPI extendido, para utilizar con
+Microsoft Exchange. No requiere Microsoft Outlook ni los Web
+Services de Exchange, sino que utiliza interfaces nativas de
+Windows.</p></li>
+<li><p><strong>Exchange Web Services:</strong> utiliza Exchange a través de la API
+Exchange Web Services. Ésta es la opción recomendada para
+utilizar con Exchange, dado que utiliza una API de Microsoft
+respaldada por esa empresa, lo cual evita posibles problemas de
+compatibilidad.</p></li>
+<li><p><strong>Firebase Push Notification:</strong> utiliza Firebase para el envío de
+notificaciones a dispositivos asociados a los usuarios
+utilizando <em>push notifications</em>.</p></li>
+</ul>
+</li>
+<li><p><strong>Deprecated services:</strong> Se permiten seleccionar servicios
+deprecados, estos son servicios que no se siguen manteniendo, por lo
+que, de no ser necesarios, se recomienda no instalarlos. En caso de
+necesitar alguno, simplemente selecciónelo en el instalador.</p></li>
+</ul>
+<p>Deje marcada la opción “<strong>Start backend services when setup
+completes</strong>” si desea que el instalador inicie automáticamente los
+servicios de <em>backend</em> una vez terminada la instalación. De lo
+contrario, desmárquela.</p>
+<p>Pulse el botón “Test connection” para comprobar que Qflow puede
+establecer una conexión con la base de datos utilizando los datos
+proporcionados. Si la prueba falla, revise los datos, corríjalos y
+vuelva a probar la conexión.</p>
+<figure class="align-center" id="id30">
+<span id="installation-parameter"></span><a class="reference internal image-reference" href="_images/image28.png"><img alt="_images/image28.png" src="_images/image28.png" style="width: 6.1in; height: 4.1in;" /></a>
+<figcaption>
+<p><span class="caption-text">Parámetros de la instalación</span><a class="headerlink" href="#id30" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Cuando termine de ingresar los datos y comprobar la conexión, haga clic
+en “OK”.</p>
+<ol class="arabic simple" start="7">
+<li><p>Una vez configurados los servicios de correo, Qflow terminará la
+instalación de los servicios de <em>backend</em> (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Finish_Installation_Backend_Services</span></code>).</p></li>
+</ol>
+<figure class="align-center" id="id31">
+<span id="finish-installation-backend-services"></span><img alt="_images/image29.png" src="_images/image29.png" />
+<figcaption>
+<p><span class="caption-text">Fin de la instalación de los servicios de <em>backend</em></span><a class="headerlink" href="#id31" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="instalacion-de-la-api-del-backend">
+<h3>Instalación de la API del <em>backend</em><a class="headerlink" href="#instalacion-de-la-api-del-backend" title="Link to this heading"></a></h3>
+<p><strong>Prerrequisitos</strong></p>
+<ul class="simple">
+<li><p>Microsoft .NET Framework 4.7.2</p></li>
+<li><p>IIS</p></li>
+<li><p>ASP.NET 4.5</p></li>
+</ul>
+<p><strong>Permisos</strong></p>
+<ul class="simple">
+<li><p>Administrador local, con permiso para hacer <em>login</em> interactivamente
+en el servidor</p></li>
+<li><p>Permiso para crear directorios virtuales o escritura en el directorio
+virtual definido</p></li>
+</ul>
+<p><strong>Procedimiento</strong></p>
+<ol class="arabic simple">
+<li><p>Ejecute el instalador de Qflow y seleccione la opción “Backend API”.
+Esto hace que aparezca una ventana como la de la <code class="xref std std-numref docutils literal notranslate"><span class="pre">Installation_Backend_API</span></code> Instalador
+de la API del backend.</p></li>
+</ol>
+<figure class="align-center" id="id32">
+<span id="installation-backend-api"></span><a class="reference internal image-reference" href="_images/image30.png"><img alt="_images/image30.png" src="_images/image30.png" style="width: 5.3193in; height: 4.5428in;" /></a>
+<figcaption>
+<p><span class="caption-text">Instalador de la API del backend</span><a class="headerlink" href="#id32" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>Haga clic en “Next”.</p></li>
+<li><p>En la siguiente pantalla (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Select_Folder_Install_Backend_API</span></code>), elija el sitio de IIS en el que
+desea instalar la API del <em>backend</em> de Qflow y el nombre del directorio virtual
+a utilizar. Seleccione también el <em>Application Pool.</em> Haga clic en
+“Next”.</p></li>
+</ol>
+<figure class="align-center" id="id33">
+<span id="select-folder-install-backend-api"></span><a class="reference internal image-reference" href="_images/image31.png"><img alt="_images/image31.png" src="_images/image31.png" style="width: 5.30268in; height: 4.52917in;" /></a>
+<figcaption>
+<p><span class="caption-text">Selección de la carpeta donde instalar la API del <em>backend</em></span><a class="headerlink" href="#id33" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>En este punto (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Select_Folder_Install_Backend_API</span></code>), todo estará listo para realizar la primera
+parte de la instalación. Haga clic en “Next” para continuar.</p></li>
+</ol>
+<figure class="align-center" id="id34">
+<a class="reference internal image-reference" href="_images/image32.png"><img alt="_images/image32.png" src="_images/image32.png" style="width: 5.32808in; height: 4.55in;" /></a>
+<figcaption>
+<p><span class="caption-text">Pantalla previa a la primera parte de la instalación</span><a class="headerlink" href="#id34" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id35">
+<span id="first-part-installation-backend-api"></span><a class="reference internal image-reference" href="_images/image33.png"><img alt="_images/image33.png" src="_images/image33.png" style="width: 5.51435in; height: 4.70278in;" /></a>
+<figcaption>
+<p><span class="caption-text">Primer parte de la instalación de la API</span><a class="headerlink" href="#id35" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="5">
+<li><p>Una vez terminada la primera parte de la instalación, aparecerá una
+ventana (<code class="xref std std-numref docutils literal notranslate"><span class="pre">First_Part_Installation_Backend_API</span></code>) que pedirá ingresar la ubicación en la que haya
+instalado los servicios de <em>backend</em>.</p></li>
+</ol>
+<figure class="align-center" id="id36">
+<a class="reference internal image-reference" href="_images/image34.png"><img alt="_images/image34.png" src="_images/image34.png" style="width: 4.4453in; height: 1.58601in;" /></a>
+<figcaption>
+<p><span class="caption-text">Selección de la carpeta donde se instalaron los servicios de
+backend</span><a class="headerlink" href="#id36" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En caso de estar instalando la <em>BackendAPI</em> en un servidor distinto al
+de los servicios de <em>Backend</em>, se solicita una carpeta que contenga el
+<em>system.config</em> correspondiente.</p>
+<ol class="arabic simple" start="6">
+<li><p>Luego de unos segundos, Qflow terminará con la instalación de la API
+del <em>backend</em> (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Finish_Installation_Backend_API</span></code>).</p></li>
+</ol>
+<figure class="align-center" id="id37">
+<span id="finish-installation-backend-api"></span><a class="reference internal image-reference" href="_images/image35.png"><img alt="_images/image35.png" src="_images/image35.png" style="width: 5.0838in; height: 4.34963in;" /></a>
+<figcaption>
+<p><span class="caption-text">Fin de la instalación de la API del <em>backend</em></span><a class="headerlink" href="#id37" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="instalacion-de-los-web-services-de-qflow">
+<h3>Instalación de los <em>web services</em> de Qflow<a class="headerlink" href="#instalacion-de-los-web-services-de-qflow" title="Link to this heading"></a></h3>
+<p><strong>Prerrequisitos</strong></p>
+<ul class="simple">
+<li><p>Microsoft .NET Framework 4.7.2</p></li>
+<li><p>IIS</p></li>
+<li><p>ASP.NET 4.5</p></li>
+</ul>
+<p><strong>Permisos</strong></p>
+<ul class="simple">
+<li><p>Administrador local, con permiso para hacer <em>login</em> interactivamente
+en el servidor</p></li>
+<li><p>Permiso para crear directorios virtuales o escritura en el directorio
+virtual definido</p></li>
+</ul>
+<p><strong>Procedimiento</strong></p>
+<p>Para instalar los <em>web services</em>, haga lo siguiente:</p>
+<ol class="arabic simple">
+<li><p>Ejecute el instalador de Qflow y seleccione la opción “Web
+services”. Esto hace que aparezca una ventana como la de la <code class="xref std std-numref docutils literal notranslate"><span class="pre">First_Windows_Installer_Web_Services</span></code></p></li>
+<li><p>Haga clic en “Next”. Esto hace que aparezca una ventana como la de la
+<code class="xref std std-numref docutils literal notranslate"><span class="pre">Second_Windows_Installer_Web_Services</span></code>.</p></li>
+</ol>
+<figure class="align-center" id="id38">
+<span id="first-windows-installer-web-services"></span><a class="reference internal image-reference" href="_images/image36.png"><img alt="_images/image36.png" src="_images/image36.png" style="width: 4.63197in; height: 3.79654in;" /></a>
+<figcaption>
+<p><span class="caption-text">Primera pantalla del instalador de los web services</span><a class="headerlink" href="#id38" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>La segunda pantalla le pide los siguientes datos:</p>
+<ul class="simple">
+<li><p><strong>Site:</strong> es el sitio de IIS donde desea instalar los <em>web services</em>.</p></li>
+<li><p><strong>Virtual directory:</strong> nombre del directorio virtual donde
+quedarán instalados los <em>web services</em>. Si el directorio
+virtual no existe, será creado por el instalador. El directorio
+virtual debe estar configurado para utilizar seguridad
+integrada (si el directorio es creado por el instalador, la
+seguridad es configurada correctamente por el instalador).</p></li>
+<li><p><strong>Application Pool:</strong> seleccione el <em>Application Pool</em> que desee
+utilizar para los <em>web services</em>.</p></li>
+</ul>
+</li>
+</ol>
+<figure class="align-center" id="id39">
+<span id="second-windows-installer-web-services"></span><a class="reference internal image-reference" href="_images/image37.png"><img alt="_images/image37.png" src="_images/image37.png" style="width: 4.32883in; height: 3.54808in;" /></a>
+<figcaption>
+<p><span class="caption-text">Segunda pantalla del instalador de los web services</span><a class="headerlink" href="#id39" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>Haga clic en “Next”. Esto hace que aparezca una ventana que anuncia
+que la instalación está lista para ser realizada (<code class="xref std std-numref docutils literal notranslate"><span class="pre">All_Set_Installer_Web_Services</span></code>).</p></li>
+<li><p>Haga clic en «Next”. El instalador muestra una pantalla en la que se
+muestra el avance de la instalación (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Install_Web_Services_In_Progress</span></code>).</p></li>
+</ol>
+<figure class="align-center" id="id40">
+<span id="all-set-installer-web-services"></span><a class="reference internal image-reference" href="_images/image38.png"><img alt="_images/image38.png" src="_images/image38.png" style="width: 4.27581in; height: 3.50463in;" /></a>
+<figcaption>
+<p><span class="caption-text">Todo listo para instalar los web services</span><a class="headerlink" href="#id40" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id41">
+<span id="install-web-services-in-progress"></span><a class="reference internal image-reference" href="_images/image39.png"><img alt="_images/image39.png" src="_images/image39.png" style="width: 5.19792in; height: 4.26042in;" /></a>
+<figcaption>
+<p><span class="caption-text">Instalación en curso</span><a class="headerlink" href="#id41" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="6">
+<li><p>Después de un tiempo, el instalador mostrará una ventana que pide
+información acerca de la ubicación de la <em>Web API</em> del <em>backend</em>
+(<code class="xref std std-numref docutils literal notranslate"><span class="pre">Installer_Web_Servoces_Parameters</span></code>). Escriba donde dice “Server name” el nombre del
+servidor donde se encuentra la <em>Web API</em> del <em>backend.</em> Luego,
+modifique si corresponde el <em>Virtual directory</em>, el <em>Port</em> y el
+<em>Protocol,</em> por defecto los valores cargados son correctos.
+Finalmente, haga clic en “OK”.</p></li>
+<li><p>La instalación de los web services queda finalizada.</p></li>
+</ol>
+<figure class="align-center" id="id42">
+<span id="installer-web-servoces-parameters"></span><a class="reference internal image-reference" href="_images/image40.png"><img alt="_images/image40.png" src="_images/image40.png" style="width: 2.9163in; height: 3.24959in;" /></a>
+<figcaption>
+<p><span class="caption-text">El instalador solicita información acerca de la ubicación de
+los servicios de <em>backend</em></span><a class="headerlink" href="#id42" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id43">
+<a class="reference internal image-reference" href="_images/image41.png"><img alt="_images/image41.png" src="_images/image41.png" style="width: 5.19792in; height: 4.26042in;" /></a>
+<figcaption>
+<p><span class="caption-text">Instalación finalizada</span><a class="headerlink" href="#id43" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="instalacion-de-qflow-task">
+<h3>Instalación de Qflow Task<a class="headerlink" href="#instalacion-de-qflow-task" title="Link to this heading"></a></h3>
+<p><strong>Prerrequisitos</strong></p>
+<ul class="simple">
+<li><p>Microsoft .NET Framework 4.7.2</p></li>
+<li><p>IIS</p></li>
+<li><p>ASP.NET 4.5</p></li>
+</ul>
+<p><strong>Permisos</strong></p>
+<ul class="simple">
+<li><p>Administrador local, con permiso para hacer <em>login</em> interactivamente
+en el servidor</p></li>
+<li><p>Permiso para crear directorios virtuales o escritura en el directorio
+virtual definido</p></li>
+</ul>
+<p><strong>Procedimiento</strong></p>
+<p>Para instalar Qflow Task, haga lo siguiente:</p>
+<ol class="arabic simple">
+<li><p>Haga <em>login</em> en el servidor y ejecute el instalador de Qflow.</p></li>
+</ol>
+<figure class="align-center" id="id44">
+<span id="icon-qflow-installation"></span><a class="reference internal image-reference" href="_images/image42.png"><img alt="_images/image42.png" src="_images/image42.png" style="width: 1.81227in; height: 1.88518in;" /></a>
+<figcaption>
+<p><span class="caption-text">Ícono del instalador de Qflow Task</span><a class="headerlink" href="#id44" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>Seleccione el ícono que se muestra en la <code class="xref std std-numref docutils literal notranslate"><span class="pre">Icon_Qflow_installation</span></code>. Esto dará inicio
+al instalador de Qflow Task (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Install_Web_Site</span></code>). Haga clic en “Next”.</p></li>
+</ol>
+<figure class="align-center" id="id45">
+<span id="install-web-site"></span><a class="reference internal image-reference" href="_images/image43.png"><img alt="_images/image43.png" src="_images/image43.png" style="width: 4.52435in; height: 3.70833in;" /></a>
+<figcaption>
+<p><span class="caption-text">Instalador de Qflow Task</span><a class="headerlink" href="#id45" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>En la pantalla siguiente, elija el sitio de IIS en el que desea
+instalar Qflow Task y el nombre del directorio virtual a
+utilizar (ver <code class="xref std std-numref docutils literal notranslate"><span class="pre">Select_IIS_Site_and_Virtual_Directory</span></code>). Seleccione también el <em>Application Pool</em>.</p></li>
+</ol>
+<figure class="align-center" id="id46">
+<span id="select-iis-site-and-virtual-directory"></span><a class="reference internal image-reference" href="_images/image44.png"><img alt="_images/image44.png" src="_images/image44.png" style="width: 4.51164in; height: 3.69792in;" /></a>
+<figcaption>
+<p><span class="caption-text">Selección de sitio, directorio virtual y <em>Application Pool</em></span><a class="headerlink" href="#id46" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>En este punto (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Ready_To_Install_The_Web_Site</span></code>), todo está pronto para empezar la
+instalación. Haga clic en “Next” para dar comienzo a la instalación.</p></li>
+</ol>
+<figure class="align-center" id="id47">
+<span id="ready-to-install-the-web-site"></span><a class="reference internal image-reference" href="_images/image45.png"><img alt="_images/image45.png" src="_images/image45.png" style="width: 4.4481in; height: 3.64583in;" /></a>
+<figcaption>
+<p><span class="caption-text">Todo listo para instalar</span><a class="headerlink" href="#id47" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id48">
+<span id="ejecute-the-web-site-installation"></span><a class="reference internal image-reference" href="_images/image46.png"><img alt="_images/image46.png" src="_images/image46.png" style="width: 4.47351in; height: 3.66667in;" /></a>
+<figcaption>
+<p><span class="caption-text">Ejecución de la instalación</span><a class="headerlink" href="#id48" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="5">
+<li><p>Una vez terminada la instalación (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Ejecute_The_Web_Site_Installation</span></code>), debe indicar el nombre
+del servidor en el que se encuentran la <em>Web API</em> del <em>backend</em>
+(<code class="xref std std-numref docutils literal notranslate"><span class="pre">Parameters_of_the_Web_Site_Installation</span></code>). Luego, modifique si corresponde el <em>Virtual directory</em>,
+el <em>Port</em> y el <em>Protocol,</em> por defecto los valores cargados son
+correctos.</p></li>
+</ol>
+<figure class="align-center" id="id49">
+<span id="parameters-of-the-web-site-installation"></span><a class="reference internal image-reference" href="_images/image47.png"><img alt="_images/image47.png" src="_images/image47.png" style="width: 2.9163in; height: 3.24959in;" /></a>
+<figcaption>
+<p><span class="caption-text">Parámetros del sitio</span><a class="headerlink" href="#id49" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Haga clic en “OK”.</p>
+<ol class="arabic simple" start="6">
+<li><p>En este punto, la instalación debería finalizar (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Installation_Complete</span></code>). Haga
+clic en “Close”.</p></li>
+</ol>
+<figure class="align-center" id="id50">
+<span id="installation-complete"></span><a class="reference internal image-reference" href="_images/image48.png"><img alt="_images/image48.png" src="_images/image48.png" style="width: 5.19792in; height: 4.26042in;" /></a>
+<figcaption>
+<p><span class="caption-text">Instalación completa</span><a class="headerlink" href="#id50" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="solucion-de-errores">
+<h4>Solución de errores<a class="headerlink" href="#solucion-de-errores" title="Link to this heading"></a></h4>
+<p>Si tiene problemas para acceder al sitio, es probable que no haya
+modificado la configuración del <em>Application Pool</em> del sitio para que
+utilice al menos ASP.NET 4.0 con pipeline integrado (esa configuración
+es compatible con el .NET Framework 4.7.2). Cambie eso y vuelva a
+probar.</p>
+<figure class="align-center" id="id51">
+<img alt="_images/ApplicationPoolConfiguration.png" src="_images/ApplicationPoolConfiguration.png" />
+<figcaption>
+<p><span class="caption-text">Configuración correcta del <em>Application Pool</em> del sitio</span><a class="headerlink" href="#id51" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="instalacion-de-qflow-team">
+<h3>Instalación de Qflow Team<a class="headerlink" href="#instalacion-de-qflow-team" title="Link to this heading"></a></h3>
+<p><strong>Prerrequisitos</strong></p>
+<ul class="simple">
+<li><p>Microsoft .NET Framework 4.7.2</p></li>
+<li><p>IIS</p></li>
+<li><p>ASP.NET 4.5</p></li>
+</ul>
+<p><strong>Permisos</strong></p>
+<ul class="simple">
+<li><p>Administrador local, con permiso para hacer <em>login</em> interactivamente
+en el servidor</p></li>
+<li><p>Permiso para crear directorios virtuales o escritura en el directorio
+virtual definido</p></li>
+</ul>
+<p><strong>Procedimiento</strong></p>
+<p>Para instalar Qflow Team, haga lo siguiente:</p>
+<ol class="arabic simple">
+<li><p>Haga <em>login</em> en el servidor y ejecute el instalador de Qflow.</p></li>
+</ol>
+<figure class="align-center" id="id52">
+<span id="icon-omm-web-installation"></span><a class="reference internal image-reference" href="_images/image50.png"><img alt="_images/image50.png" src="_images/image50.png" style="width: 1.7602in; height: 1.78128in;" /></a>
+<figcaption>
+<p><span class="caption-text">Ícono del instalador de Qflow Team</span><a class="headerlink" href="#id52" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>Seleccione el ícono que se muestra en la <code class="xref std std-numref docutils literal notranslate"><span class="pre">Icon_OMM_Web_installation</span></code>. Esto dará inicio
+al instalador de Qflow Team (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Install_OMM_Web_Site</span></code>). Haga clic en “Next”.</p></li>
+</ol>
+<figure class="align-center" id="id53">
+<span id="install-omm-web-site"></span><a class="reference internal image-reference" href="_images/image51.png"><img alt="_images/image51.png" src="_images/image51.png" style="width: 4.53135in; height: 3.71407in;" /></a>
+<figcaption>
+<p><span class="caption-text">Instalador del OMM web</span><a class="headerlink" href="#id53" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>En la pantalla siguiente, elija el sitio de IIS en el que lo desea
+instalar y el nombre del directorio virtual a utilizar (ver <code class="xref std std-numref docutils literal notranslate"><span class="pre">Select_IIS_Site_and_Virtual_Directory_OMM</span></code>). Seleccione también el <em>Application Pool</em>.</p></li>
+</ol>
+<figure class="align-center" id="id54">
+<span id="select-iis-site-and-virtual-directory-omm"></span><a class="reference internal image-reference" href="_images/image52.png"><img alt="_images/image52.png" src="_images/image52.png" style="width: 4.52232in; height: 3.70667in;" /></a>
+<figcaption>
+<p><span class="caption-text">Selección de sitio, directorio virtual y <em>Application Pool</em></span><a class="headerlink" href="#id54" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>En este punto (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Ready_To_Install_The_Web_Site_OMM</span></code>), todo está pronto para empezar la
+instalación. Haga clic en “Next” para dar comienzo a la instalación.</p></li>
+</ol>
+<figure class="align-center" id="id55">
+<span id="ready-to-install-the-web-site-omm"></span><a class="reference internal image-reference" href="_images/image53.png"><img alt="_images/image53.png" src="_images/image53.png" style="width: 4.45549in; height: 3.6519in;" /></a>
+<figcaption>
+<p><span class="caption-text">Todo listo para instalar</span><a class="headerlink" href="#id55" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id56">
+<span id="ejecute-the-web-site-installation-omm"></span><a class="reference internal image-reference" href="_images/image54.png"><img alt="_images/image54.png" src="_images/image54.png" style="width: 4.48876in; height: 3.67916in;" /></a>
+<figcaption>
+<p><span class="caption-text">Ejecución de la instalación</span><a class="headerlink" href="#id56" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="5">
+<li><p>Una vez terminada la instalación (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Ejecute_The_Web_Site_Installation_OMM</span></code>), debe indicar el nombre
+del servidor en el que se encuentra la <em>Web API</em> del <em>backend</em>
+(<code class="xref std std-numref docutils literal notranslate"><span class="pre">Parameters_of_the_Web_Site_Installation_OMM</span></code>). Luego, modifique si corresponde el <em>Virtual directory</em>,
+el <em>Port</em> y el <em>Protocol,</em> por defecto los valores cargados son
+correctos.</p></li>
+</ol>
+<figure class="align-center" id="id57">
+<span id="parameters-of-the-web-site-installation-omm"></span><a class="reference internal image-reference" href="_images/image55.png"><img alt="_images/image55.png" src="_images/image55.png" style="width: 2.9163in; height: 3.24959in;" /></a>
+<figcaption>
+<p><span class="caption-text">Parámetros del sitio</span><a class="headerlink" href="#id57" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Haga clic en “OK”.</p>
+<ol class="arabic simple" start="6">
+<li><p>En este punto, la instalación debería finalizar (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Installation_Complete_OMM</span></code>). Haga
+clic en “Close”.</p></li>
+</ol>
+<figure class="align-center" id="id58">
+<span id="installation-complete-omm"></span><a class="reference internal image-reference" href="_images/image56.png"><img alt="_images/image56.png" src="_images/image56.png" style="width: 5.19791in; height: 4.26041in;" /></a>
+<figcaption>
+<p><span class="caption-text">Instalación completa</span><a class="headerlink" href="#id58" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="solucion-de-errores-1">
+<span id="id7"></span><h4>Solución de errores<a class="headerlink" href="#solucion-de-errores-1" title="Link to this heading"></a></h4>
+<p>Si tiene problemas para acceder al sitio, es probable que no haya
+modificado la configuración del <em>Application Pool</em> del sitio para que
+utilice al menos ASP.NET 4.0 con pipeline integrado (esa configuración
+es compatible con el .NET Framework 4.7.2). Cambie eso y vuelva a
+probar.</p>
+<figure class="align-center" id="id59">
+<img alt="_images/ApplicationPoolConfiguration.png" src="_images/ApplicationPoolConfiguration.png" />
+<figcaption>
+<p><span class="caption-text">Configuración correcta del <em>Application Pool</em> del sitio</span><a class="headerlink" href="#id59" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="instalacion-de-qflow-design">
+<h3>Instalación de Qflow Design<a class="headerlink" href="#instalacion-de-qflow-design" title="Link to this heading"></a></h3>
+<p><strong>Prerrequisitos</strong></p>
+<ul class="simple">
+<li><p>Microsoft .NET Framework 4.7.2</p></li>
+<li><p>IIS</p></li>
+<li><p>ASP.NET 4.5</p></li>
+</ul>
+<p><strong>Permisos</strong></p>
+<ul class="simple">
+<li><p>Administrador local, con permiso para hacer <em>login</em> interactivamente
+en el servidor</p></li>
+<li><p>Permiso para crear directorios virtuales o escritura en el directorio
+virtual definido</p></li>
+</ul>
+<p><strong>Procedimiento</strong></p>
+<p>Para instalar Qflow Design, haga lo siguiente:</p>
+<ol class="arabic simple">
+<li><p>Haga <em>login</em> en el servidor y ejecute el instalador de Qflow.</p></li>
+</ol>
+<figure class="align-center" id="id60">
+<span id="icon-bpm-web-designer-installation"></span><a class="reference internal image-reference" href="_images/image57.png"><img alt="_images/image57.png" src="_images/image57.png" style="width: 1.7602in; height: 1.82269in;" /></a>
+<figcaption>
+<p><span class="caption-text">Ícono del instalador de Qflow Design</span><a class="headerlink" href="#id60" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>Seleccione el ícono que se muestra en la <code class="xref std std-numref docutils literal notranslate"><span class="pre">Icon_BPM_Web_designer_installation</span></code>. Esto dará inicio
+al instalador de Qflow Design (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Install_BPM_Web_Designer</span></code>). Haga clic en “Next”.</p></li>
+</ol>
+<figure class="align-center" id="id61">
+<span id="install-bpm-web-designer"></span><a class="reference internal image-reference" href="_images/image58.png"><img alt="_images/image58.png" src="_images/image58.png" style="width: 4.53135in; height: 3.71407in;" /></a>
+<figcaption>
+<p><span class="caption-text">Instalador de Qflow Design</span><a class="headerlink" href="#id61" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>En la pantalla siguiente, elija el sitio de IIS en el que lo desea
+instalar y el nombre del directorio virtual a utilizar (ver <code class="xref std std-numref docutils literal notranslate"><span class="pre">Select_IIS_Site_and_Virtual_Directory_BPM</span></code>). Seleccione también el <em>Application Pool</em>.</p></li>
+</ol>
+<figure class="align-center" id="id62">
+<span id="select-iis-site-and-virtual-directory-bpm"></span><a class="reference internal image-reference" href="_images/image59.png"><img alt="_images/image59.png" src="_images/image59.png" style="width: 4.52232in; height: 3.70667in;" /></a>
+<figcaption>
+<p><span class="caption-text">Selección de sitio, directorio virtual y <em>Application Pool</em></span><a class="headerlink" href="#id62" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>En este punto (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Ready_To_Install_The_Web_Site_BPM</span></code>), todo está pronto para empezar la
+instalación. Haga clic en “Next” para dar comienzo a la instalación.</p></li>
+</ol>
+<figure class="align-center" id="id63">
+<span id="ready-to-install-the-web-site-bpm"></span><a class="reference internal image-reference" href="_images/image60.png"><img alt="_images/image60.png" src="_images/image60.png" style="width: 4.4555in; height: 3.6519in;" /></a>
+<figcaption>
+<p><span class="caption-text">Todo listo para instalar</span><a class="headerlink" href="#id63" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id64">
+<span id="ejecute-the-web-site-installation-bpm"></span><a class="reference internal image-reference" href="_images/image611.png"><img alt="_images/image611.png" src="_images/image611.png" style="width: 4.48876in; height: 3.67917in;" /></a>
+<figcaption>
+<p><span class="caption-text">Ejecución de la instalación</span><a class="headerlink" href="#id64" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="5">
+<li><p>Una vez terminada la instalación (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Ejecute_The_Web_Site_Installation_BPM</span></code>), debe indicar el nombre
+del servidor en el que se encuentra la <em>Web API</em> del <em>backend</em>
+(<code class="xref std std-numref docutils literal notranslate"><span class="pre">Parameters_of_the_Web_Site_Installation_BPM</span></code>). Luego, modifique si corresponde el <em>Virtual directory</em>,
+el <em>Port</em> y el <em>Protocol,</em> por defecto los valores cargados son
+correctos.</p></li>
+</ol>
+<figure class="align-center" id="id65">
+<span id="parameters-of-the-web-site-installation-bpm"></span><a class="reference internal image-reference" href="_images/image62.png"><img alt="_images/image62.png" src="_images/image62.png" style="width: 2.9163in; height: 3.24959in;" /></a>
+<figcaption>
+<p><span class="caption-text">Parámetros del sitio</span><a class="headerlink" href="#id65" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Haga clic en “OK”.</p>
+<ol class="arabic simple" start="6">
+<li><p>En este punto, la instalación debería finalizar (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Installation_complete_BPM</span></code>). Haga
+clic en “Close”.</p></li>
+</ol>
+<figure class="align-center" id="id66">
+<span id="installation-complete-bpm"></span><a class="reference internal image-reference" href="_images/image63.png"><img alt="_images/image63.png" src="_images/image63.png" style="width: 5.19791in; height: 4.26042in;" /></a>
+<figcaption>
+<p><span class="caption-text">Instalación completa</span><a class="headerlink" href="#id66" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="instalacion-de-qflow-admin">
+<h3>Instalación de Qflow Admin<a class="headerlink" href="#instalacion-de-qflow-admin" title="Link to this heading"></a></h3>
+<p><strong>Prerrequisitos</strong></p>
+<ul class="simple">
+<li><p>Microsoft .NET Framework 4.7.2</p></li>
+<li><p>IIS</p></li>
+<li><p>ASP.NET 4.5</p></li>
+</ul>
+<p><strong>Permisos</strong></p>
+<ul class="simple">
+<li><p>Administrador local, con permiso para hacer <em>login</em> interactivamente
+en el servidor</p></li>
+<li><p>Permiso para crear directorios virtuales o escritura en el directorio
+virtual definido</p></li>
+</ul>
+<p><strong>Procedimiento</strong></p>
+<p>Para instalar Qflow Admin, haga lo siguiente:</p>
+<ol class="arabic simple">
+<li><p>Haga <em>login</em> en el servidor y ejecute el instalador de Qflow.</p></li>
+</ol>
+<figure class="align-center" id="id67">
+<span id="icon-bpm-web-administrator-installation"></span><a class="reference internal image-reference" href="_images/image64.png"><img alt="_images/image64.png" src="_images/image64.png" style="width: 1.71156in; height: 1.7in;" /></a>
+<figcaption>
+<p><span class="caption-text">Ícono del instalador de Qflow Admin</span><a class="headerlink" href="#id67" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>Seleccione el ícono que se muestra en la <code class="xref std std-numref docutils literal notranslate"><span class="pre">Icon_BPM_Web_administrator_installation</span></code>. Esto dará inicio
+al instalador de Qflow Admin (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Install_SAM_Web_Administrator</span></code>).
+Haga clic en “Next”.</p></li>
+</ol>
+<figure class="align-center" id="id68">
+<span id="install-sam-web-administrator"></span><a class="reference internal image-reference" href="_images/image65.png"><img alt="_images/image65.png" src="_images/image65.png" style="width: 4.39696in; height: 3.60392in;" /></a>
+<figcaption>
+<p><span class="caption-text">Instalador de Qflow Admin</span><a class="headerlink" href="#id68" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>En la pantalla siguiente, elija el sitio de IIS en el que lo desea
+instalar y el nombre del directorio virtual a utilizar (ver <code class="xref std std-numref docutils literal notranslate"><span class="pre">Select_IIS_Site_and_Virtual_Directory_SAM</span></code>).
+Seleccione también el <em>Application Pool</em>.</p></li>
+</ol>
+<figure class="align-center" id="id69">
+<span id="select-iis-site-and-virtual-directory-sam"></span><a class="reference internal image-reference" href="_images/image66.png"><img alt="_images/image66.png" src="_images/image66.png" style="width: 4.37571in; height: 3.5865in;" /></a>
+<figcaption>
+<p><span class="caption-text">Selección de sitio, directorio virtual y <em>Application Pool</em></span><a class="headerlink" href="#id69" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>En este punto (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Ready_To_Install_The_Web_Site_SAM</span></code>), todo está pronto para empezar la
+instalación. Haga clic en “Next” para dar comienzo a la instalación.</p></li>
+</ol>
+<figure class="align-center" id="id70">
+<span id="ready-to-install-the-web-site-sam"></span><a class="reference internal image-reference" href="_images/image67.png"><img alt="_images/image67.png" src="_images/image67.png" style="width: 4.34351in; height: 3.56011in;" /></a>
+<figcaption>
+<p><span class="caption-text">Todo listo para instalar</span><a class="headerlink" href="#id70" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id71">
+<span id="ejecute-the-web-site-installation-sam"></span><a class="reference internal image-reference" href="_images/image68.png"><img alt="_images/image68.png" src="_images/image68.png" style="width: 4.42577in; height: 3.62754in;" /></a>
+<figcaption>
+<p><span class="caption-text">Ejecución de la instalación</span><a class="headerlink" href="#id71" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="5">
+<li><p>Una vez terminada la instalación (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Ejecute_The_Web_Site_Installation_SAM</span></code>), debe indicar el nombre
+del servidor en el que se encuentra la <em>Web API</em> del <em>backend</em>
+(<code class="xref std std-numref docutils literal notranslate"><span class="pre">Parameters_of_the_Web_Site_Installation_SAM</span></code>). Luego, modifique si corresponde el <em>Virtual directory</em>,
+el <em>Port</em> y el <em>Protocol,</em> por defecto los valores cargados son
+correctos.</p></li>
+</ol>
+<figure class="align-center" id="id72">
+<span id="parameters-of-the-web-site-installation-sam"></span><a class="reference internal image-reference" href="_images/image69.png"><img alt="_images/image69.png" src="_images/image69.png" style="width: 2.9163in; height: 3.24959in;" /></a>
+<figcaption>
+<p><span class="caption-text">Parámetros del sitio</span><a class="headerlink" href="#id72" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Haga clic en “OK”.</p>
+<ol class="arabic simple" start="6">
+<li><p>En este punto, la instalación debería finalizar (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Installation_complete_SAM</span></code>). Haga
+clic en “Close”.</p></li>
+</ol>
+<figure class="align-center" id="id73">
+<span id="installation-complete-sam"></span><a class="reference internal image-reference" href="_images/image70.png"><img alt="_images/image70.png" src="_images/image70.png" style="width: 4.87678in; height: 3.9972in;" /></a>
+<figcaption>
+<p><span class="caption-text">Instalación completa</span><a class="headerlink" href="#id73" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="id8">
+<h4>Solución de errores<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<p>Si tiene problemas para acceder al sitio, es probable que no haya
+modificado la configuración del <em>Application Pool</em> del sitio para que
+utilice al menos ASP.NET 4.0 con pipeline integrado (esa configuración
+es compatible con el .NET Framework 4.7.2). Cambie eso y vuelva a
+probar.</p>
+<figure class="align-center" id="id74">
+<img alt="_images/ApplicationPoolConfiguration.png" src="_images/ApplicationPoolConfiguration.png" />
+<figcaption>
+<p><span class="caption-text">Configuración correcta del <em>Application Pool</em> del sitio.</span><a class="headerlink" href="#id74" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="instalacion-de-qflow-access">
+<h3>Instalación de Qflow Access<a class="headerlink" href="#instalacion-de-qflow-access" title="Link to this heading"></a></h3>
+<p><strong>Prerrequisitos</strong></p>
+<ul class="simple">
+<li><p>Angular 14.</p></li>
+<li><p>IIS.</p></li>
+<li><p>IIS Rewrite</p></li>
+</ul>
+<p><strong>Procedimiento</strong></p>
+<p>Para instalar Qflow Access, haga lo siguiente:</p>
+<ol class="arabic simple">
+<li><p>Haga <em>login</em> en el servidor y ejecute el instalador de Qflow.</p></li>
+</ol>
+<figure class="align-center" id="id75">
+<span id="icon-qflow-access-installation"></span><a class="reference internal image-reference" href="_images/image112.png"><img alt="_images/image112.png" src="_images/image112.png" style="width: 1.81227in; height: 1.88518in;" /></a>
+<figcaption>
+<p><span class="caption-text">Ícono del instalador de Qflow Access</span><a class="headerlink" href="#id75" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>Seleccione el ícono que se muestra en la <code class="xref std std-numref docutils literal notranslate"><span class="pre">Icon_Qflow_Access_installation</span></code>. Esto dará inicio
+al instalador de Qflow Access (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Install_Qflow_Access</span></code>). Haga clic en “Next”.</p></li>
+</ol>
+<figure class="align-center" id="id76">
+<span id="install-qflow-access"></span><a class="reference internal image-reference" href="_images/image113.png"><img alt="_images/image113.png" src="_images/image113.png" style="width: 4.52435in; height: 3.70833in;" /></a>
+<figcaption>
+<p><span class="caption-text">Instalador de Qflow Access</span><a class="headerlink" href="#id76" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>En la pantalla siguiente, elija el sitio de IIS en el que lo desea
+instalar y el nombre del directorio virtual a utilizar (ver <code class="xref std std-numref docutils literal notranslate"><span class="pre">Select_IIS_Site_and_Virtual_Directory_QflowAccess</span></code>). Seleccione también el <em>Application Pool</em>.</p></li>
+</ol>
+<figure class="align-center" id="id77">
+<span id="select-iis-site-and-virtual-directory-qflowaccess"></span><a class="reference internal image-reference" href="_images/image114.png"><img alt="_images/image114.png" src="_images/image114.png" style="width: 4.52232in; height: 3.70667in;" /></a>
+<figcaption>
+<p><span class="caption-text">Selección de sitio, directorio virtual y <em>Application Pool</em></span><a class="headerlink" href="#id77" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>En este punto (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Ready_To_Install_The_Web_Site_QflowAccess</span></code>), todo está pronto para empezar la
+instalación. Haga clic en “Next” para dar comienzo a la instalación.</p></li>
+</ol>
+<figure class="align-center" id="id78">
+<span id="ready-to-install-the-web-site-qflowaccess"></span><a class="reference internal image-reference" href="_images/image115.png"><img alt="_images/image115.png" src="_images/image115.png" style="width: 4.45549in; height: 3.6519in;" /></a>
+<figcaption>
+<p><span class="caption-text">Todo listo para instalar</span><a class="headerlink" href="#id78" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id79">
+<span id="ejecute-the-web-site-installation-qflowaccesss"></span><a class="reference internal image-reference" href="_images/image116.png"><img alt="_images/image116.png" src="_images/image116.png" style="width: 4.48876in; height: 3.67916in;" /></a>
+<figcaption>
+<p><span class="caption-text">Ejecución de la instalación</span><a class="headerlink" href="#id79" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="5">
+<li><p>Durante la instalación (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Ejecute_The_Web_Site_Installation_QflowAccesss</span></code>),
+debe indicar donde está instalado <em>Qflow Task</em>
+(<code class="xref std std-numref docutils literal notranslate"><span class="pre">Parameters_of_the_Web_Site_Installation_QflowAccesss</span></code>).</p></li>
+</ol>
+<figure class="align-center" id="id80">
+<span id="parameters-of-the-web-site-installation-qflowaccesss"></span><a class="reference internal image-reference" href="_images/image117.png"><img alt="_images/image117.png" src="_images/image117.png" style="width: 2.9163in;" /></a>
+<figcaption>
+<p><span class="caption-text">Parámetro del sitio</span><a class="headerlink" href="#id80" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Haga clic en “OK”.</p>
+<ol class="arabic simple">
+<li><p>En este punto, la instalación debería finalizar (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Installation_Complete_QflowAccess</span></code>). Haga
+clic en “Close”.</p></li>
+</ol>
+<figure class="align-center" id="id81">
+<span id="installation-complete-qflowaccess"></span><a class="reference internal image-reference" href="_images/image118.png"><img alt="_images/image118.png" src="_images/image118.png" style="width: 5.19791in; height: 4.26041in;" /></a>
+<figcaption>
+<p><span class="caption-text">Instalación completa</span><a class="headerlink" href="#id81" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="configuracion-de-cors-para-qflow-access">
+<h4>Configuración de CORS para Qflow Access<a class="headerlink" href="#configuracion-de-cors-para-qflow-access" title="Link to this heading"></a></h4>
+<p>En caso de instalar Qflow Access en un servidor diferente al resto de las herramientas
+es necesario agregar una configuración extra en el archivo <em>web.config</em>. Se
+agregan <em>headers</em> a las peticiones HTTP que permiten la comunicación con los otros
+sitios.</p>
+<figure class="align-center" id="id82">
+<a class="reference internal image-reference" href="_images/ConfigAccessCORS.png"><img alt="_images/ConfigAccessCORS.png" src="_images/ConfigAccessCORS.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-text">Configuración de CORS para Qflow Access</span><a class="headerlink" href="#id82" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Donde <em>QflowAccessURL</em> debe reemplazarse por la ruta en la que se instaló <em>Qflow Access</em>.
+Por ejemplo, <em>https://default.&lt;servidor&gt;/QflowAccess</em>. Cuando se creen nuevos espacios de
+trabajo, se deben agregar sus rutas en la misma configuracion, separadas por coma:
+<em>https://default.&lt;servidor&gt;/QflowAccess,https://espaciodetrabajo.&lt;servidor&gt;/QflowAccess</em>.</p>
+</section>
+</section>
+<section id="instalacion-de-las-herramientas">
+<h3>Instalación de las Herramientas<a class="headerlink" href="#instalacion-de-las-herramientas" title="Link to this heading"></a></h3>
+<p><strong>Prerrequisitos</strong></p>
+<ul class="simple">
+<li><p>Microsoft .NET Framework 4.7.2</p></li>
+</ul>
+<p><strong>Permisos</strong></p>
+<ul class="simple">
+<li><p>Administrador local, con permiso para hacer <em>login</em> interactivamente
+en el equipo cliente.</p></li>
+</ul>
+<p><strong>Procedimiento</strong></p>
+<p>Qflow provee dos herramientas Windows: el Diseñador de Procesos del
+Negocio y el Administrador de Procesos del Negocio. Estas herramientas
+están siendo sustituidas por los distintos sitios, sin embargo, aún se
+pueden seguir utilizando.</p>
+<p>Para instalar el <strong>Diseñador de Procesos del Negocio</strong>:</p>
+<ol class="arabic simple">
+<li><p>Haga <em>login</em> en el equipo y busque según el idioma, en la carpeta de
+los instaladores el instalador de la herramienta, por ejemplo:
+“~/Tools/Spanish/BPMSetup.msi”. Para comenzar la instalación, abra en
+modo administrador la consola de Windows y luego ejecútelo. Esto
+iniciará el instalador del Diseñador de Procesos del Negocio (<code class="xref std std-numref docutils literal notranslate"><span class="pre">BPMSetup_installation</span></code>). Haga clic en “Siguiente”.</p></li>
+</ol>
+<figure class="align-center" id="id83">
+<span id="bpmsetup-installation"></span><a class="reference internal image-reference" href="_images/image71.png"><img alt="_images/image71.png" src="_images/image71.png" style="width: 4.34375in; height: 3.5625in;" /></a>
+<figcaption>
+<p><span class="caption-text">Inicio del instalador del Diseñador de Procesos del Negocio</span><a class="headerlink" href="#id83" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En la segunda pantalla (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Select_Installation_Folder_BPMSetup</span></code>), especifique la carpeta donde desea
+instalar la herramienta. Especifique también si la herramienta debe
+estar disponible solamente para el usuario que está ejecutando la
+instalación o si todos los usuarios del equipo deben poder acceder a
+ella. Haga clic en “Siguiente”.</p>
+<figure class="align-center" id="id84">
+<span id="select-installation-folder-bpmsetup"></span><a class="reference internal image-reference" href="_images/image72.png"><img alt="_images/image72.png" src="_images/image72.png" style="width: 4.34642in; height: 3.5625in;" /></a>
+<figcaption>
+<p><span class="caption-text">Selección de carpeta de instalación</span><a class="headerlink" href="#id84" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>En este punto (<code class="xref std std-numref docutils literal notranslate"><span class="pre">All_Ready_To_Install</span></code>) todo está listo para la instalación. Haga
+clic en “Siguiente”.</p></li>
+</ol>
+<figure class="align-center" id="id85">
+<span id="all-ready-to-install"></span><a class="reference internal image-reference" href="_images/image73.png"><img alt="_images/image73.png" src="_images/image73.png" style="width: 4.5625in; height: 3.7396in;" /></a>
+<figcaption>
+<p><span class="caption-text">Todo listo para instalar</span><a class="headerlink" href="#id85" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id86">
+<a class="reference internal image-reference" href="_images/image74.png"><img alt="_images/image74.png" src="_images/image74.png" style="width: 4.6006in; height: 3.77083in;" /></a>
+<figcaption>
+<p><span class="caption-text">Instalación en curso</span><a class="headerlink" href="#id86" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>Cuando aparezca la pantalla que se muestra en la <code class="xref std std-numref docutils literal notranslate"><span class="pre">BPMSetup_Installation_complete</span></code>, la
+instalación habrá terminado. Haga clic en “Cerrar”.</p></li>
+</ol>
+<figure class="align-center" id="id87">
+<span id="bpmsetup-installation-complete"></span><a class="reference internal image-reference" href="_images/image75.png"><img alt="_images/image75.png" src="_images/image75.png" style="width: 5.05208in; height: 4.14089in;" /></a>
+<figcaption>
+<p><span class="caption-text">Fin de la instalación del Diseñador de Procesos del Negocio</span><a class="headerlink" href="#id87" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Para instalar las otras herramientas, proceda de forma análoga. Todas
+tienen los mismos requisitos y se instalan de la misma forma, ejecutando
+el archivo <em>.msi</em> del instalador correspondiente y siguiendo las
+instrucciones que se presentan en pantalla.</p>
+<section id="idioma-de-las-herramientas">
+<h4>Idioma de las herramientas<a class="headerlink" href="#idioma-de-las-herramientas" title="Link to this heading"></a></h4>
+<p>Las herramientas de Qflow están disponibles en tres idiomas:</p>
+<ul class="simple">
+<li><p>Español</p></li>
+<li><p>Portugués</p></li>
+<li><p>Inglés</p></li>
+</ul>
+<p>El instalador está disponible en esos mismos idiomas.</p>
+</section>
+</section>
+<section id="instalacion-manual-de-los-servicios-de-notificaciones">
+<h3>Instalación manual de los servicios de notificaciones<a class="headerlink" href="#instalacion-manual-de-los-servicios-de-notificaciones" title="Link to this heading"></a></h3>
+<p>Si los servicios de notificaciones de Qflow no fueron instalados cuando
+se instalaron los servicios de Qflow, y se desea instalar alguno de
+ellos, debe hacerlo de forma manual.</p>
+<p>La instalación manual de un servicio de correo tiene dos etapas:</p>
+<ol class="arabic simple">
+<li><p>Creación del servicio Windows</p></li>
+<li><p>Configuración del servicio</p></li>
+</ol>
+<section id="creacion-del-servicio-de-windows">
+<h4>Creación del servicio de Windows<a class="headerlink" href="#creacion-del-servicio-de-windows" title="Link to this heading"></a></h4>
+<p>Para la creación del servicio Windows se utiliza la herramienta
+InstallUtil, que .NET Framework provee para la instalación de servicios
+Windows. Esa herramienta es un archivo ejecutable que se encuentra en el
+disco del sistema, en la carpeta de .NET Framework. Para ejecutarla:</p>
+<ol class="arabic simple">
+<li><p>Ejecute la herramienta de línea de comandos de Windows (Inicio,
+Ejecutar, “cmd”).</p></li>
+<li><p>Navegue hasta la carpeta donde se encuentra la herramienta
+InstallUtil. Ésta se encuentra en la carpeta de .NET Framework,
+usualmente C:\Windows\Microsoft.NET\Framework64\v4.0.xxxxx (xxxxx
+puede variar; la carpeta puede llamarse, por ejemplo, v4.0.30319).
+Ejemplo: ejecutar el comando “cd
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319”.</p></li>
+<li><p>Ejecute “InstallUtil” seguido de la ruta completa del archivo
+correspondiente al servicio de correo que se desea instalar. Los
+archivos de servicios de notificación se encuentran en la carpeta
+en la cual están instalados los servicios de <em>backend</em> de Qflow,
+típicamente <em>C:\Program Files (x86)\Urudata\Qflow Backend
+Services</em>. La siguiente tabla muestra qué archivo corresponde a
+cuál servicio.</p></li>
+</ol>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Servicio</strong></p></td>
+<td><p><strong>Archivo de servicio</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>SMTP</p></td>
+<td><p>Qframework.Listener.SMTP.exe</p></td>
+</tr>
+<tr class="row-odd"><td><p>ExtendedMAPI</p></td>
+<td><p>Qframework.Listener.ExtendedMAPI.exe</p></td>
+</tr>
+<tr class="row-even"><td><p>ExchangeWS</p></td>
+<td><p>Qframework.Listener.ExchangeWS.exe</p></td>
+</tr>
+<tr class="row-odd"><td><p>FcmPushNotifications</p></td>
+<td><p>Qframework.Listener.FcmPushNotifications.exe</p></td>
+</tr>
+</tbody>
+</table>
+<p>Ejemplo: para instalar el servicio SMTP, suponiendo que la unidad de
+disco es “C” y que los archivos están en la ubicación por defecto,
+habría que ejecutar el siguiente comando:</p>
+<blockquote>
+<div><p><em>InstallUtil</em> “<em>C:\Program Files (x86)\Urudata\Qflow Backend
+Services\Qframework.Listener.SMTP.exe</em>”</p>
+</div></blockquote>
+<p>Una vez ejecutado el comando, aparece una ventana de diálogo que permite
+ingresar las credenciales con las que se debe ejecutar el servicio
+(<code class="xref std std-numref docutils literal notranslate"><span class="pre">Configuration_Account_Service</span></code>).</p>
+<figure class="align-center" id="id88">
+<span id="configuration-account-service"></span><a class="reference internal image-reference" href="_images/image76.png"><img alt="_images/image76.png" src="_images/image76.png" style="width: 3.52083in; height: 1.72917in;" /></a>
+<figcaption>
+<p><span class="caption-text">Configuración de la cuenta que ejecutará el servicio</span><a class="headerlink" href="#id88" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple">
+<li><p>Ingrese nombre de usuario, contraseña y confirmación de la contraseña
+del usuario que utilizará para ejecutar el servicio.</p></li>
+</ol>
+</section>
+<section id="configuracion-del-servicio-de-notificaciones">
+<h4>Configuración del servicio de notificaciones<a class="headerlink" href="#configuracion-del-servicio-de-notificaciones" title="Link to this heading"></a></h4>
+<p>Una vez creado el servicio, es necesario registrarlo en la configuración
+de Qflow para que más tarde esté disponible para ser utilizado por
+usuarios. Para ello, utilice el Administrador y monitor de sistema. Para
+ver más detalles de cómo realizarlo utilice el manual correspondiente.</p>
+<p>Luego de realizadas estas modificaciones, reinicie el servicio del motor
+(Engine) y asegúrese que el servicio de notificaciones que acaba de
+instalar esté en ejecución.</p>
+<p>El nuevo servicio aparecerá en la sección “Notificaciones” del panel de
+propiedades de los usuarios en el administrador del modelo
+organizacional (ver manual correspondiente). Allí, se puede habilitar el
+envío de notificaciones para cada usuario por medio del nuevo servicio.</p>
+</section>
+</section>
+<section id="archivos-correspondientes-a-cada-instalador">
+<h3>Archivos correspondientes a cada instalador<a class="headerlink" href="#archivos-correspondientes-a-cada-instalador" title="Link to this heading"></a></h3>
+<p>El instalador de Qflow (Setup.exe) abre una pantalla desde la cual es
+posible ejecutar los instaladores de los componentes de Qflow. Por lo
+tanto, no es común que sea necesario ejecutar manualmente los
+instaladores de cada componente. Sin embargo, saber qué archivo
+corresponde a qué instalador puede resultar útil. Los archivos
+correspondientes a cada uno de los instaladores son los siguientes:</p>
+<ul class="simple">
+<li><p><strong>Instalador de la base de datos (SQL Server):</strong>
+DatabaseSetup_SqlServer.exe</p></li>
+<li><p><strong>Instalador de los servicios de backend:</strong> BackendSetup.msi</p></li>
+<li><p><strong>Instalador de la backend API:</strong> BackendAPISetup.msi</p></li>
+<li><p><strong>Instalador de Qflow Task:</strong> QflowTaskSetup.msi</p></li>
+<li><p><strong>Instalador de Qflow Admin:</strong> QflowDesignSetup.msi.</p></li>
+<li><p><strong>Instalador de Qflow Team:</strong> QflowTeamSetup.msi.</p></li>
+<li><p><strong>Instalador de Qflow Admin:</strong> QflowAdminSetup.msi.</p></li>
+<li><p><strong>Instalador de Qflow Access:</strong> QflowAccessSetup.msi.</p></li>
+<li><p><strong>Instalador de la web services API:</strong> WebServicesAPISetup.msi</p></li>
+</ul>
+<section id="deprecados">
+<h4>Deprecados<a class="headerlink" href="#deprecados" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><strong>Instalador del Diseñador de Procesos del Negocio:</strong> BPMSetup.msi
+(está en una carpeta con el nombre del idioma del instalador,
+dentro de la carpeta Tools).</p></li>
+<li><p><strong>Instalador del Administrador de Procesos del Negocio:</strong>
+BPASetup.msi (está en una carpeta con el nombre del idioma del
+instalador, dentro de la carpeta Tools).</p></li>
+<li><p><strong>Instalador de los web services:</strong> WebServiceSetup.msi</p></li>
+<li><p><strong>Instalador del sitio web (WebForms):</strong> DesktopFormsSiteSetup.msi</p></li>
+</ul>
+</section>
+</section>
+<section id="actualizacion-de-qflow">
+<h3>Actualización de Qflow<a class="headerlink" href="#actualizacion-de-qflow" title="Link to this heading"></a></h3>
+<p>Esta sección explica cómo instalar una versión nueva de Qflow en un
+lugar donde Qflow ya está instalado. Asegúrese que todos los paquetes,
+plantillas y otros elementos están protegidos (ver en el manual del
+diseñador de procesos del negocio las secciones sobre control de
+cambios).</p>
+<section id="actualizacion-de-la-base-de-datos">
+<h4>Actualización de la base de datos<a class="headerlink" href="#actualizacion-de-la-base-de-datos" title="Link to this heading"></a></h4>
+<p>Para actualizar la base de datos, ejecute el instalador de Qflow,
+seleccione la opción “Database setup” y seleccione la opción “Update
+Qflow database” (SQL Server, <code class="xref std std-numref docutils literal notranslate"><span class="pre">DatabaseSetup_SqlServer</span></code>). Por más información acerca de los primeros
+pasos, consulte la sección “Instalación de la base de datos en SQL
+Server”</p>
+<figure class="align-center" id="id89">
+<span id="databasesetup-sqlserver"></span><a class="reference internal image-reference" href="_images/image77.png"><img alt="_images/image77.png" src="_images/image77.png" style="width: 6.40382in; height: 2.53571in;" /></a>
+<figcaption>
+<p><span class="caption-text">Actualización de la base de datos</span><a class="headerlink" href="#id89" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="actualizacion-de-los-servicios-de-backend">
+<h4>Actualización de los servicios de <em>backend</em><a class="headerlink" href="#actualizacion-de-los-servicios-de-backend" title="Link to this heading"></a></h4>
+<p>Antes de actualizar los servicios de <em>backend</em>, es conveniente respaldar
+el archivo “System.config”, de modo de no perder cambios realizados en
+la configuración.</p>
+<p>Para actualizar los servicios de <em>backend</em>, hay que desinstalar los que
+están instalados e instalar los nuevos. Para esto, utilice la
+herramienta “Agregar o quitar programas”.</p>
+<p>Una vez instalada la nueva versión de los servicios de <em>backend</em>,
+utilice el respaldo del archivo System.config para compararlo con el
+archivo System.config que fue instalado y modificar este último para
+restaurar la configuración que estaba antes de la actualización. No es
+recomendable reemplazar el nuevo System.config con el respaldo del
+System.config viejo, dado que el nuevo puede contener parámetros que no
+estaban en el System.config respaldado y que son necesarios para el
+funcionamiento de la nueva versión de Qflow. Lo mejor es modificar el
+nuevo System.config para que quede consistente con el viejo y refleje
+los cambios de configuración que éste contenía.</p>
+</section>
+<section id="actualizacion-de-los-sitios-web">
+<h4>Actualización de los sitios web<a class="headerlink" href="#actualizacion-de-los-sitios-web" title="Link to this heading"></a></h4>
+<p>Antes de actualizar cada sitio web, conviene respaldar aquellas páginas
+de Qflow que hayan sido modificadas, pues estas serán sobrescritas al
+instalar la nueva versión del sitio.</p>
+<p>Una vez realizada la actualización, se debe comparar las páginas
+instaladas con las páginas respaldadas y modificar aquéllas para que
+queden consistentes con éstas y sean compatibles con la nueva versión de
+Qflow.</p>
+<p>No es necesario respaldar los formularios personalizados, pues el
+instalador no los borra.</p>
+<p>Si se han hecho modificaciones al archivo web.config, conviene
+respaldarlo antes de hacer la actualización. Una vez hecha la
+actualización, hay que modificar el web.config instalado para que quede
+consistente con el web.config respaldado y refleje las modificaciones
+que se le habían realizado a éste.</p>
+<p>Si se desea mantener el sitio WebForms y permitir el uso de los
+formularios personalizados de este sitio, debe actualizarlo manualmente.
+Para esto, desinstálelo utilizando la herramienta “Agregar o quitar
+programas”. Después, ejecute <em>DesktopFormsSiteSetup.msi</em> que se
+encuentra en la carpeta de instalación. Debe realizarse desde una
+consola de Windows, abierta con permisos de administrador.</p>
+</section>
+<section id="actualizacion-de-los-web-services">
+<h4>Actualización de los web services<a class="headerlink" href="#actualizacion-de-los-web-services" title="Link to this heading"></a></h4>
+<p>Para los web services son válidas las mismas consideraciones respecto
+del archivo web.config que con el sitio web.</p>
+<p>Para actualizarlos, desinstálelos utilizando la herramienta “Agregar o
+quitar programas” de Windows. Después, instale la nueva versión con el
+instalador de ésta.</p>
+<p>Si se desean mantener los <em>Web services .asmx</em>, instálelos ejecutando
+<em>WebServiceSetup.msi</em> que se encuentra en la carpeta de instalación.
+Debe realizarse desde una consola de Windows, abierta con permisos de
+administrador.</p>
+</section>
+<section id="actualizacion-de-las-herramientas-cliente">
+<h4>Actualización de las herramientas cliente<a class="headerlink" href="#actualizacion-de-las-herramientas-cliente" title="Link to this heading"></a></h4>
+<p>Para actualizar las herramientas cliente (diseñador de procesos del
+negocio y administrador de procesos del negocio), desinstálelas
+utilizando la herramienta “Agregar o quitar programas” de Windows.
+Después, instálelos utilizando el instalador de la nueva versión de
+Qflow.</p>
+</section>
+</section>
+<section id="desinstalacion-y-reparacion-de-componentes-de-qflow">
+<h3>Desinstalación y reparación de componentes de Qflow<a class="headerlink" href="#desinstalacion-y-reparacion-de-componentes-de-qflow" title="Link to this heading"></a></h3>
+<p>Para desinstalar un componente de Qflow, ejecute el instalador
+correspondiente y seleccione la opción “Quitar…” (“Remove” en los
+instaladores que están en inglés). Por ejemplo, para desinstalar Qflow Design,
+debe ejecutar el instalador de esa herramienta. Como la herramienta
+ya está instalada, aparecerán dos opciones: “Reparar Qflow Design” y
+“Quitar Qflow Design”. Seleccione la segunda opción, y la herramienta será desinstalada.
+La opción de reparar (“repair” en los instaladores que
+están en inglés) sirve para corregir problemas en la instalación,
+revisando que existan todos los archivos necesarios y que la
+configuración del equipo sea correcta. Por ejemplo, si alguien borró
+archivos de un componente que estaba instalado, esa opción instalará los
+archivos faltantes.</p>
+<p>Alternativamente, todos los componentes de Qflow, con excepción de la
+base de datos, pueden ser desinstalados desde el panel de control. Para
+hacerlo, utilice la opción “Desinstalar un Programa”, bajo “Programas”
+en el Panel de Control.</p>
+<p>Para borrar la base de datos, utilice el instalador de ésta y seleccione
+la opción “Remove Qflow Database”. Se recomienda respaldarla antes de
+proceder, a menos que solamente la haya utilizado para pruebas y no
+tenga datos importantes almacenados en ella.</p>
+</section>
+</section>
+<section id="licenciamiento">
+<h2>Licenciamiento<a class="headerlink" href="#licenciamiento" title="Link to this heading"></a></h2>
+<p>El uso de Qflow es gratuito si la cantidad de usuarios es menor o igual
+a 10, utilizando el espacio de trabajo principal. Organizaciones en las que más
+de diez usuarios utilicen Qflow deben obtener una licencia para
+utilizarlo. Esta sección del manual explica cómo cargar la licencia.</p>
+<p>El licenciamiento es por servidor, espacio de trabajo (<em>tenant</em>) y cantidad de
+usuarios habilitados. El servidor se identifica por: nombre, puerto y
+<em>VirtualDirectory</em> de la <em>BackendAPI.</em> Se debe contar con los archivos
+de licencias para cada servidor donde se instalaron los servicios de
+<em>backend</em>.</p>
+<p>Es posible cargar las licencias a través de Qflow Admin, en la vista
+“Visor de Licencias” (ver <code class="xref std std-numref docutils literal notranslate"><span class="pre">License_Viewer</span></code>). Para saber
+más sobre este sitio lea el manual de Qflow Admin.</p>
+<figure class="align-center" id="id90">
+<span id="license-viewer"></span><img alt="_images/LicensesPanel.png" src="_images/LicensesPanel.png" />
+<figcaption>
+<p><span class="caption-text">Visor de licencias</span><a class="headerlink" href="#id90" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>La vista muestra el listado de licencias instaladas para el espacio de trabajo
+(<em>tenant</em>) actual. Para cada licencia de la lista se indica:</p>
+<ul class="simple">
+<li><p>Tipo</p></li>
+<li><p>Nombre de la organización para el que se generó la licencia</p></li>
+<li><p>Nombre del servidor</p></li>
+<li><p>Cantidad de usuarios habilitados por la licencia</p></li>
+<li><p>Fecha de vencimiento de la licencia</p></li>
+<li><p>Estado de la licencia</p></li>
+</ul>
+<p>El estado de una licencia puede ser válido, inválido o expirado.</p>
+<p>Para agregar una licencia, haga clic en el botón de Agregar (símbolo de
+“+”). Esto abrirá una ventana que le permitirá buscar el archivo de
+licencias (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Load_License_File</span></code>). Los nombres de los archivos de licencias de
+Qflow tienen la extensión <em>.qlic</em>.</p>
+<figure class="align-center" id="id91">
+<span id="load-license-file"></span><img alt="_images/LoadLicense.png" src="_images/LoadLicense.png" />
+<figcaption>
+<p><span class="caption-text">Carga de licencias</span><a class="headerlink" href="#id91" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Elija el archivo correspondiente a la licencia que desea cargar y haga
+clic en “Abrir”. Esto agregará la licencia a la lista.</p>
+</section>
+<section id="configuracion">
+<h2>Configuración<a class="headerlink" href="#configuracion" title="Link to this heading"></a></h2>
+<p>Esta sección explica cómo configurar Qflow. La configuración de Qflow
+queda almacenada en el archivo System.config de la carpeta de
+instalación de los servicios de <em>backend</em> de Qflow y en la base de
+datos de Qflow. Qflow provee una herramienta de configuración que
+facilita la modificación del archivo System.config. Además, Qflow Admin
+para el manejo de la configuración que se encuentra en la base de datos.</p>
+<p>Para ejecutar la herramienta de configuración de Qflow, ejecute el
+archivo ConfigurationEditor.exe. Para que cambios realizados con la
+herramienta de configuración tengan efecto, reiniciar los servicios del
+<em>backend</em> cuyos parámetros fueron modificados.</p>
+<p>Por otro lado se proveen algunas configuraciones y recomendaciones que mejoran
+la experiencia de usuario en las distintas herramientas.</p>
+<section id="herramienta-de-configuracion">
+<h3>Herramienta de configuración<a class="headerlink" href="#herramienta-de-configuracion" title="Link to this heading"></a></h3>
+<p>La <code class="xref std std-numref docutils literal notranslate"><span class="pre">Configuration_Tool</span></code> muestra la pantalla de la herramienta de configuración de
+Qflow. La pantalla está dividida en dos partes:</p>
+<ul class="simple">
+<li><p><strong>Árbol de parámetros:</strong> se encuentra a la izquierda.</p></li>
+<li><p><strong>Panel de edición:</strong> se encuentra a la derecha y en la figura
+aparece en blanco. Cuando el usuario hace clic sobre alguno de los
+elementos que aparecen en el árbol de parámetros, el panel de
+edición muestra los datos del elemento seleccionado, y permite
+modificarlo.</p></li>
+</ul>
+<figure class="align-center" id="id92">
+<span id="configuration-tool"></span><a class="reference internal image-reference" href="_images/image81.png"><img alt="_images/image81.png" src="_images/image81.png" style="width: 6.41736in; height: 3.38264in;" /></a>
+<figcaption>
+<p><span class="caption-text">Herramienta de configuración</span><a class="headerlink" href="#id92" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="opciones-del-arbol-de-parametros">
+<h3>Opciones del árbol de parámetros<a class="headerlink" href="#opciones-del-arbol-de-parametros" title="Link to this heading"></a></h3>
+<p>El árbol de parámetros tiene las siguientes ramas:</p>
+<ul class="simple">
+<li><p><strong>Parámetros de sistema:</strong> muestra los parámetros de sistema de
+Qflow. Los parámetros del sistema son parámetros predefinidos que
+controlan varios aspectos del funcionamiento del producto.</p></li>
+<li><p><strong>Configuración de la base de datos:</strong> configuración de la base de
+datos.</p></li>
+<li><p><strong>Propiedades de adjuntos:</strong> propiedades de los archivos adjuntos.</p></li>
+<li><p><strong>Configuración de Redis:</strong> configuración de la conexión con Redis.
+Es necesaria si se utiliza Redis como tipo de Caché.</p></li>
+</ul>
+<section id="parametros-de-sistema">
+<h4>Parámetros de sistema<a class="headerlink" href="#parametros-de-sistema" title="Link to this heading"></a></h4>
+<p>Cada parámetro de sistema tiene una clave que lo identifica (un nombre)
+y un valor. El formato del valor depende del parámetro de sistema.</p>
+<p>La mayoría de los parámetros de sistema se encuentran en la base de
+datos y pueden configurarse a través del sitio de Qflow Admin, para ver
+más sobre configuración de parámetros de sistema ir al manual de Qflow Admin.</p>
+<p>En el árbol se encuentran los parámetros que se pueden ver en <code class="xref std std-numref docutils literal notranslate"><span class="pre">Configuration_Tool_Tree</span></code>,
+estos son los únicos parámetros de sistema ubicados en el archivo
+System.config ya que son necesarios antes de conectarse a la base de
+datos.</p>
+<figure class="align-center" id="id93">
+<span id="configuration-tool-tree"></span><a class="reference internal image-reference" href="_images/image82.png"><img alt="_images/image82.png" src="_images/image82.png" style="width: 2.51944in; height: 1.94684in;" /></a>
+<figcaption>
+<p><span class="caption-text">Parámetros del archivo System.config</span><a class="headerlink" href="#id93" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Clave del parámetro</strong></p></td>
+<td><p><strong>Descripción</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>QueryCommandTimeout</p></td>
+<td><p>Indica el tiempo en segundos en que se
+considera que una consulta a la base de
+datos, que retorna valores, no responde.
+El valor es 60 por defecto y no se
+recomienda modificar.</p></td>
+</tr>
+<tr class="row-odd"><td><p>NonQueryCommandTimeout</p></td>
+<td><p>Indica el tiempo en segundos en que se
+considera que una consulta a la base de
+datos, que no retorna valores, no
+responde. El valor es 60 por defecto y no
+se recomienda modificar.</p></td>
+</tr>
+<tr class="row-even"><td><p>MaxDBConnectionRetries</p></td>
+<td><p>Límite de intentos de reconexión a la
+base de datos antes de devolver un error.</p></td>
+</tr>
+<tr class="row-odd"><td><p>FilterMultivalued</p></td>
+<td><p>Booleano, por defecto “False”, que indica
+si las búsquedas realizadas en las vistas
+buscan en los valores de las distintas
+instancias de un dato o sólo en la
+primera. Qflow se encuentra optimizado a
+la hora de filtrar únicamente por la
+primera instancia, por lo que si lo
+modifica puede ver perjudicada la
+performance en estas consultas.</p></td>
+</tr>
+<tr class="row-even"><td><p>CacheType</p></td>
+<td><p>String, que indica el tipo de cache a
+utilizar en el Backend. Los valores
+posibles son: “Default” o “Redis”.
+“Default” es el valor por defecto y
+utilizará un caché en memoria. Si
+selecciona “Redis” se utilizará un caché
+en Redis y debe configurarse su conexión,
+para ello vea Configuración <em>Redis</em>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="configuracion-de-la-base-de-datos">
+<h4>Configuración de la base de datos<a class="headerlink" href="#configuracion-de-la-base-de-datos" title="Link to this heading"></a></h4>
+<p>Para modificar la configuración de la base de datos, seleccione el
+elemento “Configuración de la base de datos” del árbol de parámetros.
+Esto hace que el panel de edición muestre las propiedades de
+configuración de la base de datos (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Configuration_Tool_Database</span></code>).</p>
+<figure class="align-center" id="id94">
+<span id="configuration-tool-database"></span><a class="reference internal image-reference" href="_images/image83.png"><img alt="_images/image83.png" src="_images/image83.png" style="width: 4.7486in; height: 3.44047in;" /></a>
+<figcaption>
+<p><span class="caption-text">Configuración de la base de datos</span><a class="headerlink" href="#id94" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Las propiedades de configuración de la base de la base de datos son las
+siguientes:</p>
+<ul class="simple">
+<li><p><strong>Base de datos:</strong></p>
+<ul>
+<li><p><strong>Proveedor:</strong> proveedor de base de datos SQL Server.</p></li>
+<li><p><strong>Servidor:</strong> nombre del servidor donde está la base de datos.</p></li>
+<li><p><strong>Base de datos:</strong> nombre de la base de datos de Qflow.</p></li>
+</ul>
+</li>
+<li><p><strong>Autenticación:</strong></p>
+<ul>
+<li><p><strong>Seguridad integrada:</strong> si esta opción está marcada, Qflow se
+conecta a la base de datos utilizando seguridad integrada
+(usuario Windows).</p></li>
+<li><p><strong>Usuario:</strong> si la opción “Integrated Security” no está marcada,
+esta propiedad indica el nombre usuario que Qflow debe
+utilizar para conectarse a la base de datos.</p></li>
+<li><p><strong>Contraseña:</strong> si la opción “Integrated Security” no está
+marcada, esta propiedad indica la contraseña que Qflow debe
+utilizar para conectarse a la base de datos con el nombre de
+usuario indicado en “User name”.</p></li>
+</ul>
+</li>
+<li><p><strong>Propiedades de conexión:</strong></p>
+<ul>
+<li><p><strong>Timeout:</strong> especifica en segundos el <em>timeout</em> de la conexión
+con la base de datos.</p></li>
+</ul>
+</li>
+</ul>
+<p>El botón <strong>Probar conexión</strong> permite probar los datos de la conexión
+para asegurarse de que son correctos.</p>
+</section>
+<section id="configuracion-redis">
+<h4>Configuración <em>Redis</em><a class="headerlink" href="#configuracion-redis" title="Link to this heading"></a></h4>
+<p>Para modificar la configuración de Redis, seleccione el elemento
+“Configuración de Redis” del árbol de parámetros. Esto hace que el panel
+de edición muestre las propiedades de configuración con Redis (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Configuration_Redis</span></code>).</p>
+<figure class="align-center" id="id95">
+<span id="configuration-redis"></span><a class="reference internal image-reference" href="_images/image84.png"><img alt="_images/image84.png" src="_images/image84.png" style="width: 6.41736in; height: 2.28056in;" /></a>
+<figcaption>
+<p><span class="caption-text">Configuración de Redis</span><a class="headerlink" href="#id95" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Las propiedades de configuración de Redis son las siguientes:</p>
+<ul class="simple">
+<li><p><strong>Servidor:</strong> Url de conexión a la instancia de Redis. Por ejemplo:
+<em>redis-instance.azure.cloud.redislabs.com:11855</em></p></li>
+<li><p><strong>Contraseña:</strong> Contraseña que Qflow debe utilizar para conectarse a
+la instancia de Redis.</p></li>
+<li><p><strong>Tiempo de reintento:</strong> Cantidad de segundos que se esperan, al
+detectar un error de conexión con Redis, para reintentar la conexión.
+Cuando se detectan un fallo en la conexión con Redis, se comienza a
+utilizar el Caché en memoria hasta que la conexión se reestablezca.</p></li>
+</ul>
+<p>El botón <strong>Probar conexión</strong> permite probar los datos de la conexión
+para asegurarse de que son correctos.</p>
+</section>
+<section id="configuracion-login-con-google-y-microsoft">
+<span id="googlemicrosoftloginconfiguration"></span><h4>Configuración <em>login</em> con Google y Microsoft<a class="headerlink" href="#configuracion-login-con-google-y-microsoft" title="Link to this heading"></a></h4>
+<section id="configuracion-login-con-google">
+<h5>Configuración <em>login</em> con Google<a class="headerlink" href="#configuracion-login-con-google" title="Link to this heading"></a></h5>
+<p>Para activar el <em>login</em> con Google es necesario configurar el dominio en
+la <a class="reference external" href="https://console.developers.google.com/">consola de administración de
+Google</a>. La cuenta de Google
+en la que se realizan las configuraciones debe ser la que ejerza como
+proveedor del servicio.</p>
+<ol class="arabic simple">
+<li><p>Cree un nuevo proyecto</p></li>
+<li><p>Diríjase a la ventana Credenciales</p></li>
+<li><p>Presione el botón “Crear credenciales” y seleccione “ID de cliente de
+OAuth”</p></li>
+</ol>
+<figure class="align-center" id="id96">
+<a class="reference internal image-reference" href="_images/image85.png"><img alt="_images/image85.png" src="_images/image85.png" style="width: 3.3586in;" /></a>
+<figcaption>
+<p><span class="caption-text">Menú para activar OAuth para login de Google</span><a class="headerlink" href="#id96" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple">
+<li><p>Luego, seleccione la opción Web y agregue las URIs de redirección
+autorizadas de los sitios de Qflow que desee autorizar, como se
+muestra en la siguiente figura:</p></li>
+</ol>
+<figure class="align-center" id="id97">
+<a class="reference internal image-reference" href="_images/image86.png"><img alt="_images/image86.png" src="_images/image86.png" style="width: 3.98684in;" /></a>
+<figcaption>
+<p><span class="caption-text">Agregar URIs autorizadas para login Google</span><a class="headerlink" href="#id97" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En la figura de ejemplo, se muestra la URI de redirección
+correspondiente al diseñador de procesos web. Para agregar los demás
+sitios deberá cambiar en la URI los valores <em>WebServerName</em> y <em>Site</em>
+por los que correspondan.</p>
+<p><em>https://{WebServerName}/{Site}/signin-google</em></p>
+<p>Las URIs por defecto son:</p>
+<ul class="simple">
+<li><p>Qflow Task: <em>https://UrudataSoftware.com/QflowTask/signin-google</em></p></li>
+<li><p>Qflow Design: <em>https://UrudataSoftware.com/QflowDesign/signin-google</em></p></li>
+<li><p>Qflow Team: <em>https://UrudataSoftware.com/QflowTeam/signin-google</em></p></li>
+<li><p>Qflow Admin: <em>https://UrudataSoftware.com/QflowAdmin/signin-google</em></p></li>
+<li><p>Qflow Access: <em>https://UrudataSoftware.com/QflowAccess/signin-google</em></p></li>
+</ul>
+<ol class="arabic">
+<li><p>Al hacer clic en “Crear”, se generarán las claves <em>Client ID</em> y
+<em>Client Secret</em>.</p></li>
+<li><p>Luego, deberá ir al archivo <em>web.config</em> del sitio correspondiente y
+agregar, en la sección <em>appSettings,</em> las configuraciones de <em>sign
+in</em> de Google con los valores de <em>Client ID</em> y <em>Client Secret</em>
+generados. La siguiente imagen contiene la configuración a modificar:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;appSettings&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;MicrosoftClientId&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;&lt;MSCLIENTID&gt;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;MicrosoftClientSecret&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;&lt;MSCLIENTSECRET&gt;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/appSettings&gt;</span>
+</pre></div>
+</div>
+<p><em>Configuración de sign in de Google</em></p>
+</li>
+</ol>
+</section>
+<section id="configuracion-login-con-microsoft">
+<h5>Configuración <em>login</em> con Microsoft<a class="headerlink" href="#configuracion-login-con-microsoft" title="Link to this heading"></a></h5>
+<p>Para activar el <em>login</em> con Microsoft deberá primero ingresar al <a class="reference external" href="https://portal.azure.com/">portal
+de Azure</a>. La cuenta de Microsoft en la
+que se realizan las configuraciones debe ser la que ejerza como
+proveedor del servicio.</p>
+<ol class="arabic simple">
+<li><p>Ingresar a la sección “Registros de aplicaciones” (puede acceder esta
+sección buscándola a través de la búsqueda general del portal)</p></li>
+<li><p>Seleccionar la opción “Nuevo Registro”</p></li>
+</ol>
+<figure class="align-center" id="id98">
+<a class="reference internal image-reference" href="_images/image88.png"><img alt="_images/image88.png" src="_images/image88.png" style="width: 3.16042in;" /></a>
+<figcaption>
+<p><span class="caption-text">Registro de aplicaciones de Microsoft Azure (paso 1)</span><a class="headerlink" href="#id98" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>Agregue la URI de redirección del sitio que desee agregar como
+muestra la <code class="xref std std-numref docutils literal notranslate"><span class="pre">Register_applications_in_Azure</span></code>. El tipo de la URI debe ser Web.</p></li>
+</ol>
+<figure class="align-center" id="id99">
+<span id="register-applications-in-azure"></span><a class="reference internal image-reference" href="_images/image89.png"><img alt="_images/image89.png" src="_images/image89.png" style="width: 5.59097in;" /></a>
+<figcaption>
+<p><span class="caption-text">Registro de aplicaciones de Microsoft Azure (paso 2)</span><a class="headerlink" href="#id99" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic" start="4">
+<li><p>Una vez registrada la aplicación se generará un <em>Client ID</em>, que
+necesitará para la configuración.</p>
+<ol class="loweralpha simple">
+<li><p>Para agregar más URIs de redirección haga clic en el link al lado
+de la etiqueta “URI de redirección” de la aplicación que acaba de
+registrar. En la imagen anterior se muestra la URI de redirección
+correspondiente al diseñador de procesos web. Para agregar los
+demás sitios deberá cambiar en la <em>WebServerName</em> y <em>Site</em> por los
+que correspondan.</p></li>
+</ol>
+<p><em>https://{WebServerName}/{Site}/signin-microsoft</em></p>
+</li>
+</ol>
+<p>Las URIs por defecto son:</p>
+<ul class="simple">
+<li><p>Qflow Task: <em>https://UrudataSoftware.com/QflowTask/signin-microsoft</em></p></li>
+<li><p>Qflow Design: <em>https://UrudataSoftware.com/QflowDesign/signin-microsoft</em></p></li>
+<li><p>Qflow Team: <em>https://UrudataSoftware.com/QflowTeam/signin-microsoft</em></p></li>
+<li><p>Qflow Admin: <em>https://UrudataSoftware.com/QflowAdmin/signin-microsoft</em></p></li>
+<li><p>Qflow Access: <em>https://UrudataSoftware.com/QflowAccess/signin-microsoft</em></p></li>
+</ul>
+<figure class="align-center" id="id100">
+<img alt="_images/image90.png" src="_images/image90.png" />
+<figcaption>
+<p><span class="caption-text">Acceder a URIs de redirección</span><a class="headerlink" href="#id100" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple">
+<li><p>Luego, ir a la sección “Certificados y secretos” del menú lateral</p></li>
+</ol>
+<figure class="align-center" id="id101">
+<img alt="_images/image91.png" src="_images/image91.png" />
+<figcaption>
+<p><span class="caption-text">Certificados y secretos (paso 1)</span><a class="headerlink" href="#id101" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="6">
+<li><p>Seleccionar la opción “Nuevo secreto de cliente” en el grupo
+“Secretos de cliente”. Generar el <em>Client Secret</em> que necesitará para
+la configuración.</p></li>
+</ol>
+<figure class="align-center" id="id102">
+<img alt="_images/image92.png" src="_images/image92.png" />
+<figcaption>
+<p><span class="caption-text">Certificados y secretos (paso 2)</span><a class="headerlink" href="#id102" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Una vez completados estos pasos, deberá ir al archivo web.config del
+sitio correspondiente y agregar, en la sección <em>appSettings,</em> las
+configuraciones de <em>sign in</em> de Micosoft con los valores de <em>Client ID</em>
+y <em>Client Secret</em> generados. La siguiente imagen contiene la
+configuración a modificar:</p>
+<blockquote>
+<div><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;appSettings&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;MicrosoftClientId&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;&lt;MSCLIENTID&gt;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;MicrosoftClientSecret&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;&lt;MSCLIENTSECRET&gt;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/appSettings&gt;</span>
+</pre></div>
+</div>
+<p><em>Configuración de sign in de Microsoft</em></p>
+</div></blockquote>
+</section>
+<section id="configuracion-en-qflow-team">
+<h5>Configuración en Qflow Team<a class="headerlink" href="#configuracion-en-qflow-team" title="Link to this heading"></a></h5>
+<p>Finalizada la configuración del <em>login</em>, deberá ingresar a Qflow Team y
+agregar un proveedor de seguridad de tipo OAuth. Para ver cómo agregar
+un nuevo proveedor de seguridad dirigirse a la sección “Proveedores de
+seguridad” del manual del Modelo Organizacional Web.</p>
+<p>Luego, para que un usuario pueda iniciar sesión directamente con Google
+o Microsoft, deberá tener como valor, en el campo <em>login</em>, su dirección
+de correo electrónico de Google o Microsoft según corresponda. Para más
+información sobre este campo y cómo modificarlo dirigirse a la sección
+“Propiedades de los usuarios” del manual del Modelo Organizacional Web.</p>
+<p>Una vez terminada esta configuración, el usuario podrá ingresar a
+la aplicación correspondiente con su cuenta de Google o Microsoft.</p>
+<p>Mediante una configuración adicional, dichas sesiones podrán ser recordadas
+por el navegador. Para ello, será necesario ingresar
+en Qflow Admin y fijar el parámetro de sistema “Habilitar recordar sesión de usuario
+al loguearse con Google y Microsoft” como «verdadero».</p>
+</section>
+</section>
+<section id="optimizacion-del-rendimiento-del-sitio-web">
+<h4>Optimización del rendimiento del sitio web<a class="headerlink" href="#optimizacion-del-rendimiento-del-sitio-web" title="Link to this heading"></a></h4>
+<p>Esta sección explica cómo realizar ajustes en Internet Information
+Services (IIS) para mejorar el rendimiento del sitio web. Esto aplica a
+cualquier sitio web albergado en IIS. Los dos métodos que se describen
+son la utilización de <em>expires headers</em> y compresión HTTP.</p>
+<section id="expires-headers">
+<h5>Expires headers<a class="headerlink" href="#expires-headers" title="Link to this heading"></a></h5>
+<p>La primera visita a una página puede requerir varias solicitudes HTTP
+para cargar todos sus contenidos (scripts, hojas de estilo, imágenes,
+etc.). Los <em>expires headers</em> hacen que esos contenidos se vuelvan
+<em>cacheables</em>, lo cual evita el envío de solicitudes HTTP innecesarias en
+posteriores visitas a la página.</p>
+<p>Desde el IIS Manager es posible asignar <em>expires headers</em> tanto en el
+nivel del servidor como en el nivel del sitio y de la aplicación. En
+cualquier caso, se debe abrir, en la <em>Features View</em>, la opción <strong>HTTP
+Response Headers</strong> y, a través del menú contextual, seleccionar la
+opción <strong>Set Common Headers…</strong></p>
+<figure class="align-center" id="id103">
+<a class="reference internal image-reference" href="_images/image94.png"><img alt="_images/image94.png" src="_images/image94.png" style="width: 6.41579in; height: 3.8125in;" /></a>
+<figcaption>
+<p><span class="caption-text">Configuración de <em>expires headers</em> (paso 1)</span><a class="headerlink" href="#id103" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id104">
+<a class="reference internal image-reference" href="_images/image95.png"><img alt="_images/image95.png" src="_images/image95.png" style="width: 5.99846in; height: 3.9375in;" /></a>
+<figcaption>
+<p><span class="caption-text">Configuración de <em>expires headers</em> (paso 2)</span><a class="headerlink" href="#id104" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Esto hace que IIS Manager abra una ventana como la de la figura
+siguiente. En ella, marque la opción <strong>Expire Web content</strong> y defina un
+criterio de expiración como se muestra en la figura.</p>
+<figure class="align-center" id="id105">
+<a class="reference internal image-reference" href="_images/image96.png"><img alt="_images/image96.png" src="_images/image96.png" style="width: 4.82292in; height: 3.01042in;" /></a>
+<figcaption>
+<p><span class="caption-text">Configuración de <em>expires headers</em> (paso 3)</span><a class="headerlink" href="#id105" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="compresion">
+<h5>Compresión<a class="headerlink" href="#compresion" title="Link to this heading"></a></h5>
+<p>La compresión de respuestas HTTP reduce el tamaño de éstas, lo cual
+disminuye el tiempo de respuesta de un sitio.</p>
+<p>Cuando un navegador maneja respuestas comprimidas, sus solicitudes al
+servidor incluyen un cabezal, llamado
+<a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">Accept-Encoding</a><strong>,</strong>
+que indica qué algoritmo de compresión acepta.</p>
+<p>Si el servidor usa compresión en su respuesta, incluye el cabezal
+<strong>Content-Encoding</strong> para indicar de qué forma la respuesta ha sido
+comprimida.</p>
+<p>Un proxy que recibe una solicitud sin el cabezal <strong>Accept-Encoding</strong> no
+puede servir un archivo que fue enviado en respuesta a una solicitud que
+sí lo tenía (y viceversa).</p>
+<p>IIS utiliza dos tipos diferentes de compresión:</p>
+<ul class="simple">
+<li><p><strong>Compresión Estática</strong>: se aplica a archivos estáticos como
+imágenes, páginas HTML y documentos. Todas las respuestas HTTP a
+solicitudes de un mismo archivo son iguales: consisten en tomar el
+archivo del disco duro y transmitirlo. El contenido de una página
+HTML, por ejemplo, es siempre el mismo; no es generado cada vez que
+se recibe una solicitud de enviarla. Es diferente a, por ejemplo, la
+respuesta a una solicitud de una página ASPX, cuyo contenido es
+diferente cada vez que hay que enviar una respuesta, y es generado
+cada vez que se recibe una solicitud. Como el contenido de los
+archivos estáticos no varía, es posible comprimirlos una vez y
+cachearlos, de modo que se conservan recursos del servidor (CPU), que
+no tiene que volver a comprimirlos cada vez que debe enviarlos como
+respuesta a alguna solicitud.</p></li>
+<li><p><strong>Compresión Dinámica</strong>: se aplica a archivos dinámicos, como páginas
+ASPX, cuyo contenido es diferente cuando se responde a solicitudes
+diferentes. En el caso de estos archivos, se debe comprimir el
+contenido cada vez que se recibe una solicitud. Por lo tanto, el
+resultado de comprimir los recursos de este tipo no es <em>cacheable</em>, y
+si el servidor hace un uso intensivo del procesador, la carga de CPU
+impuesta por la compresión dinámica puede hacer que el rendimiento
+del sitio se degrade. En este caso, se debe evaluar si conviene
+reducir el tamaño de las respuestas a expensas de un mayor uso de la
+CPU.</p></li>
+</ul>
+<p>Para poder activar la compresión en IIS, primero hay que habilitar la
+funcionalidad en Windows en la ventana que permite activar y desactivar
+características de Windows (ver <code class="xref std std-numref docutils literal notranslate"><span class="pre">Enable_Compression_in_Windows</span></code>; la sección <a class="reference internal" href="#habilitacion-de-componentes-de-iis"><span class="std std-ref">Habilitación de componentes de IIS</span></a>
+explica cómo acceder a esa ventana).</p>
+<figure class="align-center" id="id106">
+<span id="enable-compression-in-windows"></span><a class="reference internal image-reference" href="_images/image97.png"><img alt="_images/image97.png" src="_images/image97.png" style="width: 4.32292in; height: 3.83333in;" /></a>
+<figcaption>
+<p><span class="caption-text">Habilitar compresión en Windows</span><a class="headerlink" href="#id106" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Desde el IIS Manager es posible configurar compresión tanto en el nivel
+del servidor como en los del sitio y de la aplicación. En cualquier
+caso, abra la opción <strong>Compression</strong> en la <em>Features View</em> y defina los
+criterios de compresión deseados (estática y/o dinámica).</p>
+<figure class="align-center" id="id107">
+<a class="reference internal image-reference" href="_images/image98.png"><img alt="_images/image98.png" src="_images/image98.png" style="width: 6.29993in; height: 3.96875in;" /></a>
+<figcaption>
+<p><span class="caption-text">Opción de compresión en IIS</span><a class="headerlink" href="#id107" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id108">
+<a class="reference internal image-reference" href="_images/image99.png"><img alt="_images/image99.png" src="_images/image99.png" style="width: 6.19792in; height: 3.90448in;" /></a>
+<figcaption>
+<p><span class="caption-text">Habilitación de compresión en IIS</span><a class="headerlink" href="#id108" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Para confirmar los cambios, haga clic en <strong>Apply</strong>.</p>
+</section>
+</section>
+</section>
+<section id="otras-configuraciones">
+<h3>Otras configuraciones<a class="headerlink" href="#otras-configuraciones" title="Link to this heading"></a></h3>
+<section id="almacenamiento-de-adjuntos">
+<h4>Almacenamiento de adjuntos<a class="headerlink" href="#almacenamiento-de-adjuntos" title="Link to this heading"></a></h4>
+<p>Qflow permite que se adjunten archivos en los procesos. Por defecto,
+esos archivos son almacenados en la base de datos predeterminada con
+el resto de la información. También es posible que se almacenen en
+contenedores de Azure o en una base de datos especifica para ellos.</p>
+<p>En esta sección se explican las configuraciones necesarias para la
+selección y el correcto funcionamiento de cada una de las opciones.</p>
+<section id="azure-blob-storage">
+<h5>Azure Blob Storage<a class="headerlink" href="#azure-blob-storage" title="Link to this heading"></a></h5>
+<p>Para esta opción es necesario tener una cuenta de almacenamiento en Azure.
+Por informacion acerca de la creación y paso a paso de como hacerlo, visitar:
+<a class="reference external" href="https://learn.microsoft.com/es-es/azure/storage/common/storage-account-create?tabs=azure-portal">Creación de una cuenta de Storage</a>.</p>
+<p>Ahora, es necesario configurar la conexión a la cuenta de almacenamiento
+desde Qflow. Se agrega en el archivo <em>system.config</em> de los servicios del
+<em>backend</em> una seccion como se observa en <code class="xref std std-numref docutils literal notranslate"><span class="pre">Azure_Blob_Storage_Connection</span></code>.
+Donde <em>account_key</em> debe ser reemplazada por la clave de acceso que corresponda.</p>
+<figure class="align-center" id="id109">
+<span id="azure-blob-storage-connection"></span><a class="reference internal image-reference" href="_images/image119.png"><img alt="_images/image119.png" src="_images/image119.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-text">Conexión a <em>Azure Blob Storage</em></span><a class="headerlink" href="#id109" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Para obtener estos datos de conexion, vamos a la cuenta de almacenamiento en
+el Portal de Azure y luego a <em>Claves de acceso</em> en el panel izquierdo. <code class="xref std std-numref docutils literal notranslate"><span class="pre">Azure_Blob_Storage_Access_Keys</span></code></p>
+<figure class="align-center" id="id110">
+<span id="azure-blob-storage-access-keys"></span><a class="reference internal image-reference" href="_images/image120.png"><img alt="_images/image120.png" src="_images/image120.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-text">Claves de acceso en <em>Portal de Azure</em></span><a class="headerlink" href="#id110" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En <em>Cadena de conexión</em> tenemos la información necesaria, como se observa en
+<code class="xref std std-numref docutils literal notranslate"><span class="pre">Azure_Blob_Storage_Connection_String</span></code>.</p>
+<figure class="align-center" id="id111">
+<span id="azure-blob-storage-connection-string"></span><a class="reference internal image-reference" href="_images/image121.png"><img alt="_images/image121.png" src="_images/image121.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-text">Cadena de conexión en <em>Portal de Azure</em></span><a class="headerlink" href="#id111" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Por último, en Qflow Admin se debe asignar el valor <em>Azure blob storage</em>
+al parametro de sistema <em>Tipo de almacenamiento para adjuntos</em>. Por mas
+información sobre parámetros de sistema ver el manual de
+<a class="reference external" href="19-QflowAdmin.html">Qflow Admin</a></p>
+<figure class="align-center" id="id112">
+<span id="azure-blob-storage-system-paramer"></span><img alt="_images/image122.png" src="_images/image122.png" />
+<figcaption>
+<p><span class="caption-text">Configuración <em>Azure Blob Storage</em></span><a class="headerlink" href="#id112" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="base-de-datos-externa">
+<h5>Base de datos externa<a class="headerlink" href="#base-de-datos-externa" title="Link to this heading"></a></h5>
+<p>Para esta opción es necesario tener instalada y configurada una base de datos como
+se explica en <a class="reference internal" href="#external-database-installation"><span class="std std-ref">Instalación de la base de datos externa en SQL Server [Opcional]</span></a>.</p>
+<p>También es necesario agregar la información para que el <em>backend</em> pueda conectarse
+con la base de datos. Se agrega en el archivo <em>System.config</em> de los servicios del
+<em>backend</em> como se observa en <code class="xref std std-numref docutils literal notranslate"><span class="pre">External_Database_Connection_Data</span></code>.</p>
+<figure class="align-center" id="id113">
+<span id="external-database-connection-data"></span><a class="reference internal image-reference" href="_images/image123.png"><img alt="_images/image123.png" src="_images/image123.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-text">Datos de conexión a base de datos externa</span><a class="headerlink" href="#id113" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Donde:</p>
+<ul class="simple">
+<li><p><em>server</em> es el servidor donde fue instalada la base de datos.</p></li>
+<li><p><em>database</em> es el nombre con el que fue creada.</p></li>
+<li><p>En caso de que se haya marcado la opción <em>SQL Server authentication</em> al crearla y
+<em>IntegratedSecurity</em> sea <em>false</em>, <em>UserName</em> y <em>Password</em> son las credenciales
+con las que se autentica en la base de datos. En caso contrario <em>IntegratedSecurity</em>
+tiene que ser <em>true</em>.</p></li>
+</ul>
+<p>Por último, en Qflow Admin se debe asignar el valor <em>Base de datos externa</em>
+al parametro de sistema <em>Tipo de almacenamiento para adjuntos</em>.</p>
+<figure class="align-center" id="id114">
+<img alt="_images/image124.png" src="_images/image124.png" />
+<figcaption>
+<p><span class="caption-text">Configuración <em>Base de datos externa</em></span><a class="headerlink" href="#id114" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="manejo-de-sesion-unificada">
+<h4>Manejo de sesión unificada<a class="headerlink" href="#manejo-de-sesion-unificada" title="Link to this heading"></a></h4>
+<p>Por defecto Qflow maneja una sesion unificada. Luego de que el usuario inicia
+sesion en <em>Qflow Access</em> o en alguna de las herramientas, la sesión es valida
+para todas las herramientas en las que tenga permisos. A su vez, al cerrar
+sesión en uno de los sitios, lo hace en todos.</p>
+<p>Si no se quiere este comportamiento, es posible tener uno personalizado. Para
+que una herramienta mantenga una sesión independientemente al resto, en el
+archivo <em>web.config</em> correspondiente, se coloca el valor <em>false</em> al parametro
+<em>UseUnifiedSession</em> dentro de la sección <em>appSettings</em>.</p>
+<figure class="align-center" id="id115">
+<a class="reference internal image-reference" href="_images/UseUnifiedSessionConfig.png"><img alt="_images/UseUnifiedSessionConfig.png" src="_images/UseUnifiedSessionConfig.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-text">Configuración de sesión unificada</span><a class="headerlink" href="#id115" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="configuracion-autenticacion-con-servicio-smtp-de-google">
+<h4>Configuración autenticación con servicio SMTP de Google<a class="headerlink" href="#configuracion-autenticacion-con-servicio-smtp-de-google" title="Link to this heading"></a></h4>
+<p>Google realizó cambios en la autenticación para su servicio de SMTP. Para el
+correcto funcionamiento en Qflow de un servicio de notificación de este estilo,
+debemos realizar algunas configuraciones en la cuenta de Google con la que se
+enviaran los correos.</p>
+<p>Primero, debemos tener para esta cuenta la verificación en dos pasos activada.</p>
+<p>Luego se tiene que crear una <em>contraseña de aplicación</em>:</p>
+<ol class="arabic simple">
+<li><p>Ir al panel de configuración de la cuenta de Google al apartado de seguridad.</p></li>
+</ol>
+<figure class="align-center" id="id116">
+<a class="reference internal image-reference" href="_images/image125.png"><img alt="_images/image125.png" src="_images/image125.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-text">Administrar seguridad cuenta de Google</span><a class="headerlink" href="#id116" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>Ir a <em>Contraseñas de aplicaciones</em>.</p></li>
+</ol>
+<figure class="align-center" id="id117">
+<a class="reference internal image-reference" href="_images/image126.png"><img alt="_images/image126.png" src="_images/image126.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-text">Apartado de seguridad de Google</span><a class="headerlink" href="#id117" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>En aplicación seleccionamos <em>Correo electrónico</em>, como dispositivo podemos
+optar por <em>Ordenador con Windows</em> u <em>Otro</em> y cliqueamos en <em>GENERAR</em>.</p></li>
+</ol>
+<figure class="align-center" id="id118">
+<a class="reference internal image-reference" href="_images/image127.png"><img alt="_images/image127.png" src="_images/image127.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-text">Contraseñas de aplicaciones</span><a class="headerlink" href="#id118" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>Luego veremos una pantalla como la que se ve en <code class="xref std std-numref docutils literal notranslate"><span class="pre">Generated_Application_Key</span></code>.
+Lo que se ve en el recuadro amarillo es la clave de 16 caracteres que debemos
+utilizar en el servicio SMTP en Qflow.</p></li>
+</ol>
+<figure class="align-center" id="id119">
+<span id="generated-application-key"></span><a class="reference internal image-reference" href="_images/image128.png"><img alt="_images/image128.png" src="_images/image128.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-text">Generar contraseña de aplicaciones</span><a class="headerlink" href="#id119" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="5">
+<li><p>Por último, en Qflow Admin, nos dirigimos al panel de configuración del
+servicio de notificación SMTP correspondiente y usamos la clave generada en
+el campo <em>Contraseña</em> dentro del grupo <em>Usuario SMTP</em>. Por más información
+sobre configuración de servicios de notificación, ver el manual de Qflow
+Admin.</p></li>
+</ol>
+</section>
+<section id="configuracion-de-protocolo-de-conexion-tls">
+<h4>Configuración de protocolo de conexión TLS<a class="headerlink" href="#configuracion-de-protocolo-de-conexion-tls" title="Link to this heading"></a></h4>
+<p>Es posible configurar las herramientas y los servicios de notificación de Qflow
+para que utilicen el protocolo de seguridad TLS en sus conexiones si, por ejemplo,
+necesitamos conectar con algún sistema que lo requiera.</p>
+<p>Los siguientes ejemplos muestran las configuraciones correspondientes para trabajar
+con servidores que requieran que sus conexiones se realicen con el protocolo TLS 1.2.</p>
+<p>Para configurar el uso de el protocolo TLS en las herramientas, debemos modificar
+su archivo <em>web.config</em> correspondiente.
+En este archivo, debemos buscar el nodo <strong>webAPIConfiguration</strong> y modificar el atributo
+<strong>securityProtocol</strong>, que por defecto tiene el valor <em>SystemDefault</em>. Debemos reemplazar
+este valor por uno que represente el protocolo que deseamos utilizar, por ejemplo TLS 1.2,
+en cuyo caso el valor será <em>Tls12</em>. El nodo debería quedar similar a lo siguiente:</p>
+<blockquote>
+<div><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;webAPIConfiguration</span><span class="w"> </span><span class="na">serverName=</span><span class="s">&quot;{serverName}&quot;</span><span class="w"> </span><span class="na">connectionMethod=</span><span class="s">&quot;RESTWebServices&quot;</span><span class="w"> </span><span class="na">connectionPort=</span><span class="s">&quot;{port}&quot;</span><span class="w"> </span><span class="na">connectionProtocol=</span><span class="s">&quot;http&quot;</span><span class="w"> </span><span class="na">namespace=</span><span class="s">&quot;{namespace}&quot;</span><span class="w"> </span><span class="na">toolName=</span><span class="s">&quot;{toolName}&quot;</span><span class="w"> </span><span class="na">securityProtocol=</span><span class="s">&quot;Tls12&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p><em>Configuración de protocolo TLS 1.2 para las conexiones de una herramienta</em></p>
+</div></blockquote>
+<p>Para aplicar el mismo cambio a los servicios de notificación, tendremos que hacer una modificación
+análoga en los archivos de configuración de estos servicios, los cuales se encuentran típicamente en
+la ruta <em>C:\Program Files (x86)\Urudata\Qflow Backend Services</em>.</p>
+<p>En este directorio se encuentran los archivos ejecutables de los servicios de notificación,
+con sus archivos de configuración. Estos son los siguientes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Qframework.Listener.Smtp.exe.config</strong>, para el servicio SMTP</p></li>
+<li><p><strong>Qframework.Listener.ExtendedMAPI.exe.config</strong>, para el servicio Extended MAPI</p></li>
+<li><p><strong>Qframework.Listener.ExchangeWS.exe.config</strong>, para el servicio Exchange</p></li>
+<li><p><strong>Qframework.Listener.FcmPushNotifications.exe.config</strong>, para el servicio de Push Notifications</p></li>
+</ul>
+</div></blockquote>
+<p>En estos archivos, debemos buscar el nodo <strong>appSettings</strong> que tiene un nodo con un atributo
+<strong>key=”SecurityProtocol”</strong>, con atributo <em>value</em> que por defecto tiene como valor <em>SystemDefault</em>.
+De la misma manera, este es el valor que debemos cambiar. Para usar TLS 1.2, debemos reemplazar por
+<em>Tls1.2</em>. El nodo debería quedar similar a lo siguiente:</p>
+<blockquote>
+<div><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;appSettings&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;RenewSessionMode&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;TraceLevel&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;Exceptions&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ClientSettingsProvider.ServiceUri&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">   </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;SecurityProtocol&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;Tls12&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/appSettings&gt;</span>
+</pre></div>
+</div>
+<p><em>Configuración de protocolo TLS 1.2 para un servicio de notificación</em></p>
+</div></blockquote>
+</section>
+<section id="configuracion-de-recaptcha-para-inicio-de-procesos-externo-anonimo">
+<span id="recaptchaconfiguration"></span><h4>Configuración de reCaptcha para inicio de procesos externo/anónimo<a class="headerlink" href="#configuracion-de-recaptcha-para-inicio-de-procesos-externo-anonimo" title="Link to this heading"></a></h4>
+<p>Es posible configurar un desafío <em>Captcha</em> para controlar los inicios de
+procesos externos/anónimos, que permite tener una medida de seguridad para
+asegurar que no se vulnera la integridad del sistema por parte de agentes
+maliciosos.</p>
+<p>Para utilizarlo, es necesario que cada cliente cree y configure su instancia
+de <em>reCaptcha</em>. Para hacerlo, debe seguir estos pasos:</p>
+<ol class="arabic">
+<li><p>Ingresar al <a href="https://www.google.com/recaptcha/about/" target="_blank">sitio de configuración de reCaptcha</a> y hacer clic en «v3 Admin Console»:</p>
+<figure class="align-center" id="id120">
+<a class="reference internal image-reference" href="_images/captcha-1.png"><img alt="_images/captcha-1.png" src="_images/captcha-1.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-text">Sitio de <em>reCaptcha</em></span><a class="headerlink" href="#id120" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>En el campo «Etiqueta», elija un nombre que represente el sitio web, como
+por ejemplo, «Qflow».</p>
+<figure class="align-center" id="id121">
+<a class="reference internal image-reference" href="_images/captcha-2.png"><img alt="_images/captcha-2.png" src="_images/captcha-2.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-text">Etiqueta de Captcha</span><a class="headerlink" href="#id121" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>En la sección «Tipo de reCaptcha», seleccione «Prueba (v2)» y en las opciones que se
+despliegan, elija «Casilla No soy robot».</p>
+<figure class="align-center" id="id122">
+<a class="reference internal image-reference" href="_images/captcha-3.png"><img alt="_images/captcha-3.png" src="_images/captcha-3.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-text">Seleccion de tipo de <em>reCaptcha</em></span><a class="headerlink" href="#id122" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>En la sección «Dominios», se debe ingresar el nombre del servidor en donde está
+alojado Qflow Task. En este ejemplo, «localhost». Haga clic en el ícono de «+»
+para crear el dominio y haga clic en «Enviar para continuar».</p>
+<figure class="align-center" id="id123">
+<a class="reference internal image-reference" href="_images/captcha-4.png"><img alt="_images/captcha-4.png" src="_images/captcha-4.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-text">Creación de dominio</span><a class="headerlink" href="#id123" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Ya tenemos configurado nuestro Captcha. Ahora, debemos copiar los datos de la
+<em>clave de sitio web</em> y la <em>clave secreta</em>.</p>
+<figure class="align-center" id="id124">
+<a class="reference internal image-reference" href="_images/captcha-5.png"><img alt="_images/captcha-5.png" src="_images/captcha-5.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-text">Clave de sitio web y clave secreta</span><a class="headerlink" href="#id124" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>En el archivo <em>web.config</em>, encontrado en el directorio de instalación de
+Qflow Task, buscamos la configuración de <em>reCaptcha</em>, la cual por defecto es
+la siguiente:</p>
+<figure class="align-center" id="id125">
+<a class="reference internal image-reference" href="_images/captcha-6.png"><img alt="_images/captcha-6.png" src="_images/captcha-6.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-text">Sección de configuración de <em>reCaptcha</em> en archivo <em>web.config</em></span><a class="headerlink" href="#id125" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>En los atributos value de los nodos con atributo <em>key</em> «ReCAPTCHASiteKey» y «ReCAPTCHASecretKey», copiar
+la <em>clave del sitio web</em> y <em>clave secreta</em> respectivamente, obtenidas en el paso anterior. Además, es necesario
+descomentar esta parte del archivo. El resultado final debería verse de la siguiente manera:</p>
+<figure class="align-center" id="id126">
+<a class="reference internal image-reference" href="_images/captcha-7.png"><img alt="_images/captcha-7.png" src="_images/captcha-7.png" style="width: 75%;" /></a>
+<figcaption>
+<p><span class="caption-text">Sección de configuración de <em>reCaptcha</em> completado</span><a class="headerlink" href="#id126" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Guarde el archivo. Ahora, en el formulario por defecto de inicio de proceso externo/anónimo, verá
+el desafío Captcha que se debe de completar antes de poder iniciar el proceso.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="instalacion-de-otros-componentes">
+<h2>Instalación de otros componentes<a class="headerlink" href="#instalacion-de-otros-componentes" title="Link to this heading"></a></h2>
+<section id="instalacion-del-servicio-de-sincronizacion-con-directorio">
+<h3>Instalación del servicio de sincronización con directorio<a class="headerlink" href="#instalacion-del-servicio-de-sincronizacion-con-directorio" title="Link to this heading"></a></h3>
+<p>Qflow incluye un servicio de sincronización de directorio que permite
+sincronizar el modelo organizacional de Qflow con servicios de
+directorio compatibles con LDAP.</p>
+<p>Para instalar dicho servicio:</p>
+<ol class="arabic simple">
+<li><p>Ejecute la herramienta de línea de comandos de Windows (Inicio,
+Ejecutar, “cmd”). En Windows Vista y versiones posteriores, debe
+ejecutar esa herramienta como administrador (“Run as
+administrator”).</p></li>
+<li><p>Navegue hasta la carpeta donde se encuentra la herramienta
+InstallUtil. Ésta se encuentra en la carpeta
+\WINDOWS\Microsoft.NET\Framework64\v4.0.xxxxx (xxxxx puede
+variar; la carpeta puede llamarse, por ejemplo, v4.0.30319).
+Ejemplo: ejecutar el comando “cd
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\”.</p></li>
+<li><p>Ejecute “InstallUtil” seguido de la ruta completa del archivo
+Qflow.Listener.DirectorySynchronization.exe. Por ejemplo, si los
+servicios de Qflow fueron instalados en <em>C:\Program Files
+(x86)\Urudata\Qflow Backend services</em>, debe ejecutar el siguiente
+comando:</p></li>
+</ol>
+<p><em>InstallUtil &quot;C:\Program Files (x86)\Urudata\Qflow backend
+services\Qflow.Listener.DirectorySynchronization.exe”</em></p>
+<ol class="arabic simple" start="4">
+<li><p>La ejecución de ese comando hará que se abra una ventana en la que
+Usted debe ingresar el nombre de usuario y la contraseña de la cuenta
+bajo la cual se ejecutará el servicio que está instalando (es igual a
+la ventana que aparece al instalar los otros servicios de <em>backend</em>;
+ver <code class="xref std std-numref docutils literal notranslate"><span class="pre">Configuration_Account_Service</span></code>). En general, esa cuenta es la misma que la que se
+utiliza para ejecutar los otros servicios. Ingrese el nombre de
+usuario y la contraseña y haga clic en “Aceptar”.</p></li>
+<li><p>Después de esto, la instalación proseguirá y quedará pronta después
+de unos segundos.</p></li>
+<li><p>Para comprobar que el servicio quedó correctamente instalado, abra la
+ventana de servicios de Windows y compruebe que el servicio
+“<em>Qflow directory synchronization listener</em>” quedó instalado.</p></li>
+<li><p>Inicie el servicio.</p></li>
+</ol>
+</section>
+<section id="configuracion-del-servicio-de-sincronizacion-de-directorio">
+<h3>Configuración del servicio de sincronización de directorio<a class="headerlink" href="#configuracion-del-servicio-de-sincronizacion-de-directorio" title="Link to this heading"></a></h3>
+<p>Para configurar el servicio de sincronización de directorio, debe
+modificar el archivo Qflow.Listener.DirectorySynchronization.exe.config
+(<code class="xref std std-numref docutils literal notranslate"><span class="pre">File_Configuration_Directory_Synchronization</span></code>). Dicho archivo se encuentra en la carpeta de instalación de
+los servicios de <em>backend</em>.</p>
+<figure class="align-center" id="id127">
+<span id="file-configuration-directory-synchronization"></span><img alt="_images/image100.png" src="_images/image100.png" />
+<figcaption>
+<p><span class="caption-text">Archivo de configuración del servicio de sincronización de
+directorio</span><a class="headerlink" href="#id127" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Los parámetros que se pueden configurar son los siguientes:</p>
+<ul class="simple">
+<li><p><strong>DirectorySynchronizationPeriod:</strong> especifica cada cuántos segundos
+se realiza la sincronización con los servicios de directorio. Por
+defecto es 3600 (1 hora).</p></li>
+<li><p><strong>DirectoriesToSynchronize:</strong> lista de los FQDN, separados por comas,
+de los directorios con los que se desea sincronizar. Por defecto está
+vacío, por lo que la sincronización se realiza con todos los
+directorios.</p></li>
+<li><p><strong>OutputGatheredData:</strong> si se pone en “true” escribe en la carpeta de
+los servicios un archivo en que incluye la información recolectada de
+los servicios de directorio. Puede resultar útil para analizar la
+información sincronizada en casos de error. El archivo generado se
+llama “DirectorySynchronizationOutput.xml” y está en la misma carpeta
+que el servicio.</p></li>
+<li><p><strong>SynchronizeUsersWithoutEmail:</strong> si se pone en “true”, toma en
+cuenta e importa los usuarios que no tienen direcciones de correo
+electrónico. Por defecto, su valor es “false”, puesto que esas
+cuentas no suelen estar asociadas a personas.</p></li>
+<li><p><strong>DisableNotFoundUsers:</strong> si se pone en “true”, deshabilita aquellos
+usuarios que estén en el modelo organizacional pero no en el
+directorio. Por defecto, su valor es “false”.</p></li>
+</ul>
+</section>
+<section id="instalacion-de-ifilter-para-busquedas-full-text-en-documentos-pdf">
+<h3>Instalación de iFilter para búsquedas full-text en documentos PDF<a class="headerlink" href="#instalacion-de-ifilter-para-busquedas-full-text-en-documentos-pdf" title="Link to this heading"></a></h3>
+<p>Esta sección explica cómo instalar el iFilter que permite hacer
+búsquedas <em>full-text</em> de documentos PDF en Qflow.</p>
+<p>El instalador del iFilter se puede bajar en la siguiente URL:</p>
+<p><a class="reference external" href="http://ftp.adobe.com/pub/adobe/acrobat/win/11.x/PDFFilter64Setup.msi">http://ftp.adobe.com/pub/adobe/acrobat/win/11.x/PDFFilter64Setup.msi</a></p>
+<p>Una vez bajado el instalador, ejecútelo y siga las instrucciones. Una
+vez instalado ese componente, siga las siguientes instrucciones:</p>
+<ol class="arabic simple">
+<li><p>Agregue la ruta en la que se instaló el componente a la variable de
+entorno PATH. La ruta debe incluir la subcarpeta “bin”.</p></li>
+<li><p>Reinicie los servicios de SQL Server y búsqueda full-text de SQL
+Server.</p></li>
+<li><p>Ejecute en SQL Server: <em>sp_fulltext_service “load_os_resources”, 1</em></p></li>
+<li><p>Compruebe la instalación ejecutando el siguiente comando:
+<em>EXEC sp_help_fulltext_system_components “filter”</em>
+Si la instalación se hizo correctamente, en el resultado debe haber
+un registro con valor “.pdf” para la columna “<em>ComponentName</em>”.</p></li>
+</ol>
+</section>
+<section id="instalacion-de-iis-url-rewrite">
+<h3>Instalación de IIS - URL Rewrite<a class="headerlink" href="#instalacion-de-iis-url-rewrite" title="Link to this heading"></a></h3>
+<p>Para instalar esta extensión es necesario tener la versión
+<em>7, 7.5, 8, 8.5 o 10</em> de IIS. Siga los pasos para descargar e instalarlo:</p>
+<ol class="arabic">
+<li><p>Dirigirse a la página de <a href="https://www.iis.net/downloads/microsoft/url-rewrite" target="_blank">URL Rewrite</a> y descargar el ejecutable
+que coincida con el lenguaje de instalación de IIS y la arquitectura
+de su computadora.</p>
+<figure class="align-center" id="id128">
+<a class="reference internal image-reference" href="_images/url-rewrite-download.png"><img alt="_images/url-rewrite-download.png" src="_images/url-rewrite-download.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-text">Sección de descargas de URL Rewrite</span><a class="headerlink" href="#id128" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Siga los pasos del instalador hasta que la instalación se haya completado.</p></li>
+<li><p>Reinicie la computadora en donde se instaló la extensión para terminar la
+configuración.</p></li>
+</ol>
+</section>
+</section>
+<section id="dimensionamiento">
+<h2>Dimensionamiento<a class="headerlink" href="#dimensionamiento" title="Link to this heading"></a></h2>
+<p>El dimensionamiento de los sistemas de soporte de Qflow debe realizarse
+en gran parte en base a los dimensionamientos del software de base que
+se utilice (base de datos relacional, servidor de internet y servidor de
+mensajería).</p>
+<p>Cuando usuarios externos a la organización utilicen Qflow Task,
+se debe prever la infraestructura de seguridad complementaria al
+sistema, tales como firewall y mecanismos de seguridad con certificados
+digitales que permitan montar un sitio seguro. Dichos mecanismos
+generalmente implican una carga adicional en la capacidad de
+procesamiento del servidor web.</p>
+<p>En cuanto al almacenamiento en disco de Qflow, éste requiere el
+siguiente espacio asignado:</p>
+<ul class="simple">
+<li><p>Espacio en los discos de sistema: 200 MB</p></li>
+<li><p>Almacenamiento de estructuras en la base de datos Relacional: se
+recomienda tener disponible un espacio de 10 GB.</p></li>
+<li><p>Crecimiento de la base de datos Relacional:</p>
+<ul>
+<li><p>Variable, promedio 30kb por Proceso.</p></li>
+<li><p>Almacenamiento en el repositorio de adjuntos: Tamaño de los
+archivos a almacenar más un 40% de estructuras e índices (si no se
+utiliza la búsqueda <em>full text</em> en los documentos el 40% adicional
+se reduce a un 2% adicional).</p></li>
+</ul>
+</li>
+</ul>
+<p>Nótese que, en lo que respecta al espacio necesario en disco, además de
+los aspectos mencionados se debe tener en cuenta el espacio utilizado
+para respaldo (por ejemplo, el espacio utilizado por el Transaction
+Log). Esto no está contemplado en los datos que se mencionan más arriba,
+ya que depende de la política de respaldos de cada organización y del
+motor de base de datos utilizado.</p>
+<p>Para obtener información sobre estos aspectos, consulte el manual de su
+motor de base de datos.</p>
+<p>Ejemplos de dimensionamiento del Servidor de Qflow:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Usuarios</strong></p></th>
+<th class="head"><p><strong>Procesos
+Iniciados
+por
+Día</strong></p></th>
+<th class="head"><p><strong>Tiempo
+de Vida
+de los
+Procesos</strong></p></th>
+<th class="head"><p><strong>Servidor
+Web en
+el mismo
+Equipo</strong></p></th>
+<th class="head"><p><strong>BDD en
+el mismo
+Equipo</strong></p></th>
+<th class="head"><p><strong>Equipo
+Recomendado</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>10</p></td>
+<td><p>1 semana</p></td>
+<td><p>Sí</p></td>
+<td><p>Sí</p></td>
+<td><p>Intel
+Core2
+Duo</p>
+<p>2 Ghz</p>
+<p>2 GB RAM</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>100</p></td>
+<td><p>100</p></td>
+<td><p>1 semana</p></td>
+<td><p>Sí</p></td>
+<td><p>Sí</p></td>
+<td><p>Intel
+Core I5</p>
+<p>2 Ghz</p>
+<p>2 GB RAM</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>100</p></td>
+<td><p>1000</p></td>
+<td><p>1 semana</p></td>
+<td><p>Sí</p></td>
+<td><p>No</p></td>
+<td><p>Intel
+Xeon E3</p>
+<p>3.2 Ghz</p>
+<p>2 GB RAM</p>
+<p>Subsistema
+de
+discos
+con RAID</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>1000</p></td>
+<td><p>1000</p></td>
+<td><p>1 semana</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+<td><p>Intel
+Xeon E3</p>
+<p>3.2 Ghz</p>
+<p>4 GB RAM</p>
+<p>Subsistema
+de
+discos
+con RAID</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>En casos de muy escasa interacción, tales como etapas iniciales de
+implementación o implementaciones de muy poca carga de trabajo, se
+recomienda implementar Qflow como un servicio adicional en la
+infraestructura existente.</p>
+<p>Si la cantidad de procesos simultáneamente activos supera los 50.000, se
+recomienda separar los servicios del motor y de las aplicaciones,
+implementando servidores especializados en el procesamiento de procesos,
+atención de solicitud de las herramientas y servicios de mensajería.
+Esta configuración requiere un <em>sizing</em> específico realizado en fábrica.</p>
+</section>
+<section id="arquitectura-y-despliegue">
+<h2>Arquitectura y despliegue<a class="headerlink" href="#arquitectura-y-despliegue" title="Link to this heading"></a></h2>
+<p>La arquitectura de Qflow es del tipo SOA (Service Oriented
+Architecture). Tiene un conjunto de servicios que agrupan
+funcionalidades similares entre sí, conformando la capa llamada
+<em>Backend</em>. Los servicios del <em>Backend</em> son desacoplados entre sí, y le
+proveen funcionalidades a la capa llamada <em>Frontend</em>, que es la capa con
+la cual interactúa el usuario.</p>
+<p>La comunicación entre el <em>Frontend</em> y el <em>Backend</em> se realiza a través
+de mensajes, de modo que es posible distribuir los componentes de la
+arquitectura en varios servidores, lo cual hace posible mantener un
+nivel alto de escalabilidad y tolerancia a fallas.</p>
+<p>La capa del <em>Frontend</em> está compuesta por los siguientes componentes:</p>
+<ul class="simple">
+<li><p>Diseñador de Procesos de Negocio (herramienta de diseño)</p></li>
+<li><p>Administrador del Modelo Organizacional (herramienta de
+administración)</p></li>
+<li><p>Administrador de Procesos del Negocio (herramienta de administración)</p></li>
+<li><p>Administrador y Monitor del Sistema (herramienta de administración)</p></li>
+<li><p>Sitio Web de Qflow</p></li>
+</ul>
+<p>Cada aplicación del <em>Frontend</em> se comunica con una WebAPI en el
+<em>Backend</em>, que atiende sus peticiones. En el <em>Backend</em> se encuentra
+también el servicio de ejecución de procesos o “motor de proceso”. Este
+servicio es el responsable de que los procesos avancen.</p>
+<p>Otros servicios incluidos en el <em>Backend</em> son:</p>
+<ul class="simple">
+<li><p>los servicios de notificación, encargados de enviar mensajes a través
+de los diversos servidores de correo.</p></li>
+<li><p>el servicio de sincronización de directorios, que permite mantener
+sincronizados los datos del modelo organizacional con el proveedor de
+seguridad de la empresa (por ejemplo, Active Directory).</p></li>
+</ul>
+<figure class="align-center" id="id129">
+<img alt="_images/ArchitectureDiagramOfQflow.png" src="_images/ArchitectureDiagramOfQflow.png" />
+<figcaption>
+<p><span class="caption-text">Diagrama de arquitectura de Qflow</span><a class="headerlink" href="#id129" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="algunas-opciones-de-despliegue">
+<h3>Algunas opciones de despliegue<a class="headerlink" href="#algunas-opciones-de-despliegue" title="Link to this heading"></a></h3>
+<p>Esta sección describe algunas opciones de despliegue de Qflow, de
+acuerdo con su arquitectura básica, y puede servir de guía al momento de
+evaluar alternativas y tomar decisiones acerca del despliegue de Qflow
+en su organización.</p>
+<section id="despliegue-simple">
+<h4>Despliegue simple<a class="headerlink" href="#despliegue-simple" title="Link to this heading"></a></h4>
+<p>En este escenario, todos los servicios de Qflow se ejecutan en el mismo
+servidor, si bien consumen servicios de red como los provistos por la
+base de datos y los servicios de correo y directorio. Es recomendable
+que esos servicios sean albergados en otros servidores, pero nada impide
+que estén en el mismo servidor que los servicios de Qflow.</p>
+<p>El siguiente esquema es utilizado comúnmente como entorno de desarrollo.</p>
+<figure class="align-center" id="id130">
+<img alt="_images/SimpleDeploymentDiagram.png" src="_images/SimpleDeploymentDiagram.png" />
+<figcaption>
+<p><span class="caption-text">Diagrama de despliegue simple</span><a class="headerlink" href="#id130" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="despliegue-estandar">
+<h4>Despliegue estándar<a class="headerlink" href="#despliegue-estandar" title="Link to this heading"></a></h4>
+<p>En este escenario, los servicios de Qflow se dividen en dos conjuntos:
+<em>Backend</em> y <em>Frontend</em>.</p>
+<p>Los servicios de <em>Backend</em> no pueden ser clusterizados por el propio
+Qflow, pero sí es posible montar un cluster de Windows para lograr el
+mismo objetivo. Los servicios de <em>Frontend</em>, en cambio, sí pueden
+colocarse en varios servidores para armar una granja utilizando NLB
+(<em>Network Load Balancing</em>). Esto hace posibles la tolerancia a fallas en
+esta capa y el balanceo de carga.</p>
+<p>Este tipo de escenario es utilizado por medianas implementaciones de
+Qflow, las cuales generalmente no cuentan con tolerancia a fallas en
+todas las capas.</p>
+<figure class="align-center" id="id131">
+<img alt="_images/StandardDeploymentDiagram.png" src="_images/StandardDeploymentDiagram.png" />
+<figcaption>
+<p><span class="caption-text">Diagrama de despliegue estándar</span><a class="headerlink" href="#id131" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="despliegue-enterprise">
+<h4>Despliegue Enterprise<a class="headerlink" href="#despliegue-enterprise" title="Link to this heading"></a></h4>
+<p>En este escenario, existe tolerancia a fallas en todas las capas. Es
+utilizado por implementaciones grandes que requieren alta
+disponibilidad.</p>
+<p>En este caso, la arquitectura está compuesta por:</p>
+<ul class="simple">
+<li><p>una capa llamada <em>Frontend</em>, en la cual se puede contar con varios
+servidores Web que proporcionan tolerancia a fallas y balanceo de
+carga.</p></li>
+<li><p>una capa llamada <em>Backend</em>, la cual puede contar con varios
+servidores en modalidad de cluster Activo/Activo. Cabe destacar que
+los servicios del <em>Backend</em> que cuentan internamente con balanceo de
+carga y tolerancia a fallas son el motor de procesos y los servicios
+de envío de mensajes. Los demás servicios que conforman el <em>Backend</em>
+deben colocarse en una granja de NLB de Windows para lograr el mismo
+efecto.</p></li>
+</ul>
+<p>Escenarios de este tipo se dan en implementaciones grandes que requieran
+tolerancia a fallas en el ambiente de producción. Es común montar un
+escenario similar para el ambiente de Pre-Producción u homologación.</p>
+<p>Este tipo de despliegue requiere una licencia “Enterprise” de Qflow.</p>
+<figure class="align-center" id="id132">
+<img alt="_images/StandardDeploymentDiagram.png" src="_images/StandardDeploymentDiagram.png" />
+<figcaption>
+<p><span class="caption-text">Diagrama de despliegue Enterprise</span><a class="headerlink" href="#id132" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En todos los escenarios presentados, es posible ejecutar los servicios
+de Qflow en servidores virtualizados.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

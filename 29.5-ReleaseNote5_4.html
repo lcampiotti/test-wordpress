@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>v5.4 &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/29.5-ReleaseNote5_4.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="v5.3" href="29.4-ReleaseNote5_3.html" />
+    <link rel="prev" title="v5.5" href="29.6-ReleaseNote5_5.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="29.13-ReleaseNote6_0.html">v6.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.12-ReleaseNote5_6_2.html">v5.6.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.11-ReleaseNote5_6_1.html">v5.6.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.10-ReleaseNote5_6.html">v5.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.9-ReleaseNote5_5_4.html">v5.5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.8-ReleaseNote5_5_3.html">v5.5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.7-ReleaseNote5_5_1.html">v5.5.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.6-ReleaseNote5_5.html">v5.5</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">v5.4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#resumen-de-caracteristicas">Resumen de características</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#correccion-de-errores-y-mejoras">Corrección de errores y mejoras</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.4-ReleaseNote5_3.html">v5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.3-ReleaseNote5_2.html">v5.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html">v5.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html">v5.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_Cloud.html">v5.1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+      <li class="breadcrumb-item active">v5.4</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="v5-4">
+<h1>v5.4<a class="headerlink" href="#v5-4" title="Link to this heading"></a></h1>
+<section id="resumen-de-caracteristicas">
+<h2>Resumen de características<a class="headerlink" href="#resumen-de-caracteristicas" title="Link to this heading"></a></h2>
+<p>La versión 5.4 de Qflow trae consigo una serie de mejoras significativas para potenciar la asignación de tareas y flexibilizar
+el diseño de procesos. Con la incorporación de la posibilidad de que usuarios externos a tu organización respondan a tareas y
+la optimización de las reglas de asignación automática, esta versión consolida la plataforma como una herramienta versátil y
+adaptable a distintos contextos.</p>
+<section id="respuesta-de-tarea-por-usuarios-externos">
+<h3>Respuesta de tarea por usuarios externos<a class="headerlink" href="#respuesta-de-tarea-por-usuarios-externos" title="Link to this heading"></a></h3>
+<p>En esta versión, Qflow permite la respuesta de tareas por parte de usuarios externos, es decir, aquellos que no son usuarios
+del sistema. Estos destinatarios recibirán acceso a la tarea a través de correo electrónico. Esta funcionalidad resulta
+útil en diversos escenarios, como solicitar información adicional en procesos iniciados por usuarios externos o incorporar
+actores ajenos al sistema en flujos de trabajo.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/54News_ExternalResponseConfig.png"><img alt="Configuración de respuesta externa en tarea de usuario" src="_images/54News_ExternalResponseConfig.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 38 </span><span class="caption-text">Configuración de respuesta externa en tarea de usuario</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Las tareas pueden asignarse simultáneamente a usuarios del sistema y a usuarios externos. Tras la respuesta de la tarea
+por un usuario externo, la auditoría identificará claramente que la tarea fue respondida por un invitado, mostrando como
+identificación el correo electrónico del participante.
+El correo electrónico de los usuarios externos se puede obtener de datos del proceso, parámetros de aplicación o
+de un texto definido.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/54News_ExternalAddressees.png"><img alt="Parámetros, datos y direcciones de correo como destinatarios externos" src="_images/54News_ExternalAddressees.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 39 </span><span class="caption-text">Parámetros, datos y direcciones de correo como destinatarios externos</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/54News_ExternalResponseAudit.png"><img alt="Auditoría de tarea con destinatarios externos" src="_images/54News_ExternalResponseAudit.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 40 </span><span class="caption-text">Auditoría de tarea con destinatarios externos</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Para contemplar esta nueva funcionalidad se hizo un ajuste al cálculo de los Q-points, cuyo detalle puedes consultar en
+<a class="reference external" href="21-Q-pointsConsumption.html">nuestra documentación</a>. Para obtener más información sobre la respuesta de tarea por usuarios externos, accede a la sección
+de <a class="reference external" href="15-QflowDesign.html#tarea-de-usuario">configuración de tarea de usuario</a>.</p>
+</section>
+<section id="mensaje-de-confirmacion-en-tareas">
+<h3>Mensaje de confirmación en tareas<a class="headerlink" href="#mensaje-de-confirmacion-en-tareas" title="Link to this heading"></a></h3>
+<p>Ahora es posible configurar mensajes de confirmación personalizados para cada tarea. Estos mensajes, que pueden ser
+formados dinámicamente utilizando datos del proceso, se mostrarán al usuario una vez que complete exitosamente el
+formulario de la tarea. Esta función ofrece una oportunidad para personalizar aún más la experiencia del usuario durante
+la interacción con las tareas. Este mensaje se muestra para la respuesta de tareas por usuarios de sistema y usuarios
+externos.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/54News_ConfirmationMessage.png"><img alt="Mensaje de confirmación de respuesta" src="_images/54News_ConfirmationMessage.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 41 </span><span class="caption-text">Mensaje de confirmación de respuesta</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Junto con este cambio, los mensajes de confirmación de inicio de proceso, incluidos en la versión anterior, ahora se
+muestran también para los usuarios de sistema, y no solo para los usuarios iniciadores anónimos.</p>
+</section>
+<section id="nueva-regla-de-asignacion-automatica-distribucion-equitativa-round-robin">
+<h3>Nueva regla de asignación automática: Distribución equitativa (Round Robin)<a class="headerlink" href="#nueva-regla-de-asignacion-automatica-distribucion-equitativa-round-robin" title="Link to this heading"></a></h3>
+<p>La nueva regla de asignación automática, denominada “Distribución equitativa (Round Robin)”, introduce un método
+para asignar cada tarea asociada a un rol a usuarios distintos dentro de ese rol. Esto fomenta una distribución
+equitativa de las responsabilidades, llevada a cabo de manera secuencial y cíclica.</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/54News_SupportTeamRole.png"><img alt="Rol de equipo de soporte con distribución secuencial" src="_images/54News_SupportTeamRole.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 42 </span><span class="caption-text">Rol de equipo de soporte con distribución secuencial</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Para ilustrar su funcionamiento, consideremos el siguiente escenario: supongamos un rol llamado “Equipo de
+soporte”, compuesto por tres miembros: Fernando Acuña, Matías Correa y María Rosado. Este rol está designado
+como destinatario de la tarea “Resolver Incidente” dentro del proceso de “Gestión de Incidentes”. Cuando se crea
+una tarea de “Resolver Incidente”, se asigna a uno de los miembros, por ejemplo, a Fernando Acuña. Al crearse
+otra tarea de ‘Resolver incidente’, y dado que Fernando Acuña ya ha sido asignado previamente, esta se asignará
+a otro usuario del rol, como, por ejemplo, Matías Correa. Este ciclo continúa asignando las tareas
+secuencialmente a cada miembro del equipo, garantizando una distribución equitativa de las responsabilidades. Una
+vez que todos los miembros del rol han sido asignados, comienza un nuevo ciclo, asignando nuevamente a cada
+miembro en el mismo orden.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/54News_RoundRobin.png"><img alt="Diagrama de Round Robin del equipo de soporte" src="_images/54News_RoundRobin.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 43 </span><span class="caption-text">Diagrama de Round Robin del equipo de soporte</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="nueva-plantilla-votacion-de-junta-directiva">
+<h3>Nueva plantilla: Votación de junta directiva<a class="headerlink" href="#nueva-plantilla-votacion-de-junta-directiva" title="Link to this heading"></a></h3>
+<p>Esta nueva plantilla, lista para utilizar y completamente personalizable, ofrece un enfoque ágil y eficiente para
+la toma de decisiones en entornos colaborativos de juntas directivas. Diseñada para evaluar y votar propuestas de
+forma remota, permite la aprobación automática en caso de consenso unánime. En situaciones donde sea necesario,
+brinda la opción de solicitar modificaciones a la propuesta o de continuar la discusión en una reunión presencial.
+Además, garantiza informar al solicitante sobre el resultado final de la propuesta. Puedes acceder a nuestra
+sección de plantillas precreadas en <a class="reference external" href="15-QflowDesign.html#plantillas-pre-creadas">nuestra documentación</a>.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/54News_BoardOfDirectorsVoting.png"><img alt="Fragmento de plantilla de votación de directivos" src="_images/54News_BoardOfDirectorsVoting.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 44 </span><span class="caption-text">Fragmento de plantilla de votación de directivos</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="parametros-de-aplicacion-de-tipo-texto-en-condiciones-de-compuertas">
+<h3>Parámetros de aplicación de tipo texto en condiciones de compuertas<a class="headerlink" href="#parametros-de-aplicacion-de-tipo-texto-en-condiciones-de-compuertas" title="Link to this heading"></a></h3>
+<p>Se potencian las condiciones de las compuertas al permitir la utilización de parámetros de aplicación
+de tipo texto en sus condiciones. Esto posibilita dirigir el flujo del proceso basándose en el valor
+de un parámetro específico. Por ejemplo, se puede comparar el valor del parámetro “Ambiente” para omitir
+la ejecución de ciertas integraciones si su valor es “Testing”.</p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="_images/54News_ParameterGatewayCondition.png"><img alt="Parámetro de aplicación usado como elemento de condición" src="_images/54News_ParameterGatewayCondition.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 45 </span><span class="caption-text">Parámetro de aplicación usado como elemento de condición</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="correccion-de-errores-y-mejoras">
+<h2>Corrección de errores y mejoras<a class="headerlink" href="#correccion-de-errores-y-mejoras" title="Link to this heading"></a></h2>
+<section id="qflow-task">
+<h3>Qflow Task<a class="headerlink" href="#qflow-task" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Se añade una opción para ocultar el mensaje que indica que se responderán las tareas en segundo plano al responder una tarea utilizando la función
+de <a class="reference external" href="04-QflowTask.html#respuesta-rapida">«Respuesta rápida»</a>.</p></li>
+<li><p>Se corrige el formato en que se muestra la fecha de lectura de una alerta o notificación en la pestaña de seguimiento de procesos en la auditoría de acciones. Ahora, se puede visualizar con la zona horaria del usuario en lugar de UTC.</p></li>
+<li><p>Se implementan mejoras de estilo para manejar etiquetas extensas en los datos de aplicaciones y roles.</p></li>
+<li><p>Se corrige el estilo de visualización del mensaje de error cuando no es posible retroceder un paso, mejorando su apariencia.</p></li>
+<li><p>Se resuelve un error que impedía la ejecución de vistas que tenían un filtro personalizado basado en el estado de una etapa del proceso.</p></li>
+<li><p>Se soluciona el error que, al delegar una tarea, no permitía delegar los roles de todos los destinatarios al nuevo usuario al que se le está delegando la tarea.</p></li>
+</ul>
+</section>
+<section id="qflow-design">
+<h3>Qflow Design<a class="headerlink" href="#qflow-design" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Ahora es posible incluir información del proceso (ID del proceso, ID correlativo, nombre, descripción, fecha de inicio, entre otros), en el mensaje de confirmación de inicio de proceso.</p></li>
+<li><p>Se soluciona un error que impedía eliminar una plantilla de proceso en ciertas condiciones.</p></li>
+<li><p>Se corrige un error que no permitía visualizar correctamente las condiciones de una compuerta en ciertas resoluciones, cuando había una gran cantidad de opciones definidas.</p></li>
+<li><p>Se corrige un error al crear una clave de respuesta de tarea en base al nombre si este contiene únicamente caracteres especiales.</p></li>
+<li><p>Se corrige que la búsqueda avanzada siempre devolvía, además de los resultados correspondientes, el paquete que estaba seleccionado actualmente.</p></li>
+</ul>
+</section>
+<section id="web-services-technical-icon">
+<h3>Web Services <a class="reference internal" href="_images/TechnicalIcon1.png"><img alt="technical-icon" src="_images/TechnicalIcon1.png" style="width: 0.65in; height: 28px;" /></a><a class="headerlink" href="#web-services-technical-icon" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Se corrigen los métodos CompleteJob y UpdateJob para permitir la adición de comentarios al proceso mediante bots.</p></li>
+</ul>
+</section>
+<section id="cambio-en-interfaz-de-scripting-technical-icon">
+<h3>Cambio en interfaz de scripting <a class="reference internal" href="_images/TechnicalIcon1.png"><img alt="technical-icon" src="_images/TechnicalIcon1.png" style="width: 0.65in; height: 28px;" /></a><a class="headerlink" href="#cambio-en-interfaz-de-scripting-technical-icon" title="Link to this heading"></a></h3>
+<p>Se agregaron dos nuevas operaciones a la interfaz de scripting:</p>
+<ul class="simple">
+<li><p>ResolveAddresseesWithInfo(templateStepId): Dado el identificador de una tarea de la plantilla de proceso, devuelve un arreglo con la información básica de los usuarios a quienes está dirigido ese paso, incluyendo tanto usuarios externos como usuarios que pertenecen a un rol.</p></li>
+<li><p>ResolveAddresseesWithInfo(templateStepName): Dado el nombre de una tarea de la plantilla de proceso, devuelve un arreglo con la información básica de los usuarios a quienes está dirigido ese paso, incluyendo tanto usuarios externos como usuarios que pertenecen a un rol.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="29.6-ReleaseNote5_5.html" class="btn btn-neutral float-left" title="v5.5" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="29.4-ReleaseNote5_3.html" class="btn btn-neutral float-right" title="v5.3" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

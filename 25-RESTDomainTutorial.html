@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consumir Servicios REST desde dominios de Qflow &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/25-RESTDomainTutorial.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Uso de API de servicios web con Swagger" href="33-WebServicesSwaggerTutorial.html" />
+    <link rel="prev" title="Referencia de la biblioteca JavaScript" href="32-JavaScriptLibraryReference.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="31-Development.html">Desarrolladores</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="10-ScriptingInterface.html">Interfaz de scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-WebServicesAPI.html">Web services API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="32-JavaScriptLibraryReference.html">Referencia de la biblioteca JavaScript</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="31-Development.html#tutoriales">Tutoriales</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Consumir Servicios REST desde dominios de Qflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="33-WebServicesSwaggerTutorial.html">Uso de API de servicios web con Swagger</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="31-Development.html">Desarrolladores</a></li>
+      <li class="breadcrumb-item active">Consumir Servicios REST desde dominios de Qflow</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="consumir-servicios-rest-desde-dominios-de-qflow">
+<h1>Consumir Servicios REST desde dominios de Qflow<a class="headerlink" href="#consumir-servicios-rest-desde-dominios-de-qflow" title="Link to this heading"></a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading"></a></h2>
+<p>El objetivo de este documento es brindar una introducción a cómo consumir servicios REST desde los dominios de Qflow.</p>
+</section>
+<section id="proceso-de-aplicacion">
+<h2>Proceso de aplicación<a class="headerlink" href="#proceso-de-aplicacion" title="Link to this heading"></a></h2>
+<p>Dentro de los ítems del paquete, seleccionar la opción “Dominio de datos” y agregar un nuevo dominio.</p>
+<p><strong>En la sección general:</strong></p>
+<p>El tipo de control debe ser “Combo Box”, “Lista de Checkbox”, “Selector de ítems”, “Radio button” o “Cuadro de texto
+con sugerencias” para requerir una fuente de datos.</p>
+<a class="reference internal image-reference" href="_images/Picture1.png"><img alt="_images/Picture1.png" class="align-center" src="_images/Picture1.png" style="width: 300px;" /></a>
+<p>Se debe seleccionar la opción Web service REST de la fuente de datos y con un clic en el botón de configuración la
+ventana de propiedades de los servicios web REST se abrirá.</p>
+<p>La opción de “Selector de ítems” y “combo box” se comportan del mismo modo, mientras que la “Lista de Checkbox”, “Radio
+button” y “Cuadro de texto con sugerencias” de otro. La diferencia se da en las propiedades; los primeros dos tienen más
+datos en el parámetro, tienen un nombre, tipo de parámetro, valor y valor de prueba; además, tiene parámetros de salida.
+Los otros tres solo presentan la opción de nombre de parámetro y valor, sin parámetros de salida.</p>
+<a class="reference internal image-reference" href="_images/Picture2.png"><img alt="_images/Picture2.png" class="align-center" src="_images/Picture2.png" style="width: 300px;" /></a>
+<section id="ejemplo-de-un-tipo-de-control-combo-box">
+<h3>Ejemplo de un tipo de control Combo Box<a class="headerlink" href="#ejemplo-de-un-tipo-de-control-combo-box" title="Link to this heading"></a></h3>
+<p><strong>Dentro de la ventana de propiedades de la fuente de datos del servicio web REST:</strong></p>
+<p><strong>1)    Selección de la conexión del servicio web REST</strong></p>
+<ul class="simple">
+<li><p><strong>Usando parámetros de aplicación</strong></p>
+<ul>
+<li><p>Es útil cuando se utiliza la misma URL en diferentes dominios, entonces la configuración de origen ya está definida.</p></li>
+<li><p>El parámetro se debe definir en la ventana de parámetros de la aplicación, que se debe definir en el mismo nivel que el paquete o en niveles superiores.</p></li>
+<li><p>Se crea un nuevo parámetro con el botón “+”. En las propiedades, el tipo de parámetro debe ser una conexión de servicio web y en la configuración se define la URL de la API. Se deben aceptar las credenciales de la red y con la flecha se puede probar la URL.</p></li>
+</ul>
+</li>
+<li><p><strong>Definiendo en la configuración de la fuente de datos</strong></p>
+<ul>
+<li><p>Con un clic en el botón de configuración, se abrirá la ventana de configuración de conexión del servicio web.</p></li>
+<li><p>Dentro de esta ventana, se define la URL de la API. Se deben aceptar las credenciales de la red y con la flecha se puede probar la URL.</p></li>
+</ul>
+</li>
+</ul>
+<a class="reference internal image-reference" href="_images/Picture3.png"><img alt="_images/Picture3.png" class="align-center" src="_images/Picture3.png" style="width: 522px;" /></a>
+<p><strong>2) Método web</strong></p>
+<p>Acción: ingresar el nombre del método web que expone la API.</p>
+<p>Métodos HTTP: seleccionar el método que se utiliza en la URL, GET, POST o PUT.</p>
+<a class="reference internal image-reference" href="_images/Picture4.png"><img alt="_images/Picture4.png" class="align-center" src="_images/Picture4.png" style="width: 525px;" /></a>
+<p><strong>3) Parámetros:</strong></p>
+<p>Los parámetros permiten definir valores de entrada que podremos usar en las peticiones
+al servicio web.</p>
+<p>Se pueden agregar diferentes parámetros con sus respectivos nombres, tipos y valor.</p>
+<p>El tipo de parámetro puede ser:</p>
+<ul class="simple">
+<li><p>“Ninguno”: no tiene ningún tipo.</p></li>
+<li><p>“Personalizado”: cuando el valor para cada URL es diferente, por lo que se define una variable para que el usuario le pueda cargar ese valor mediante un formulario.</p></li>
+<li><p>“Sistema”: este parámetro esta hecho especialmente para ciertos métodos de Qflow para hacer consultas más eficientes. La eficiencia se da ya que se pasa el inicio de lo que se está buscando y la API devuelve los datos que coinciden. Solo funciona con el tipo de control de “selector de ítems”.</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/Picture5.png"><img alt="_images/Picture5.png" class="align-center" src="_images/Picture5.png" style="width: 522px;" /></a>
+<p><strong>4) Encabezados HTTP</strong></p>
+<p>Si es necesario se pueden agregar valores en el encabezado HTTP con el botón “+”.</p>
+<a class="reference internal image-reference" href="_images/Picture6.png"><img alt="_images/Picture6.png" class="align-center" src="_images/Picture6.png" style="width: 513px;" /></a>
+<p><strong>5) Objetos de entrada:</strong></p>
+<p>Diferentes propiedades o propiedades con valor se pueden agregar con el botón “+v” y con el botón “+&gt;” se pueden agregar subpropiedades o subpropiedades con valor.</p>
+<p>Para asociar un parámetro con su respectivo valor, se debe agregar una propiedad con valor. Este parámetro debe tener el mismo nombre que el parámetro de la URL y el valor se configura con el que le corresponde de los creados anteriormente.</p>
+<a class="reference internal image-reference" href="_images/Picture7.png"><img alt="_images/Picture7.png" class="align-center" src="_images/Picture7.png" style="width: 512px;" /></a>
+<p><strong>6) Mapeo de columnas</strong></p>
+<p>Hay diferentes maneras de búsqueda de datos, algunos se buscan por su id y otros por su valor.</p>
+<p>Generalmente, la identificación de los datos se encuentra por su valor:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Los datos de las primeras dos filas son los que el usuario va a poder ver. El dato de la segunda es lo que el usuario va a ver al seleccionar un dato y el de la primera fila se podrá visualizar en los detalles del proceso.</p></li>
+<li><p>El orden de las filas puede ser modificado con las flechas y también se puede borrar el mapeo.</p></li>
+<li><p>Los nombres de las columnas se pueden modificar.</p></li>
+</ul>
+</div></blockquote>
+<a class="reference internal image-reference" href="_images/Picture13.png"><img alt="_images/Picture13.png" class="align-center" src="_images/Picture13.png" style="width: 520px;" /></a>
+<p>Datos encontrados por su id:</p>
+<p>Un ejemplo puede ser cuando hay más de dos columnas, al elegir un valor, se pueden ver los otros valores.</p>
+<p><strong>7)    Parámetros de salida</strong></p>
+<p>Se debe probar la consulta para configurar los parámetros de salida.</p>
+<p>Estos parámetros son los mismos que los que aparecen en el mapeo de columnas que no fueron eliminados.</p>
+<p><strong>Usando estos datos:</strong></p>
+<p>En los datos de aplicación se debe agregar un nuevo dato con el nombre del parámetro de salida que se desea utilizar.</p>
+<p>Después, en un dato que tenga como dominio el que fue creado anteriormente, en la sección de dependencias, el parámetro de salida que se definió va a aparecer. Para elegirlos, los datos de aplicación deben configurarse con los datos que se han creado previamente.</p>
+<p>Finalmente, para que el usuario pueda visualizar estos campos, los datos tienen que ser definidos como editables en la visibilidad del proceso.</p>
+</section>
+</section>
+<section id="ejemplo">
+<h2>Ejemplo<a class="headerlink" href="#ejemplo" title="Link to this heading"></a></h2>
+<p>A continuación, se va a definir un ejemplo aplicando toda la información definida anteriormente. Dado un id de un curso se devuelven en un combo box los estudiantes inscriptos a dicho curso. Luego, al seleccionar uno, su edad aparece en un campo de texto.</p>
+<p>La URL para realizar la solicitud:</p>
+<p><a class="reference external" href="https://run.mocky.io/v3/ac11b3f7-ccfd-4a55-b40a-082f2f17dfb4">https://run.mocky.io/v3/ac11b3f7-ccfd-4a55-b40a-082f2f17dfb4</a></p>
+<p>Primero se debe crear dominio de datos con tipo de control combo box.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Dentro de ventana de configuración de conexión de servicio web configurar la URL, <a class="reference external" href="https://run.mocky.io/v3/ac11b3f7-ccfd-4a55-b40a-082f2f17dfb4">https://run.mocky.io/v3/ac11b3f7-ccfd-4a55-b40a-082f2f17dfb4</a></p></li>
+<li><p>La acción del método web será “cursos” y el método HTTP “GET”</p></li>
+<li><p>La URL necesita el id del curso para devolver la información, por lo tanto, se debe crear un parámetro y un objeto de entrada con ese dato.</p></li>
+</ol>
+</div></blockquote>
+<a class="reference internal image-reference" href="_images/Picture9.png"><img alt="_images/Picture9.png" class="align-center" src="_images/Picture9.png" style="width: 520px;" /></a>
+<a class="reference internal image-reference" href="_images/Picture11.png"><img alt="_images/Picture11.png" class="align-center" src="_images/Picture11.png" style="width: 525px;" /></a>
+<ul class="simple">
+<li><ol class="arabic simple" start="4">
+<li><p>La consulta debe probarse para definir los parámetros de salida</p></li>
+</ol>
+</li>
+</ul>
+<a class="reference internal image-reference" href="_images/Picture12.png"><img alt="_images/Picture12.png" class="align-center" src="_images/Picture12.png" style="width: 544px;" /></a>
+<a class="reference internal image-reference" href="_images/Picture14.png"><img alt="_images/Picture14.png" class="align-center" src="_images/Picture14.png" style="width: 522px;" /></a>
+<p>Después, en los datos de aplicación, se deben crear diferentes datos con sus respectivos dominios.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Crear un dato para que el usuario pueda ingresar el id del curso como un parámetro de entrada</p></li>
+<li><p>Crear un dato donde la edad del estudiante seleccionado aparezca como un parámetro de salida</p></li>
+<li><p>Crear un dato con el dominio “curso” creado anteriormente, el cual va a devolver los nombres de los estudiantes en un combo box. Definir los parámetros de salida y entrada con los datos creados anteriormente.</p></li>
+</ol>
+</div></blockquote>
+<a class="reference internal image-reference" href="_images/Picture10.png"><img alt="_images/Picture10.png" class="align-center" src="_images/Picture10.png" style="width: 589px;" /></a>
+<p>Finalmente, en la plantilla de procesos, definir la visibilidad de los datos como editable.</p>
+<p>Una vez que se inicia un proceso de “Cursos”, el formulario se verá de la siguiente manera:</p>
+<a class="reference internal image-reference" href="_images/Picture15.png"><img alt="_images/Picture15.png" class="align-center" src="_images/Picture15.png" style="width: 618px;" /></a>
+<p>Una vez que se ingresa el número del curso, se despliega la lista de estudiantes y cuando se selecciona uno
+sale su edad.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="32-JavaScriptLibraryReference.html" class="btn btn-neutral float-left" title="Referencia de la biblioteca JavaScript" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="33-WebServicesSwaggerTutorial.html" class="btn btn-neutral float-right" title="Uso de API de servicios web con Swagger" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

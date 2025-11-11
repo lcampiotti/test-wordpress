@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qflow Admin &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/19-QflowAdmin.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Consumo de Q-points" href="21-Q-pointsConsumption.html" />
+    <link rel="prev" title="Qflow Team" href="18-QflowTeam.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Qflow Admin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#descripcion-general-de-la-interfaz-de-usuario">Descripción general de la interfaz de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#visor-de-licencias">Visor de licencias</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#menu-superior">Menú superior</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#menu-lateral">Menú lateral</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#estadisticas">Estadísticas</a><ul>
+<li><a class="reference internal" href="#uso-de-licencia">Uso de licencia</a></li>
+<li><a class="reference internal" href="#historial-de-uso-de-licencia">Historial de uso de licencia</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#parametros-de-sistema">Parámetros de sistema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#propiedades-extendidas">Propiedades extendidas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#propiedades-extendidas-de-usuario">Propiedades extendidas de usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#propiedades-extendidas-de-grupo">Propiedades extendidas de grupo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#propiedades-extendidas-de-nodo">Propiedades extendidas de nodo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#licencias">Licencias</a><ul>
+<li><a class="reference internal" href="#modelo-de-licencias">Modelo de licencias</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#servicios-de-notificacion">Servicios de notificación</a><ul>
+<li><a class="reference internal" href="#configurar-servicios-de-notificacion">Configurar servicios de notificación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuracion-de-servicios-de-notificacion">Configuración de servicios de notificación</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#administrar-permisos">Administrar permisos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#auditoria">Auditoría</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#historial-de-parametros-de-sistema">Historial de parámetros de sistema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#historial-de-licencias">Historial de licencias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#historial-de-propiedades-extendidas">Historial de propiedades extendidas</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#listado-de-parametros-de-sistema">Listado de parámetros de sistema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Qflow Admin</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="qflow-admin">
+<h1>Qflow Admin<a class="headerlink" href="#qflow-admin" title="Link to this heading"></a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading"></a></h2>
+<p>Este manual describe la herramienta web que permite administrar y
+monitorear distintos aspectos del sistema, tales como servicios y
+sitios, propiedades extendidas, licencias, servicios de notificación,
+espacios de trabajo y parámetros de sistema.</p>
+</section>
+<section id="descripcion-general-de-la-interfaz-de-usuario">
+<h2>Descripción general de la interfaz de usuario<a class="headerlink" href="#descripcion-general-de-la-interfaz-de-usuario" title="Link to this heading"></a></h2>
+<p>La <a class="reference internal" href="#samhome"><span class="std std-numref">Figura 740</span></a> muestra la pantalla principal del administrador de sistema.
+Los principales elementos de la interfaz son:</p>
+<ul class="simple">
+<li><p><strong>Pantalla principal:</strong> aquí se encuentran los accesos directos y una
+vista rápida de las licencias.</p></li>
+<li><p><strong>Menú superior:</strong> desde aquí es posible acceder a la pantalla de
+configuración, auditar los elementos de la herramienta, cambiar la zona horaria
+de preferencia y cerrar la sesión.</p></li>
+<li><p><strong>Menú lateral:</strong> permite ir a la página de inicio y contiene las
+opciones de elementos con los que se puede interactuar en el sitio, a
+saber: uso de licencia, servicios, parámetros de sistema, propiedades extendidas de
+usuario, grupo y nodo, licencias, servicios de notificación y
+espacios de trabajo. Cada una de estas opciones se describe en detalle en su
+sección correspondiente.</p></li>
+</ul>
+<figure class="align-center" id="id5">
+<span id="samhome"></span><a class="reference internal image-reference" href="_images/image2cloud.png"><img alt="Pantalla principal de Qflow Admin" src="_images/image2cloud.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 740 </span><span class="caption-text">Pantalla principal de Qflow Admin</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="visor-de-licencias">
+<h2>Visor de licencias<a class="headerlink" href="#visor-de-licencias" title="Link to this heading"></a></h2>
+<p>El visor de licencias puede visualizarse siempre en la pantalla
+principal y muestra el uso de la licencia actual. Este visor se divide en 3
+indicadores</p>
+<ul class="simple">
+<li><p><strong>Almacenamiento utilizado:</strong> indica cantidad en Gigabytes de almacenamiento utilizado de la licencia actual. Para más información sobre el almacenamiento de licencias ir a la sección <a class="reference internal" href="#licencias"><span class="std std-ref">Licencias</span></a>.</p></li>
+<li><p><strong>Q-points utilizados:</strong> indica la cantidad de Q-points consumidos por los procesos de la licencia actual. Para más información sobre Q-points ir a la sección <a class="reference internal" href="#licencias"><span class="std std-ref">Licencias</span></a>.</p></li>
+<li><p><strong>Usuarios habilitados:</strong> indica la cantidad de usuarios que se encuentran habilitados actualmente en la organización.</p></li>
+</ul>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/image320.png"><img alt="Visor de licencias" src="_images/image320.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 741 </span><span class="caption-text">Visor de licencias</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="menu-superior">
+<h3>Menú superior<a class="headerlink" href="#menu-superior" title="Link to this heading"></a></h3>
+<p>La <a class="reference internal" href="#headersam"><span class="std std-numref">Figura 742</span></a> muestra el menú superior. A continuación, se explica cada
+una de las funciones disponibles a través de él.</p>
+<figure class="align-center" id="id7">
+<span id="headersam"></span><a class="reference internal image-reference" href="_images/image520.png"><img alt="Menú superior" src="_images/image520.png" style="width: 45%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 742 </span><span class="caption-text">Menú superior</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Al abrir la opción de auditorías, el sistema despliega un menú de
+opciones como muestra la <a class="reference internal" href="#auditoptions"><span class="std std-numref">Figura 743</span></a>. Más detalles en la sección de
+<a class="reference internal" href="#auditoria"><span class="std std-ref">Auditoría</span></a>.</p>
+<figure class="align-center" id="id8">
+<span id="auditoptions"></span><a class="reference internal image-reference" href="_images/image818.png"><img alt="Opciones de auditoría" src="_images/image818.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 743 </span><span class="caption-text">Opciones de auditoría</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Al abrir la opción de configuración, el sistema despliega un menú de
+opciones como muestra la <a class="reference internal" href="#configurationoptions"><span class="std std-numref">Figura 744</span></a>. Más detalles en <a class="reference internal" href="#administrar-permisos"><span class="std std-ref">Administrar permisos</span></a>.</p>
+<figure class="align-center" id="id9">
+<span id="configurationoptions"></span><a class="reference internal image-reference" href="_images/image718.png"><img alt="Opciones de configuración" src="_images/image718.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 744 </span><span class="caption-text">Opciones de configuración</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Al presionar el botón de información se muestra la versión actual del
+producto, así como un link hacia las novedades de la versión y un manual del producto.
+Se pueden ver estas opciones en la <a class="reference internal" href="#info"><span class="std std-numref">Figura 745</span></a>.</p>
+<figure class="align-center" id="id10">
+<span id="info"></span><a class="reference internal image-reference" href="_images/image620.png"><img alt="Información" src="_images/image620.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 745 </span><span class="caption-text">Información</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Al presionar el botón de herramientas, el sistema despliega
+los enlaces a todas las herramientas a las que el usuario tiene permisos.
+Al hacer clic en una de ellas se abrirá en una nueva pestaña.</p>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="_images/image719.png"><img alt="Herramientas" src="_images/image719.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 746 </span><span class="caption-text">Herramientas</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>El botón de chat de ayuda permite mostrar u ocultar el chat de asistencia
+con inteligencia artificial.</p>
+<p><img alt="Chat de ayuda" class="align-center" src="_images/toggleChatButton2.png" /></p>
+<p>Al abrir la opción “Usuario actual”, el sistema despliega la
+zona horaria de preferencia del usuario y el botón de cerrado
+de sesión. Esta zona horaria es la utilizada en todas las fechas
+y horas de Qflow para el usuario actual. La preferencia se
+comparte con todas las herramientas del producto, por lo que su
+modificación en una de ellas afecta a las otras.</p>
+<p><a class="align-center reference internal" href="_images/image586.png"><img alt="Opciones de usuario actual" class="align-center" src="_images/image586.png" style="width: 30%;" /></a></p>
+<p>Para la edición de la zona horaria se debe seleccionar la opción
+“Usuario actual” del menú. Esto abrirá un panel
+derecho con la lista de zonas horarias disponibles.
+Luego de seleccionada la zona horaria, al guardar el panel, la página se refrescará
+automáticamente para que el cambio tenga efecto. Se debe tener en cuenta
+que si se tiene más ventanas abiertas de alguna de las herramientas de
+Qflow, deben ser refrescadas manualmente para que el cambio tenga efecto.</p>
+<p><a class="align-center reference internal" href="_images/image676.png"><img alt="Panel de zona horaria de preferencia" class="align-center" src="_images/image676.png" style="width: 40%;" /></a></p>
+</section>
+<section id="menu-lateral">
+<h3>Menú lateral<a class="headerlink" href="#menu-lateral" title="Link to this heading"></a></h3>
+<p>La <a class="reference internal" href="#sidebar"><span class="std std-numref">Figura 747</span></a> muestra el menú lateral, y cuáles son las opciones que
+contiene. Con la excepción de la página de inicio, cada opción
+corresponde a una funcionalidad de la herramienta, y éstas se
+explican en las siguientes secciones.</p>
+<figure class="align-center" id="id12">
+<span id="sidebar"></span><a class="reference internal image-reference" href="_images/image9cloud.png"><img alt="Menú lateral" src="_images/image9cloud.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 747 </span><span class="caption-text">Menú lateral</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="estadisticas">
+<h2>Estadísticas<a class="headerlink" href="#estadisticas" title="Link to this heading"></a></h2>
+<p>Qflow cuenta con una funcionalidad que indica el uso de la licencia del espacio de trabajo actual.
+Consta de dos reportes, uno para el uso de la licencia en el mes actual (ver <a class="reference internal" href="#uso-de-licencia"><span class="std std-ref">Uso de licencia</span></a>) y otro para el histórico
+de consumo de licencias anteriores (ver <a class="reference internal" href="#historial-de-uso-de-licencia"><span class="std std-ref">Historial de uso de licencia</span></a>). Cada reporte contiene distintas
+gráficas para el análisis de los distintos elementos de la licencia. Para poder acceder a las estadísticas,
+seleccione la opción correspondiente en el menú lateral (ver <a class="reference internal" href="#sidebar"><span class="std std-numref">Figura 747</span></a>).</p>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="_images/image60cloud.png"><img alt="Estadísticas" src="_images/image60cloud.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 748 </span><span class="caption-text">Estadísticas</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="uso-de-licencia">
+<h3>Uso de licencia<a class="headerlink" href="#uso-de-licencia" title="Link to this heading"></a></h3>
+<p>En este reporte se encuentran dos gráficas, las dos relacionadas con el consumo
+de Q-points en el mes actual. En la primera gráfica se muestra el uso de Q-points
+a lo largo del mes actual. Por otro lado, la segunda gráfica indica lo mismo
+que la anterior pero agrupando los Q-points por plantilla de proceso. En esta última
+gráfica si el sistema no logra obtener el nombre de la plantilla (debido a que fue eliminada),
+se mostrará el identificador de ésta.</p>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="_images/image6111.png"><img alt="Estadística de uso total de Q-points" src="_images/image6111.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 749 </span><span class="caption-text">Estadística de uso total de Q-points</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="_images/image625.png"><img alt="Estadística de uso de Q-points por plantilla" src="_images/image625.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 750 </span><span class="caption-text">Estadística de uso de Q-points por plantilla</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En la esquina superior izquierda se encuentran dos botones para cambiar la agrupación
+de los datos de las gráficas (ver <a class="reference internal" href="#agregationbuttons"><span class="std std-numref">Figura 751</span></a>). Con estos botones se puede indicar si se desea ver los datos
+sólo para el día actual o para todo el mes.</p>
+<figure class="align-center" id="id16">
+<span id="agregationbuttons"></span><a class="reference internal image-reference" href="_images/image636.png"><img alt="Botones de agrupación de datos de gráficas" src="_images/image636.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 751 </span><span class="caption-text">Botones de agrupación de datos de gráficas</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En la esquina superior derecha de la ventana se encuentra un botón para poder acceder al reporte
+de historial de uso de licencia, el cual se detalla en la siguiente sección.</p>
+</section>
+<section id="historial-de-uso-de-licencia">
+<h3>Historial de uso de licencia<a class="headerlink" href="#historial-de-uso-de-licencia" title="Link to this heading"></a></h3>
+<p>Al seleccionar dicha opción, se desplegarán cinco gráficas. Las dos primeras
+indican la cantidad de tareas respondidas y procesos iniciados en un periodo de tiempo.
+Las gráficas restantes muestran el historial de consumo de Q-points, usuarios habilitados
+y uso de almacenamiento en el último año agrupadas por mes.</p>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="_images/image566.png"><img alt="Estadísticas de tareas respondidas y procesos iniciados" src="_images/image566.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 752 </span><span class="caption-text">Estadísticas de tareas respondidas y procesos iniciados</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id18">
+<a class="reference internal image-reference" href="_images/image645.png"><img alt="Estadísticas de Q-points utilizados y usuarios habilitados" src="_images/image645.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 753 </span><span class="caption-text">Estadísticas de Q-points utilizados y usuarios habilitados</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id19">
+<a class="reference internal image-reference" href="_images/image655.png"><img alt="Estadística de almacenamiento utilizado" src="_images/image655.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 754 </span><span class="caption-text">Estadística de almacenamiento utilizado</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Las dos primeras gráficas cuentan con filtros, entre ellos está la opción de agrupar por mes o por día
+(por defecto se agrupan por día), y también se puede establecer un período personalizado
+(por defecto el mes actual).</p>
+<figure class="align-center" id="id20">
+<a class="reference internal image-reference" href="_images/image575.png"><img alt="Filtros" src="_images/image575.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 755 </span><span class="caption-text">Filtros</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="parametros-de-sistema">
+<h2>Parámetros de sistema<a class="headerlink" href="#parametros-de-sistema" title="Link to this heading"></a></h2>
+<p>Los parámetros del sistema son parámetros predefinidos que controlan
+varios aspectos del funcionamiento del producto. Pueden ser de tipo
+numérico, verdadero/falso (booleano), texto o imagen. Tienen un valor, y
+también un valor por defecto, que es el que se usa cuando no tienen un
+valor definido. Para ver el listado completo, ir a la sección
+<a class="reference internal" href="#listado-de-parametros-de-sistema"><span class="std std-ref">Listado de parámetros de sistema</span></a>.</p>
+<p>Para acceder al listado de parámetros de sistema, seleccione la opción
+correspondiente en el menú lateral (ver <a class="reference internal" href="#sidebar"><span class="std std-numref">Figura 747</span></a>). Al seleccionar dicha
+opción, se desplegará un listado con todos los parámetros de sistema.</p>
+<figure class="align-center" id="id21">
+<a class="reference internal image-reference" href="_images/image1416.png"><img alt="Listado de parámetros de sistema" src="_images/image1416.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 756 </span><span class="caption-text">Listado de parámetros de sistema</span><a class="headerlink" href="#id21" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Mediante los botones que se encuentran arriba de la tabla, se puede
+editar o ver el historial de un parámetro de sistema.</p>
+<figure class="align-center" id="id22">
+<a class="reference internal image-reference" href="_images/image1516.png"><img alt="Botones de parámetros de sistema" src="_images/image1516.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 757 </span><span class="caption-text">Botones de parámetros de sistema</span><a class="headerlink" href="#id22" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Algunas aclaraciones sobre el listado:</p>
+<ul class="simple">
+<li><p>La columna “Fuente” hace referencia a si el parámetro fue tomado de
+una base de datos (<a class="reference internal" href="_images/image1616.png"><img alt="image4" src="_images/image1616.png" style="width: 0.22917in;" /></a>) o de un archivo (<a class="reference internal" href="_images/image1716.png"><img alt="image5" src="_images/image1716.png" style="width: 0.17708in;" /></a>).</p></li>
+<li><p>Si la fila con la información del parámetro está en color gris, eso
+significa que el parámetro es de sólo lectura y no puede ser
+editado.</p></li>
+<li><p>Si el valor aparece en negrita y color gris, es el valor por defecto.</p></li>
+<li><p>Al hacer clic sobre el ícono de información (<a class="reference internal" href="_images/image1815.png"><img alt="image6" src="_images/image1815.png" style="width: 0.14583in;" /></a>), se mostrará
+una descripción del objetivo del parámetro. Haga clic sobre
+cualquier parte del listado para cerrarla.</p></li>
+</ul>
+<p>Para editar cualquier parámetro que lo permita, haga clic sobre este
+y luego en el botón de editar. Se abrirá un panel como muestra la <a class="reference internal" href="#systemparameterupdatepanel"><span class="std std-numref">Figura 758</span></a>.
+En caso de hacer clic en el botón de Ver, se abrirá el mismo panel
+de edición, pero en modo solo lectura.</p>
+<figure class="align-center" id="id23">
+<span id="systemparameterupdatepanel"></span><a class="reference internal image-reference" href="_images/image1916.png"><img alt="Panel de edición de parámetro de sistema" src="_images/image1916.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 758 </span><span class="caption-text">Panel de edición de parámetro de sistema</span><a class="headerlink" href="#id23" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Puede seleccionar usar el valor por defecto, o ingresar un valor
+personalizado. Este valor puede ser vacío. Al modificar un parámetro, es
+necesario reiniciar el servicio para ver el cambio.</p>
+<p>Puede seleccionar usar el valor por defecto, o ingresar un valor
+personalizado. Este valor puede ser vacío.</p>
+<p>Al hacer clic en el botón de “Ver historial” se abrirá un panel derecho
+con el historial de cambios del parámetro de sistema seleccionado. En
+este panel se puede ver el nombre de la acción realizada, el nuevo valor
+seleccionado para el parámetro de sistema, el usuario que ejecutó la
+acción y la hora de esta.</p>
+<figure class="align-center" id="id24">
+<a class="reference internal image-reference" href="_images/image2014.png"><img alt="Historial de un parámetro de sistema" src="_images/image2014.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 759 </span><span class="caption-text">Historial de un parámetro de sistema</span><a class="headerlink" href="#id24" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="propiedades-extendidas">
+<h2>Propiedades extendidas<a class="headerlink" href="#propiedades-extendidas" title="Link to this heading"></a></h2>
+<p>Las propiedades extendidas son definidas por la organización y son
+mostradas en el panel de propiedades de cada miembro del modelo
+organizacional (usuario, grupo y nodo), en el administrador de dicho
+modelo. Para ver su utilización, consulte el manual de
+<a class="reference external" href="18-QflowTeam.html">Qflow Team</a>.</p>
+<p>Una propiedad extendida tiene una clave y un texto. Además, puede tener
+uno de los siguientes tipos: texto, número, fecha, verdadero/falso
+(booleano), miembro o lista de ítems. En este último caso, se crea una
+lista de elementos que tienen una clave y un valor, ambos de tipo texto.</p>
+<section id="propiedades-extendidas-de-usuario">
+<h3>Propiedades extendidas de usuario<a class="headerlink" href="#propiedades-extendidas-de-usuario" title="Link to this heading"></a></h3>
+<p>Puede agregar, ver, editar y eliminar las propiedades extendidas del
+usuario desde la opción correspondiente en el menú lateral (ver <a class="reference internal" href="#sidebar"><span class="std std-numref">Figura 747</span></a>).
+Al seleccionar dicha opción, se desplegará un listado con las
+propiedades extendidas definidas.</p>
+<figure class="align-center" id="id25">
+<a class="reference internal image-reference" href="_images/image2115.png"><img alt="Listado de propiedades extendidas de usuario" src="_images/image2115.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 760 </span><span class="caption-text">Listado de propiedades extendidas de usuario</span><a class="headerlink" href="#id25" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Mediante los botones que se encuentran arriba de la tabla, se puede
+agregar, editar o eliminar una propiedad.</p>
+<figure class="align-center" id="id26">
+<a class="reference internal image-reference" href="_images/image2215.png"><img alt="Botones de propiedades extendidas" src="_images/image2215.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 761 </span><span class="caption-text">Botones de propiedades extendidas</span><a class="headerlink" href="#id26" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Si hace clic sobre el botón de agregar, se abrirá un panel para crear la
+nueva propiedad.</p>
+<figure class="align-center" id="id27">
+<a class="reference internal image-reference" href="_images/image2316.png"><img alt="Agregar propiedad extendida de usuario" src="_images/image2316.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 762 </span><span class="caption-text">Agregar propiedad extendida de usuario</span><a class="headerlink" href="#id27" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Deberá ingresar una clave y un texto. Tenga en cuenta que, una vez
+creada una propiedad extendida, su clave no podrá ser cambiada. Si desea
+que la propiedad tenga un tipo diferente de Texto, haciendo clic en el
+botón con la flecha en el campo Tipo, se desplegará un listado con los
+tipos mencionados en la sección <a class="reference internal" href="#propiedades-extendidas"><span class="std std-ref">Propiedades extendidas</span></a>. En caso de que
+seleccione Lista de ítems, se abrirá una tabla como muestra la <a class="reference internal" href="#itemlist"><span class="std std-numref">Figura 763</span></a>.
+Puede agregar o quitar ítems, moverlos de lugar y editar el valor
+del texto o la clave.</p>
+<figure class="align-center" id="id28">
+<span id="itemlist"></span><a class="reference internal image-reference" href="_images/image2414.png"><img alt="Lista de ítems" src="_images/image2414.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 763 </span><span class="caption-text">Lista de ítems</span><a class="headerlink" href="#id28" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Es obligatorio que exista al menos un ítem en la lista. Además, no puede
+haber claves repetidas, ni ningún valor (clave o texto) vacío.</p>
+<p>Cuando haga clic en el botón de guardar (ícono de tic en la esquina
+superior derecha), se cerrará el panel y aparecerá la nueva propiedad en
+el listado.</p>
+<figure class="align-center" id="id29">
+<a class="reference internal image-reference" href="_images/image2515.png"><img alt="Nueva propiedad en el listado" src="_images/image2515.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 764 </span><span class="caption-text">Nueva propiedad en el listado</span><a class="headerlink" href="#id29" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Si selecciona la propiedad y hace clic en el botón de Editar, se abrirá
+el panel de edición.</p>
+<figure class="align-center" id="id30">
+<a class="reference internal image-reference" href="_images/image2615.png"><img alt="Panel de edición de propiedad extendida de usuario" src="_images/image2615.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 765 </span><span class="caption-text">Panel de edición de propiedad extendida de usuario</span><a class="headerlink" href="#id30" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Note que la clave está deshabilitada para edición, y sólo puede cambiar
+los otros campos.</p>
+<p>En el listado, también puede seleccionar tantas propiedades como desee
+para eliminarlas. Si hace clic en el botón de Eliminar, se mostrará un
+cartel de advertencia.</p>
+<figure class="align-center" id="id31">
+<a class="reference internal image-reference" href="_images/image2714.png"><img alt="Confirmar eliminación de propiedades extendidas" src="_images/image2714.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 766 </span><span class="caption-text">Confirmar eliminación de propiedades extendidas</span><a class="headerlink" href="#id31" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Seleccione Sí para confirmar.</p>
+<p>Al hacer clic en el botón de “Ver historial” se abrirá un panel derecho
+con el historial de cambios de la propiedad extendida seleccionada. En
+este panel se puede ver el nombre de la acción realizada, el usuario que
+ejecutó la acción y la hora de esta. Si se hace clic en el botón de “+”
+se despliegan detalles sobre la propiedad extendida tales como tipo y
+etiqueta. También se muestran datos sobre el IP y el MAC del usuario que
+realizó los cambios.</p>
+<figure class="align-center" id="id32">
+<a class="reference internal image-reference" href="_images/image286.png"><img alt="Historial de una propiedad extendida" src="_images/image286.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 767 </span><span class="caption-text">Historial de una propiedad extendida</span><a class="headerlink" href="#id32" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="propiedades-extendidas-de-grupo">
+<h3>Propiedades extendidas de grupo<a class="headerlink" href="#propiedades-extendidas-de-grupo" title="Link to this heading"></a></h3>
+<p>Puede agregar, editar y eliminar las propiedades extendidas del grupo
+desde la opción correspondiente en el menú lateral (ver <a class="reference internal" href="#sidebar"><span class="std std-numref">Figura 747</span></a>). Al
+seleccionar dicha opción, se desplegará un listado con las propiedades
+extendidas definidas.</p>
+<figure class="align-center" id="id33">
+<a class="reference internal image-reference" href="_images/image296.png"><img alt="Listado de propiedades extendidas de grupo" src="_images/image296.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 768 </span><span class="caption-text">Listado de propiedades extendidas de grupo</span><a class="headerlink" href="#id33" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Las operaciones sobre los elementos de este listado son análogas a las
+que se explican en la sección <a class="reference internal" href="#propiedades-extendidas-de-usuario"><span class="std std-ref">Propiedades extendidas de usuario</span></a>.</p>
+</section>
+<section id="propiedades-extendidas-de-nodo">
+<h3>Propiedades extendidas de nodo<a class="headerlink" href="#propiedades-extendidas-de-nodo" title="Link to this heading"></a></h3>
+<p>Si desconoce el concepto de nodo, consulte el manual de
+<a class="reference external" href="18-QflowTeam.html">Qflow Team</a>.</p>
+<p>Puede agregar, editar y eliminar las propiedades extendidas de un nodo
+desde la opción correspondiente en el menú lateral (ver <a class="reference internal" href="#sidebar"><span class="std std-numref">Figura 747</span></a>). Al
+seleccionar dicha opción, se desplegará un listado con las propiedades
+extendidas definidas.</p>
+<figure class="align-center" id="id34">
+<a class="reference internal image-reference" href="_images/image306.png"><img alt="Listado de propiedades extendidas de nodo" src="_images/image306.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 769 </span><span class="caption-text">Listado de propiedades extendidas de nodo</span><a class="headerlink" href="#id34" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Las operaciones sobre los elementos de este listado son análogas a las
+que se explican en la sección <a class="reference internal" href="#propiedades-extendidas-de-usuario"><span class="std std-ref">Propiedades extendidas de usuario</span></a>.</p>
+</section>
+</section>
+<section id="licencias">
+<h2>Licencias<a class="headerlink" href="#licencias" title="Link to this heading"></a></h2>
+<p>En esta sección podremos ver todas las licencias que existen en el sistema.
+Para acceder al listado, seleccione la opción correspondiente en
+el menú lateral (ver <a class="reference internal" href="#sidebar"><span class="std std-numref">Figura 747</span></a>).</p>
+<p>Se desplegará un listado mostrando todas
+las licencias que se encuentran cargadas en el sistema. Además, se
+muestra, encima del listado, el producto para el cual se están
+visualizando las licencias, así como la organización actual.</p>
+<p>El listado de licencia contendrá distintos campos dependiendo de si se
+está utilizando la versión OnPremise o Cloud. A continuación, se detallan
+los campos comunes entre las dos versiones:</p>
+<ul>
+<li><p><strong>Tipo:</strong> indica el tipo de licencia.</p></li>
+<li><p><strong>Nombre de la organización:</strong> indica la organización para la cual
+esa licencia fue expedida. Si no coincide con el nombre de
+organización configurado, la licencia no será considerada válida.</p></li>
+<li><p><strong>Cantidad de usuarios:</strong> indica la cantidad de usuarios que se
+habilitan con esa licencia.</p></li>
+<li><p><strong>Fecha de expiración</strong></p></li>
+<li><p><strong>Estado:</strong> muestra un ícono que indica si la licencia es válida o si
+hay algún problema. Los posibles estados son:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="_images/image556.png"><img alt="image9" src="_images/image556.png" style="width: 0.29097in;" /></a>La licencia es válida</p></li>
+<li><p><a class="reference internal" href="_images/image536.png"><img alt="image7" src="_images/image536.png" style="width: 0.29167in;" /></a>La licencia ha expirado</p></li>
+<li><p><a class="reference internal" href="_images/image546.png"><img alt="image8" src="_images/image546.png" style="width: 0.29167in;" /></a>La licencia no aplica a la organización</p></li>
+</ul>
+<p>En cualquier caso, al pasar el cursor sobre el ícono, se mostrará un
+cartel con la descripción del estado.</p>
+</li>
+</ul>
+<p>También se puede cargar una nueva licencia, haciendo clic en el botón “+”
+sobre el listado. Se abrirá un cuadro de diálogo para que usted seleccione
+el archivo de licencia almacenado en su equipo. Los tipos de archivo
+soportados son xml y qlic. Una vez cargada, la licencia se mostrará
+en el listado.</p>
+<section id="modelo-de-licencias">
+<h3>Modelo de licencias<a class="headerlink" href="#modelo-de-licencias" title="Link to this heading"></a></h3>
+<p>Para ver nuestras licencias disponibles acceda a la siguiente pagina: <a href="https://qflowbpm.com/es/precios/" target="_blank">Precios Qflow</a></p>
+<figure class="align-center" id="id35">
+<a class="reference internal image-reference" href="_images/image665.png"><img alt="Listado de licencias Cloud" src="_images/image665.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 770 </span><span class="caption-text">Listado de licencias Cloud</span><a class="headerlink" href="#id35" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>La información que se puede ver en el listado es la siguiente:</p>
+<ul class="simple">
+<li><p><strong>Almacenamiento máximo disponible</strong>: indica la cantidad máxima de almacenamiento en Gigabytes
+que tiene disponible la licencia.</p></li>
+<li><p><strong>Cantidad máxima de puntos de ejecución</strong>: indica la cantidad máxima de Q-points
+que tiene disponible la licencia.</p></li>
+</ul>
+</section>
+</section>
+<section id="servicios-de-notificacion">
+<h2>Servicios de notificación<a class="headerlink" href="#servicios-de-notificacion" title="Link to this heading"></a></h2>
+<p>Los servicios de notificación son los servicios de correo y
+notificaciones push de Qflow. Para visualizarlos, seleccione la opción
+correspondiente en el menú lateral (ver <a class="reference internal" href="#sidebar"><span class="std std-numref">Figura 747</span></a>). Al seleccionar dicha
+opción, se desplegará el listado de servicios de notificación.</p>
+<figure class="align-center" id="id36">
+<a class="reference internal image-reference" href="_images/image38cloud.png"><img alt="Listado de servicios de notificación" src="_images/image38cloud.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 771 </span><span class="caption-text">Listado de servicios de notificación</span><a class="headerlink" href="#id36" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Mediante los botones que se encuentran arriba de la tabla, se puede
+ver, configurar, habilitar y deshabilitar un servicio.</p>
+<figure class="align-center" id="id37">
+<a class="reference internal image-reference" href="_images/image39cloud.png"><img alt="Opciones del listado de servicios de notificación" src="_images/image39cloud.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 772 </span><span class="caption-text">Opciones del listado de servicios de notificación</span><a class="headerlink" href="#id37" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="configurar-servicios-de-notificacion">
+<h3>Configurar servicios de notificación<a class="headerlink" href="#configurar-servicios-de-notificacion" title="Link to this heading"></a></h3>
+</section>
+<p>La opción “Configurar” abre un nuevo panel en el cual se puede decidir si
+usar la configuración predeterminada o personalizarla.</p>
+<figure class="align-center" id="id38">
+<span id="notificationsenderconfigurationinsecondarytenant"></span><a class="reference internal image-reference" href="_images/image476.png"><img alt="Configuración de un servicio de notificación predeterminada" src="_images/image476.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 773 </span><span class="caption-text">Configuración de un servicio de notificación predeterminada</span><a class="headerlink" href="#id38" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id39">
+<a class="reference internal image-reference" href="_images/image686.png"><img alt="Configuración de un servicio de notificación personalizada" src="_images/image686.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 774 </span><span class="caption-text">Configuración de un servicio de notificación personalizada</span><a class="headerlink" href="#id39" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="configuracion-de-servicios-de-notificacion">
+<h3>Configuración de servicios de notificación<a class="headerlink" href="#configuracion-de-servicios-de-notificacion" title="Link to this heading"></a></h3>
+<p>Existen 4 tipos de servicios de notificación: SMTP, Extended MAPI,
+Servicio web Exchange y Firebase cloud messaging. A continuación, se
+detalla la configuración necesaria para el correcto funcionamiento de
+los servicios.</p>
+<section id="smtp">
+<h4>SMTP<a class="headerlink" href="#smtp" title="Link to this heading"></a></h4>
+<p>Los servicios del tipo SMTP tienen dos posibles configuraciones, conectarse con una cuenta de Microsoft o configurar el servicio manualmente.</p>
+<p><strong>Configurar el servicio con Microsoft</strong></p>
+<p>Para configurarlo solo se debera conectarse con una cuenta de Microsoft dandole click al boton Microsoft.</p>
+<figure class="align-center" id="id40">
+<a class="reference internal image-reference" href="_images/image695.png"><img alt="Servicio a configurar con Microsoft" src="_images/image695.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 775 </span><span class="caption-text">Servicio a configurar con Microsoft</span><a class="headerlink" href="#id40" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Una vez conectado a su cuenta ya se podra usar el servicio de notificación SMTP con Microsoft.</p>
+<figure class="align-center" id="id41">
+<a class="reference internal image-reference" href="_images/image706.png"><img alt="Servicio configurado con Microsoft" src="_images/image706.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 776 </span><span class="caption-text">Servicio configurado con Microsoft</span><a class="headerlink" href="#id41" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Configurar el servicio manualmente</strong></p>
+<p>Los servicios del tipo SMTP las siguientes propiedades:</p>
+<ul class="simple">
+<li><p><strong>Host:</strong> nombre del servidor SMTP</p></li>
+<li><p><strong>Puerto (Opcional):</strong> si el servidor no utiliza el puerto por
+defecto, esta propiedad permite especificar otro puerto.</p></li>
+<li><p><strong>Vencimiento (Opcional):</strong> permite especificar un valor de
+<em>vencimiento</em> en segundos.</p></li>
+<li><p><strong>SSL:</strong> permite activar o desactivar SSL (conexión segura). Si la
+opción no se encuentra marcada, el SSL queda desactivado.</p></li>
+<li><p><strong>Usuario SMTP:</strong> permite especificar un usuario para el servicio.</p></li>
+<li><p><strong>Usuario Remitente:</strong> nombre de usuario del sistema. Es el nombre
+que aparecerá como remitente de los mensajes enviados por Qflow.</p></li>
+<li><p><strong>Correo de sistema:</strong> dirección de correo electrónico del sistema.
+Es la dirección desde la cual se enviarán los mensajes de Qflow.</p></li>
+</ul>
+<figure class="align-center" id="id42">
+<a class="reference internal image-reference" href="_images/image418.png"><img alt="Servicio de notificación SMTP" src="_images/image418.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 777 </span><span class="caption-text">Servicio de notificación SMTP</span><a class="headerlink" href="#id42" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="extended-mapi">
+<h4>Extended MAPI<a class="headerlink" href="#extended-mapi" title="Link to this heading"></a></h4>
+<p>Los servicios del tipo Extended MAPI tienen las siguientes propiedades:</p>
+<ul class="simple">
+<li><p><strong>Servidor:</strong> nombre del servidor de Exchange.</p></li>
+<li><p><strong>Mailbox:</strong> casilla de correo a ser utilizada por Qflow.</p></li>
+<li><p><strong>Clase de mensaje:</strong> clase de los mensajes. Por defecto,
+<em>IPM.Note.Qflow</em>.</p></li>
+<li><p><strong>Perfil (Opcional):</strong> nombre del perfil a ser utilizado por Qflow.</p></li>
+<li><p><strong>Contraseña (Opcional):</strong> contraseña del perfil.</p></li>
+</ul>
+<figure class="align-center" id="id43">
+<a class="reference internal image-reference" href="_images/image425.png"><img alt="Servicio de notificación Extended MAPI" src="_images/image425.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 778 </span><span class="caption-text">Servicio de notificación Extended MAPI</span><a class="headerlink" href="#id43" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="servicio-web-exchange">
+<h4>Servicio web Exchange<a class="headerlink" href="#servicio-web-exchange" title="Link to this heading"></a></h4>
+<p>Los servicios del tipo Exchange tienen las siguientes propiedades:</p>
+<ul class="simple">
+<li><p><strong>Url:</strong> Url de los <em>web services</em> de Exchange.</p></li>
+<li><p><strong>Versión de Exchange:</strong> versión de Exchange instalada en el servidor
+que se va a utilizar.</p></li>
+<li><p><strong>Clase de mensaje:</strong> clase de los mensajes. Por defecto,
+<em>IPM.Note.Qflow</em>.</p></li>
+<li><p><strong>Usuario (Opcional):</strong> cuenta de usuario que se debe utilizar.</p></li>
+<li><p><strong>Contraseña (Opcional):</strong> contraseña de la cuenta de usuario
+indicada en la propiedad Usuario.</p></li>
+<li><p><strong>Correo de sistema:</strong> casilla de correo electrónico del sistema.</p></li>
+</ul>
+<figure class="align-center" id="id44">
+<a class="reference internal image-reference" href="_images/image436.png"><img alt="Configuración de servicio web Exchange" src="_images/image436.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 779 </span><span class="caption-text">Configuración de servicio web Exchange</span><a class="headerlink" href="#id44" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="firebase-cloud-messaging">
+<h4>Firebase Cloud Messaging<a class="headerlink" href="#firebase-cloud-messaging" title="Link to this heading"></a></h4>
+<p>Los servicios de tipo Firebase, a diferencia de los descritos
+previamente, se trata de servicios de notificaciones push. Por lo tanto,
+no es necesario configurar los formatos de correo. Para poder configurar
+el servicio de Firebase se deberá acceder a la siguiente consola y crear un
+proyecto:
+<a class="reference external" href="https://console.firebase.google.com/">https://console.firebase.google.com/</a></p>
+<p>Dentro de la configuración del proyecto de Firebase se pueden tomar
+todos los datos necesarios para configurar el servicio de notificación
+en Qflow Admin.</p>
+<p>La <a class="reference internal" href="#firebaseconfiguration"><span class="std std-numref">Figura 780</span></a> muestra la configuración general del proyecto desde donde
+se puede tomar la Id del proyecto y la clave de API de la web. En el caso que no vea la
+clave de API de la web debe habilitar el servicio de autenticación de Firebase desde
+la consola del proyecto.</p>
+<figure class="align-center" id="id45">
+<span id="firebaseconfiguration"></span><a class="reference internal image-reference" href="_images/image446.png"><img alt="Configuración general de Firebase" src="_images/image446.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 780 </span><span class="caption-text">Configuración general de Firebase</span><a class="headerlink" href="#id45" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Los datos restantes corresponden a la aplicación web que se quiere
+utilizar, los datos pueden ser extraídos de la sección “Tus
+aplicaciones” seleccionando la opción configuración como muestra la
+<a class="reference internal" href="#firebaseappconfiguration"><span class="std std-numref">Figura 781</span></a>. Para más información sobre cómo crear una aplicación ir a la
+siguiente guía: <a class="reference external" href="https://firebase.google.com/docs/web/setup#register-app">https://firebase.google.com/docs/web/setup#register-app</a>.</p>
+<figure class="align-center" id="id46">
+<span id="firebaseappconfiguration"></span><a class="reference internal image-reference" href="_images/image456.png"><img alt="Configuración de aplicación de Firebase" src="_images/image456.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 781 </span><span class="caption-text">Configuración de aplicación de Firebase</span><a class="headerlink" href="#id46" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Finalmente, el campo “Configuración de servidor” debe tener un json
+correspondiente al SDK de Firebase Admin, el cual puede ser obtenido
+siguiendo la siguiente guía:
+<a class="reference external" href="https://firebase.google.com/docs/admin/setup#initialize-sdk">https://firebase.google.com/docs/admin/setup#initialize-sdk</a>.</p>
+<p>En la <a class="reference internal" href="#firebasenotificationservice"><span class="std std-numref">Figura 782</span></a> se puede ver el panel de configuración de Firebase, por
+más detalles sobre la configuración de un servidor Firebase dirigirse al
+siguiente manual: <a class="reference external" href="https://firebase.google.com/docs/web/setup">https://firebase.google.com/docs/web/setup</a></p>
+<figure class="align-center" id="id47">
+<span id="firebasenotificationservice"></span><a class="reference internal image-reference" href="_images/image465.png"><img alt="Servicio de notificación Firebase" src="_images/image465.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 782 </span><span class="caption-text">Servicio de notificación Firebase</span><a class="headerlink" href="#id47" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+<section id="administrar-permisos">
+<h2>Administrar permisos<a class="headerlink" href="#administrar-permisos" title="Link to this heading"></a></h2>
+<p>Al seleccionar la opción “Administrar permisos de la herramienta” en el
+menú de configuración, se abrirá un panel como muestra la
+<a class="reference internal" href="#managesampermissions"><span class="std std-numref">Figura 783</span></a>.</p>
+<figure class="align-center" id="id48">
+<span id="managesampermissions"></span><a class="reference internal image-reference" href="_images/image486.png"><img alt="Administrar permisos de Qflow Admin" src="_images/image486.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 783 </span><span class="caption-text">Administrar permisos de Qflow Admin</span><a class="headerlink" href="#id48" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Para agregar un usuario, grupo o rol de seguridad al conjunto de
+entidades que tienen permisos sobre el nodo:</p>
+<ol class="arabic simple">
+<li><p>Haga clic en el botón “Agregar”. Eso hace que aparezca en la parte
+superior de dicho botón un texto que dice “Comience a escribir…”.
+Escriba parte del nombre del usuario, grupo o rol deseado.</p></li>
+<li><p>Cuando se muestre en la lista desplegable, selecciónelo.</p></li>
+</ol>
+<p>Una vez agregados los usuarios, roles y grupos, es posible definir qué
+permisos tienen cada uno de ellos. Esto se hace marcando los casilleros
+“Permitir” o “Denegar” al lado de cada permiso como se muestra en la
+<a class="reference internal" href="#selectpermissions"><span class="std std-numref">Figura 784</span></a>.</p>
+<p>Los posibles permisos son:</p>
+<ul class="simple">
+<li><p><strong>Administrar seguridad</strong>: permite agregar y modificar los permisos
+de la herramienta.</p></li>
+<li><p><strong>Acceder a la herramienta:</strong> permite acceder a Qflow Admin.</p></li>
+<li><p><strong>Administrar configuración:</strong> permite editar aquellos elementos de
+la herramienta que son editables (parámetros de sistema y
+propiedades extendidas).</p></li>
+<li><p><strong>Auditar:</strong> permite acceder a las auditorías de los distintos
+elementos de Qflow Admin</p></li>
+</ul>
+<p>Para una explicación detallada acerca del funcionamiento de los permisos
+de Qflow, consulte la sección “Manejo de permisos en Qflow” del manual
+de <a class="reference external" href="18-QflowTeam.html">Qflow Team</a>.</p>
+<figure class="align-center" id="id49">
+<span id="selectpermissions"></span><a class="reference internal image-reference" href="_images/image495.png"><img alt="Seleccionar permisos" src="_images/image495.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 784 </span><span class="caption-text">Seleccionar permisos</span><a class="headerlink" href="#id49" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Para editar permisos de un usuario, grupo o rol:</p>
+<ol class="arabic simple">
+<li><p>Seleccione el elemento al que quiera editarle los permisos y haga
+clic en el botón “Editar”, o haga clic en el símbolo “+” que se
+encuentra al lado del elemento.</p></li>
+<li><p>Se volverá a mostrar el formulario “Configuración de permisos”.
+Seleccione las acciones que quiera permitir o denegar en el nuevo
+permiso.</p></li>
+</ol>
+<p>Para eliminar permisos a un usuario, grupo o rol:</p>
+<ol class="arabic simple">
+<li><p>Seleccione el elemento al que quiera eliminarle los permisos y
+posteriormente haga clic en el botón “Eliminar”.</p></li>
+<li><p>Se mostrará un mensaje de advertencia. Haga clic en el botón “Sí” y
+se eliminarán todos los permisos para el elemento seleccionado.</p></li>
+</ol>
+</section>
+<section id="auditoria">
+<h2>Auditoría<a class="headerlink" href="#auditoria" title="Link to this heading"></a></h2>
+<p>Si se disponen los permisos de auditar en Qflow Admin, se puede ver en el menú
+superior derecho la opción de auditorías, si se hace clic se despliega
+un panel de opciones. Esta funcionalidad brinda
+la capacidad de verificar los cambios realizados en propiedades
+extendidas, licencias y parámetros de sistema, indicando sus nuevos
+valores, el usuario que realizó el cambio además de su fecha y hora.</p>
+<section id="historial-de-parametros-de-sistema">
+<h3>Historial de parámetros de sistema<a class="headerlink" href="#historial-de-parametros-de-sistema" title="Link to this heading"></a></h3>
+<p>Esta auditoría indica los cambios realizados sobre todos los parámetros
+de sistema. Si se desea saber los cambios sobre un parámetro en
+particular se debe utilizar la barra de búsqueda, o en su defecto
+acceder a la opción de “Ver historial” en el listado de parámetros de
+sistema.</p>
+<figure class="align-center" id="id50">
+<a class="reference internal image-reference" href="_images/image506.png"><img alt="Historial de parámetros de sistema" src="_images/image506.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 785 </span><span class="caption-text">Historial de parámetros de sistema</span><a class="headerlink" href="#id50" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="historial-de-licencias">
+<h3>Historial de licencias<a class="headerlink" href="#historial-de-licencias" title="Link to this heading"></a></h3>
+<p>Esta auditoría mantiene un registro de todas las licencias agregadas. En
+el listado se muestra el identificador de la licencia, junto con el
+usuario que la agregó y su correspondiente fecha y hora.</p>
+<figure class="align-center" id="id51">
+<a class="reference internal image-reference" href="_images/image5110.png"><img alt="Historial de licencias" src="_images/image5110.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 786 </span><span class="caption-text">Historial de licencias</span><a class="headerlink" href="#id51" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="historial-de-propiedades-extendidas">
+<h3>Historial de propiedades extendidas<a class="headerlink" href="#historial-de-propiedades-extendidas" title="Link to this heading"></a></h3>
+<p>Esta auditoría lista todos los cambios realizados en todas las
+propiedades extendidas, sin importar el tipo de propiedad. Cada entrada
+en la tabla contiene un logo correspondiente al tipo de propiedad y se
+puede ampliar mostrando más detalles sobre los cambios. Si se quiere
+filtrar por una propiedad en particular se puede utilizar el buscador o
+ir al listado de propiedades extendidas y acceder al historial
+particular de una propiedad.</p>
+<figure class="align-center" id="id52">
+<a class="reference internal image-reference" href="_images/image526.png"><img alt="Historial de propiedades extendidas" src="_images/image526.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 787 </span><span class="caption-text">Historial de propiedades extendidas</span><a class="headerlink" href="#id52" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="listado-de-parametros-de-sistema">
+<h2>Listado de parámetros de sistema<a class="headerlink" href="#listado-de-parametros-de-sistema" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nombre técnico</p></th>
+<th class="head"><p>Nombre</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ActionLink</p></td>
+<td><p>Vínculo de acción</p></td>
+<td><p>Es la URL que
+utilizan los
+vínculos a acciones
+en los mensajes
+enviados por correo
+electrónico.</p></td>
+</tr>
+<tr class="row-odd"><td><p>DefaultDomainNetbiosName</p></td>
+<td><p>Nombre de dominio
+predeterminado</p></td>
+<td><p>Especifica un nombre
+de dominio por
+defecto al hacer
+login en las
+aplicaciones o en los
+sitios web.</p></td>
+</tr>
+<tr class="row-even"><td><p>EnableAIAssistant <a class="footnote-reference brackets" href="#id4" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>*<span class="fn-bracket">]</span></a></p></td>
+<td><p>Habilitar asistente
+de IA</p></td>
+<td><p>Si el valor de este parámetro
+es “verdadero”, el acceso al
+asistente de IA estará
+habilitado.
+Los administradores podrán
+restringir el acceso en el
+caso de ser detectado un uso
+malicioso. Si cree que ha
+habido un error, por favor
+contáctese con soporte
+técnico.</p></td>
+</tr>
+<tr class="row-odd"><td><p>EncryptAttachments</p></td>
+<td><p>Encriptar archivos
+adjuntos</p></td>
+<td><p>Si el valor de este
+parámetro es
+“verdadero”, Qflow
+cifrará el contenido
+de los archivos
+adjuntos, de modo
+que la única forma
+de acceder a dicho
+contenido sea por
+medio de los
+permisos de Qflow.
+Si este parámetro
+está activado, no es
+posible hacer
+búsquedas full-text
+utilizando el
+contenido de los
+archivos adjuntos.</p></td>
+</tr>
+<tr class="row-even"><td><p>EnforceIntegratedLogon</p></td>
+<td><p>Forzar autenticación
+integrada</p></td>
+<td><p>Si el valor de este
+parámetro es
+«verdadero», los
+usuarios solo podrán
+ingresar a la
+aplicación mediante
+autenticación
+integrada.</p></td>
+</tr>
+<tr class="row-odd"><td><p>FlowDetailsLink</p></td>
+<td><p>Vínculo a detalles
+del proceso</p></td>
+<td><p>Es la url enviada
+por correo, la cual
+redirige hacia los
+detalles de un
+proceso.</p></td>
+</tr>
+<tr class="row-even"><td><p>FlowEditFormLink</p></td>
+<td><p>Vínculo al
+formulario de
+edición del proceso</p></td>
+<td><p>Es la url enviada
+por correo, la cual
+redirige hacia el
+panel de edición de
+un proceso.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GuestResponseLink</p></td>
+<td><p>Vínculo de respuesta
+como invitado</p></td>
+<td><p>Esta URL se utiliza en los
+mensajes de notificación
+enviados por correo
+electrónico, permitiendo el
+acceso a los formularios de
+respuesta como invitado.</p></td>
+</tr>
+<tr class="row-even"><td><p>HtmlLinkTemplate</p></td>
+<td><p>Plantilla de mails
+de tipo HTML Link</p></td>
+<td><p>Indica la ruta del
+archivo
+correspondiente a la
+plantilla de envío
+de correos html.</p></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">IsGoogleAndMicrosoft</div>
+<div class="line">RememberSessionEnabled</div>
+</div>
+</td>
+<td><p>Habilitar recordar
+sesión de usuario al
+loguearse con Google
+y Microsoft</p></td>
+<td><p>Si el valor de este
+parámetro es
+“verdadero”, las sesiones
+iniciadas mediante Google o
+Microsoft permanecerán
+abiertas entre sesiones del
+navegador. Si es “falso”, al
+cerrar el navegador se
+cerrará la sesión.
+Asegúrese de tener su
+navegador configurado para
+recordar cookies o esto no
+funcionará.</p></td>
+</tr>
+<tr class="row-even"><td><p>IsGoogleSignInEnabled</p></td>
+<td><p>Habilitar el inicio
+de sesión con Google</p></td>
+<td><p>Si el valor de este
+parámetro es
+“verdadero”, Qflow
+permitirá que los
+usuarios se
+autentiquen con su
+cuenta de Google en
+los distintos
+sitios. De lo
+contrario, esta
+opción no se
+mostrará.</p></td>
+</tr>
+<tr class="row-odd"><td><p>IsMicrosoftSignInEnabled</p></td>
+<td><p>Habilitar el inicio
+de sesión con
+Microsoft</p></td>
+<td><p>Si el valor de este
+parámetro es
+“verdadero”, Qflow
+permitirá que los
+usuarios se
+autentiquen con su
+cuenta de Microsoft
+en los distintos
+sitios. De lo
+contrario, esta
+opción no se
+mostrará.</p></td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">LicenseExpiration</div>
+<div class="line">AlertThreshold</div>
+</div>
+</td>
+<td><p>Alerta de
+vencimiento de
+licencia</p></td>
+<td><p>Es un número entero
+que indica cuántos
+días antes del
+vencimiento de las
+licencias se
+notificará a los
+usuarios que las
+licencias están a
+punto de vencer. Por
+defecto, tiene un
+valor de 7, es
+decir, avisa una
+semana antes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Logo</p></td>
+<td><p>Logo</p></td>
+<td><p>Es la imagen del logo que
+será utilizada en las
+distintas vistas de inicio
+de sesión. La relación
+debe ser 4:1 para que la
+imagen se muestre
+correctamente.</p></td>
+</tr>
+<tr class="row-even"><td><p>LogoLightVersion</p></td>
+<td><p>Logo en versión clara</p></td>
+<td><p>Versión clara del logo de
+Qflow. La relación
+debe ser 4:1 para que la
+imagen se muestre
+correctamente.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MailLogo</p></td>
+<td><p>Logo de correos</p></td>
+<td><p>Es la url que se utilizará
+para acceder al logo que se
+mostrará en los distintos
+correos enviados por Qflow.
+La imagen debe
+estar en formato png, jpg o
+jpeg para que se muestre
+correctamente.</p></td>
+</tr>
+<tr class="row-even"><td><p>MiniLogo</p></td>
+<td><p>Mini logo</p></td>
+<td><p>Imagen para el logo
+de la barra lateral
+colapsada del sitio
+web. La relación
+debe ser 1:1 para
+que la imagen se
+muestre
+correctamente.</p></td>
+</tr>
+<tr class="row-odd"><td><p>NotifyUserOnCreation</p></td>
+<td><p>Notificar usuario en
+la creación</p></td>
+<td><p>Si el valor de este parámetro
+es “verdadero”, se le enviará
+una notificación a cada
+usuario que sea agregado al
+espacio de trabajo.</p></td>
+</tr>
+<tr class="row-even"><td><p>OrganizationName</p></td>
+<td><p>Nombre de la
+organización</p></td>
+<td><p>Indica el nombre de
+la organización.
+Este nombre es
+utilizado por Qflow
+para controlar las
+licencias del
+producto.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RenewSessionAutomatically</p></td>
+<td><p>Renovar la sesión
+automáticamente</p></td>
+<td><p>Indica si las
+herramientas de
+Qflow, tanto de
+escritorio como las
+web, deben renovar
+automáticamente la
+sesión del usuario
+cuando ésta se
+vence.</p></td>
+</tr>
+<tr class="row-even"><td><p>ResponseLink</p></td>
+<td><p>Vínculo de respuesta</p></td>
+<td><p>Es la URL que
+utilizarán los
+vínculos a los
+formularios de
+respuesta de los
+mensajes enviados
+por correo
+electrónico.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SessionLeaseTime</p></td>
+<td><p>Duración de la
+sesión</p></td>
+<td><p>Duración en minutos
+de la sesión de un
+usuario de Qflow.
+Si no hay actividad
+durante ese tiempo,
+la sesión del
+usuario vence y éste
+debe volver a
+autenticarse.</p></td>
+</tr>
+<tr class="row-even"><td><p>StageLink</p></td>
+<td><p>Vínculo de
+seguimiento de
+etapas</p></td>
+<td><p>Es la url usada en
+los vínculos al
+seguimiento de
+etapas en los
+mensajes enviados
+por correo
+electrónico.</p></td>
+</tr>
+<tr class="row-odd"><td><p>StrongWindowsSinchronization</p></td>
+<td><p>Sincronización de
+usuarios Windows
+estricta</p></td>
+<td><p>Si el valor de este
+parámetro es
+“verdadero”, al
+eliminar un usuario
+del Active Directory
+se cambiará el login
+de Qflow para así
+permitir a otro
+usuario utilizar el
+login original.</p></td>
+</tr>
+<tr class="row-even"><td><p>TaskLogo</p></td>
+<td><p>Logo de Task</p></td>
+<td><p>Imagen para el logo
+del sitio web de Task. La
+La relación
+debe ser 4:1 para
+que la imagen se
+muestre
+correctamente.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TaskMiniLogo</p></td>
+<td><p>Mini logo de Task</p></td>
+<td><p>Imagen para el logo
+del sitio web de Task usado
+en la barra lateral
+colapsada del sitio web.
+La relación
+debe ser 1:1 para
+que la imagen se
+muestre
+correctamente.</p></td>
+</tr>
+<tr class="row-even"><td><p>Theme</p></td>
+<td><p>Tema</p></td>
+<td><p>Indica qué tema
+utilizar en
+Qflow Task.</p></td>
+</tr>
+<tr class="row-odd"><td><p>UndoChangesOnStepBack</p></td>
+<td><p>Revertir cambios al
+retroceder</p></td>
+<td><p>Indica si, al hacer
+retroceder un hilo
+de un proceso, se
+deshacen los cambios
+hechos a los datos
+de aplicación, roles
+y archivos adjuntos
+en los pasos cuya
+ejecución se está
+deshaciendo.</p></td>
+</tr>
+<tr class="row-even"><td><p>UseGravatarForProfilePicture</p></td>
+<td><p>Usar gravatar para
+foto de perfil</p></td>
+<td><p>Si el valor de este parámetro
+es “verdadero”, se usará el
+servicio de gravatar para
+obtener la foto de perfil de
+los usuarios. De lo contrario
+se mostrará como foto de
+perfil una imagen con las
+iniciales del usuario.</p></td>
+</tr>
+</tbody>
+</table>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id4" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">*</a><span class="fn-bracket">]</span></span>
+<p>Parámetro disponible solo en la nube.</p>
+</aside>
+</aside>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="18-QflowTeam.html" class="btn btn-neutral float-left" title="Qflow Team" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="21-Q-pointsConsumption.html" class="btn btn-neutral float-right" title="Consumo de Q-points" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

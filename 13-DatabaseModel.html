@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modelo de base de datos &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/13-DatabaseModel.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Modelo de base de datos</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="modelo-de-base-de-datos">
+<h1>Modelo de base de datos<a class="headerlink" href="#modelo-de-base-de-datos" title="Link to this heading"></a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading"></a></h2>
+<p>Este documento describe el esquema de la base de datos de Qflow,
+detallando el uso que recibe cada uno de los campos que la componen.</p>
+<p>El objetivo del manual es proporcionar la información necesaria para
+definir reportes que utilicen la información de los procesos generados.
+Esta información está almacenada en la base de datos de Qflow.</p>
+<p>La práctica usual es publicar los reportes como páginas web y agregar
+vínculos a ellos en Qflow Task. Para obtener información
+acerca de cómo agregar un vínculo a Qflow Task y cómo controlar el
+acceso a esos vínculos, consulte el <a class="reference external" href="04-QflowTask.html">manual de Qflow Task</a>.</p>
+</section>
+<section id="organizacion-de-este-manual">
+<h2>Organización de este manual<a class="headerlink" href="#organizacion-de-este-manual" title="Link to this heading"></a></h2>
+<p>Este manual está dividido en las siguientes secciones:</p>
+<ul class="simple">
+<li><p><strong>Esquema de datos:</strong> describe las tablas de Qflow que pueden ser
+útiles en la elaboración de reportes.</p></li>
+<li><p><strong>Diagramas de Entidad Relación:</strong> describe gráficamente las
+relaciones entre las tablas de Qflow.</p></li>
+</ul>
+</section>
+<section id="esquema-de-datos">
+<h2>Esquema de datos<a class="headerlink" href="#esquema-de-datos" title="Link to this heading"></a></h2>
+<p>Esta sección describe las tablas de Qflow y los campos que las
+componen.</p>
+<section id="tablas-procesos">
+<h3>Tablas: Procesos<a class="headerlink" href="#tablas-procesos" title="Link to this heading"></a></h3>
+<p>Las siguientes tablas almacenan la información sobre los procesos en
+ejecución.</p>
+<p><strong>Flow</strong></p>
+<p>Esta tabla almacena la raíz de la definición de la instancia de proceso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>FlowCorrelativeID:</strong> Identificador numérico único del proceso.</p></li>
+<li><p><strong>TemplateID:</strong> Identificador de la plantilla del proceso.</p></li>
+<li><p><strong>VersionID:</strong> Identificador de la versión de plantilla del proceso.</p></li>
+<li><p><strong>Name:</strong> Nombre del proceso.</p></li>
+<li><p><strong>Description:</strong> Descripción del proceso.</p></li>
+<li><p><strong>StarterUser:</strong> Usuario que inició el proceso.</p></li>
+<li><p><strong>StartDate:</strong> Fecha de inicio del proceso.</p></li>
+<li><p><strong>Importance:</strong> Importancia del proceso (Low = 0, Normal = 1, High = 2).</p></li>
+<li><p><strong>Flag:</strong> Texto que indica al usuario el estado del proceso.</p></li>
+<li><p><strong>Progress:</strong> Progreso del proceso.</p></li>
+<li><p><strong>FlowStatus:</strong> Estado del proceso (Active = 0, Paused = 5, Finalized = 8)</p></li>
+<li><p><strong>IsSystem:</strong> Bandera que indica si el proceso es un proceso interno del
+sistema.</p></li>
+<li><p><strong>EndDate:</strong> Fecha de finalización del proceso (null si el proceso no se
+ha finalizado).</p></li>
+<li><p><strong>EndUser:</strong> Usuario que dio finalización al proceso.</p></li>
+<li><p><strong>HasWaitingThread:</strong> Bandera que indica si el proceso tiene algún hilo
+en espera.</p></li>
+<li><p><strong>HasErrorThread:</strong> Bandera que indica si el proceso tiene algún hilo en
+error.</p></li>
+<li><p><strong>AdminFinalized:</strong> Bandera que indica si el proceso fue finalizado
+administrativamente.</p></li>
+<li><p><strong>CurrentFlowStageID:</strong> Identificador de la etapa activa.</p></li>
+<li><p><strong>CurrentTemplateStageID:</strong> Identificador de la definición de la etapa
+activa</p></li>
+<li><p><strong>ParentFlowID:</strong> Identificador del proceso padre (para el caso de
+inicio de subprocesos).</p></li>
+</ul>
+<p><strong>FlowAttachment</strong></p>
+<p>Esta tabla mantiene la información de los adjuntos a un proceso, pero no
+el contenido de los adjuntos.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>AttachID:</strong> Identificador del adjunto.</p></li>
+<li><p><strong>AttachVersion:</strong> Identificador numérico de la versión del adjunto.</p></li>
+<li><p><strong>Name:</strong> Nombre del adjunto.</p></li>
+<li><p><strong>Description:</strong> Descripción del adjunto.</p></li>
+<li><p><strong>TimeLastModified:</strong> Fecha de última modificación del adjunto.</p></li>
+<li><p><strong>TimeCreated:</strong> Fecha de creación del adjunto.</p></li>
+<li><p><strong>CreatedBy:</strong> Usuario que creó el adjunto.</p></li>
+<li><p><strong>ModifiedBy:</strong> Último usuario en modificar el adjunto.</p></li>
+<li><p><strong>CheckoutBy:</strong> Último usuario que desprotegió el adjunto.</p></li>
+<li><p><strong>CheckoutDate:</strong> Fecha de última desprotección del adjunto.</p></li>
+<li><p><strong>StorageID:</strong> Identificador del almacenamiento utilizado para el
+adjunto.</p></li>
+<li><p><strong>Size:</strong> Tamaño del adjunto.</p></li>
+<li><p><strong>CheckOutSize:</strong> Tamaño del adjunto desprotegido.</p></li>
+<li><p><strong>FlowStepID:</strong> Paso donde se asoció el adjunto.</p></li>
+<li><p><strong>FlowStepToID:</strong> Instancia del paso interactivo en donde se asoció el
+adjunto.</p></li>
+<li><p><strong>PropertiesXml:</strong> Propiedades del adjunto.</p></li>
+<li><p><strong>RefDataId:</strong> Identificador del dato tipo documento que agregó el
+adjunto, si corresponde.</p></li>
+<li><p><strong>RefDataInstance:</strong> Instancia del dato tipo documento que agregó el
+adjunto, si corresponde.</p></li>
+<li><p><strong>StorageType:</strong> Indica en que tipo de almacenamiento está guardado el adjunto.
+Los posibles valores son: <em>0 = Base de datos de Qflow, 1 = Azure Blob Storage,
+2 = Base de datos externa</em>.</p></li>
+<li><p><strong>ModifiedByExternalEmail:</strong> Email del usuario que modificó el adjunto en caso de ser externo.</p></li>
+</ul>
+<p><strong>FlowAttachmentHistory</strong></p>
+<p>Esta tabla mantiene la información histórica de los adjuntos a un
+proceso, pero no el contenido de los adjuntos.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>AttachID:</strong> Identificador del adjunto.</p></li>
+<li><p><strong>AttachVersion:</strong> Identificador numérico de la versión del adjunto.</p></li>
+<li><p><strong>Name:</strong> Nombre del adjunto.</p></li>
+<li><p><strong>Description:</strong> Descripción del adjunto.</p></li>
+<li><p><strong>TimeLastModified:</strong> Fecha de última modificación del adjunto.</p></li>
+<li><p><strong>TimeCreated:</strong> Fecha de creación del adjunto.</p></li>
+<li><p><strong>CreatedBy:</strong> Usuario que creó el adjunto.</p></li>
+<li><p><strong>ModifiedBy:</strong> Último usuario en modificar el adjunto.</p></li>
+<li><p><strong>StorageID:</strong> Identificador del almacenamiento utilizado para el
+adjunto.</p></li>
+<li><p><strong>Size:</strong> Tamaño del adjunto.</p></li>
+<li><p><strong>TimeModified:</strong> Fecha de modificación del adjunto.</p></li>
+<li><p><strong>FlowStepID :</strong> Paso en donde se modificó el adjunto.</p></li>
+<li><p><strong>FlowStepToID:</strong> Instancia del paso interactivo en donde se modificó el
+adjunto.</p></li>
+<li><p><strong>FlowStepName:</strong> Nombre del paso en donde se modificó el adjunto.</p></li>
+<li><p><strong>RefDataId:</strong> Identificador del dato tipo documento que agregó el
+adjunto, si corresponde.</p></li>
+<li><p><strong>RefDataInstance:</strong> Instancia del dato tipo documento que agregó el
+adjunto, si corresponde.</p></li>
+<li><p><strong>ModifiedByExternalEmail:</strong> Email del usuario que modificó el adjunto en caso de ser externo.</p></li>
+</ul>
+<p><strong>FlowAttachmentStorage</strong></p>
+<p>Esta tabla mantiene el contenido de los adjuntos.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>AttachID:</strong> Identificador del adjunto.</p></li>
+<li><p><strong>AttachVersion:</strong> Identificador numérico de la versión del adjunto.</p></li>
+<li><p><strong>Size:</strong> Tamaño del adjunto.</p></li>
+<li><p><strong>Content:</strong> Bytesque representan el contenido del adjunto.</p></li>
+<li><p><strong>CheckOutSize:</strong> Tamaño del adjunto desprotegido.</p></li>
+<li><p><strong>CheckOutContent:</strong> Bytes que representan el contenido del adjunto
+desprotegido.</p></li>
+<li><p><strong>FullTextID:</strong> Identificador para indexado full-text.</p></li>
+<li><p><strong>ContentType:</strong> Formato del documento (Mime).</p></li>
+<li><p><strong>TimeStamp:</strong> Marca de última indización utilizada para el indexado
+full-text.</p></li>
+<li><p><strong>IsEncrypted:</strong> Bandera que indica si el contenido del adjunto fue
+encriptado por Qflow.</p></li>
+</ul>
+<p><strong>FlowComments</strong></p>
+<p>Esta tabla mantiene los comentarios realizados en el proceso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowCommentID:</strong> Identificador del comentario.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>FlowStepID:</strong> Identificador del paso donde se realizó el comentario,
+si existe.</p></li>
+<li><p><strong>FlowStepToID:</strong> Identificador de la instancia del paso donde se
+realizó el comentario, si existe.</p></li>
+<li><p><strong>MemberID:</strong> Identificador del usuario que realizó la acción.</p></li>
+<li><p><strong>TimeStamp:</strong> Fecha de creación del comentario.</p></li>
+<li><p><strong>CommentText:</strong> String que contiene el comentario realizado.</p></li>
+<li><p><strong>FlowStepName:</strong> String que contiene el nombre del paso en el que se
+realizó el comentario, si existe.</p></li>
+<li><p><strong>EditAction:</strong> String que contiene la acción en la cual se realizó el
+comentario. Los valores pueden ser: <em>0 = StartFlow, 1 = EditFlow, 3 =
+RespondTask, 8 = BotJob, 9 = Unknown</em>.</p></li>
+<li><p><strong>Response:</strong> String que contiene la respuesta de la tarea en cual
+se realizó el comentario. Se guarda si en la tarea de usuario
+se marcó la opción de «Agregar respuesta a comentarios».</p></li>
+</ul>
+<p><strong>FlowCounter</strong></p>
+<p>Esta tabla se utiliza para manejar contadores dentro del proceso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>Name:</strong> Nombre del contador.</p></li>
+<li><p><strong>Value:</strong> Valor actual del contador.</p></li>
+</ul>
+<p><strong>FlowCounterHistory</strong></p>
+<p>Esta tabla se utiliza para manejar los históricos de los contadores
+dentro del proceso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>Name:</strong> Nombre del contador.</p></li>
+<li><p><strong>Value:</strong> Valor del contador.</p></li>
+<li><p><strong>TimeModified:</strong> Fecha en que se modificó el contador.</p></li>
+<li><p><strong>FlowStepID:</strong> Paso en el que se modificó el contador.</p></li>
+</ul>
+<p><strong>FlowData</strong></p>
+<p>Esta tabla se utiliza para manejar los datos de aplicación del proceso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>TemplateDataID:</strong> Identificador de la definición de dato de aplicación
+correspondiente a este dato.</p></li>
+<li><p><strong>DataType:</strong> Tipo de dato (System.String, System.Decimal,
+System.Boolean, System.DateTime).</p></li>
+<li><p><strong>Value:</strong> Lista de valores correspondientes al dato en formato Xml. Los
+valores dentro de los nodos se representan en formato universal.</p></li>
+<li><p><strong>NormalizedValue:</strong> Columna calculada basada en el primer valor del
+dato. Utilizada en índices para mejorar el desempeño de filtros y
+ordenamientos por datos.</p></li>
+</ul>
+<p><strong>FlowDataHistory</strong></p>
+<p>Esta tabla se utiliza para manejar el historial de los datos de
+aplicación del proceso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>TemplateDataID:</strong> Identificador de la definición de dato de aplicación
+correspondiente a este dato.</p></li>
+<li><p><strong>TimeModified:</strong> Fecha de modificación del dato.</p></li>
+<li><p><strong>FlowStepID:</strong> Paso donde el dato fue modificado.</p></li>
+<li><p><strong>FlowStepToID:</strong> Instancia del paso interactivo en donde el dato fue
+modificado.</p></li>
+<li><p><strong>DataType:</strong> Tipo de dato (System.String, System.Decimal,
+System.Boolean, System.DateTime).</p></li>
+<li><p><strong>Value:</strong> Lista de valores correspondientes al dato en formato Xml. Los
+valores dentro de los nodos se representan en formato universal.</p></li>
+<li><p><strong>ModifiedBy:</strong> Identificador del usuario que realizó la acción que
+modificó el dato.</p></li>
+<li><p><strong>FlowStepName:</strong> Nombre del paso en el que se modificó el dato.</p></li>
+<li><p><strong>EditAction:</strong> Acción que se realizó para modificar el dato (StartFlow
+= 0, EditFlow = 1, UpdateEditFlow = 2, RespondTask = 3, StepBack = 4,
+RetryExecution = 5, StepExecution = 6, Delegate = 7, BotJob= 8, Unknown
+= 9).</p></li>
+</ul>
+<p><strong>FlowEventHandler</strong></p>
+<p>Esta tabla se utiliza para manejar eventos generados en tiempo de
+ejecución dentro del proceso (p ej: Sincronización).</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>EventHandlerID:</strong> Identificador del evento.</p></li>
+<li><p><strong>TemplateStepID:</strong> Paso de la definición del proceso al cual se asocia
+el evento.</p></li>
+<li><p><strong>EventType:</strong> Tipo de evento al que se responde.</p></li>
+<li><p><strong>HandlerType:</strong> Tipo de manejador de eventos utilizado.</p></li>
+<li><p><strong>HandlerInfo:</strong> Información sobre el evento en formato Xml.</p></li>
+</ul>
+<p><strong>FlowEventHandlerHistory</strong></p>
+<p>Esta tabla se utiliza para manejar el histórico de los eventos generados
+en tiempo de ejecución dentro del proceso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>EventHandlerID:</strong> Identificador del evento.</p></li>
+<li><p><strong>TemplateStepID:</strong> Paso de la definición del proceso al cual se asocia
+el evento.</p></li>
+<li><p><strong>EventType:</strong> Tipo de evento al que se responde.</p></li>
+<li><p><strong>HandlerType:</strong> Tipo de manejador de eventos utilizado.</p></li>
+<li><p><strong>HandlerInfo:</strong> Información sobre el evento en formato Xml.</p></li>
+<li><p><strong>TimeModified:</strong> Fecha de modificación del evento.</p></li>
+<li><p><strong>FlowStepID:</strong> Paso en que se modificó el evento.</p></li>
+</ul>
+<p><strong>FlowHistory</strong></p>
+<p>Esta tabla almacena datos históricos sobre cada instancia de proceso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>Name:</strong> Nombre del proceso.</p></li>
+<li><p><strong>Description:</strong> Descripción del proceso.</p></li>
+<li><p><strong>Importance:</strong> Importancia del proceso (Low = 0, Normal = 1, High = 2).</p></li>
+<li><p><strong>Flag:</strong> Texto que indica al usuario el estado del proceso.</p></li>
+<li><p><strong>Progress</strong>: Progreso del proceso.</p></li>
+<li><p><strong>TimeModified:</strong> Fecha de modificación del proceso.</p></li>
+<li><p><strong>FlowStepID:</strong> Paso en que se modificó el proceso.</p></li>
+<li><p><strong>FlowStepToID:</strong> Instancia del paso interactivo en que se modificó el
+proceso.</p></li>
+<li><p><strong>ModifiedBy:</strong> Identificador del usuario que realizó la acción que
+modificó el proceso.</p></li>
+<li><p><strong>FlowStepName:</strong> Nombre del paso en el que se modificó el proceso.</p></li>
+<li><p><strong>EditAction:</strong> Acción que se realizó para modificar el proceso
+(StartFlow = 0, EditFlow = 1, UpdateEditFlow = 2, RespondTask = 3,
+StepBack = 4, RetryExecution = 5, StepExecution = 6, Delegate = 7,
+BotJob= 8, Unknown = 9).</p></li>
+</ul>
+<p><strong>FlowLog</strong></p>
+<p>Esta tabla almacena el registro de las acciones realizadas sobre los
+procesos.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>Source:</strong> Herramienta donde se generó la acción.</p></li>
+<li><p><strong>ActionName:</strong> Nombre de la acción.</p></li>
+<li><p><strong>MemberID:</strong> Usuario que disparó la acción.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso sobre el que se disparó la acción.</p></li>
+<li><p><strong>ThreadID:</strong> Identificador del hilo sobre el que se disparó la acción.</p></li>
+<li><p><strong>StepID:</strong> Identificador del paso sobre el que se disparó la acción.</p></li>
+<li><p><strong>StepToID:</strong> Identificador de la instancia del paso interactivo sobre
+la que se disparó la acción.</p></li>
+<li><p><strong>TimeStamp:</strong> Fecha en que se disparó la acción.</p></li>
+<li><p><strong>Hash:</strong> Campo utilizado para validar la integridad del log.</p></li>
+<li><p><strong>IpAddress:</strong> Dirección IP del cliente que disparó la acción.</p></li>
+<li><p><strong>MacAddress:</strong> MacAddress del cliente que disparó la acción.</p></li>
+<li><p><strong>ActionInfo:</strong> Información adicional de la acción, guardada en formato
+XML.</p></li>
+</ul>
+<p><strong>FlowLogHash</strong></p>
+<p>Esta tabla se utiliza para validar la integridad del log de procesos.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowId:</strong> Campo utilizado para validar la integridad del log.</p></li>
+<li><p><strong>LogCount:</strong> Campo utilizado para validar la integridad del log.</p></li>
+<li><p><strong>Hash:</strong> Campo utilizado para validar la integridad del log.</p></li>
+</ul>
+<p><strong>FlowRole</strong></p>
+<p>Esta tabla almacena la información sobre los roles del proceso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>TemplateRoleID:</strong> Identificador del rol de proceso.</p></li>
+</ul>
+<p><strong>FlowRoleHistory</strong></p>
+<p>Esta tabla almacena la información histórica sobre los roles del
+proceso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>TemplateRoleID:</strong> Identificador del rol de proceso.</p></li>
+<li><p><strong>TimeModified:</strong> Fecha de modificación del rol.</p></li>
+<li><p><strong>FlowStepID:</strong> Paso en que se modificó el rol.</p></li>
+<li><p><strong>FlowStepToID:</strong> Instancia del paso interactivo en que se modificó el
+rol.</p></li>
+<li><p><strong>FlowRoleMembers:</strong> Miembros del rol almacenados en formato XML.</p></li>
+<li><p><strong>ModifiedBy:</strong> Identificador del usuario que realizó la acción que
+modificó el rol.</p></li>
+<li><p><strong>FlowStepName:</strong> Nombre del paso en el que se modificó el rol.</p></li>
+<li><p><strong>EditAction:</strong> Acción que se realizó para modificar el rol (StartFlow =
+0, EditFlow = 1, UpdateEditFlow = 2, RespondTask = 3, StepBack = 4,
+RetryExecution = 5, StepExecution = 6, Delegate = 7, BotJob= 8, Unknown
+= 9).</p></li>
+</ul>
+<p><strong>FlowRoleMember</strong></p>
+<p>Esta tabla almacena la información sobre los miembros de los roles del
+proceso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateRoleID:</strong> Identificador del rol de proceso.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>SecurityMemberID:</strong> Identificador del miembro de seguridad asociado al
+proceso.</p></li>
+<li><p><strong>FlowRoleMemberID:</strong> Identificador del rol asociado al rol (cuando
+corresponde debido a una regla)</p></li>
+</ul>
+<p><strong>FlowStage</strong></p>
+<p>Esta tabla almacena la información de las etapas transcurridas y en
+proceso para los procesos.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>FlowStageID:</strong> Identificador de la etapa.</p></li>
+<li><p><strong>TemplateID:</strong> Identificador de la plantilla de proceso.</p></li>
+<li><p><strong>TemplateStageID:</strong> Identificador de la definición de la etapa.</p></li>
+<li><p><strong>StartDate:</strong> Fecha de inicio de la etapa.</p></li>
+<li><p><strong>LastStartDate:</strong> Última fecha en que se inició la etapa, en caso de
+que la etapa haya finalizado y luego se haya reactivado.</p></li>
+<li><p><strong>EndDate:</strong> Fecha de fin de la etapa.</p></li>
+<li><p><strong>TotalHours:</strong> Tiempo total de la etapa (en horas calendario).</p></li>
+<li><p><strong>TotalDays:</strong> Tiempo total de la etapa (en días calendario).</p></li>
+<li><p><strong>ExpectedEndDate:</strong> Fecha esperada para el fin de la etapa.</p></li>
+<li><p><strong>ExpectedHours:</strong> Tiempo esperado para el fin de la etapa (en horas
+calendario).</p></li>
+<li><p><strong>ExpectedDays:</strong> Tiempo esperado para el fin de la etapa (en días
+calendario).</p></li>
+<li><p><strong>MaximumEndDate:</strong> Fecha máxima aceptada para el fin de la etapa.</p></li>
+<li><p><strong>MaximumHours:</strong> Tiempo máximo aceptado para el fin de la etapa (en
+horas calendario).</p></li>
+<li><p><strong>MaximumDays:</strong> Tiempo máximo aceptado para el fin de la etapa (en días
+calendario).</p></li>
+<li><p><strong>ExpectedTimeAlertDispatched:</strong> Indica si ya se procesó la alerta de
+tiempo esperado de la etapa.</p></li>
+<li><p><strong>MaximumTimeAlertDispatched:</strong> Indica si ya se procesó la alerta de
+tiempo máximo de la etapa.</p></li>
+<li><p><strong>Status:</strong> Columna calculada que representa el estado actual de la etapa.
+Los valores posibles son: <em>0 = Con holgura, 1 = En tiempo, 2 = Retrasada</em>.</p></li>
+</ul>
+<p><strong>FlowStageHistory</strong></p>
+<p>Almacena información que relaciona el inicio y fin de las etapas de los
+procesos con los pasos.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>FlowStageID:</strong> Identificador de la etapa.</p></li>
+<li><p><strong>FlowStepID:</strong> Identificador del paso que inicia o termina la etapa.</p></li>
+<li><p><strong>IsEnd:</strong> Indica el paso inicia o termina la etapa.</p></li>
+</ul>
+<p><strong>FlowStageTo</strong></p>
+<p>Esta tabla almacena la información de los destinatarios de alertas de
+las etapas transcurridas.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>FlowStageID:</strong> Identificador de la etapa.</p></li>
+<li><p><strong>MemberID:</strong> Identificador del usuario destinatario.</p></li>
+<li><p><strong>IsExpectedTime:</strong> Indica si el mensaje corresponde a una alerta
+de tiempo esperado.</p></li>
+<li><p><strong>TemplateID:</strong> Identificador de la plantilla de proceso.</p></li>
+<li><p><strong>TemplateStageID:</strong> Identificador de la definición de la etapa.</p></li>
+<li><p><strong>Dispatched:</strong> Fecha de despachado del mensaje.</p></li>
+<li><p><strong>Delivered:</strong> Fecha de envío del mensaje.</p></li>
+<li><p><strong>Read:</strong> Fecha de lectura del mensaje.</p></li>
+<li><p><strong>ReadBy:</strong> Usuario que leyó el mensaje.</p></li>
+<li><p><strong>Subject:</strong> Asunto del mensaje.</p></li>
+<li><p><strong>DeliveredPushNotification:</strong> Fecha de envío del mensaje al servicio de
+notificaciones push.</p></li>
+</ul>
+<p><strong>FlowStep</strong></p>
+<p>Esta tabla almacena la información de los pasos del proceso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>FlowStepID:</strong> Identificador del paso del proceso.</p></li>
+<li><p><strong>TemplateID:</strong> Identificador de la plantilla a la que corresponde el
+paso.</p></li>
+<li><p><strong>VersionID:</strong> Identificador de la versión de la plantilla.</p></li>
+<li><p><strong>TemplateStepID:</strong> Identificador de la definición de paso a la que
+corresponde esta instancia.</p></li>
+<li><p><strong>TemplateStepClassID:</strong> Identificador del tipo de paso.</p></li>
+<li><p><strong>Name:</strong> Nombre del paso.</p></li>
+<li><p><strong>Description:</strong> Descripción del paso.</p></li>
+<li><p><strong>StepStatus:</strong> Estado del paso (Normal = 0, WithReminder = 1, WithAlert
+= 2, OutOfTime = 3, StepDelegated = 4, StepFinalized = 9)</p></li>
+<li><p><strong>TimeStarted:</strong> Fecha de inicio del paso.</p></li>
+<li><p><strong>TimeEnded:</strong> Fecha de finalización del paso.</p></li>
+<li><p><strong>PreviousStep:</strong> Paso anterior a este en el proceso.</p></li>
+<li><p><strong>IsUserInteractive:</strong> Especifica si por el tipo de paso este paso es
+interactivo con el usuario.</p></li>
+<li><p><strong>IsTimedTask:</strong> Especifica si este paso es evalúa acciones temporales.</p></li>
+<li><p><strong>IsEvaluable:</strong> Especifica si el resultado de ejecución de este paso
+puede ser evaluado en pasos posteriores.</p></li>
+<li><p><strong>Subject:</strong> Asunto del mensaje enviado al usuario en caso de tratarse
+de un paso interactivo.</p></li>
+<li><p><strong>FlowStepCorrelativeID:</strong> Identificador correlativo del paso.</p></li>
+<li><p><strong>StartedFlowID:</strong> Para el caso de inicio de sub proceso se almacena el
+identificador del proceso iniciado.</p></li>
+<li><p><strong>TemplateWorkletStepID:</strong> Identificador del paso de worklet al que
+corresponde este paso.</p></li>
+<li><p><strong>ParentFlowStepID:</strong> Identificador del paso de worklet (en ejecución)
+al que pertenece este paso.</p></li>
+<li><p><strong>IsGroupOutputStep:</strong> Bandera que indica si el paso corresponde a la
+ejecución de salida de un grupo o worklet.</p></li>
+<li><p><strong>FlowStageID:</strong> Identificador de la etapa a la que pertenece el paso.</p></li>
+<li><p><strong>TemplateStageID:</strong> Identificador de definición de la etapa a la que
+pertenece el paso.</p></li>
+</ul>
+<p><strong>FlowStepTo</strong></p>
+<p>Esta tabla almacena los destinatarios de los pasos interactivos del
+proceso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>FlowStepID:</strong> Identificador del paso del proceso.</p></li>
+<li><p><strong>FlowStepToID:</strong> Identificador del paso con destinatario del proceso.</p></li>
+<li><p><strong>MemberID:</strong> Identificador del miembro al que se dirige la tarea.</p></li>
+<li><p><strong>ResponseKey:</strong> Clave de la respuesta dada por el usuario.</p></li>
+<li><p><strong>Dispatched:</strong> Fecha de despachado el mensaje.</p></li>
+<li><p><strong>Delivered:</strong> Fecha de entregado el mensaje.</p></li>
+<li><p><strong>Read:</strong> Fecha de lectura del mensaje.</p></li>
+<li><p><strong>ReadBy:</strong> Usuario que leyó la tarea.</p></li>
+<li><p><strong>Responded:</strong> Fecha de respuesta al paso</p></li>
+<li><p><strong>RespondedBy:</strong> Usuario que respondióel paso interactivo.</p></li>
+<li><p><strong>Subject:</strong> Asunto del mensaje enviado al usuario</p></li>
+<li><p><strong>Progress:</strong> Progreso de la tarea.</p></li>
+<li><p><strong>Signature:</strong> Arreglo de bytes que representa una firma digital.</p></li>
+<li><p><strong>SignatureType:</strong> Tipos de firma, Internal = 0, X509Unicode = 1,
+X509Firefox = 2, X509 = 3.</p></li>
+<li><p><strong>CheckoutDate:</strong> Fecha en que se tomó la tarea (cuando está dirigida a
+una cola de trabajo)</p></li>
+<li><p><strong>WorkQueueID:</strong> Identificador de la cola de trabajo (cuando está
+dirigida a una cola de trabajo)</p></li>
+<li><p><strong>Status:</strong> Bandera que indica el estado en el que se encuentra la
+tarea, Normal = 0, Archivada = 1, (cuando está dirigida a una cola de
+trabajo)</p></li>
+<li><p><strong>DeliveredPushNotification:</strong> Fecha de envío del mensaje al servicio de
+notificaciones push.</p></li>
+<li><p><strong>ExternalAddresseeEmail:</strong> Email del destinatario en caso de que sea
+externo al sistema.</p></li>
+<li><p><strong>Type:</strong> Tipo de tarea según su destinatario (Normal = 0, Cola de trabajo = 1, Externa = 2).</p></li>
+</ul>
+<p><strong>FlowStepAction</strong></p>
+<p>Esta tabla almacena las acciones disparadas durante la vida de un
+proceso (delegaciones, alertas, recordatorios, vencimientos).</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>FlowStepID:</strong> Identificador del paso del proceso.</p></li>
+<li><p><strong>FlowStepActionID:</strong> Identificador de la acción tomada en un paso.</p></li>
+<li><p><strong>TemplateStepActionID:</strong> Identifcador de la acción definida en la
+plantilla de proceso.</p></li>
+<li><p><strong>ActionClass:</strong> Tipo de acción (Reminder = 1, Alert = 2, Time Out = 3,
+Delegation = 4, Dismiss = 5).</p></li>
+<li><p><strong>TimeFired:</strong> Fecha en que se disparó la acción.</p></li>
+</ul>
+<p><strong>FlowStepActionTo</strong></p>
+<p>Esta tabla almacena los destinatarios de las acciones interactivas
+disparadas durante la vida de un proceso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>FlowStepID:</strong> Identificador del paso del proceso.</p></li>
+<li><p><strong>FlowStepActionID:</strong> Identificador de la acción tomada en un paso.</p></li>
+<li><p><strong>FlowStepActionToID:</strong> Identificador del la acción con destinatario
+tomada en un paso.</p></li>
+<li><p><strong>MemberID:</strong> Identificador del miembro al que se dirige la acción.</p></li>
+<li><p><strong>Dispatched:</strong> Fecha de despachado el mensaje.</p></li>
+<li><p><strong>Delivered:</strong> Fecha de entregado el mensaje.</p></li>
+<li><p><strong>Read:</strong> Fecha de lectura del mensaje.</p></li>
+<li><p><strong>ReadBy:</strong> Usuario que leyó el mensaje.</p></li>
+<li><p><strong>Subject:</strong> String que contiene el asunto de la acción enviado en el
+mensaje al usuario.</p></li>
+<li><p><strong>DeliveredPushNotification:</strong> Fecha de envío del mensaje al servicio de
+notificaciones push.</p></li>
+<li><p><strong>ExternalAddresseeEmail:</strong> Email del destinatario en caso de que sea
+externo al sistema.</p></li>
+<li><p><strong>IsExternal:</strong> Indica si el destinatario es externo al sistema.</p></li>
+</ul>
+<p><strong>FlowStepBot</strong></p>
+<p>Esta tabla almacena las tareas de bot pendientes.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>FlowStepID:</strong> Identificador del paso del proceso.</p></li>
+<li><p><strong>BotID:</strong> Bot asignado a la tarea.</p></li>
+<li><p><strong>Status:</strong> Estado de la tarea (Active = 0, Completed = 1, Aborted = 2).</p></li>
+<li><p><strong>Message:</strong> Mensaje de error asociado a la tarea.</p></li>
+</ul>
+<p><strong>FlowThread</strong></p>
+<p>Esta tabla almacena los hilos del proceso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso.</p></li>
+<li><p><strong>ThreadId:</strong> Identificador del hilo.</p></li>
+<li><p><strong>ThreadStatus:</strong> Estado del hilo (Running = 0, Waiting = 1, Fork = 2,
+Join = 3, Error = 4, Paused = 5, Finalized = 9).</p></li>
+<li><p><strong>CurrentStepID:</strong> Identificador del paso actual del hilo.</p></li>
+<li><p><strong>ParentThreadID:</strong> Identificador del hilo padre del proceso (Utilizado
+en el caso de uso de Fork/Join)</p></li>
+<li><p><strong>StepStatus:</strong> Estado delpaso actual del hilo (Normal = 0, WithReminder
+= 1, WithAlert = 2, OutOfTime = 3, StepDelegated = 4, StepFinalized =
+9).</p></li>
+<li><p><strong>ErrorMessage:</strong> Mensaje del error en el hilo de ejecución.</p></li>
+<li><p><strong>ParentStepID:</strong> Identificador del paso de fork asociado a este hilo</p></li>
+</ul>
+</section>
+<section id="tablas-definicion-de-procesos">
+<h3>Tablas: Definición de procesos<a class="headerlink" href="#tablas-definicion-de-procesos" title="Link to this heading"></a></h3>
+<p>Las siguientes tablas almacenan la información de la definición de
+procesos.</p>
+<p><strong>Template</strong></p>
+<p>Esta tabla almacena la información de las plantillas de procesos
+definidas.Los datos de esta tabla se complementan con los datos de la
+tabla TemplatePackage.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateID:</strong> Identificador de la plantilla.</p></li>
+<li><p><strong>ProductionVersionID:</strong> Identificador de la versión en producción.</p></li>
+<li><p><strong>NotifyErrorFlows:</strong> Bandera que indica si se notifica al dueño de la
+plantilla cuando un proceso entra en error.</p></li>
+<li><p><strong>IsBpmn:</strong> Bandera que indica si la plantilla usa diseño BPMN.</p></li>
+<li><p><strong>StageCalendarID:</strong> Identificador del calendario utilizado para tomar
+el tiempo de las etapas.</p></li>
+</ul>
+<p><strong>TemplateBot</strong></p>
+<p>Esta tabla almacena la información de los bots definidos en el sistema.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>BotID:</strong> Identificador del bot.</p></li>
+<li><p><strong>ContainerID:</strong> Identificador del contenedor.</p></li>
+<li><p><strong>Name:</strong> Nombre del bot.</p></li>
+<li><p><strong>Description:</strong> Descripción del bot.</p></li>
+<li><p><strong>Parameters:</strong> Información de los parámetros del bot en formato Xml.</p></li>
+<li><p><strong>Scope:</strong> Información del alcance del bot en formato Xml.</p></li>
+<li><p><strong>Notification:</strong> Información del método de notificación del bot en
+formato Xml.</p></li>
+<li><p><strong>Timeout:</strong> Información del vencimiento del bot en formato Xml.</p></li>
+<li><p><strong>ExecutableBy:</strong> Usuario habilitado para ejecutar el bot.</p></li>
+</ul>
+<p><strong>TemplateChart</strong></p>
+<p>Esta tabla guarda información de las gráficas personalizadas que se han
+diseñado.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateChartID:</strong> Identificador de la gráfica.</p></li>
+<li><p><strong>ContainerID:</strong> Identificador del contenedor.</p></li>
+<li><p><strong>MemberID:</strong> Identificador del usuario dueño de la gráfica.</p></li>
+<li><p><strong>Name:</strong> Nombre de la gráfica.</p></li>
+<li><p><strong>Description:</strong> Descripción de la gráfica.</p></li>
+<li><p><strong>IsHighlightChart:</strong> Define si la gráfica se muestra en el menú de
+navegación.</p></li>
+<li><p><strong>ChartType:</strong> Tipo de gráfica.</p></li>
+<li><p><strong>Settings:</strong> Configuración de la gráfica almacenada en Xml.</p></li>
+<li><p><strong>RestrictPermissions:</strong> Indica si la gráfica define permisos de acceso.</p></li>
+</ul>
+<p><strong>TemplateChartPermission</strong></p>
+<p>Esta tabla guarda los permisos definidos para acceder a las gráficas.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateChartID:</strong> Identificador de la gráfica.</p></li>
+<li><p><strong>SecurityRoleID:</strong> Identificador del rol de seguridad.</p></li>
+<li><p><strong>IsAllowed:</strong> Indica si se permite o deniega el acceso a la gráfica
+para el rol de seguridad.</p></li>
+</ul>
+<p><strong>TemplateCustomForm</strong></p>
+<p>Esta tabla almacena la información de los formularios personalizados
+definidos en el sistema.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>CustomFormID:</strong> Identificador del formulario.</p></li>
+<li><p><strong>ContainerID:</strong> Identificador del contenedor.</p></li>
+<li><p><strong>Name:</strong> Nombre del formulario.</p></li>
+<li><p><strong>Description:</strong> Descripción del formulario.</p></li>
+<li><p><strong>UriConfiguration:</strong> String que contiene la información del formulario
+en formatoXml.</p></li>
+<li><p><strong>CustomFormTypes:</strong> String con la lista de tipos de formularios a los
+que aplica el formulario personalizado. Estos valores pueden ser:
+<em>StartEvent, UserTask, UserNotificationTask, FlowEdit, FlowForm</em>.</p></li>
+</ul>
+<p><strong>TemplateData</strong></p>
+<p>Esta tabla contiene la meta información de los datos de aplicación
+definidos en el sistema.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateDataID:</strong> Identificador de la definición del dato.</p></li>
+<li><p><strong>ContainerID:</strong> Identificador del contenedor.</p></li>
+<li><p><strong>Name:</strong> Nombre del dato.</p></li>
+<li><p><strong>Description:</strong> Descripción del dato.</p></li>
+<li><p><strong>DomainID:</strong> Identificador del dominio que corresponde al dato.</p></li>
+<li><p><strong>IsArray:</strong> Bandera que indica si el dato puede tener más de un valor.</p></li>
+<li><p><strong>DefaultValue:</strong> Definición de los valores por defecto en formatoXml.</p></li>
+<li><p><strong>GroupName:</strong> Nombre del grupo al que pertenece el dato.</p></li>
+<li><p><strong>GraphicConfigurationXml:</strong> Configuración gráfica del dato en formato
+Xml.</p></li>
+<li><p><strong>LineBlock:</strong> Bloque de línea al que pertenece el dato.</p></li>
+<li><p><strong>ParameterMappingXml:</strong> Mapeo de parámetros del dato para el caso de
+utilizar dominios paramétricos definido en formato Xml.</p></li>
+<li><p><strong>DefaultValueForNewInstance:</strong> Valor por defecto para las nuevas
+instancias.</p></li>
+</ul>
+<p><strong>TemplateDataDomain</strong></p>
+<p>Esta tabla almacena la información sobre los dominios de datos definidos
+en el sistema.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>DomainID:</strong> Identificador del dominio de datos.</p></li>
+<li><p><strong>DataType:</strong> Tipo de dato del dominio de datos.</p></li>
+<li><p><strong>ContainerID:</strong> Identificador del contenedor del dominio.</p></li>
+<li><p><strong>ControlType:</strong> Tipo de control utilizado por el dominio.</p></li>
+<li><p><strong>DataSourceType:</strong> Tipo de origende datos utilizado para el dominio.</p></li>
+<li><p><strong>DataSourceConfigXml:</strong> Configuración de la fuente de datos en formato
+Xml.</p></li>
+<li><p><strong>ConfigurationXml:</strong> Configuración del dominio en formato Xml.</p></li>
+<li><p><strong>Name:</strong> Nombre del dominio de datos.</p></li>
+<li><p><strong>Description:</strong> Descripción del dominio de datos.</p></li>
+<li><p><strong>ConstraintsXml:</strong> Restricciones del dominio de datos en formato Xml.</p></li>
+<li><p><strong>RequiresDataDescription:</strong> Bandera que indica si el dominio requiere
+buscar la descripción del identificador en la fuente de datos.</p></li>
+</ul>
+<p><strong>TemplateDataDomainCache</strong></p>
+<p>Esta tabla almacena la información de las descripciones del origen de
+datos a partir de un indicador.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>DomainID:</strong> Identificador del dominio.</p></li>
+<li><p><strong>KeyValue:</strong> Valor de la clave.</p></li>
+<li><p><strong>Description:</strong> Valor de la descripción.</p></li>
+<li><p><strong>TimeLastModified:</strong> Fecha de última modificación.</p></li>
+</ul>
+<p><strong>TemplateEventHandler</strong></p>
+<p>Esta tabla almacena la información de los manejadores de eventos
+definidos en el sistema.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>EventHandlerID:</strong> Identificador del manejador de eventos.</p></li>
+<li><p><strong>ContainerID:</strong> Identificador del contenedor del manejador.</p></li>
+<li><p><strong>Name:</strong> Nombre del manejador.</p></li>
+<li><p><strong>Description:</strong> Descripción del manejador.</p></li>
+<li><p><strong>Order:</strong> Orden en que se dispara el manejador.</p></li>
+<li><p><strong>HandlerInfo:</strong> Información del comportamiento del manejador de
+eventos.</p></li>
+<li><p><strong>HandlerType:</strong> Tipo de manejador de evento (SynchronousHandler,
+AsynchronousHandler).</p></li>
+</ul>
+<p><strong>TemplateEventMapping</strong></p>
+<p>Esta tabla almacena la información sobre el mapeo de eventos con
+versiones de plantillas de procesos.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateID:</strong> Identificador de la plantilla.</p></li>
+<li><p><strong>VersionID:</strong> Identificador de la versión de la plantilla.</p></li>
+<li><p><strong>EventHandlerID:</strong> Identificador el manejador mapeado.</p></li>
+<li><p><strong>EventType:</strong> Tipo de evento mapeado.</p></li>
+</ul>
+<p><strong>TemplateIntegration</strong></p>
+<p>Esta tabla almacena información sobre las integraciones definidas en el
+sistema.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateIntegrationID:</strong> Identificador de la integración.</p></li>
+<li><p><strong>ContainerID:</strong> Identificador del contenedor de la integración.</p></li>
+<li><p><strong>Name:</strong> Nombre de la integración.</p></li>
+<li><p><strong>Description:</strong> Descripción de la integración.</p></li>
+<li><p><strong>ParameterXml:</strong> Parámetros de la integración.</p></li>
+<li><p><strong>ProductionOperationName:</strong> Nombre de la operación en producción para
+la integración.</p></li>
+<li><p><strong>ConfigurationXml:</strong> Configuración adicional de la integración en
+formato Xml.</p></li>
+</ul>
+<p><strong>TemplateIntegrationClass</strong></p>
+<p>Esta tabla almacena información sobre los tipos de integraciones que se
+pueden definir en el sistema.</p>
+<ul class="simple">
+<li><p><strong>TemplateIntegrationClassID:</strong> Identificador del tipo de integración.</p></li>
+<li><p><strong>ContainerID:</strong> Identificador del contenedor</p></li>
+<li><p><strong>DesignAssembly:</strong> Información sobre la implementación programática del
+tipo de integración.</p></li>
+<li><p><strong>DesignTypeName:</strong> Información sobre la implementación programática del
+tipo de integración.</p></li>
+<li><p><strong>FriendlyName:</strong> Nombre del tipo de integración.</p></li>
+<li><p><strong>DesignViewName:</strong> Nombre de la vista que implementa el diseño de la
+configuración del tipo de integración.</p></li>
+</ul>
+<p><strong>TemplateIntegrationOperation</strong></p>
+<p>Esta tabla almacena la información sobre las operaciones definidas para
+una integración.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateIntegrationID:</strong> Identificador de la integración a la que
+corresponde la operación.</p></li>
+<li><p><strong>TemplateOperationName:</strong> Nombre de la operación.</p></li>
+<li><p><strong>TemplateOperationInfo:</strong> Definición de la operación.</p></li>
+<li><p><strong>Description:</strong> Descripción de la operación.</p></li>
+</ul>
+<p><strong>TemplateKPI</strong></p>
+<p>Esta tabla guarda información de los indicadores que se han diseñado.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateKPIID:</strong> Identificador del indicador.</p></li>
+<li><p><strong>ContainerID:</strong> Identificador del contenedor.</p></li>
+<li><p><strong>MemberID:</strong> Identificador del usuario dueño del indicador.</p></li>
+<li><p><strong>Name:</strong> Nombre del indicador.</p></li>
+<li><p><strong>Description:</strong> Descripción del indicador.</p></li>
+<li><p><strong>IsHighlightKPI:</strong> Define si el indicador se muestra en el menú de
+navegación.</p></li>
+<li><p><strong>KPIType:</strong> Tipo de indicador.</p></li>
+<li><p><strong>Settings:</strong> Configuración del indicador almacenada en Xml.</p></li>
+<li><p><strong>RestrictPermissions:</strong> Indica si el indicador define permisos de
+acceso.</p></li>
+</ul>
+<p><strong>TemplateKPIPermission</strong></p>
+<p>Esta tabla guarda los permisos definidos para acceder a los indicadores.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateKPIID:</strong> Identificador del indicador.</p></li>
+<li><p><strong>SecurityRoleID:</strong> Identificador del rol de seguridad.</p></li>
+<li><p><strong>IsAllowed:</strong> Indica si se permite o deniega el acceso al indicador
+para el rol de seguridad.</p></li>
+</ul>
+<p><strong>TemplatePackage</strong></p>
+<p>Esta tabla almacena la información de los paquetes del sistema. Sirve de
+base para la definición de plantillas y versiones de plantillas.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>PackageID:</strong> Identificador del paquete.</p></li>
+<li><p><strong>PackageCorrelativeID:</strong> Identificador numérico del paquete.</p></li>
+<li><p><strong>Name:</strong> Nombre del paquete.</p></li>
+<li><p><strong>Description:</strong> Descripción del paquete.</p></li>
+<li><p><strong>ContainerID:</strong> Identificador del contenedor del paquete.</p></li>
+<li><p><strong>IsTemplate:</strong> Bandera que indica si se trata de una plantilla.</p></li>
+<li><p><strong>IsVersion:</strong> Bandera que indica si se trata de una versión de
+plantilla.</p></li>
+<li><p><strong>TimeLastModified:</strong> Fecha de última modificación.</p></li>
+<li><p><strong>TimeCreated:</strong> Fecha de creación.</p></li>
+<li><p><strong>CreatedBy:</strong> Usuario que creó el paquete.</p></li>
+<li><p><strong>ModifiedBy:</strong> Usuario que modificó el paquete por última vez.</p></li>
+<li><p><strong>CheckoutBy:</strong> Usuario que desprotegió el paquete.</p></li>
+<li><p><strong>CheckoutDate:</strong> Fecha en que se desprotegió el paquete.</p></li>
+<li><p><strong>IsCheckOutCompatible:</strong> Bandera que indica si la desprotección se
+realizó en modo compatible.</p></li>
+<li><p><strong>Owner:</strong> Usuario dueño del paquete.</p></li>
+<li><p><strong>IsLocked:</strong> Bandera que indica si el paquete está bloqueado,
+bloqueando la ejecución de todos los procesos correspondientes a este
+paquete.</p></li>
+<li><p><strong>LockTimeOut:</strong> Time out para el bloqueo.</p></li>
+<li><p><strong>IsPattern:</strong> Bandera que indica si la definición de proceso se puede
+utilizar como base para la creación de una nueva definición.</p></li>
+<li><p><strong>NotifyChanges:</strong> Bandera que indica si el paquete debe notificar
+cambios.</p></li>
+<li><p><strong>PackageTempXml:</strong> Xml que contiene la edición temporal de la versión
+de template.</p></li>
+<li><p><strong>TempLastModified:</strong> Fecha de última actualización de la edición
+temporal de la versión del template.</p></li>
+</ul>
+<p><strong>TemplatePackageLog</strong></p>
+<p>Esta tabla almacena la información de registro de auditoría de los
+paquetes.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>Source:</strong> Herramienta que origina el registro.</p></li>
+<li><p><strong>ActionName:</strong> Acción que origina el registro.</p></li>
+<li><p><strong>MemberID:</strong> Usuario que origina el registro.</p></li>
+<li><p><strong>PackageID:</strong> Paquete sobre el que se realizó la acción.</p></li>
+<li><p><strong>TimeStamp:</strong> Fecha en que se realizó la acción.</p></li>
+<li><p><strong>Hash:</strong> Información de integridad.</p></li>
+<li><p><strong>IpAddress:</strong> Dirección Ip de la estación desde la que se realizó la
+acción.</p></li>
+<li><p><strong>MacAddress:</strong> MacAddress de la estación desde la que se realizó la
+acción.</p></li>
+<li><p><strong>ActionComment:</strong> Comentario ingresado al realizar la acción.</p></li>
+</ul>
+<p><strong>TemplatePackageLogHash</strong></p>
+<p>Esta tabla se utiliza para asegurar la integridad del registro de
+auditoría de los paquetes.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>PackageId:</strong> Información de integridad.</p></li>
+<li><p><strong>LogCount:</strong> Información de integridad.</p></li>
+<li><p><strong>Hash:</strong> Información de integridad.</p></li>
+</ul>
+<p><strong>TemplateParameter</strong></p>
+<p>Esta tabla almacena la definición de los parámetros de aplicación.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateParameterID:</strong> Identificador del parámetro.</p></li>
+<li><p><strong>ContainerID:</strong> Identificador del contenedor del parámetro.</p></li>
+<li><p><strong>Name:</strong> Nombre del parámetro.</p></li>
+<li><p><strong>Description:</strong> Descripción del parámetro.</p></li>
+<li><p><strong>ParameterType:</strong> Tipo de parámetro de aplicación.</p></li>
+<li><p><strong>Value:</strong> Valor del parámetro.</p></li>
+</ul>
+<p><strong>TemplateRole</strong></p>
+<p>Esta tabla almacena la definición de los roles definidos en el sistema.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>ContainerID:</strong> Identificador del contenedor del rol.</p></li>
+<li><p><strong>TemplateRoleID:</strong> Identificador del rol del proceso.</p></li>
+<li><p><strong>Name:</strong> Nombre del rol del proceso.</p></li>
+<li><p><strong>Description:</strong> Descripción del rol del proceso.</p></li>
+<li><p><strong>IsMultiUser:</strong> Bandera que indica si el rol permite múltiples
+usuarios.</p></li>
+<li><p><strong>IsSystem:</strong> Bandera que indica si el rol es un rol de sistema</p></li>
+<li><p><strong>GraphicConfigurationXml:</strong> Configuración gráfica en formato Xml.</p></li>
+<li><p><strong>RoleRule:</strong> Campo que indica si el rol se resuelve en tiempo de
+ejecución basándose en una regla.</p></li>
+<li><p><strong>RestrictsMemberSelection:</strong> Bandera que indica si el rol restringe la
+selección de miembros.</p></li>
+</ul>
+<p><strong>TemplateRoleMember</strong></p>
+<p>Tabla que almacena los miembros de un rol de proceso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateRoleID:</strong> Identificador del rol de proceso.</p></li>
+<li><p><strong>SecurityMemberID:</strong> Identificador del miembro de seguridad.</p></li>
+<li><p><strong>TemplateRoleMemberID:</strong> Identificador de la referencia a otro rol de
+proceso.</p></li>
+</ul>
+<p><strong>TemplateRoleRestriction</strong></p>
+<p>Tabla que almacena información acerca de qué elementos del organigrama
+pueden ser miembros de roles de proceso, para aquellos roles de proceso
+que imponen restrincciones sobre quiénes pueden ser sus miembros.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateRoleID:</strong> Identificador del rol restringido.</p></li>
+<li><p><strong>SecurityMemberID:</strong> Identificador del miembro de seguridad.</p></li>
+<li><p><strong>RestrictionRule:</strong> Regla utilizada al momento de aplicar la
+restricción.</p></li>
+</ul>
+<p><strong>TemplateRoleRoundRobin</strong></p>
+<p>Tabla que mantiene registro del orden de asignación de un rol de proceso
+en caso de que el rol utilice asignación Round Robin.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateRoleID:</strong> Identificador del rol restringido.</p></li>
+<li><p><strong>LastUserID:</strong> Identificador del último usuario asignado al rol.</p></li>
+</ul>
+<p><strong>TemplateStage</strong></p>
+<p>Tabla que guarda las etapas definidas para los procesos.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateID:</strong> Identificador de la plantilla de proceso.</p></li>
+<li><p><strong>TemplateStageID:</strong> Identificador de la etapa.</p></li>
+<li><p><strong>Name:</strong> Nombre de la etapa.</p></li>
+<li><p><strong>Description:</strong> Descripción de la etapa.</p></li>
+<li><p><strong>ExpectedTime:</strong> Configuración del tiempo esperado de le etapa,
+almacenado en formato XML.</p></li>
+<li><p><strong>MaximumTime:</strong> Configuración del tiempo máximo de le etapa, almacenado
+en formato XML.</p></li>
+</ul>
+<p><strong>TemplateStageTo</strong></p>
+<p>Tabla que guarda los destinatarios de las alertas de etapas definidas.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateID:</strong> Identificador de la plantilla de proceso.</p></li>
+<li><p><strong>TemplateStageID:</strong> Identificador de la etapa.</p></li>
+<li><p><strong>TemplateRoleID:</strong> Identificador del rol de proceso destinatario.</p></li>
+<li><p><strong>IsExpectedTime:</strong> Indica si el destinatario corresponde a la alerta de
+tiempo esperado, o si lo hace a la alerta de tiempo máximo.</p></li>
+</ul>
+<p><strong>TemplateStep</strong></p>
+<p>Tabla que almacena la información de la definición de los pasos.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateID:</strong> Identificador de la plantilla de proceso.</p></li>
+<li><p><strong>VersionID:</strong> Identificador de la versión de la plantilla.</p></li>
+<li><p><strong>TemplateStepID:</strong> Identificador de la definición del paso.</p></li>
+</ul>
+<p><strong>TemplateStepAction</strong></p>
+<p>Tabla que almacena la información de acciones temporales definidas para
+los pasos.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateStepID:</strong> Identificador de la definición del paso.</p></li>
+<li><p><strong>TemplateStepActionID:</strong> Identificador de la acción en el paso.</p></li>
+<li><p><strong>ActionClass:</strong> Tipo de acción definida</p></li>
+<li><p><strong>ActionTimeInfo:</strong> Información sobre los tiempos en que se dispara una
+acción temporal.</p></li>
+</ul>
+<p><strong>TemplateStepActionTo</strong></p>
+<p>Tabla que almacena la información sobre los destinatarios de las
+acciones temporales definidas para los pasos en la definición de un
+proceso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateStepID:</strong> Identificador de la definición del paso.</p></li>
+<li><p><strong>TemplateStepActionID:</strong> Identificador de la acción.</p></li>
+<li><p><strong>TemplateRoleID:</strong> Identificador del rol destinatario de la acción.</p></li>
+</ul>
+<p><strong>TemplateStepBase</strong></p>
+<p>Tabla que almacena la información común de los diferentes tipos de paso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateStepID:</strong> Identificador del paso.</p></li>
+<li><p><strong>TemplateStepClassID:</strong> Identificador de la clase de paso.</p></li>
+<li><p><strong>Name:</strong> Nombre del paso.</p></li>
+<li><p><strong>Description:</strong> Descripción del paso.</p></li>
+<li><p><strong>GraphicConfigurationXML:</strong> Configuración gráfica del paso.</p></li>
+<li><p><strong>ConfigurationXML:</strong> Configuración del paso, apropiada para el tipo de
+paso.</p></li>
+<li><p><strong>Responses:</strong> Posibles respuestas para un paso interactivo y evaluable.</p></li>
+<li><p><strong>Scope:</strong> Alcance de información en el formulario del paso.</p></li>
+<li><p><strong>CustomFormID:</strong> Identificador del formulario asociado al paso.</p></li>
+<li><p><strong>Help:</strong> Información de ayuda para el paso.</p></li>
+<li><p><strong>RequiresSignature:</strong> Indica si el paso requiere una firma.</p></li>
+<li><p><strong>SendsNotifications:</strong> Indica si el paso envía notificaciones a sus
+destinatarios.</p></li>
+<li><p><strong>ParentTemplateStepID:</strong> Identificador del paso padre para el caso de
+uso de grupos.</p></li>
+<li><p><strong>ReferencedWorkletID:</strong> Identificador del worklet al cual se hace
+referencia.</p></li>
+<li><p><strong>TaskManagerID:</strong> Identificador del rol encargado de la tarea.</p></li>
+<li><p><strong>AlternativeAddresseeID:</strong> Identificador del rol de destinatarios
+alternativos de la tarea.</p></li>
+<li><p><strong>HasRequiredScopeItems:</strong> Indica si el paso tiene algún ítem con
+alcance requerido.</p></li>
+</ul>
+<p><strong>TemplateStepClass</strong></p>
+<p>Tabla que almacena la información de los diferentes tipos de clases de
+pasos que pueden ser utilizados en un diseño de proceso.</p>
+<ul class="simple">
+<li><p><strong>TemplateStepClassID:</strong> Identificador de la clase de paso.</p></li>
+<li><p><strong>DesignAssembly:</strong> Assembly en el que se encuentra el paso que
+utilizará Qflow Design para desplegar la información al usuario.</p></li>
+<li><p><strong>DesignTypeName:</strong> Nombre de la clase que implementa el paso que
+utilizará Qflow Design para desplegar la información al usuario.</p></li>
+<li><p><strong>ExecutionAssembly:</strong> Assembly en el que se encuentra el paso que
+utilizará el motor de Qflow al ejecutar el proceso.</p></li>
+<li><p><strong>ExecutionTypeName:</strong> Nombre de la clase que implementa el paso que
+utilizará el motor de Qflow al ejecutar el proceso.</p></li>
+<li><p><strong>TemplateStepWebForm:</strong> Formulario web que se deplegará al hacer click
+sobre la definición del paso.</p></li>
+<li><p><strong>FlowStepWebForm:</strong> Formulario web que se deplegará al hacer click
+sobre el paso del proceso.</p></li>
+<li><p><strong>ContainerID:</strong> Identificador del contenedor de la definición del paso.</p></li>
+<li><p><strong>IsUserInteractive:</strong> Bandera que indica si el paso es interactivo con
+el usuario.</p></li>
+<li><p><strong>IsTimedTask:</strong> Bandera que indica si el paso puede definir acciones
+temporales.</p></li>
+<li><p><strong>IsEvaluable:</strong> Bandera que indica si el paso es evaluable.</p></li>
+<li><p><strong>IsBpmn:</strong> Bandera que indica si el paso pertenece a un diseño BPMN.</p></li>
+<li><p><strong>IsEnd:</strong> Bandera que indica si el paso es un paso de fin.</p></li>
+<li><p><strong>IsStart:</strong> Bandera que indica si el paso es un paso de inicio.</p></li>
+<li><p><strong>IsStageBound:</strong> Bandera que indica si el paso puede iniciar etapas.</p></li>
+<li><p><strong>StepConfigAssembly:</strong> Assembly en el que se encuentra la configuración
+del paso que utilizará Qflow Design para desplegarle la información al
+usuario.</p></li>
+<li><p><strong>StepConfigTypeName:</strong> Nombre de la clase que implementa la
+configuración del paso que utilizará Qflow Design para desplegarle la
+información al usuario.</p></li>
+<li><p><strong>StepDefinitionName:</strong> Tipo de definición del paso en notación BPMN.</p></li>
+</ul>
+<p><strong>TemplateStepConnection</strong></p>
+<p>Tabla que almacena la definición de los conectores entre pasos del
+diagrama del proceso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateID:</strong> Identificador de la plantilla de proceso.</p></li>
+<li><p><strong>VersionID:</strong> Identificador de la versión de la plantilla.</p></li>
+<li><p><strong>TemplateStepConnectionID:</strong> Identificador de la conexión.</p></li>
+</ul>
+<p><strong>TemplateStepConnectionBase</strong></p>
+<p>Tabla que almacena información común de las conexiones entre pasos del
+diagrama del proceso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateStepConnectionID:</strong> Identificador de la conexión.</p></li>
+<li><p><strong>FromTemplateStepID:</strong> Identificador del paso donde se origina la
+conexión.</p></li>
+<li><p><strong>FromTemplateStepConnectorID:</strong> Identificador del conector del paso
+donde se origina la conexión.</p></li>
+<li><p><strong>ToTemplateStepID:</strong> Identificador del paso donde termina la conexión.</p></li>
+<li><p><strong>ToTemplateStepConnectorID:</strong> Identificador del conector donde se
+conecta con el paso destino.</p></li>
+<li><p><strong>GraphicConfigurationXml:</strong> Información sobre la configuración gráfica
+de la conexión en formato XML.</p></li>
+<li><p><strong>IsAssociation:</strong> Bandera que indica si la conexión es parte del flujo
+del proceso o es sólo una asociación descriptiva.</p></li>
+</ul>
+<p><strong>TemplateStepEventMapping</strong></p>
+<p>Tabla que almacena información sobre el mapeo de eventos con pasos de la
+definición del proceso.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateStepID:</strong> Identificador del paso.</p></li>
+<li><p><strong>EventHandlerID:</strong> Identificador del manejador mapeado.</p></li>
+<li><p><strong>EventType:</strong> Tipo de evento mapeado.</p></li>
+</ul>
+<p><strong>TemplateStepTo</strong></p>
+<p>Tabla que almacena la información sobre los destinatarios de los pasos
+interactivos.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateStepID:</strong> Identificador del paso.</p></li>
+<li><p><strong>TemplateRoleID:</strong> Identificador del rol.</p></li>
+</ul>
+<p><strong>GuestTemplateStepTo</strong></p>
+<p>Tabla que almacena la información sobre los destinatarios externos de los pasos
+interactivos.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateStepID:</strong> Identificador del paso.</p></li>
+<li><p><strong>AdresseeType:</strong> Tipo de destinatario. Puede ser <em>rol</em> (0), <em>dato</em> (1),
+<em>parametro</em> (2) o <em>email</em> (3).</p></li>
+<li><p><strong>AdresseeValue:</strong> Identifcador del destinatario. Puede ser un email o el id
+del rol, dato o parámetro correspondiente.</p></li>
+</ul>
+<p><strong>TemplateStepValidation</strong></p>
+<p>Tabla que almacena la información de la asociación de validaciones a
+pasos.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>ValidationId:</strong> Identificador de lavalidación.</p></li>
+<li><p><strong>TemplateStepId:</strong> Identificador del paso.</p></li>
+</ul>
+<p><strong>TemplateValidation</strong></p>
+<p>Esta tabla almacena la información sobre las validaciones definidas en
+el sistema.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>ValidationId:</strong> Identificador de la validación.</p></li>
+<li><p><strong>ContainerId:</strong> Identificador del contenedor.</p></li>
+<li><p><strong>Name:</strong> Nombre de la validación.</p></li>
+<li><p><strong>Description:</strong> Descripción de la validación.</p></li>
+<li><p><strong>ValidationInfo:</strong> Información de la validación definida en formato
+Xml.</p></li>
+</ul>
+<p><strong>TemplateVersion</strong></p>
+<p>Esta tabla almacena la información sobre la versión de la plantilla de
+proceso. Esta información se complementa con la información de la tabla
+TemplatePackage.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateID:</strong> Identificador de la plantilla de proceso.</p></li>
+<li><p><strong>VersionID:</strong> Identificador de la versión de la plantilla.</p></li>
+<li><p><strong>StorageID:</strong> Identificación del medio de almacenamiento de adjuntos
+asociado a la versión.</p></li>
+<li><p><strong>GraphicConfigurationXml:</strong> Información de la configuración gráfica de
+la versión.</p></li>
+<li><p><strong>IsBpmn:</strong> Bandera que indica si la versión usa diseño BPMN.</p></li>
+<li><p><strong>IsDraft:</strong> Indica si la versión es un borrador o no.</p></li>
+<li><p><strong>AllowStartAsGuest:</strong> Indica si la versión de proceso permite inicio
+externo/anónimo.</p></li>
+</ul>
+<p><strong>TemplateVersionForm</strong></p>
+<p>Esta tabla almacena la información de los formularios asociados a las
+versiones.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateId:</strong> Identificador de la plantilla.</p></li>
+<li><p><strong>VersionId:</strong> Identificador de la versión de la plantilla.</p></li>
+<li><p><strong>FormType:</strong> Indica el tipo de formulario (Formulario del proceso = 0,
+Formulario de edición del proceso = 1).</p></li>
+<li><p><strong>Scope:</strong> Información del alcance de datos, roles, adjuntos y comentarios en el
+formulario.</p></li>
+<li><p><strong>CustomFormId:</strong> Identificador del formulario personalizado utilizado.</p></li>
+</ul>
+<p><strong>TemplateVersionValidation</strong></p>
+<p>Tabla que almacena la información de la asociación de validaciones a
+formularios de versiones.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>ValidationId:</strong> Identificador de la validación.</p></li>
+<li><p><strong>TemplateId:</strong> Identificador de la plantilla.</p></li>
+<li><p><strong>VersionId:</strong> Identificador de la versión de la plantilla.</p></li>
+<li><p><strong>FormType:</strong> Indica el tipo de formulario (Formulario del proceso = 0,
+Formulario de edición del proceso = 1).</p></li>
+</ul>
+<p><strong>TemplateWorklet</strong></p>
+<p>Esta tabla almacena la información sobre los worklets definidos en el
+sistema.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateWorkletID:</strong> Identificador del worklet.</p></li>
+<li><p><strong>ContainerID:</strong> Identificador del contenedor del worklet.</p></li>
+<li><p><strong>Name:</strong> Nombre del worklet.</p></li>
+<li><p><strong>Description:</strong> Descripción del worklet.</p></li>
+<li><p><strong>GraphicConfigurationXml:</strong> Información de la configuración gráfica del
+worklet en formato Xml.</p></li>
+<li><p><strong>ConnectorsXml:</strong> Información de los conectores del worklet en formato
+Xml.</p></li>
+</ul>
+<p><strong>TemplateWorkletStep</strong></p>
+<p>Tabla que almacena información sobre los pasos contenidos en un worklet.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateWorletID:</strong> Identificador del worklet.</p></li>
+<li><p><strong>TemplateStepID:</strong> Identificador del paso.</p></li>
+</ul>
+<p><strong>TemplateWorkletStepConnection</strong></p>
+<p>Tabla que almacena información sobre las conexiones de los pasos de un
+worklet.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TemplateWorkletID:</strong> Identificador del worklet.</p></li>
+<li><p><strong>TemplateStepConnectionID:</strong> Identificador de la conexión.</p></li>
+</ul>
+</section>
+<section id="tablas-organigrama">
+<h3>Tablas: Organigrama<a class="headerlink" href="#tablas-organigrama" title="Link to this heading"></a></h3>
+<p>Las siguientes son las tablas de la base de datos que contienen la
+información de los usuarios, grupos y nodos.</p>
+<p><strong>SecurityMember</strong></p>
+<p>Tabla que almacena la información sobre los usuarios, grupos y nodos del
+sistema.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>MemberID:</strong> Identificador del usuario, grupo o nodo.</p></li>
+<li><p><strong>PrivateRoleID:</strong> Identificador del rol privado correspondiente al
+miembro.</p></li>
+<li><p><strong>IsEnabled:</strong> Bandera que indica si el miembro está habilitado.</p></li>
+<li><p><strong>IsGroup:</strong> Bandera que indica si se trata de un grupo.</p></li>
+<li><p><strong>IsNode:</strong> Bandera que indica si se trata de un nodo.</p></li>
+<li><p><strong>Name:</strong> Nombre de miembro.</p></li>
+<li><p><strong>Description:</strong> Descripción del miembro.</p></li>
+<li><p><strong>SecurityProviderID:</strong> Identificador delproveedor de seguridad
+utilizado para autenticar al miembro.</p></li>
+<li><p><strong>LoginName:</strong> Login utilizado para autenticar al miembro en el
+proveedor de seguridad.</p></li>
+<li><p><strong>Email:</strong> Correo electrónico del miembro.</p></li>
+<li><p><strong>CalendarID:</strong> Calendario utilizado por el miembro.</p></li>
+<li><p><strong>NotificationConfigXml:</strong> Información de los medios definidos para
+recibir notificaciones.</p></li>
+<li><p><strong>InfoXml:</strong> XML con propiedades avanzadas del usuario, grupo o nodo.</p></li>
+<li><p><strong>IMAddress:</strong> Información sobre dirección de mensajería instantánea del
+miembro.</p></li>
+<li><p><strong>LdapPath:</strong> Camino para acceder a la representación del miembro en un
+proveedor LDAP.</p></li>
+<li><p><strong>IsWorkQueue:</strong> Bandera que indica si se trata de una cola de trabajo.</p></li>
+<li><p><strong>DefinesValidity:</strong> Bandera que indica si la cola de trabajo define un
+período de validez.</p></li>
+<li><p><strong>ValidFrom:</strong> Fecha a partir de la cuál será válida la cola de trabajo.</p></li>
+<li><p><strong>ValidTo:</strong> Fecha hasta la cuál será válida la cola de trabajo.</p></li>
+<li><p><strong>NotifiesNewTasks:</strong> Bandera que indica si se notifican nuevas tareas
+en la cola de trabajo.</p></li>
+<li><p><strong>NotifiesSignature:</strong> Bandera que indica si se notifican firmas en la
+cola de trabajo.</p></li>
+<li><p><strong>NotifiesTimeActions:</strong> Bandera que indica si se notifica acciones
+temporales en la cola de trabajo.</p></li>
+<li><p><strong>DefinesMembersToNotify:</strong> Bandera que indica si se define una lista
+personalizada de destinatarios para las notificaciones de la cola de
+trabajo.</p></li>
+<li><p><strong>OAuthProviderKey:</strong> Clave que vincula al usuario con el proveedor de
+OAuth correspondiente si el proveedor de login del usuario es de tipo
+OAuth.</p></li>
+<li><p><strong>LastSessionUICulture:</strong> Representa el código de la cultura del usuario
+en su ultima sesión.</p></li>
+<li><p><strong>IsSystem:</strong> Indica si el usuario es un usuario interno del sistema.</p></li>
+</ul>
+<p><strong>SecurityGroupMember</strong></p>
+<p>Tabla que almacena la información sobre los miembros de grupos definidos
+en el sistema.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>MemberID:</strong> Identificador del miembro.</p></li>
+<li><p><strong>GroupID:</strong> Identificador del grupo.</p></li>
+</ul>
+<p><strong>SecurityGroupMemberHistory</strong></p>
+<p>Tabla que almacena el histórico de modificaciones de membresía a grupos.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>MemberID:</strong> Identificador del miembro.</p></li>
+<li><p><strong>GroupID:</strong> Identificador del grupo.</p></li>
+<li><p><strong>Action:</strong> Acción realizada (Create, Delete).</p></li>
+<li><p><strong>ModifiedBy:</strong> Usuario que realizó la modificación.</p></li>
+<li><p><strong>ModifiedDate:</strong> Fecha de modificación.</p></li>
+</ul>
+<p><strong>SecurityMemberLog</strong></p>
+<p>Esta tabla almacena la información de registros deauditoría de acciones
+realizadas sobre la definición del organigrama en el sistema.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>Source:</strong> Herramienta desde donde se realizó la acción.</p></li>
+<li><p><strong>ActionName:</strong> Nombrede la acción realizada.</p></li>
+<li><p><strong>MemberID:</strong> Usuario que realizo la acción.</p></li>
+<li><p><strong>NodeID:</strong> Nodo sobre el que se realizó la acción.</p></li>
+<li><p><strong>TimeStamp:</strong> Fecha en que se realizó la acción.</p></li>
+<li><p><strong>Hash:</strong> Utilizado para validar la integridad del log.</p></li>
+<li><p><strong>IpAddress:</strong> Dirección IP del cliente que disparó la acción.</p></li>
+<li><p><strong>MacAddress:</strong> MacAddress del cliente que disparó la acción.</p></li>
+<li><p><strong>ItemID:</strong> Identificador del usuario o grupo objeto de la acción.</p></li>
+<li><p><strong>ItemName:</strong> Nombre del usuario o grupo objeto de la acción.</p></li>
+</ul>
+<p><strong>SecurityMemberLogHash</strong></p>
+<p>Esta tabla se utiliza para validar la integridad del log del
+organigrama.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>NodeId:</strong> Campo utilizado para validar la integridad del log.</p></li>
+<li><p><strong>LogCount:</strong> Campo utilizado para validar la integridad del log.</p></li>
+<li><p><strong>Hash:</strong> Campo utilizado para validar la integridad del log.</p></li>
+</ul>
+<p><strong>SecurityMemberManager</strong></p>
+<p>Tabla que almacena la información de los usuarios que supervisan a otros
+usuarios (managers)</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>ManagerID:</strong> Identificador del supervisor.</p></li>
+<li><p><strong>ManagedID:</strong> Identificador del supervisado.</p></li>
+</ul>
+<p><strong>SecurityMemberManagerHistory</strong></p>
+<p>Almacena el historial de modificaciones a las relaciones de supervisión
+entre los miembros organizacionales.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>MemberID:</strong> Identificador del supervisado.</p></li>
+<li><p><strong>ManagerID:</strong> Identificador del supervisor.</p></li>
+<li><p><strong>Action:</strong> Acción realizada (Create, Delete).</p></li>
+<li><p><strong>ModifiedBy:</strong> Usuario que realizó la modificación.</p></li>
+<li><p><strong>ModifiedDate:</strong> Fecha de modificación.</p></li>
+</ul>
+<p><strong>SecurityMemberOperation</strong></p>
+<p>Tabla que almacena la información sobre los permisos de los usuarios
+sobre el organigrama.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>SecurityRoleID:</strong> Identificador del rol de seguridad.</p></li>
+<li><p><strong>MemberID:</strong> Identificador del nodo,</p></li>
+<li><p><strong>MemberOperation:</strong> Identificador de la operación.</p></li>
+<li><p><strong>IsAllowed:</strong> Bandera que indica si la acción es permitida.</p></li>
+<li><p><strong>ApplyInheritance:</strong> Bandera que indica si el permiso es heredable.</p></li>
+</ul>
+<p><strong>SecurityMemberOperationHistory</strong></p>
+<p>Tabla que almacena el histórico de modificaciones de permisos de los
+usuarios sobre el organigrama.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>SecurityRoleID:</strong> Identificador del rol de seguridad.</p></li>
+<li><p><strong>MemberID:</strong> Identificador del nodo,</p></li>
+<li><p><strong>MemberOperation:</strong> Identificador de la operación.</p></li>
+<li><p><strong>IsAllowed:</strong> Bandera que indica si la acción es permitida.</p></li>
+<li><p><strong>ApplyInheritance:</strong> Bandera que indica si el permiso es heredable.</p></li>
+<li><p><strong>Action:</strong> Acción realizada (Create, Update, Delete).</p></li>
+<li><p><strong>ModifiedBy:</strong> Usuario que realizó la modificación.</p></li>
+<li><p><strong>ModifiedDate:</strong> Fecha de modificación.</p></li>
+</ul>
+<p><strong>SecurityMemberSubstitute</strong></p>
+<p>Esta tabla almacena la información sobre las suplencias de un usuario.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>MemberID:</strong> Identificador del usuario.</p></li>
+<li><p><strong>SubstituteID:</strong> Identificador del substituto.</p></li>
+<li><p><strong>DateFrom:</strong> Fecha de comienzo de la sustitución.</p></li>
+<li><p><strong>DateTo:</strong> Fecha de finalización de la sustitución.</p></li>
+</ul>
+<p><strong>SecurityMemberSubstituteHistory</strong></p>
+<p>Esta tabla almacena el histórico de modificaciones de las suplencias de
+un usuario.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>MemberID:</strong> Identificador del usuario.</p></li>
+<li><p><strong>SubstituteID:</strong> Identificador del substituto.</p></li>
+<li><p><strong>DateFrom:</strong> Fecha de comienzo de la sustitución.</p></li>
+<li><p><strong>DateTo:</strong> Fecha de finalización de la sustitución.</p></li>
+<li><p><strong>Action:</strong> Acción realizada (Create, Delete).</p></li>
+<li><p><strong>ModifiedBy:</strong> Usuario que realizó la modificación.</p></li>
+<li><p><strong>ModifiedDate:</strong> Fecha de modificación.</p></li>
+</ul>
+<p><strong>SecurityMemberToNotify</strong></p>
+<p>Tabla que almacena información sobre los miembros a notificar en
+notificaciones a colas de trabajo.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>MemberID:</strong> Identificador de la cola de trabajo.</p></li>
+<li><p><strong>MemberToNotifyID:</strong> Identificador del miembro organizacional a
+notificar.</p></li>
+</ul>
+<p><strong>SecurityPackageOperation</strong></p>
+<p>Tabla que almacena la información sobre los permisos de los usuarios
+sobre los paquetes.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>SecurityRoleID:</strong> Identificador del rol de seguridad.</p></li>
+<li><p><strong>PackageID:</strong> Identificador del paquete.</p></li>
+<li><p><strong>PackageOperation:</strong> Identificador de la operación.</p></li>
+<li><p><strong>IsAllowed:</strong> Bandera que indica si la acción es permitida.</p></li>
+<li><p><strong>ApplyInheritance:</strong> Bandera que indica si el permiso es heredable.</p></li>
+</ul>
+<p><strong>SecurityPackageOperationHistory</strong></p>
+<p>Tabla que almacena el histórico de modificaciones de los permisos de los
+usuarios sobre los paquetes.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>SecurityRoleID:</strong> Identificador del rol de seguridad.</p></li>
+<li><p><strong>PackageID:</strong> Identificador del paquete.</p></li>
+<li><p><strong>PackageOperation:</strong> Identificador de la operación.</p></li>
+<li><p><strong>IsAllowed:</strong> Bandera que indica si la acción es permitida.</p></li>
+<li><p><strong>Action:</strong> Acción realizada (Create, Update, Delete).</p></li>
+<li><p><strong>ModifiedBy:</strong> Usuario que realizó la modificación.</p></li>
+<li><p><strong>ModifiedDate:</strong> Fecha de modificación.</p></li>
+<li><p><strong>ApplyInheritance:</strong> Bandera que indica si el permiso es heredable.</p></li>
+</ul>
+<p><strong>SecurityProvider</strong></p>
+<p>Tabla que almacena la definición de los proveedores de seguridad de la
+organización (por ejemplo Active Directory, OpenLDAP, NT Domain)</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>SecurityProviderId:</strong> Identificador del proveedor de seguridad.</p></li>
+<li><p><strong>ServiceType</strong>: Tipo de servicio (NTDomain, ActiveDirectory, Ldap,
+OAuth).</p></li>
+<li><p><strong>Name:</strong> Nombre del proveedor de seguridad en Qflow.</p></li>
+<li><p><strong>Description:</strong> Descripción del proveedor de seguridad.</p></li>
+<li><p><strong>FQDN:</strong> Nombre calificado del proveedor de seguridad (Full
+QualifiedDomainName).</p></li>
+<li><p><strong>NetBiosName:</strong> NombreNetBios del proveedor de seguridad (si
+corresponde).</p></li>
+<li><p><strong>AditionalInfo:</strong> Información adicional para la configuración del
+proveedor de seguridad en formato Xml.</p></li>
+<li><p><strong>IsEnabled:</strong> Bandera que indica si el proveedor está habilitado.</p></li>
+<li><p><strong>ClientId:</strong> Identificador de la aplicación de Azure.</p></li>
+<li><p><strong>AuthorityAudience:</strong> Indica qué tipo de cuentas de usuario pueden
+acceder.</p></li>
+<li><p><strong>DirectoryId:</strong> Identificador de la instancia de Azure.</p></li>
+<li><p><strong>IsDefault:</strong> Indica si este es el proveedor de seguridad
+por defecto.</p></li>
+</ul>
+<p><strong>SecurityRole</strong></p>
+<p>Tabla que almacena la información sobre los roles de seguridad definidos
+en el sistema. También almacena la información correspondiente a los
+roles privados de los miembros de seguridad (usuarios, grupos, nodos).</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>RoleID:</strong> Identificador del rol de seguridad</p></li>
+<li><p><strong>Name:</strong> Nombre del rol de seguridad</p></li>
+<li><p><strong>Description:</strong> Descripción del rol de seguridad</p></li>
+<li><p><strong>IsUserPrivateRole:</strong> Bandera que indica si es el rol privado de un
+usuario.</p></li>
+<li><p><strong>IsGroupPrivateRole:</strong> Bandera que indica si es el rol privado de un
+grupo.</p></li>
+<li><p><strong>IsNodePrivateRole:</strong> Bandera que indica si es el rol privado de un
+nodo.</p></li>
+<li><p><strong>IsWorkQueuePrivateRole:</strong> Bandera que indica si es el rol privado de
+una cola de trabajo.</p></li>
+<li><p><strong>IsEnabled:</strong> Bandera que indica si es el rol está habilitado.</p></li>
+<li><p><strong>IsSystem:</strong> Bandera que indica si es el rol privado es un rol de
+sistema.</p></li>
+</ul>
+<p><strong>SecurityRoleMember</strong></p>
+<p>Tabla que almacena los miembros de un rol de seguridad.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>MemberID:</strong> Identificador del miembro.</p></li>
+<li><p><strong>RoleID:</strong> Identificador del rol de seguridad.</p></li>
+</ul>
+<p><strong>SecurityRoleMemberHistory</strong></p>
+<p>Tabla que almacena el histórico de modificaciones de membresía a roles
+de seguridad.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>MemberID:</strong> Identificador del miembro.</p></li>
+<li><p><strong>RoleID:</strong> Identificador del rol de seguridad.</p></li>
+<li><p><strong>Action:</strong> Acción realizada (Create, Delete).</p></li>
+<li><p><strong>ModifiedBy:</strong> Usuario que realizó la modificación.</p></li>
+<li><p><strong>ModifiedDate:</strong> Fecha de modificación.</p></li>
+</ul>
+<p><strong>PushNotifSubscription</strong></p>
+<p>Tabla que almacena las subscripciones que tienen los usuarios con el
+servidor de notificaciones Push.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>MemberID:</strong> Identificador del usuario.</p></li>
+<li><p><strong>SubscriptionID:</strong> Identificador de la subscripción.</p></li>
+<li><p><strong>SubscriptionToken:</strong> Token de la subscripción.</p></li>
+<li><p><strong>Active:</strong> Bandera que indica si la subscripción está activa.</p></li>
+<li><p><strong>Browser:</strong> String con el nombre del navegador que se identificó desde
+donde el usuario realizó la subscripción.</p></li>
+<li><p><strong>NotificationServiceType:</strong> Tipo de servidor de la subscripción. Los
+valores posibles son: <em>0 = Fcm</em>.</p></li>
+<li><p><strong>OperativeSystem:</strong> String con el nombre del sistema operativo que se
+identificó desde donde el usuario realizó la subscripción.</p></li>
+</ul>
+<p><strong>SecuritySession</strong></p>
+<p>Tabla que almacena la información sobre las sesiones de los usuarios que
+han accedido al sistema.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>SessionID:</strong> Identificador de la sesión.</p></li>
+<li><p><strong>TimeCreated:</strong> Fecha de creación de la sesión.</p></li>
+<li><p><strong>MemberID:</strong> Identificador del usuario.</p></li>
+<li><p><strong>CultureName:</strong> Cultura utilizada en la sesión para el formato de
+fechas y números.</p></li>
+<li><p><strong>UICultureName:</strong> Cultura utilizada en la sesión para la traducción de
+textos.</p></li>
+<li><p><strong>LeaseDuration:</strong> Duración de la sesión.</p></li>
+<li><p><strong>SecurityDescriptor:</strong> Descriptor de seguridad de la sesión.</p></li>
+<li><p><strong>IpAddress:</strong> Dirección IP del cliente que disparó la acción.</p></li>
+<li><p><strong>MacAddress:</strong> Dirección MAC del cliente que disparó la acción.</p></li>
+</ul>
+<p><strong>SecurityToolOperation</strong></p>
+<p>Tabla que almacena la información sobre los permisos de los usuarios
+sobre las herramientas.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>SecurityRoleID:</strong> Identificador del rol de seguridad.</p></li>
+<li><p><strong>ToolName:</strong> Nombre de la herramienta.</p></li>
+<li><p><strong>ToolOperation</strong>: Operación definida en la herramienta.</p></li>
+<li><p><strong>IsAllowed:</strong> Bandera que indica si la acción es permitida.</p></li>
+</ul>
+<p><strong>SecurityToolOperationHistory</strong></p>
+<p>Tabla que almacena el histórico de modificaciones de permisos de los
+usuarios sobre las herramientas.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>SecurityRoleID:</strong> Identificador del rol de seguridad.</p></li>
+<li><p><strong>ToolName:</strong> Nombre de la herramienta.</p></li>
+<li><p><strong>ToolOperation</strong>: Operación definida en la herramienta.</p></li>
+<li><p><strong>IsAllowed:</strong> Bandera que indica si la acción es permitida.</p></li>
+<li><p><strong>Action:</strong> Acción realizada (Create, Update, Delete).</p></li>
+<li><p><strong>ModifiedBy:</strong> Usuario que realizó la modificación.</p></li>
+<li><p><strong>ModifiedDate:</strong> Fecha de modificación.</p></li>
+</ul>
+<p><strong>SecurityToolLog</strong></p>
+<p>Tabla que almacena la información sobre los inicios y cierres de sesión
+a las herramientas.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>TimeStamp:</strong> Fecha en que se intentó el login.</p></li>
+<li><p><strong>ToolName:</strong> Nombre de la herramienta.</p></li>
+<li><p><strong>Domain</strong>: Dominio especificado al hacer login.</p></li>
+<li><p><strong>LoginName:</strong> Nombre de usuario especificado al hacer login.</p></li>
+<li><p><strong>IpAddress:</strong> Dirección IP del equipo.</p></li>
+<li><p><strong>MacAddress</strong>: Dirección MAC del equipo.</p></li>
+<li><p><strong>EventType:</strong> Indica el tipo de evento registrado (LoginSuccess,
+LoginFail, Logout).</p></li>
+</ul>
+</section>
+<section id="tablas-configuracion">
+<h3>Tablas: Configuración<a class="headerlink" href="#tablas-configuracion" title="Link to this heading"></a></h3>
+<p>Las siguientes tablas son las que contienen información sobre la
+configuración del sistema, las licencias y servicios instalados del
+producto.</p>
+<p><strong>Tenant</strong></p>
+<p>Esta tabla contiene los espacios de trabajo definidos en el sistema.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>Name:</strong> Nombre del espacio de trabajo.</p></li>
+<li><p><strong>UrlDomain:</strong> Si se identifican a los espacios de trabajo por URL, esta es la
+URL base que debe contener la solicitud HTTP en los sitios para mapearla
+con el espacio de trabajo.</p></li>
+<li><p><strong>TenantType:</strong> Tipo de espacio de trabajo. Estos valores pueden ser: <em>0 = Local,
+1 = ExternalDB.</em></p></li>
+<li><p><strong>ExternalDBConnection:</strong> String que contiene la conexión a la base de
+datos externa en caso de ser tipo ExternalDB.</p></li>
+<li><p><strong>IsActive:</strong> Bandera que indica si el espacio de trabajo está activo.</p></li>
+<li><p><strong>CreationDate:</strong> Fecha de creación del espacio de trabajo.</p></li>
+<li><p><strong>LicenseMonthlyStartDate:</strong> Fecha mensual de comienzo de la licencia.</p></li>
+<li><p><strong>Language:</strong> Representa el lenguaje del espacio de trabajo. Los valores
+posibles son: <em>0 = Inglés, 1 = Español, 2 = Portugués</em>.</p></li>
+</ul>
+<p><strong>SystemParameter</strong></p>
+<p>Esta tabla contiene los parámetros de sistema definidos por Qflow.
+Estos pueden tener un valor personalizado o utilizar el valor por
+defecto.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>Name:</strong> Nombre del parámetro. Esta columna, en conjunto con TenantId,
+son clave de la tabla.</p></li>
+<li><p><strong>ParameterValue:</strong> Valor del parámetro. Este puede ser <em>null</em> o un
+string con el valor configurado.</p></li>
+<li><p><strong>DataType:</strong> Tipo de dato del parámetro. Estos valores pueden ser: <em>0 =
+String, 1 = Int, 2 = Boolean, 3 = FileUploader, 4 = Combobox.</em></p></li>
+<li><p><strong>IsEditable:</strong> Booleano que indica si el parámetro puede ser editado
+por el usuario.</p></li>
+<li><p><strong>IsCustom:</strong> Booleano que indica si el parámetro es personalizado, es
+decir, definidos por la organización.</p></li>
+<li><p><strong>DefaultValue:</strong> String que representa el valor por defecto que tomará
+el parámetro.</p></li>
+<li><p><strong>Section:</strong> String que permite agrupar a los parámetros de sistema.</p></li>
+<li><p><strong>UseDefaultValue:</strong> Bandera que indica si el parámetro de sistema
+tendrá el valor por defecto o el personalizado.</p></li>
+<li><p><strong>Configuration:</strong> String que contiene configuración extra necesaria
+para renderizar el componente, por ejemplo la lista de valores posibles
+en el combobox.</p></li>
+<li><p><strong>ShowInAdminSite:</strong> Indica si este parámetro de sistema debe ser
+visible desde Qflow Admin.</p></li>
+</ul>
+<p><strong>SecurityMemberExtendedProperty</strong></p>
+<p>Esta tabla contiene la lista de propiedades extendidas configuradas para
+los distintos tipos: Usuarios, Grupos y Nodos.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>SecurityMemberType:</strong> Indica a qué tipo de miembro de seguridad
+corresponde (1 = Usuario, 2 = Grupo, 4 = Nodo).</p></li>
+<li><p><strong>Key:</strong> Clave de la propiedad extendida.</p></li>
+<li><p><strong>Text:</strong> Texto que se muestra al usuario a la hora de configurar su
+valor.</p></li>
+<li><p><strong>DataType:</strong> Tipo de dato de la propiedad extendida. (<em>0 = String, 1 =
+Int, 2 = DateTime, 3 = Boolean, 4 = SecurityMember, 5 = ItemList)</em>.</p></li>
+<li><p><strong>ListValues:</strong> JSON que contiene la lista de valores posibles.</p></li>
+</ul>
+<p><strong>RegisteredService</strong></p>
+<p>Esta tabla contiene los sitios y servicios del producto, para permitir
+monitorearlos.</p>
+<ul class="simple">
+<li><p><strong>Id:</strong> Identificador del servicio.</p></li>
+<li><p><strong>ServerLocation:</strong> Servidor en el cual se encuentra el servicio.</p></li>
+<li><p><strong>ConnectionPort:</strong> Puerto en el cual está expuesto el servicio.</p></li>
+<li><p><strong>Path:</strong> Ruta para acceder al servicio. Este valor es necesario para
+los sitios web que no estén expuestos en la raíz del servidor.</p></li>
+<li><p><strong>Service:</strong> Nombre del servicio. Permite identificar a qué servicio del
+producto corresponde.</p></li>
+<li><p><strong>Protocol:</strong> Indica el protocolo que se utiliza para comunicarse con el
+servicio (<em>0 = TCP, 1 = HTTPS, 2 = HTTP, 3 = MessageQueue</em>).</p></li>
+<li><p><strong>Namespace:</strong> String que contiene el namespace necesario para
+establecer la conexión con el servicio.</p></li>
+<li><p><strong>Configuration:</strong> String que contiene información extra necesaria para
+conectarse con el servicio. La configuración depende del tipo de
+servicio.</p></li>
+</ul>
+<p><strong>NotificationSender</strong></p>
+<p>Esta tabla contiene las configuraciones de los servicios de envío de
+notificaciones que utiliza Qflow. Esta configuración es una extensión
+de RegisteredService.</p>
+<ul class="simple">
+<li><p><strong>Id:</strong> Identificador del servicio de envío de notificaciones.</p></li>
+<li><p><strong>Name:</strong> Nombre del servicio de envío de notificaciones.</p></li>
+<li><p><strong>SupportedMailFormats:</strong> String que contiene la lista de tipos de mail
+soportados por el servicio. Este puede contener ninguno, uno o más de
+los siguientes tipos: <em>Xml, Text, HtmlLink, HtmlFrame.</em></p></li>
+<li><p><strong>Type:</strong> Tipo de servicio de notificación. Los valores pueden ser: <em>0 =
+SMTP, 1 = ExtendedMAPI, 2 = ExchangeWS, 3 = FcmPushNotifications</em></p></li>
+<li><p><strong>Timeout:</strong> Número que contiene el timeout de acesso al servicio.</p></li>
+<li><p><strong>Configuration:</strong> String que contiene la configuración necesaria para
+la conexión con el servidor de mail o de notificaciones Push.</p></li>
+<li><p><strong>Enabled:</strong> Bandera que indica si el servicio de notificación está
+habilitado o no.</p></li>
+<li><p><strong>UseForExternalNotifications:</strong> Bandera que indica si el servicio de notificación
+se puede utilizar para notificar a usuarios externos.</p></li>
+</ul>
+<p><strong>SenderConfiguration</strong></p>
+<p>Esta tabla contiene las configuraciones de los servicios para cada
+espacio de trabajo.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>SenderId:</strong> Identificador del servicio de envío de notificaciones.</p></li>
+<li><p><strong>Configuration:</strong> String que contiene la configuración necesaria para
+la conexión con el servidor de mail o de notificaciones Push para el
+espacio de trabajo.</p></li>
+<li><p><strong>Enabled:</strong> Bandera que indica si el servicio de notificación está
+habilitado para el espacio de trabajo o no.</p></li>
+</ul>
+</section>
+<section id="tablas-licencias">
+<h3>Tablas: Licencias<a class="headerlink" href="#tablas-licencias" title="Link to this heading"></a></h3>
+<p>Estas tablas contienen la información sobre las licencias instaladas en el sistema
+y el uso de las mismas.</p>
+<p><strong>GuestLicenseUsage</strong></p>
+<p>Esta tabla contiene la información sobre el uso de las licencias relacionado a procesos
+que involucran a usuarios externos.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>ExecutionPoints:</strong> Puntos de ejecución consumidos.</p></li>
+<li><p><strong>LicenseID:</strong> Identificador de la licencia de la que se consumieron los puntos.</p></li>
+</ul>
+<p><strong>GuestLicenseUsageHistory</strong></p>
+<p>Esta tabla contiene el historial de uso de las licencias relacionado a procesos
+que involucran a usuarios externos.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>ExecutionPoints:</strong> Puntos de ejecución consumidos.</p></li>
+<li><p><strong>FlowID:</strong> Identificador del proceso que consumió los puntos.</p></li>
+<li><p><strong>FlowStepID:</strong> Identificador del paso del proceso que consumió los puntos.</p></li>
+<li><p><strong>TimeCreated:</strong> Fecha en la que se consumieron los puntos.</p></li>
+<li><p><strong>LicenseID:</strong> Identificador de la licencia de la que se consumieron los puntos.</p></li>
+</ul>
+<p><strong>License</strong></p>
+<p>Esta tabla contiene la lista de licencias instaladas en el producto.</p>
+<ul class="simple">
+<li><p><strong>TenantID:</strong> Identificador del espacio de trabajo.</p></li>
+<li><p><strong>Id:</strong> Identificador de la licencia.</p></li>
+<li><p><strong>LicenseXml:</strong> Xml de la licencia.</p></li>
+<li><p><strong>IsActive:</strong> Indica si el espacio de trabajo está activo o no.</p></li>
+</ul>
+</section>
+</section>
+<section id="diagramas-de-entidad-relacion">
+<h2>Diagramas de Entidad Relación<a class="headerlink" href="#diagramas-de-entidad-relacion" title="Link to this heading"></a></h2>
+<p>En esta sección se presentarán diferentes figuras que ilustran las
+relaciones existentes entre las diversas tablas de Qflow. Dichas
+relaciones deberán tenerse en cuenta a la hora de generar consultas que
+agrupen información de más de una tabla.</p>
+<section id="mer-definicion-de-procesos">
+<h3>MER: Definicion de procesos<a class="headerlink" href="#mer-definicion-de-procesos" title="Link to this heading"></a></h3>
+<p>El siguiente esquema muestra las relaciones entre las principales tablas
+en las que se almacena la información de la definición de plantillas de
+procesos.</p>
+<a class="reference internal image-reference" href="_images/Templates.png"><img alt="_images/Templates.png" class="align-center" src="_images/Templates.png" style="width: 100%;" /></a>
+</section>
+<section id="mer-procesos">
+<h3>MER: Procesos<a class="headerlink" href="#mer-procesos" title="Link to this heading"></a></h3>
+<p>El siguiente esquema muestra las relaciones entre las principales tablas
+en las que se almacena el estado y los datos de los procesos.</p>
+<a class="reference internal image-reference" href="_images/Flows.png"><img alt="_images/Flows.png" class="align-center" src="_images/Flows.png" style="width: 100%;" /></a>
+</section>
+<section id="mer-organigrama">
+<h3>MER: Organigrama<a class="headerlink" href="#mer-organigrama" title="Link to this heading"></a></h3>
+<p>El siguiente esquema muestra las relaciones entre las principales tablas
+en las que se almacena la información de la definición del organigrama.</p>
+<a class="reference internal image-reference" href="_images/Security.png"><img alt="_images/Security.png" class="align-center" src="_images/Security.png" style="width: 100%;" /></a>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

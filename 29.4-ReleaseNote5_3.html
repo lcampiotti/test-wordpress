@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>v5.3 &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/29.4-ReleaseNote5_3.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="v5.2" href="29.3-ReleaseNote5_2.html" />
+    <link rel="prev" title="v5.4" href="29.5-ReleaseNote5_4.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="29.13-ReleaseNote6_0.html">v6.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.12-ReleaseNote5_6_2.html">v5.6.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.11-ReleaseNote5_6_1.html">v5.6.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.10-ReleaseNote5_6.html">v5.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.9-ReleaseNote5_5_4.html">v5.5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.8-ReleaseNote5_5_3.html">v5.5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.7-ReleaseNote5_5_1.html">v5.5.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.6-ReleaseNote5_5.html">v5.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.5-ReleaseNote5_4.html">v5.4</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">v5.3</a><ul>
+<li><a class="reference internal" href="#asistente-de-inteligencia-artificial-para-la-generacion-de-procesos-de-negocio">Asistente de Inteligencia Artificial para la generación de procesos de negocio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inicio-de-procesos-por-usuarios-externos-o-anonimos">Inicio de procesos por usuarios externos o anónimos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nueva-vista-tareas-respondidas-por-mi">Nueva vista: “Tareas respondidas por mí”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#respuesta-rapida-en-vistas-personalizadas-de-mis-tareas">Respuesta rápida en vistas personalizadas de “Mis tareas”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nuevos-formatos-de-columnas-para-vistas-personalizadas">Nuevos formatos de columnas para vistas personalizadas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inicio-de-sesion-con-qflow">Inicio de sesión con Qflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qflow-design-home-renovada-y-nueva-galeria-de-plantillas-pre-creadas">Qflow Design: Home renovada y nueva galería de plantillas pre-creadas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#correcciones-y-mejoras">Correcciones y mejoras</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.3-ReleaseNote5_2.html">v5.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html">v5.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html">v5.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_Cloud.html">v5.1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+      <li class="breadcrumb-item active">v5.3</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="v5-3">
+<h1>v5.3<a class="headerlink" href="#v5-3" title="Link to this heading"></a></h1>
+<p><strong>Resumen de características</strong></p>
+<p>La esperada versión 5.3 de Qflow trae consigo una serie de mejoras y nuevas funcionalidades para enriquecer tu experiencia como usuario. Entre estas
+destacan la incorporación de un asistente de inteligencia artificial para la generación y automatización de los procesos de negocio, la capacidad de
+iniciar procesos por usuarios externos al sistema, una nueva vista que permite a cada usuario acceder fácilmente a sus tareas respondidas y mayor
+potencia a la respuesta rápida de tareas, entre otras funcionalidades.</p>
+<p>Con estas adiciones, Qflow se coloca a la vanguardia tecnológica, aprovechando el potencial de la inteligencia artificial para ofrecer una nueva
+forma de abordar la creación de procesos empresariales. Además, seguimos atentos a los comentarios de nuestros usuarios y socios comerciales,
+incorporando funciones que agregan valor a su experiencia con nuestra plataforma. Para aportar con sugerencias o comentarios para mejorar nuestro
+producto, puedes publicar en el <a class="reference external" href="https://forum.qflowbpm.com/">foro de Qflow</a>.</p>
+<section id="asistente-de-inteligencia-artificial-para-la-generacion-de-procesos-de-negocio">
+<h2>Asistente de Inteligencia Artificial para la generación de procesos de negocio<a class="headerlink" href="#asistente-de-inteligencia-artificial-para-la-generacion-de-procesos-de-negocio" title="Link to this heading"></a></h2>
+<p>Ahora dispones de un asistente de inteligencia artificial que genera y automatiza los procesos en Qflow. Este asistente, impulsado por
+ChatGPT, es capaz de generar y automatizar procesos a partir de una descripción en lenguaje natural. Esta descripción puede ser tanto
+simple y abstracta, como «Proceso de solicitud de compras estándar», o más detallada, incluyendo una serie de pasos, datos y roles
+específicos para obtener un proceso preciso y adaptado a tus necesidades, como puede ser «Proceso de solicitud de compras en el cual
+los solicitantes ingresan un listado de artículos con cantidades, dirección de envío y datos de contacto, pasando luego por una
+aprobación del gerente de compras y notificación de despacho si se confirma la transacción».</p>
+<blockquote>
+<div><figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/53News_AIAssistantForm.gif"><img alt="Formulario de asistente de IA" src="_images/53News_AIAssistantForm.gif" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 46 </span><span class="caption-text">Formulario de asistente de IA</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>El asistente de IA se encarga de crear el diagrama del proceso en notación BPMN, así como de definir los datos, roles y configuraciones de
+los pasos, como las condiciones de puertas exclusivas y los datos a completar en los formularios.</p>
+<p>Es relevante tener en consideración que al tratarse de una primera implementación del asistente y encontrarse basado en Inteligencia Artificial,
+puede presentar errores ocasionales, que disminuirán a medida que la herramienta se nutra de la experiencia de nuestros clientes. En caso de que
+los resultados no cumplan tus expectativas, puedes intentar generar el proceso nuevamente con la misma descripción o probar con una descripción diferente.
+En esta versión inicial, cada espacio de trabajo estará limitado a 100 usos del asistente por mes.</p>
+<p>Para conocer más sobre el asistente de inteligencia artificial, puedes ver <a class="reference internal" href="15-QflowDesign.html#aiassistant"><span class="std std-ref">la sección del asistente</span></a> en el manual de Qflow Design.</p>
+</section>
+<section id="inicio-de-procesos-por-usuarios-externos-o-anonimos">
+<h2>Inicio de procesos por usuarios externos o anónimos<a class="headerlink" href="#inicio-de-procesos-por-usuarios-externos-o-anonimos" title="Link to this heading"></a></h2>
+<p>A partir de esta versión, se ha habilitado para que personas que no cuenten con una cuenta en Qflow puedan iniciar procesos. Esta funcionalidad
+resulta especialmente beneficiosa en contextos tales como:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Solicitud de contacto</p></li>
+<li><p>Postulación en procesos de selección de personal</p></li>
+<li><p>Realización de encuestas</p></li>
+<li><p>Inicio de aprobación de facturas por parte de proveedores externos</p></li>
+<li><p>Inscripción a eventos o conferencias</p></li>
+<li><p>Solicitud de cotizaciones</p></li>
+<li><p>Presentación de reclamos por parte de clientes</p></li>
+<li><p>¡Y muchos más!</p></li>
+</ul>
+</div></blockquote>
+<p>Además, al acceder al formulario público del proceso, incluso aquellos usuarios que hayan iniciado sesión en Qflow podrán iniciar un proceso de
+manera anónima. Esto brinda la posibilidad de emplear Qflow para escenarios como:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Denuncias anónimas</p></li>
+<li><p>Buzón de sugerencias</p></li>
+</ul>
+</div></blockquote>
+<p>Adicionalmente, es posible configurar un mensaje de confirmación personalizado para cada proceso, el cual se mostrará al usuario una vez que haya
+completado exitosamente el formulario e iniciado el proceso (ver <a class="reference internal" href="#externalstartconfirmationmessagefigure"><span class="std std-numref">Figura 48</span></a>).</p>
+<blockquote>
+<div><figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/53News_ExternalStartConfiguration.png"><img alt="Configuración de inicio externo o anónimo en paso de inicio" src="_images/53News_ExternalStartConfiguration.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 47 </span><span class="caption-text">Configuración de inicio externo o anónimo en paso de inicio</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<figure class="align-center" id="id3">
+<span id="externalstartconfirmationmessagefigure"></span><a class="reference internal image-reference" href="_images/53News_ExternalStartConfirmationMessage.png"><img alt="Mensaje de confirmación de inicio externo o anónimo" src="_images/53News_ExternalStartConfirmationMessage.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 48 </span><span class="caption-text">Mensaje de confirmación de inicio externo o anónimo</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Para más detalle sobre como configurar para que un proceso pueda ser iniciado por usuarios externos, puedes ver la sección de
+<a class="reference internal" href="15-QflowDesign.html#starteventdesign"><span class="std std-ref">configuración de paso de inicio</span></a>.
+Para detalle sobre el consumo de puntos de procesos iniciados por invitados, puedes ver <a class="reference external" href="21-Q-pointsConsumption.html">la información de consumo de
+puntos</a>.</p>
+</section>
+<section id="nueva-vista-tareas-respondidas-por-mi">
+<h2>Nueva vista: “Tareas respondidas por mí”<a class="headerlink" href="#nueva-vista-tareas-respondidas-por-mi" title="Link to this heading"></a></h2>
+<p>Se ha introducido una nueva vista denominada «Tareas respondidas por mí», a la que podrás acceder de manera sencilla desde el menú lateral.
+Esta vista está especialmente diseñada para que puedas acceder de forma rápida a las tareas a las que has dado respuesta en el pasado.</p>
+<p>Dentro de esta vista, tendrás la capacidad de visualizar de manera concisa y eficiente la información clave de las tareas que has abordado.
+Esto incluye detalles como el asunto de la tarea, la fecha en que se inició, la fecha en que diste tu respuesta, cuál fue tu respuesta y el
+estado actual de la tarea.</p>
+<blockquote>
+<div><figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/53News_TasksRespondedByMe.png"><img alt="Vista de &quot;Tareas respondidas por mí&quot;" src="_images/53News_TasksRespondedByMe.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 49 </span><span class="caption-text">Vista de «Tareas respondidas por mí»</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>En línea con la flexibilidad característica de todas las vistas del sistema Qflow, esta nueva funcionalidad es completamente personalizable
+en tu espacio de trabajo. Esto significa que podrás agregar filtros, incorporar o ajustar columnas, establecer criterios de ordenamiento y
+más, permitiendo adaptar la vista según tus preferencias y requerimientos específicos.</p>
+</section>
+<section id="respuesta-rapida-en-vistas-personalizadas-de-mis-tareas">
+<h2>Respuesta rápida en vistas personalizadas de “Mis tareas”<a class="headerlink" href="#respuesta-rapida-en-vistas-personalizadas-de-mis-tareas" title="Link to this heading"></a></h2>
+<p>En la <a class="reference external" href="29.3-ReleaseNote5_2.html">versión 5.2 de Qflow</a> se implementó la funcionalidad de responder directamente a una o varias tareas desde
+la vista de sistema «Mis tareas», en los casos en que las tareas lo permitieran, sin requerir acceder al formulario correspondiente.</p>
+<p>En esta última actualización, se extendió la función de respuesta rápida a todas las vistas personalizadas que los usuarios hayan
+creado, siempre y cuando estas vistas pertenezcan a la categoría «Mis tareas». Esta nueva funcionalidad brinda la oportunidad de
+realizar respuestas rápidas en vistas específicas, en las cuales los usuarios han configurado columnas para exponer toda la información
+esencial necesaria para la toma de decisiones. Puedes ver mas sobre la funcionalidad en la sección de <a class="reference internal" href="04-QflowTask.html#quickresponse"><span class="std std-ref">Respuesta rápida</span></a>.</p>
+<p>De esta forma, podrás aprovechar la respuesta rápida en contextos más amplios, agilizando tus interacciones y decisiones en relación
+con las tareas asignadas y permitiéndote una gestión más eficiente.</p>
+<blockquote>
+<div><figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/53News_CustomViewQuickResponse.png"><img alt="Respuesta rápida en vista personalizada" src="_images/53News_CustomViewQuickResponse.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 50 </span><span class="caption-text">Respuesta rápida en vista personalizada</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</section>
+<section id="nuevos-formatos-de-columnas-para-vistas-personalizadas">
+<h2>Nuevos formatos de columnas para vistas personalizadas<a class="headerlink" href="#nuevos-formatos-de-columnas-para-vistas-personalizadas" title="Link to this heading"></a></h2>
+<p>Para poder visualizar de forma más fácil el estado actual de las tareas y de la etapa actual de un proceso en las vistas personalizadas, se
+agregaron los nuevos formatos de visualización:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Mostrar el estado actual de la etapa del proceso</p></li>
+<li><p>Mostrar el estado actual de la tarea</p></li>
+</ul>
+</div></blockquote>
+<p>Estos nuevos formatos permiten mostrar en forma de etiqueta las columnas del estado de la etapa y de la tarea.</p>
+<p>Para más detalle sobre como configurar los nuevos formatos de las vistas, puedes acceder a la sección de <a class="reference internal" href="04-QflowTask.html#columns"><span class="std std-ref">columnas de una vista</span></a>.</p>
+</section>
+<section id="inicio-de-sesion-con-qflow">
+<h2>Inicio de sesión con Qflow<a class="headerlink" href="#inicio-de-sesion-con-qflow" title="Link to this heading"></a></h2>
+<p>Con el objetivo de mejorar la experiencia de nuestros usuarios y facilitar los procesos de registro e ingreso a Qflow, esta versión agrega
+un nuevo proveedor de seguridad al sistema. El proveedor “Qflow” se incluye por defecto en todos los espacios de trabajo creados en la
+versión Cloud del producto. Este permite a los usuarios iniciar sesión con sus credenciales de nuestro sitio de registro de clientes.</p>
+<blockquote>
+<div><figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/53News_QflowSecurityProvider.png"><img alt="Proveedor de seguridad Qflow" src="_images/53News_QflowSecurityProvider.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 51 </span><span class="caption-text">Proveedor de seguridad Qflow</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>Los usuarios administradores del sistema podrán ingresar desde un principio al sistema utilizando sus credenciales del sitio de registro,
+nombre de usuario o correo electrónico y su contraseña. Usuarios creados posteriormente podrán usar el proveedor también si se configuran
+teniendo en Qflow Team con Login igual a su correo electrónico del sitio de registro.</p>
+</section>
+<section id="qflow-design-home-renovada-y-nueva-galeria-de-plantillas-pre-creadas">
+<h2>Qflow Design: Home renovada y nueva galería de plantillas pre-creadas<a class="headerlink" href="#qflow-design-home-renovada-y-nueva-galeria-de-plantillas-pre-creadas" title="Link to this heading"></a></h2>
+<p>Como creadores de herramientas digitales buscamos siempre la excelencia en la calidad y presentación de nuestros productos. Por eso, seguimos
+innovando en el diseño visual de Qflow, con cambios importantes llegando a Qflow Design en esta versión.</p>
+<p>La página de inicio de Qflow Design ha sido reformulada para permitir un acceso rápido a algunas de las plantillas pre-creadas existentes,
+para facilitar a nuestros usuarios su actividad principal: el diseño de procesos.</p>
+<p>Con la inclusión del asistente de inteligencia artificial para la generación de procesos, también agregamos un acceso directo al mismo desde
+la página de inicio, para que los usuarios puedan acceder rápidamente a la funcionalidad.</p>
+<blockquote>
+<div><figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/53News_QflowDesignHome_Cloud.png"><img alt="Home de Qflow Design" src="_images/53News_QflowDesignHome_Cloud.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 52 </span><span class="caption-text">Home de Qflow Design</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>Además del acceso rápido a algunas plantillas seleccionadas, podremos también acceder a la galería completa en la cual se muestran todas las
+opciones que ofrece Qflow Design como punto de partida de nuestros diseños, junto con una descripción breve de cada una de ellas.</p>
+<blockquote>
+<div><figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/53News_TemplatesGallery.png"><img alt="Galería de plantillas pre-hechas" src="_images/53News_TemplatesGallery.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 53 </span><span class="caption-text">Galería de plantillas pre-hechas</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</section>
+<section id="correcciones-y-mejoras">
+<h2>Correcciones y mejoras<a class="headerlink" href="#correcciones-y-mejoras" title="Link to this heading"></a></h2>
+<p>Gracias al feedback de nuestros usuarios y a los procesos de pruebas internas de las herramientas, se detectaron y corrigieron los
+siguientes bugs en el producto:</p>
+<section id="general">
+<h3>General<a class="headerlink" href="#general" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Se mejoraron los mensajes de fallo de inicio de sesión en todas las herramientas para que reflejen más precisamente los errores ocurridos.</p></li>
+<li><p>Se corrige un caso en el motor de procesos que podía ocasionar demoras en el inicio de un proceso o al responder una tarea. Esto se daba únicamente cuando el motor se encontraba inactivo por un período largo de tiempo. [5.0, 5.1.1, 5.2]</p></li>
+<li><p>Se corrige la configuración de servicios de notificación de espacios de trabajo creados para que no tengan siempre el formato “Text”.</p></li>
+<li><p>Correcciones en fuente y formato de texto en notificaciones de correo.</p></li>
+<li><p>Se ajustaron los nombres de las cookies de acuerdo con los últimos cambios en la política de cookies.</p></li>
+<li><p>Se corrige el funcionamiento de scroll y resize en ciertos elementos de los sitios.</p></li>
+<li><p>Se agregan animaciones de carga para los sitios mientras cargan.</p></li>
+<li><p>Se corrige que al cambiar de zona horaria los sitios podían mostrar de forma incorrecta una página de error. [5.2]</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="qflow-task">
+<h3>Qflow Task<a class="headerlink" href="#qflow-task" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Se corrige la vista mostrada luego de responder una tarea desde un enlace de correo que mostraba un logo anterior del producto.</p></li>
+<li><p>Se corrige que en los campos requeridos de tipo fecha y hora aparezca el mensaje de campo requerido al cargar el formulario.</p></li>
+<li><p>Se corrige que el asunto de las tareas en el menú superior de tareas pendientes no se mostraba con el encoding correspondiente.</p></li>
+<li><p>Se corrige error al usar respuesta rápida cuando no se tienen Service Workers disponibles en el navegador.</p></li>
+<li><p>Se corrige error en filtros de vistas por etapa, que ocasionaba que no se trajeran resultados.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="qflow-design">
+<h3>Qflow Design<a class="headerlink" href="#qflow-design" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Se realiza una mejora para que la configuración de alcance de Evento de inicio, Tarea de usuario y Tarea de notificación a usuario se muestre siempre en la configuración del panel, sin ser necesario expandirlo.</p></li>
+<li><p>Se mueve la configuración de «Autogenerar nombre y descripción del proceso» hacia el grupo «General» de la configuración de evento de inicio.</p></li>
+<li><p>Se corrigen las condiciones de “X contestaron” y “X% contestaron” en compuertas que, en ciertas condiciones, al escribir números en los campos de valores se escribían múltiples veces. [4.2, 5.0, 5.1.1, 5.2]</p></li>
+<li><p>Se corrige que, en un caso particular, la búsqueda avanzada siempre devolvía resultados, por más que no incluyera lo que se buscaba.</p></li>
+<li><p>Se corrige el funcionamiento de las configuraciones de dominio de tipo hora.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="qflow-team">
+<h3>Qflow Team<a class="headerlink" href="#qflow-team" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul>
+<li><p>Se corrige la validación de campo login de usuario para que se ejecute al cambiar el proveedor de seguridad.</p></li>
+<li><p>Se agregan mejoras varias a la tabla de suplentes de usuarios: [5.1.1, 5.2]</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>El formato de fechas se muestra acorde a la cultura del navegador.</p></li>
+<li><p>Los elementos ahora se aparecen ordenados en forma descendiente.</p></li>
+<li><p>Se permite eliminar cualquier elemento de la tabla, no solo el más reciente.</p></li>
+<li><p>Se agregó paginado a la tabla.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Se mejora la performance de cargado de tabla de sesiones recientes. [5.1.1, 5.2]</p></li>
+<li><p>Los selectores de usuario en grupos, notificaciones a usuarios en colas de trabajo, y supervisores de nodos ahora muestran sus resultados en orden alfabético. [5.1.1, 5.2]</p></li>
+<li><p>Se corrige el importado de nodos que fueron exportados si contienen puntos en su nombre.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="qflow-admin">
+<h3>Qflow Admin<a class="headerlink" href="#qflow-admin" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Se hacen mejoras visuales a las gráficas del sitio.</p></li>
+<li><p>Se corrige que el rango de fechas de las gráficas no se actualiza hasta hacer clic en los botones de agrupar por día/mes.</p></li>
+</ul>
+</div></blockquote>
+<p><em>Nota: Las correcciones y/o mejoras que se agregaron a versiones anteriores del producto se marcan con las
+versiones correspondientes a las que aplican.</em></p>
+<p><strong>Si eres usuario de Qflow en la nube, ¡ya estás disfrutando de estas innovadoras características! Si no lo eres aún, puedes probar de forma
+gratuita en nuestro</strong> <a class="reference external" href="https://client.qflowbpm.com/tenant/free/user">sitio de registro de clientes</a> <strong>y comenzar a disfrutar de todas las ventajas que ofrece nuestra plataforma.
+Si tienes dudas sobre las nuevas funcionalidades, puedes</strong> <a class="reference external" href="https://qflowbpm.com/contact/">contactarte con nosotros</a> <strong>para agendar una demostración gratuita
+o realizar una consulta.</strong></p>
+<p>¡Prepárate para vivir una experiencia aún más poderosa con Qflow 5.3!</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="29.5-ReleaseNote5_4.html" class="btn btn-neutral float-left" title="v5.4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="29.3-ReleaseNote5_2.html" class="btn btn-neutral float-right" title="v5.2" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

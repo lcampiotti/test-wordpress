@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>v5.2-v5.5 &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/30.1-UpgradeGuide5_2_To_5_5.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">v5.2-v5.5</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="v5-2-v5-5">
+<h1>v5.2-v5.5<a class="headerlink" href="#v5-2-v5-5" title="Link to this heading"></a></h1>
+<p>La migración de la versión 5.2 a la <a class="reference external" href="29.6-ReleaseNote5_5.html">versión 5.5</a> del
+producto incluye los cambios de las versiones <a class="reference external" href="29.4-ReleaseNote5_3.html">5.3</a>
+y <a class="reference external" href="29.5-ReleaseNote5_4.html">5.4</a>. Estas versiones fueron liberadas para
+la versión <em>Cloud</em> del producto, y con la liberación de la versión 5.5, se incluyen
+sus cambios a la versión <em>OnPremise</em> del producto.</p>
+<section id="consideraciones-de-migracion-desde-qflow-5-2">
+<h2>Consideraciones de migración desde Qflow 5.2<a class="headerlink" href="#consideraciones-de-migracion-desde-qflow-5-2" title="Link to this heading"></a></h2>
+<section id="cambios-en-formularios-personalizados">
+<h3>Cambios en formularios personalizados<a class="headerlink" href="#cambios-en-formularios-personalizados" title="Link to this heading"></a></h3>
+<p><strong>Métodos asincrónicos de formularios personalizados</strong></p>
+<p>Muchos de los métodos usados para invocar acciones, como por ejemplo,
+obtener el formulario de inicio de un proceso, responder una tarea o
+editar un proceso fueron cambiados a métodos <em>asíncronos</em>, esto quiere
+decir que hay que hacer cambios en los formularios que los utilizan para que
+funcionen.</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Dado estos cambios, es importante tener en cuenta que de acuerdo a como
+este implementado, los metodos pueden no dar errores a nivel de compilación.
+Los usuarios que desarrollan formularios pueden no percatarse de problemas,
+sin embargo, puede que ocurran efectos no deseados si no se agregan las
+instrucciones <em>await</em> donde corresponde.</p>
+</div>
+<p>Puede ver estos cambios reflejados en la sección de <span class="xref std std-ref">controladores</span> del manual de diseño de formularios personalizados.</p>
+<p><strong>Soporte de inicio de procesos y tareas anónimas/externas en formularios personalizados</strong></p>
+<p>Ahora es posible utilizar formularios personalizados en inicio o respuesta de tareas
+anónimas/externas. Para que sigan funcionando los formularios personalizados
+existentes en este tipo de acciones, tendrá que hacer modificaciones a los formularios
+de inicio de proceso y respuesta de tarea.</p>
+<p>Lo primero que se debería hacer es <span class="xref std std-ref">actualizar el archivo ViewStart</span> con los cambios necesarios para este tipo de formularios.
+Esto implica agregar la condición del nuevo layout, <em>CustomFormsGuestLayout</em>, a
+este archivo. Este archivo debe quedar de la siguiente manera:</p>
+<blockquote>
+<div><div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Qframework</span><span class="p">.</span><span class="n">Web</span><span class="p">.</span><span class="n">Mvc</span><span class="p">.</span><span class="n">SessionManagement</span><span class="p">.</span><span class="n">SessionManagerHelper</span><span class="p">.</span><span class="n">GetSessionManager</span><span class="o">&lt;</span><span class="n">Qflow</span><span class="p">.</span><span class="n">Web</span><span class="p">.</span><span class="n">Mvc</span><span class="p">.</span><span class="n">SessionManagement</span><span class="p">.</span><span class="n">QflowSessionManager</span><span class="o">&gt;</span><span class="p">().</span><span class="n">IsGuest</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Layout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;~/Views/Shared/_CustomFormsGuestLayout.cshtml&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">Request</span><span class="p">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s">&quot;useEmptyLayout&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">Request</span><span class="p">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s">&quot;useEmptyLayout&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="s">&quot;True&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Layout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;~/Views/Shared/_CustomFormsLayout.cshtml&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Layout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;~/Views/Shared/_CustomFormsEmptyLayout.cshtml&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Tanto para los formularios de inicio y respuesta, se debe incluir la referencia
+a la librería <em>Qflow.Mvc.Multitenancy</em> en sus vistas. Podemos hacerlo agregando
+la siguiente línea a la lista de <em>usings</em> que se encuentra al principio del archivo
+de la vista:</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="n">@using</span><span class="w"> </span><span class="n">Qflow</span><span class="p">.</span><span class="n">Mvc</span><span class="p">.</span><span class="n">Multitenancy</span>
+</pre></div>
+</div>
+<p>Para las vistas de formularios de <strong>inicio de proceso</strong>, reemplazar lo siguiente:</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="n">@using</span><span class="w"> </span><span class="p">(</span><span class="n">Html</span><span class="p">.</span><span class="n">BeginForm</span><span class="p">(</span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">templateId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Model</span><span class="p">.</span><span class="n">TemplateId</span><span class="p">,</span><span class="w"> </span><span class="n">useEmptyLayout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Request</span><span class="p">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s">&quot;useEmptyLayout&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
+<span class="n">FormMethod</span><span class="p">.</span><span class="n">Post</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;submitForm&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">enctype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;multipart/form-data&quot;</span><span class="w"> </span><span class="p">}))</span>
+</pre></div>
+</div>
+<p>por el código a continuación:</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="n">@using</span><span class="w"> </span><span class="p">(</span><span class="n">Html</span><span class="p">.</span><span class="n">BeginForm</span><span class="p">(</span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">templateId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Model</span><span class="p">.</span><span class="n">TemplateId</span><span class="p">,</span><span class="w"> </span><span class="n">useEmptyLayout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Request</span><span class="p">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s">&quot;useEmptyLayout&quot;</span><span class="p">],</span>
+<span class="n">tenantId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TenantResolver</span><span class="p">.</span><span class="n">GetRequestTenantIdOrDefault</span><span class="p">()</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">FormMethod</span><span class="p">.</span><span class="n">Post</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;submitForm&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">enctype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;multipart/form-data&quot;</span><span class="w"> </span><span class="p">}))</span>
+</pre></div>
+</div>
+<p>Para las vistas de formularios de <strong>respuesta de tarea</strong>, reemplazar lo siguiente:</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Request</span><span class="p">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s">&quot;DisplayLinks&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="kt">bool</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">Request</span><span class="p">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s">&quot;DisplayLinks&quot;</span><span class="p">]))</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">ViewBag</span><span class="p">.</span><span class="n">Links</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ModelHelper</span><span class="p">.</span><span class="n">GetPageLinks</span><span class="p">(</span><span class="s">&quot;DisplayTask&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Model</span><span class="p">.</span><span class="n">FlowId</span><span class="p">,</span><span class="w"> </span><span class="n">Guid</span><span class="p">.</span><span class="n">Empty</span><span class="p">,</span><span class="w"> </span><span class="n">Model</span><span class="p">.</span><span class="n">VersionId</span><span class="p">,</span><span class="w"> </span><span class="n">Url</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>por el código a continuación:</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">isGuest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Model</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">GuestTaskModel</span><span class="p">;</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">displayLinks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Request</span><span class="p">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s">&quot;DisplayLinks&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="kt">bool</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">Request</span><span class="p">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s">&quot;DisplayLinks&quot;</span><span class="p">]);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">isGuest</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">displayLinks</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">ViewBag</span><span class="p">.</span><span class="n">Links</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ModelHelper</span><span class="p">.</span><span class="n">GetPageLinks</span><span class="p">(</span><span class="s">&quot;DisplayTask&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Model</span><span class="p">.</span><span class="n">FlowId</span><span class="p">,</span><span class="w"> </span><span class="n">Guid</span><span class="p">.</span><span class="n">Empty</span><span class="p">,</span><span class="w"> </span><span class="n">Model</span><span class="p">.</span><span class="n">VersionId</span><span class="p">,</span><span class="w"> </span><span class="n">Url</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Además, reemplazar:</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="n">@using</span><span class="w"> </span><span class="p">(</span><span class="n">Html</span><span class="p">.</span><span class="n">BeginForm</span><span class="p">(</span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">flowId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Model</span><span class="p">.</span><span class="n">FlowId</span><span class="p">,</span><span class="w"> </span><span class="n">taskId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Model</span><span class="p">.</span><span class="n">FlowStepId</span><span class="p">,</span>
+<span class="n">taskToId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Model</span><span class="p">.</span><span class="n">FlowStepToId</span><span class="p">,</span><span class="w"> </span><span class="n">useEmptyLayout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Request</span><span class="p">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s">&quot;useEmptyLayout&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">FormMethod</span><span class="p">.</span><span class="n">Post</span><span class="p">,</span>
+<span class="k">new</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;submitForm&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">enctype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;multipart/form-data&quot;</span><span class="w"> </span><span class="p">}))</span>
+</pre></div>
+</div>
+<p>por lo siguiente:</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="n">@using</span><span class="w"> </span><span class="p">(</span><span class="n">Html</span><span class="p">.</span><span class="n">BeginForm</span><span class="p">(</span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">flowId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Model</span><span class="p">.</span><span class="n">FlowId</span><span class="p">,</span><span class="w"> </span><span class="n">taskId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Model</span><span class="p">.</span><span class="n">FlowStepId</span><span class="p">,</span>
+<span class="n">taskToId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Model</span><span class="p">.</span><span class="n">FlowStepToId</span><span class="p">,</span><span class="w"> </span><span class="n">useEmptyLayout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Request</span><span class="p">.</span><span class="n">QueryString</span><span class="p">[</span><span class="s">&quot;useEmptyLayout&quot;</span><span class="p">],</span>
+<span class="n">tenantId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TenantResolver</span><span class="p">.</span><span class="n">GetRequestTenantIdOrDefault</span><span class="p">()</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="n">FormMethod</span><span class="p">.</span><span class="n">Post</span><span class="p">,</span>
+<span class="k">new</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;submitForm&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">enctype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;multipart/form-data&quot;</span><span class="w"> </span><span class="p">}))</span>
+</pre></div>
+</div>
+<p>Para los formularios de respuesta de tarea, también debemos incluir el helper <em>QGuest</em> en la
+vista de la siguiente manera:</p>
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="n">@Html</span><span class="p">.</span><span class="n">QGuest</span><span class="p">(</span><span class="n">Request</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="cambio-de-permiso-administrar-vinculos">
+<h3>Cambio de permiso «Administrar vínculos»<a class="headerlink" href="#cambio-de-permiso-administrar-vinculos" title="Link to this heading"></a></h3>
+<p>Dado que en la versión 5.5 se quitó la funcionalidad de «Vínculos» de Qflow Task,
+reemplazandola por la funcionalidad de «Personalizar el menú lateral». Por lo tanto,
+se reemplazó también a nivel de instalación el permiso de «Administrar vínculos»
+por el nuevo permiso de «Administrar el menú lateral». Para aquellos ambientes en donde
+se use el sitio WebForms, este permiso tendrá que ser agregado nuevamente para que los
+usuarios puedan seguir usando la funcionalidad de «Vínculos» del sitio WebForms.</p>
+</section>
+<section id="propiedades-nulleables-de-objetos-de-configuracion-de-cola-de-trabajo">
+<h3>Propiedades nulleables de objetos de configuración de cola de trabajo<a class="headerlink" href="#propiedades-nulleables-de-objetos-de-configuracion-de-cola-de-trabajo" title="Link to this heading"></a></h3>
+<p>Las propiedades «ValidFrom» y «ValidTo» de los objetos <em>WorkQueueConfiguration</em>,
+que son retornados por métodos que devuelven información de nodos organizacionales en
+los <a class="reference external" href="20-WebServicesAPI.html">web services</a>, pasan a ser objetos nulleables, por lo
+que hay que tener en cuenta esta consideración para aquellos usuarios que los utilizan.</p>
+</section>
+<section id="nuevos-parametros-de-sistema">
+<h3>Nuevos parámetros de sistema<a class="headerlink" href="#nuevos-parametros-de-sistema" title="Link to this heading"></a></h3>
+<p>Se agregaron una serie de parámetros de sistema en esta versión que cambian el comportamiento
+de Qflow. Se deberá revisar el valor de cada uno de estos para verificar que todo funciona correctamente.
+Los parámetros son:</p>
+<ul class="simple">
+<li><p><strong>StartFlowAsGuestLink:</strong> formato de los vínculos a el inicio de procesos anónimos/externos.
+Este parámetro es único por instalación, y no se debería modificar para asegurar su funcionamiento correcto.</p></li>
+<li><p><strong>GuestResponseLink:</strong> formato de vínculo a las respuestas de tareas externas que se despachan a usuarios
+externos. Se agrega una instancia de este parámetro por cada espacio de trabajo, y no se debería modificar
+para asegurar su funcionamiento correcto.</p></li>
+</ul>
+</section>
+<section id="cambios-en-archivos-web-config-de-sitios-y-backend-api">
+<h3>Cambios en archivos <em>web.config</em> de sitios y backend API<a class="headerlink" href="#cambios-en-archivos-web-config-de-sitios-y-backend-api" title="Link to this heading"></a></h3>
+<p>Los archivos <em>web.config</em> de los sitios y backend API tienen cambios en sus propiedades
+<em>assemblyBinding</em>. Puede hacer una instalación limpia y ver los archivos instalados para ver
+cuales son estas propiedades.</p>
+<p>Se agregaron nuevas configuraciones que hay que agregar al archivo <em>web.config</em> del sitio de Qflow Task.
+Estas configuraciones se deben agregar bajo la sección <em>configuration/ appSettings</em> del archivo.</p>
+<ul>
+<li><p><strong>Configuración de exportación de tablas:</strong> se debe incluir la siguiente configuración relacionada a
+la exportación de tablas en el sitio:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- Table export config --&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ExportFormats&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;csv,html,excel&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ShowTableExportAsButtons&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>La propiedad <em>ExportFormats</em> nos deja elegir cuales son los formatos de exportacion en que se permite
+exportar tablas, pudiendo eliminar algunos de los valores que se muestran arriba si queremos deshabilitar la
+opcion de exportar en ese formato. La propiedad <em>ShowTableExportAsButtons</em> permite configurar si
+las opciones de exportación se muestran como acciones separadas o agrupadas en una lista desplegable.</p>
+</li>
+<li><p><strong>Configuración de reCaptcha para inicio de procesos externos/anónimos:</strong> se debe incluir la siguiente
+configuración para habilitar un desafío reCaptcha para el inicio de procesos externos/anónimos:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- ReCAPTCHA config --&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ReCAPTCHASiteKey&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ReCAPTCHASecretKey&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ReCAPTCHAVerifyUrl&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;https://www.google.com/recaptcha/api/siteverify?secret={{0}}&amp;amp;response={{1}}&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;add</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;ReCAPTCHARenderUrl&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;https://www.google.com/recaptcha/api.js?onload=onReCaptchaLoad&amp;amp;render=explicit&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>Para habilitar el desafío reCaptcha, debemos completar los valores para las propiedades <em>ReCAPTCHASiteKey</em> y
+<em>ReCAPTCHASecretKey</em>. Puede leer sobre cómo obtener estos valores <a class="reference internal" href="02-InstallationAndConfiguration.html#recaptchaconfiguration"><span class="std std-ref">aquí</span></a>.</p>
+</li>
+</ul>
+<p>Se agrega la siguiente propiedad al archivo <em>system.config</em>, encontrado en el directorio de instalación
+de los backend services de Qflow, en la sección <em>configuration</em>:</p>
+<blockquote>
+<div><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;SecurityProperties&gt;</span>
+<span class="w">    </span><span class="nt">&lt;TokenEncryptionPepper&gt;&lt;/TokenEncryptionPepper&gt;</span>
+<span class="nt">&lt;/SecurityProperties&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Lo que se de como valor de esta propiedad, dentro del nodo <em>TokenEncryptionPepper</em> se agrega a los secretos
+antes de encriptarlos, como una medida de seguridad extra para dificultar su desencriptación.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

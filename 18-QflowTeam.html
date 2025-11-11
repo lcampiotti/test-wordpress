@@ -1,0 +1,2379 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qflow Team &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/18-QflowTeam.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Qflow Admin" href="19-QflowAdmin.html" />
+    <link rel="prev" title="Qflow Design" href="15-QflowDesign.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Qflow Team</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduccion">Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#organizacion-de-este-manual">Organización de este manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo-organizacional">Modelo Organizacional</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#elementos-del-modelo-organizacional">Elementos del Modelo Organizacional</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manejo-de-permisos-en-qflow">Manejo de permisos en Qflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#otros-conceptos-importantes">Otros conceptos importantes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Qflow Team</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ingreso-al-sitio-web">Ingreso al sitio web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#descripcion-general-de-la-interfaz-de-usuario">Descripción general de la interfaz de usuario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#especificacion-de-ruta-ldap">Especificación de Ruta LDAP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#propiedades-de-los-nodos">Propiedades de los nodos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#propiedades-de-los-grupos">Propiedades de los grupos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#propiedades-de-los-usuarios">Propiedades de los usuarios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#importacion-de-usuarios-de-directorio">Importación de usuarios de directorio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#importacion-de-datos-de-un-usuario-desde-un-directorio">Importación de datos de un usuario desde un directorio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#archivo">Archivo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuracion">Configuración</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#propiedades-adicionales">Propiedades adicionales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#licencias">Licencias</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Qflow Team</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="qflow-team">
+<h1>Qflow Team<a class="headerlink" href="#qflow-team" title="Link to this heading"></a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading"></a></h2>
+<p>Este manual describe el modelo organizacional utilizado por Qflow y la
+herramienta que permite modificarlo.</p>
+</section>
+<section id="organizacion-de-este-manual">
+<h2>Organización de este manual<a class="headerlink" href="#organizacion-de-este-manual" title="Link to this heading"></a></h2>
+<p>Este manual tiene dos partes. La primera parte explica el modelo
+organizacional utilizado por Qflow y los conceptos que este modelo
+maneja. Incluye un apartado sobre el manejo de permisos en Qflow.</p>
+<p>La segunda parte explica el funcionamiento de Qflow Team,
+la herramienta que permite modificar el modelo organizacional.</p>
+</section>
+<section id="modelo-organizacional">
+<h2>Modelo Organizacional<a class="headerlink" href="#modelo-organizacional" title="Link to this heading"></a></h2>
+<p>Esta sección describe el modelo organizacional, los elementos que lo
+componen y algunos conceptos que son necesarios para comprenderlo.</p>
+<section id="elementos-del-modelo-organizacional">
+<h3>Elementos del Modelo Organizacional<a class="headerlink" href="#elementos-del-modelo-organizacional" title="Link to this heading"></a></h3>
+<p>El modelo organizacional de Qflow maneja tres tipos de elementos:</p>
+<ul class="simple">
+<li><p>Nodos</p></li>
+<li><p>Grupos</p></li>
+<li><p>Usuarios</p></li>
+</ul>
+<section id="nodos">
+<h4>Nodos<a class="headerlink" href="#nodos" title="Link to this heading"></a></h4>
+<p>Los nodos sirven para organizar de forma jerárquica la estructura del
+modelo organizacional. Existe un nodo que es la raíz de la estructura.
+Un nodo puede contener grupos y usuarios, además de otros nodos.
+Es un contenedor de otros elementos, y un conjunto de ellos forman una
+estructura de árbol similar a la estructura de carpetas que se utiliza
+para organizar los archivos de una computadora. Qflow Team muestra esa
+estructura de árbol.</p>
+<p>Al igual que las carpetas, los nodos poseen nombres que permiten
+identificarlos. Además, poseen propiedades de seguridad que
+permiten definir quiénes pueden verlos o modificarlos y de qué forma
+pueden hacerlo.</p>
+<p>Los nodos pueden comportarse como colas de trabajo. Las colas de trabajo
+pueden ser elegidas como destinatarios de tareas. Cuando una tarea es
+asignada a un nodo que se comporta como cola de trabajo, cualquier
+usuario que tenga permiso para contestar tareas de esa cola puede
+contestar la tarea.</p>
+</section>
+<section id="grupos">
+<h4>Grupos<a class="headerlink" href="#grupos" title="Link to this heading"></a></h4>
+<p>Los grupos permiten agrupar usuarios que comparten ciertas propiedades.
+Además de contener usuarios, un grupo puede contener otros grupos. Se
+suelen usar, por ejemplo, para agrupar usuarios que cumplen una misma
+función, sin que esto se refleje en la estructura de la organización: un
+usuario puede pertenecer a varios grupos, pero pertenece solamente a un
+nodo, que representa el departamento o división al que pertenece el
+usuario.</p>
+</section>
+<section id="usuarios">
+<h4>Usuarios<a class="headerlink" href="#usuarios" title="Link to this heading"></a></h4>
+<p>Un usuario de Qflow puede ser
+miembro de varios grupos, pero no puede estar en más de un nodo. Se
+puede importar usuarios y sus datos de un servicio de directorio, como,
+por ejemplo, <em>Active Directory</em>.</p>
+</section>
+</section>
+<section id="manejo-de-permisos-en-qflow">
+<h3>Manejo de permisos en Qflow<a class="headerlink" href="#manejo-de-permisos-en-qflow" title="Link to this heading"></a></h3>
+<p>Casi todas las herramientas que componen Qflow permiten definir
+permisos de acceso de algún tipo. Por ejemplo, todas las herramientas de
+cliente (Qflow Team, Qflow Design, Qflow Task y Qflow Admin) permiten
+definir quiénes pueden acceder a ellas. Esta sección explica los mecanismos
+de seguridad que son comunes a todas las herramientas.</p>
+<section id="herencia">
+<h4>Herencia<a class="headerlink" href="#herencia" title="Link to this heading"></a></h4>
+<p>Qflow maneja el concepto de herencia de permisos. Este concepto es
+conocido por quienes asignan permisos a carpetas en Windows. En el
+sistema de archivos de Windows, cuando alguien define un permiso para
+una carpeta, ese permiso es heredado por las subcarpetas de esa carpeta.
+La estructura del sistema de archivos de Windows es una estructura de
+árbol: cada elemento de la estructura tiene un padre, a excepción de la
+raíz.</p>
+<p>Qflow tiene dos estructuras de árbol con elementos sobre los cuales se
+puede definir permisos:</p>
+<ul class="simple">
+<li><p><strong>Árbol de nodos organizacionales:</strong> es el árbol que representa la
+estructura de la organización y contiene nodos, grupos y usuarios.
+La herramienta que permite modificar el árbol y determinar quiénes
+tienen permiso de acceso a sus elementos es Qflow Team.</p></li>
+<li><p><strong>Árbol de paquetes:</strong> es la estructura que permite organizar los
+elementos que representan los procesos de Qflow. La herramienta que
+permite modificar ese árbol es Qflow Design.
+En él también se manejan los permisos de acceso a esos elementos
+desde el punto de vista del diseño de procesos. La misma estructura
+se utiliza para organizar los
+procesos en ejecución, y los permisos sobre los elementos de esa
+estructura desde el punto de vista de la ejecución de procesos se
+manejan en Qflow Task.</p></li>
+</ul>
+<p>Los elementos de ambas estructuras pueden heredar permisos, pero esto es
+opcional y se define para cada nodo o paquete. Por ejemplo, si a un
+usuario se le asigna un permiso heredable para ver los ítems del nodo
+raíz, ese usuario podrá ver los ítems del nodo raíz y de todos sus
+descendientes, es decir, de todos los nodos del árbol. De la misma
+forma, si se le asigna un permiso heredable sobre el paquete raíz, el
+usuario tendrá permisos sobre todos los paquetes de Qflow.</p>
+<p>Es importante tener en cuenta que el concepto de herencia se refiere
+siempre a objetos sobre los que se definen permisos, como paquetes o
+nodos en Qflow y carpetas en Windows. En Qflow existen otras
+estructuras jerárquicas además de los árboles de nodos y de paquetes. Un
+ejemplo es la estructura definida por las relaciones de pertenencia a
+grupos. Esto no es diferente de Windows, donde un grupo puede contener
+usuarios y también otros grupos, formando así un árbol. La diferencia
+está en que mientras nodos y paquetes son los objetos sobre los que se
+definen permisos, usuarios y grupos son los sujetos a los que se le
+confieren permisos. Un permiso confiere a alguien (sujeto) acceso a algo
+(objeto). Siempre que nos referimos al concepto de herencia nos
+referimos a objetos y no a sujetos.</p>
+</section>
+<section id="tipos-de-permiso-de-qflow">
+<h4>Tipos de permiso de Qflow<a class="headerlink" href="#tipos-de-permiso-de-qflow" title="Link to this heading"></a></h4>
+<p>Hay tres tipos de permiso en Qflow:</p>
+<ul class="simple">
+<li><p><strong>Permisos de acceso a una herramienta:</strong> son los permisos
+relacionados con el acceso a una herramienta (Qflow Design,
+Qflow Team, Qflow Admin y Qflow Task). Estos permisos se definen independientemente
+para cada una de las herramientas de Qflow. En general las herramientas tienen dos
+permisos: “Acceder a la herramienta” y “Administrar seguridad” y
+además, otros propios de cada una de ellas. Los objetos de esos
+permisos son las propias herramientas, que no son parte de ninguna
+estructura jerárquica, por lo que la herencia no tiene sentido en
+este caso. Los permisos de acceso a una herramienta se modifican
+en la propia herramienta.</p></li>
+<li><p><strong>Permisos de los nodos:</strong> son los permisos relacionados con las
+operaciones sobre los nodos organizacionales. Para cada uno de estos
+permisos se puede especificar si es heredable o no. Algunos nodos,
+además, pueden ser colas de trabajo. Por eso hay dos tipos de permiso
+sobre un nodo:</p>
+<ul>
+<li><p><strong>Permisos de nodo como elemento organizacional:</strong>
+son los permisos que se definen en el grupo “Seguridad” del
+formulario de propiedades de un nodo en Qflow Team.</p></li>
+<li><p><strong>Permisos de nodo como cola de trabajo:</strong> en
+Qflow, es posible determinar que un nodo sea además una cola de
+trabajo. En ese caso, hay que definir los permisos que determinan
+qué usuarios pueden contestar tareas de esa cola de trabajo. Estos
+permisos se definen en el grupo “Seguridad” del formulario de
+propiedades de una cola de trabajo.</p></li>
+</ul>
+</li>
+<li><p><strong>Permisos de los paquetes:</strong> son los permisos relacionados con las
+operaciones sobre paquetes. Para cada uno de estos permisos se puede
+especificar si es heredable o no. Hay dos tipos de permisos sobre
+paquetes:</p>
+<ul>
+<li><p><strong>Permisos de un paquete como contenedor de
+definiciones de procesos:</strong> son los que se definen en
+Qflow Design. Estos están relacionados con las
+operaciones que permiten definir procesos y ver las
+representaciones de los procesos definidos. Consulte el manual de
+<a class="reference external" href="15-QflowDesign.html">Qflow Design</a> por más información.</p></li>
+<li><p><strong>Permisos de un paquete como contenedor de procesos
+en ejecución:</strong> son los que se definen en Qflow Task y están
+relacionados con las operaciones relacionadas con la operación de
+los procesos. Consulte el manual de <a class="reference external" href="04-QflowTask.html">Qflow Task</a>
+por más información.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="sujetos-de-los-permisos-usuarios-grupos-nodos-y-roles-de-seguridad">
+<h4>Sujetos de los permisos: usuarios, grupos, nodos y roles de seguridad<a class="headerlink" href="#sujetos-de-los-permisos-usuarios-grupos-nodos-y-roles-de-seguridad" title="Link to this heading"></a></h4>
+<p>Un permiso le puede ser asignado a un usuario, a un grupo, a un nodo o a
+un rol de seguridad. Los roles de seguridad se asocian a nodos, grupos y
+usuarios, y sirven para agrupar permisos y organizar los permisos para
+simplificar su administración. Son comunes los casos en los que varios
+permisos suelen ser asignados todos juntos a varios usuarios que
+desempeñan un mismo rol. Por ejemplo, podría existir un rol
+“Administrador de seguridad” que tuviera permiso de administrar la
+seguridad de todas las herramientas de Qflow. En ese caso, se podría
+crear dicho rol de seguridad y asignarle, en
+cada herramienta, los permisos de acceso a la herramienta y
+administración de seguridad de la herramienta. Después, se podría
+asociar ese rol de seguridad a los usuarios correspondientes, o a un
+grupo que contuviera a esos usuarios. Este sistema de organización de
+permisos se denomina RBSA (<em>Role Based Security Administration</em>;
+administración de seguridad basada en roles).</p>
+<p>Como un usuario puede estar asociado a varios roles de seguridad y
+pertenecer a varios grupos, a veces puede resultar complicado determinar
+qué permisos efectivamente tiene un usuario. Por eso es útil conocer
+bien las reglas que determinan cómo un permiso que se le asigna a un
+elemento afecta a los elementos que se relacionan con él:</p>
+<ul class="simple">
+<li><p>Un permiso que se le concede a un <strong>usuario</strong> afecta solamente a ese
+usuario.</p></li>
+<li><p>Un permiso que se le concede a un <strong>grupo</strong> afecta a todos los
+usuarios que pertenecen a ese grupo y a todos los nodos y grupos que
+pertenecen a ese grupo.</p></li>
+<li><p>Un permiso que se le concede a un <strong>nodo</strong> afecta a todos los
+usuarios, grupos y nodos que pertenezcan a ese nodo.</p></li>
+<li><p>Un permiso que se le concede a un <strong>rol de seguridad</strong> afecta a todos
+los usuarios, nodos y grupos que estén asociados a ese rol de
+seguridad. Los permisos del rol de seguridad afectan a los elementos
+asociados a ese rol de la misma forma que cada uno de los permisos lo
+afectaría si fueran asignados de forma independiente. Por ejemplo, si
+se le confiere un permiso a un rol de seguridad y hay un grupo
+asociado a ese rol de seguridad, todos los usuarios, nodos y grupos
+que pertenezcan a ese grupo tendrán los permisos especificados en el
+rol de seguridad.</p></li>
+</ul>
+<p>Los roles de seguridad no deben ser confundidos con los roles de los
+procesos, que son una forma de abstraer las tareas de un proceso de los
+usuarios que las llevan a cabo y que se definen en Qflow Design.</p>
+</section>
+<section id="conflictos-entre-permisos">
+<h4>Conflictos entre permisos<a class="headerlink" href="#conflictos-entre-permisos" title="Link to this heading"></a></h4>
+<p>Además de permitir a alguien realizar una operación, se puede denegar
+explícitamente el permiso para realizar una operación. Un usuario puede
+pertenecer a más de un grupo. Puede pasar entonces, que haya
+contradicciones entre los permisos de un grupo y los de otro.</p>
+<p>Dado un usuario y un permiso, hay cuatro posibilidades:</p>
+<ul class="simple">
+<li><p>El permiso no está definido para el usuario.</p></li>
+<li><p><strong>Hay al menos una definición que le confiere el permiso al usuario y
+ninguna que se lo niegue.</strong></p></li>
+<li><p>Hay al menos una definición que le niega el permiso al usuario.</p></li>
+<li><p>Hay al menos una definición que le confiere el permiso al usuario y
+al menos una que le niega el permiso.</p></li>
+</ul>
+<p>El único caso en el que el usuario tendrá efectivamente el permiso es el
+segundo. En resumen: <strong>para que un usuario tenga permiso para realizar
+una operación, debe haber al menos una definición que le conceda ese
+permiso y no puede haber ninguna que se lo niegue.</strong></p>
+<p>La opción de denegar permisos tiene dos usos comunes:</p>
+<ul class="simple">
+<li><p>Excluir un elemento organizacional de un permiso otorgado a un
+elemento organizacional que lo incluye (por ejemplo, si un usuario
+pertenece a un grupo que tiene permiso para algo y se quiere negar
+ese permiso al usuario sin quitarlo del grupo).</p></li>
+<li><p>Evitar la herencia en una rama del árbol de nodos o del árbol de
+paquetes (por ejemplo, un usuario tiene permiso sobre el nodo raíz,
+pero se quiere evitar que tenga permiso sobre un determinado nodo).</p></li>
+</ul>
+</section>
+</section>
+<section id="otros-conceptos-importantes">
+<h3>Otros conceptos importantes<a class="headerlink" href="#otros-conceptos-importantes" title="Link to this heading"></a></h3>
+<p>Los siguientes son otros conceptos que es bueno tener en cuenta para
+aprovechar las funcionalidades del modelo organizacional.</p>
+<section id="supervisores">
+<h4>Supervisores<a class="headerlink" href="#supervisores" title="Link to this heading"></a></h4>
+<p>El rol de supervisor es un rol especial que puede ser desempeñado por un
+usuario o un grupo y que permite establecer relaciones de jerarquía
+dentro del modelo organizacional. Los supervisores pueden ser elegidos
+como destinatarios de alertas de procesos que están esperando por
+acciones de sus subordinados.</p>
+</section>
+<section id="suplencias">
+<h4>Suplencias<a class="headerlink" href="#suplencias" title="Link to this heading"></a></h4>
+<p>Qflow permite definir suplencias. Una persona puede ausentarse de la
+organización (por ejemplo, porque está enferma o se fue de vacaciones).
+Mientras no está, es probable que se le sigan asignando tareas, o que
+siga recibiendo notificaciones, en virtud de las funciones que cumple.
+Para evitar que esas tareas queden sin hacer, o se atrasen demasiado,
+provocando que las notificaciones queden sin respuesta, es posible
+asignarle un suplente a la persona por el tiempo en el que ésta esté
+ausente.</p>
+<p>Qflow se encarga, automáticamente, de enviarle al suplente todas las
+notificaciones que recibe la persona que se ausentó. El suplente también
+tendrá acceso a las tareas del usuario al que suple, con permisos
+suficientes para desempeñarlas en su lugar (pero no más que esos
+permisos).</p>
+<p>Un usuario puede ser suplido aun cuando esté deshabilitado en Qflow y
+aun así su suplente tendrá los permisos que le permitan ejecutar las
+tareas del usuario al que suple.</p>
+</section>
+</section>
+</section>
+<section id="id1">
+<h2>Qflow Team<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>Qflow Team es la herramienta que
+permite modificar y mantener el modelo organizacional de Qflow.</p>
+<section id="ingreso-al-sitio-web">
+<h3>Ingreso al sitio web<a class="headerlink" href="#ingreso-al-sitio-web" title="Link to this heading"></a></h3>
+<p>Para ingresar al sitio web es necesario abrir un navegador de internet e
+ingresar la dirección de Qflow Team, cuya URL
+es: <em>https://&lt;&lt;espacio de trabajo&gt;&gt;.team.qflowbpm.com</em> donde &lt;&lt;espacio de trabajo&gt;&gt;
+debe reemplazarse por el nombre del espacio de trabajo de Qflow.</p>
+<p>El sistema soporta dos modelos de autenticación de usuarios: usuario y contraseña
+o autenticación con cuentas de Google o Microsoft.</p>
+<p>En caso de que el usuario no tenga permisos o el sistema no lo
+reconozca, se presentará el formulario de autenticación como se muestra
+en la  <a class="reference internal" href="#qflowteamlogin"><span class="std std-numref">Figura 655</span></a>.</p>
+<figure class="align-center" id="id8">
+<span id="qflowteamlogin"></span><a class="reference internal image-reference" href="_images/image318.png"><img alt="Ingreso al sitio web" src="_images/image318.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 655 </span><span class="caption-text">Ingreso al sitio web</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>La pantalla presenta las siguientes opciones:</p>
+<ul class="simple">
+<li><p><strong>Nombre de usuario:</strong> Nombre de usuario con el que se desea
+ingresar.</p></li>
+<li><p><strong>Contraseña:</strong> Contraseña con la que se desea ingresar.</p></li>
+<li><p><strong>Proveedor de seguridad:</strong> Proveedor de seguridad que autentica al
+usuario (por ejemplo, el dominio de la empresa).</p></li>
+<li><p><strong>Login con cuenta de Microsoft:</strong> Seleccionar esta opción llevará a
+una vista donde se solicitarán las credenciales de Microsoft del
+usuario para autenticar la cuenta.</p></li>
+<li><p><strong>Login con cuenta de Google:</strong> Seleccionar esta opción llevará a una
+vista donde se solicitarán las credenciales de Google del usuario
+para autenticar la cuenta.</p></li>
+</ul>
+</section>
+<section id="descripcion-general-de-la-interfaz-de-usuario">
+<h3>Descripción general de la interfaz de usuario<a class="headerlink" href="#descripcion-general-de-la-interfaz-de-usuario" title="Link to this heading"></a></h3>
+<p>Los principales elementos de la interfaz son:</p>
+<ul class="simple">
+<li><p><strong>Pantalla principal:</strong> permite visualizar los usuarios actualmente habilitados,
+el histórico de estos y los 10 inicios de sesión más recientes.</p></li>
+<li><p><strong>Menú superior:</strong> presenta opciones para buscar elementos, acceder a
+la pantalla de configuración, así como para ir al inicio, configurar
+su zona horaria de preferencia y cerrar la sesión.</p></li>
+<li><p><strong>Menú lateral:</strong> permite mostrar/ocultar el árbol de solución (por
+defecto Raíz) y operar con los nodos organizacionales de dicho árbol.</p></li>
+<li><p><strong>Árbol de nodos organizacionales:</strong> permite ver la estructura
+jerárquica del modelo organizacional y seleccionar el elemento sobre
+el cual se desea operar.</p></li>
+</ul>
+<figure class="align-center" id="id9">
+<span id="qflowteamhome"></span><a class="reference internal image-reference" href="_images/image416.png"><img alt="Pantalla principal de Qflow Team" src="_images/image416.png" style="width: 8.81459in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 656 </span><span class="caption-text">Pantalla principal de Qflow Team</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="menu-superior">
+<h4>Menú superior<a class="headerlink" href="#menu-superior" title="Link to this heading"></a></h4>
+<p>La <a class="reference internal" href="#topmenu"><span class="std std-numref">Figura 657</span></a> muestra las opciones del menú superior y describe qué
+función cumplen.</p>
+<figure class="align-center" id="id10">
+<span id="topmenu"></span><a class="reference internal image-reference" href="_images/image518.png"><img alt="Menú superior" src="_images/image518.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 657 </span><span class="caption-text">Menú superior</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>A continuación, se explican las opciones que requieren aclaraciones:</p>
+<ul class="simple">
+<li><p><strong>Búsqueda rápida:</strong> permite buscar un usuario, grupo o nodo. Cuando
+se busque un elemento, Qflow mostrará una lista con todos los
+elementos encontrados que contengan el texto ingresado. En el caso de
+los usuarios, se buscará tanto por nombre como por <em>login.</em></p></li>
+<li><p><strong>Configuración:</strong> cuando se selecciona esta opción, el sistema
+despliega un conjunto de opciones como muestra la <a class="reference internal" href="#topmenuconfiguration"><span class="std std-numref">Figura 658</span></a>. Más
+detalles en <a class="reference internal" href="#configuracion"><span class="std std-ref">Configuración</span></a>.</p></li>
+</ul>
+<figure class="align-center" id="id11">
+<span id="topmenuconfiguration"></span><a class="reference internal image-reference" href="_images/image619.png"><img alt="Configuración" src="_images/image619.png" style="width: 3.55343in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 658 </span><span class="caption-text">Configuración</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><strong>Información:</strong> cuando se selecciona esta opción, el sistema despliega
+los enlaces a las novedades del producto, a este manual y al foro de Qflow, además de poder
+ver la versión del producto que se está usando.</p></li>
+</ul>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="_images/image845.png"><img alt="Información" src="_images/image845.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 659 </span><span class="caption-text">Información</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><strong>Herramientas:</strong> cuando se selecciona esta opción, el sistema despliega
+los enlaces a todas las herramientas a las que el usuario tiene permisos.
+Al hacer clic en una de ellas se abrirá en una nueva pestaña.
+En caso de que el usuario solo tenga permisos en la herramienta actual, este
+icono no aparecera en el cabezal.</p></li>
+</ul>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="_images/image895.png"><img alt="Herramientas" src="_images/image895.png" style="width: 15%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 660 </span><span class="caption-text">Herramientas</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>El botón de chat de ayuda permite mostrar u ocultar el chat de asistencia
+con inteligencia artificial.</p>
+<p><img alt="Chat de ayuda" class="align-center" src="_images/toggleChatButton1.png" /></p>
+<p>Al abrir la opción “Usuario actual”, el sistema despliega la
+zona horaria de preferencia del usuario y el botón de cerrado
+de sesión. Esta zona horaria es la utilizada en todas las fechas
+y horas de Qflow para el usuario actual. La preferencia se
+comparte con todas las herramientas del producto, por lo que su
+modificación en una de ellas afecta a las otras.</p>
+<p><a class="align-center reference internal" href="_images/image854.png"><img alt="Opciones de usuario actual" class="align-center" src="_images/image854.png" style="width: 30%;" /></a></p>
+<p>Para la edición de la zona horaria se debe seleccionar la opción
+“Usuario actual” del menú. Esto abrirá un panel
+derecho con la lista de zonas horarias disponibles.
+Luego de seleccionada la zona horaria, al guardar el panel, la página se refrescará
+automáticamente para que el cambio tenga efecto. Se debe tener en cuenta
+que si se tiene más ventanas abiertas de alguna de las herramientas de
+Qflow, deben ser refrescadas manualmente para que el cambio tenga efecto.</p>
+<p><a class="align-center reference internal" href="_images/image885.png"><img alt="Panel de zona horaria de preferencia" class="align-center" src="_images/image885.png" style="width: 40%;" /></a></p>
+</section>
+<section id="pantalla-principal">
+<h4>Pantalla principal<a class="headerlink" href="#pantalla-principal" title="Link to this heading"></a></h4>
+<p>Cuando un usuario ingresa a Qflow Team, o cuando hace clic en el ícono
+de la herramienta en la parte superior izquierda, Qflow le
+muestra la página principal.</p>
+<p>En la página principal se encuentran los siguientes elementos:</p>
+<ul class="simple">
+<li><p><strong>Indicador de usuarios habilitados:</strong> permite visualizar la cantidad de usuarios
+que se encuentran habilitados actualmente. Además, nos indica cómo es
+esta cantidad con respecto a la permitida por la licencia actual.</p></li>
+<li><p><strong>Historial de usuarios habilitados:</strong> permite visualizar la cantidad
+de usuarios habilitados en los últimos 12 meses.</p></li>
+<li><p><strong>Sesiones recientes:</strong> permite visualizar los 10 inicios de sesión más
+recientes teniendo en cuenta todas las herramientas de Qflow.</p></li>
+</ul>
+<figure class="align-center" id="id14">
+<span id="homescreen"></span><a class="reference internal image-reference" href="_images/image4cloud.png"><img alt="Pantalla principal de Qflow Cloud" src="_images/image4cloud.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 661 </span><span class="caption-text">Pantalla principal de Qflow Cloud</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition-diferencia-de-versiones admonition">
+<p class="admonition-title">Diferencia de versiones</p>
+<p>A diferencia de la versión <strong>Cloud</strong> del producto, en la versión <strong>OnPremise</strong>
+no se encuentra la gráfica “Historial de usuarios habilitados”.</p>
+</div>
+<figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="_images/image4onpremise.png"><img alt="Pantalla principal de Qflow OnPremise" src="_images/image4onpremise.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 662 </span><span class="caption-text">Pantalla principal de Qflow OnPremise</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="menu-lateral">
+<h4>Menú lateral<a class="headerlink" href="#menu-lateral" title="Link to this heading"></a></h4>
+<p>El menú lateral permite mostrar u ocultar el árbol de nodos
+organizacionales, así como también mostrar los nodos deshabilitados que
+se encuentran en él. También se puede acceder de forma rápida a la
+operación común “Nuevo nodo organizacional”, que está disponible de
+igual forma a través de los menús contextuales de los elementos del
+árbol.</p>
+<figure class="align-center" id="id16">
+<span id="lateralmenu"></span><a class="reference internal image-reference" href="_images/image716.png"><img alt="Menú lateral" src="_images/image716.png" style="width: 2.50904in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 663 </span><span class="caption-text">Menú lateral</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="arbol-de-nodos-organizacionales">
+<h4>Árbol de nodos organizacionales<a class="headerlink" href="#arbol-de-nodos-organizacionales" title="Link to this heading"></a></h4>
+<p>Un nodo se puede mostrar abierto (se muestran sus hijos) o cerrado (no
+se muestran). Para abrir un nodo, haga clic en el triángulo que está a
+su izquierda y que indica si está abierto o cerrado. Por ejemplo, en la
+<a class="reference internal" href="#nodetree"><span class="std std-numref">Figura 664</span></a> los nodos Raíz y Operaciones están abiertos y el nodo
+Administración está cerrado. Se puede ver que el nodo Operaciones
+contiene otros dos nodos: Mantenimiento y Producción.</p>
+<figure class="align-center" id="id17">
+<span id="nodetree"></span><a class="reference internal image-reference" href="_images/image816.png"><img alt="Árbol de nodos organizacionales" src="_images/image816.png" style="width: 3.25in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 664 </span><span class="caption-text">Árbol de nodos organizacionales</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>También es posible mover nodos de lugar arrastrándolos del lugar de
+origen hacía el lugar de destino. Para realizar esto, haga clic en el
+nodo que desea mover, arrástrelo hasta el lugar de destino y suelte el
+clic.</p>
+<p>Si se hace doble clic en un nodo del árbol, en el panel principal se
+abre un listado con los grupos y usuarios que pertenecen al nodo
+seleccionado en el árbol (<a class="reference internal" href="#nodepanel"><span class="std std-numref">Figura 665</span></a>).</p>
+<figure class="align-center" id="id18">
+<span id="nodepanel"></span><a class="reference internal image-reference" href="_images/image917.png"><img alt="Panel de propiedades de un elemento del árbol" src="_images/image917.png" style="width: 8.59811in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 665 </span><span class="caption-text">Panel de propiedades de un elemento del árbol</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En la parte superior del lado izquierdo hay una barra de herramientas.
+La <a class="reference internal" href="#toolbar"><span class="std std-numref">Figura 666</span></a> muestra los elementos de dicha barra y posteriormente se
+describe qué función cumplen.</p>
+<figure class="align-center" id="id19">
+<span id="toolbar"></span><a class="reference internal image-reference" href="_images/image1016.png"><img alt="Barra de herramientas del panel izquierdo" src="_images/image1016.png" style="width: 3.03488in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 666 </span><span class="caption-text">Barra de herramientas del panel izquierdo</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id20">
+<a class="reference internal image-reference" href="_images/image1116.png"><img alt="Barra de herramientas – Nuevo usuario/grupo" src="_images/image1116.png" style="width: 2.40514in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 667 </span><span class="caption-text">Barra de herramientas – Nuevo usuario/grupo</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><strong>Nuevo usuario:</strong> crea un nuevo usuario. Cuando el usuario hace clic
+sobre este ícono, se despliega un panel que permite ingresar el
+nombre del usuario, una descripción y sus datos principales como
+correo electrónico y <em>login</em>. Luego de creado, por defecto manda un mail
+de bienvenida al usuario. Más detalles en <a class="reference internal" href="#propiedades-de-los-usuarios"><span class="std std-ref">Propiedades de los usuarios</span></a>.</p></li>
+<li><p><strong>Nuevo grupo:</strong> crea un nuevo grupo. Cuando el usuario hace clic
+sobre este ícono, Qflow despliega un panel que permite ingresar el
+nombre del grupo y una descripción. Más detalles en <a class="reference internal" href="#propiedades-de-los-grupos"><span class="std std-ref">Propiedades de los grupos</span></a>.</p></li>
+</ul>
+<figure class="align-center" id="id21">
+<a class="reference internal image-reference" href="_images/image1216.png"><img alt="Barra de herramientas – Editar/Cortar/Pegar/Eliminar" src="_images/image1216.png" style="width: 2.92307in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 668 </span><span class="caption-text">Barra de herramientas – Editar/Cortar/Pegar/Eliminar</span><a class="headerlink" href="#id21" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><strong>Editar:</strong> cuando el usuario hace clic sobre este ícono, se muestra
+un panel que permite editar los datos del usuario o grupo
+seleccionado. Otra forma de acceder a esta opción es seleccionar el
+elemento que se desea editar y después hacerle doble clic.</p></li>
+<li><p><strong>Cortar y pegar:</strong> estas opciones permiten cortar el usuario o grupo
+seleccionado de un nodo para luego pegarlo en otro nodo. Es decir,
+permite mover el usuario o grupo seleccionado de lugar. Esta es la
+única forma de realizarlo ya que no se permite arrastrar usuarios o
+grupos de un nodo a otro.</p></li>
+<li><p><strong>Eliminar:</strong> cuando el usuario hace clic sobre este ícono, se
+muestra un mensaje de advertencia y si se hace clic en el botón Ok,
+elimina el usuario o grupo seleccionado.</p></li>
+</ul>
+<figure class="align-center" id="id22">
+<a class="reference internal image-reference" href="_images/image1315.png"><img alt="Barra de herramientas – Historial/Referencias/Rastreo de permisos" src="_images/image1315.png" style="width: 3.54216in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 669 </span><span class="caption-text">Barra de herramientas – Historial/Referencias/Rastreo de permisos</span><a class="headerlink" href="#id22" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><strong>Historial:</strong> muestra un panel donde lista las modificaciones
+realizadas sobre el elemento seleccionado (nodo, usuario o grupo),
+junto a las fechas en que fueron realizadas y el nombre del usuario
+que las realizó (<a class="reference internal" href="#nodehistory"><span class="std std-numref">Figura 670</span></a>). También se indica en qué
+zona horaria está la fecha que se está mostrando.</p></li>
+</ul>
+<figure class="align-center" id="id23">
+<span id="nodehistory"></span><a class="reference internal image-reference" href="_images/image1415.png"><img alt="Historial de un nodo" src="_images/image1415.png" style="width: 8.41736in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 670 </span><span class="caption-text">Historial de un nodo</span><a class="headerlink" href="#id23" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><strong>Referencias:</strong> muestra los elementos relacionados con el objeto
+seleccionado, incluidos los roles de plantilla de procesos, roles de
+seguridad, nodos, grupos y definiciones de seguridad. Por ejemplo, si
+un usuario tiene permisos sobre Qflow Team, al visualizar las
+referencias de ese usuario, aparecen esos permisos (<a class="reference internal" href="#userreference"><span class="std std-numref">Figura 671</span></a>).
+Las referencias que podrá visualizar de un usuario son: Auditoría de paquetes,
+auditoría de procesos, procesos, adjuntos, roles de procesos, pasos de procesos,
+acciones temporales, etapas de procesos, grupos, supervisados,
+sustituidos, permisos, paquetes, roles de plantilla de proceso,
+vínculos y auditoría de nodos.</p></li>
+</ul>
+<figure class="align-center" id="id24">
+<span id="userreference"></span><a class="reference internal image-reference" href="_images/image1515.png"><img alt="Referencias a un usuario" src="_images/image1515.png" style="width: 8.41736in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 671 </span><span class="caption-text">Referencias a un usuario</span><a class="headerlink" href="#id24" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><strong>Rastreo de permisos:</strong> esta opción está disponible solamente para
+los usuarios. Muestra un panel (<a class="reference internal" href="#permissiontracking"><span class="std std-numref">Figura 672</span></a>) en la que aparecen todos
+los permisos efectivos del usuario con respecto a nodos. Los permisos
+efectivos son todos los permisos que tiene el usuario, o sea, no
+solamente los que se le otorgaron directamente, sino también los que
+se le otorgaron indirectamente, por medio de un grupo, nodo o rol de
+seguridad. El panel tiene una opción que permite mostrar solamente
+los permisos que el usuario tiene sobre colas de trabajo.</p></li>
+</ul>
+<figure class="align-center" id="id25">
+<span id="permissiontracking"></span><a class="reference internal image-reference" href="_images/image1615.png"><img alt="Rastreo de permisos" src="_images/image1615.png" style="width: 8.48052in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 672 </span><span class="caption-text">Rastreo de permisos</span><a class="headerlink" href="#id25" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id26">
+<a class="reference internal image-reference" href="_images/image1715.png"><img alt="Barra de herramientas – Enviar notificaciones/Importar datos de directorio" src="_images/image1715.png" style="width: 4.05265in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 673 </span><span class="caption-text">Barra de herramientas – Enviar notificaciones/Importar datos de directorio</span><a class="headerlink" href="#id26" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><strong>Enviar notificaciones</strong>: permite reenviar al usuario los mensajes
+correspondientes a sus tareas activas, en un determinado período.</p></li>
+<li><p><strong>Importar datos de directorio</strong>: permite cargar los datos del
+usuario con datos importados de un directorio (por ejemplo, <em>Active
+Directory</em>). Más detalles en <a class="reference internal" href="#importacion-de-datos-de-un-usuario-desde-un-directorio"><span class="std std-ref">Importación de datos de un usuario desde un directorio</span></a>.</p></li>
+</ul>
+<figure class="align-center" id="id27">
+<span id="toolbarenabledisablemembers"></span><a class="reference internal image-reference" href="_images/image18.gif"><img alt="Barra de herramientas – Deshabilitar/Habilitar miembros" src="_images/image18.gif" style="width: 4.39032in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 674 </span><span class="caption-text">Barra de herramientas – Deshabilitar/Habilitar miembros</span><a class="headerlink" href="#id27" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><strong>Deshabilitar/Habilitar miembros:</strong> esta opción permite deshabilitar
+o habilitar los usuarios y grupos. Recuerde que cada usuario
+habilitado consume una licencia de Qflow.</p></li>
+</ul>
+<p>En la parte superior del lado derecho también hay una barra de
+herramientas. La <a class="reference internal" href="#righttoolbar"><span class="std std-numref">Figura 675</span></a> muestra los elementos de dicha barra y
+describe qué función cumplen:</p>
+<figure class="align-center" id="id28">
+<span id="righttoolbar"></span><a class="reference internal image-reference" href="_images/image1915.png"><img alt="Barra de herramientas del panel derecho" src="_images/image1915.png" style="width: 6.41736in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 675 </span><span class="caption-text">Barra de herramientas del panel derecho</span><a class="headerlink" href="#id28" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>A continuación, se describen las operaciones mencionadas en la figura:</p>
+<ul class="simple">
+<li><p><strong>Buscar miembros:</strong> permite escribir un pequeño texto y filtra los
+usuarios y grupos de acuerdo con este, mostrando sólo aquellos
+cuyos nombres lo contengan.</p></li>
+<li><p><strong>Refrescar:</strong> vuelve a cargar los usuarios y grupos, haciendo que
+refleje modificaciones realizadas en otros equipos después de la
+última vez en que fue cargado.</p></li>
+<li><p><strong>Filas/Columnas:</strong> permite modificar la forma como Qflow muestra
+los usuarios y grupos en el panel.</p>
+<ul>
+<li><p><strong>Filas:</strong> es la opción por defecto, como se puede ver en la <a class="reference internal" href="#nodepanel"><span class="std std-numref">Figura 665</span></a>.
+Muestra los grupos y usuarios como una lista de íconos grandes.
+Además del nombre de cada usuario o grupo, muestra su correo
+electrónico.</p></li>
+<li><p><strong>Columnas:</strong> muestra usuarios y grupos como una lista de íconos
+pequeños. Además, muestra el correo electrónico, descripción
+(opcional) y el estado (habilitado o deshabilitado) de cada usuario y
+grupo.</p></li>
+</ul>
+</li>
+<li><p><strong>Columnas:</strong> esta opción permite elegir si se desea o no, mostrar la
+descripción de cada usuario y grupo en la forma de visualización de
+tipo columna detallada previamente.</p></li>
+<li><p><strong>Mostrar usuarios:</strong> muestra u oculta los usuarios. Si el botón está
+activado como en la <a class="reference internal" href="#righttoolbar"><span class="std std-numref">Figura 675</span></a>, los muestra. De lo contrario, los
+oculta.</p></li>
+<li><p><strong>Mostrar grupos:</strong> muestra u oculta los grupos. Si el botón está
+activado como en la <a class="reference internal" href="#righttoolbar"><span class="std std-numref">Figura 675</span></a>, los muestra. De lo contrario, los
+oculta.</p></li>
+<li><p><strong>Mostrar usuarios y grupos deshabilitados:</strong> si este botón está
+activado, Qflow muestra en el panel principal los usuarios y grupos
+deshabilitados. De lo contrario, no los muestra.</p></li>
+</ul>
+</section>
+<section id="menus-contextuales">
+<h4>Menús contextuales<a class="headerlink" href="#menus-contextuales" title="Link to this heading"></a></h4>
+<p>Qflow Team permite realizar algunas
+de las operaciones disponibles en las barras de herramientas a través de
+menús contextuales. Para abrir un menú contextual, haga clic con el
+botón derecho en el elemento sobre el que desea efectuar la operación.
+Por ejemplo, para crear un nodo en el árbol, haga clic sobre el nodo que
+desea que contenga el nuevo nodo. Si selecciona varios elementos y hace
+clic con el botón derecho sobre la selección, Qflow mostrará también el
+menú contextual, pero en este caso el menú no tendrá aquellas opciones
+que correspondan a operaciones que no pueden ser realizadas sobre varios
+elementos simultáneamente. La <a class="reference internal" href="#treecontextmenu"><span class="std std-numref">Figura 676</span></a>  muestra el menú contextual del
+árbol. La <a class="reference internal" href="#userandgroupcontextmenu"><span class="std std-numref">Figura 677</span></a> muestra los menús contextuales de los usuarios y de
+los grupos.</p>
+<figure class="align-center" id="id29">
+<span id="treecontextmenu"></span><a class="reference internal image-reference" href="_images/image2013.png"><img alt="Menú contextual del árbol de nodos" src="_images/image2013.png" style="width: 2.60465in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 676 </span><span class="caption-text">Menú contextual del árbol de nodos</span><a class="headerlink" href="#id29" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id30">
+<span id="userandgroupcontextmenu"></span><a class="reference internal image-reference" href="_images/image2114.png"><img alt="Menú contextual de los usuarios (izquierda) y de los grupos (derecha)" src="_images/image2114.png" style="width: 4.8861in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 677 </span><span class="caption-text">Menú contextual de los usuarios (izquierda) y de los grupos (derecha)</span><a class="headerlink" href="#id30" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>A continuación, se describen las operaciones de los menús contextuales
+que no hayan sido explicadas previamente en la barra de herramientas de
+la sección <a class="reference internal" href="#arbol-de-nodos-organizacionales"><span class="std std-ref">Árbol de nodos organizacionales</span></a>:</p>
+<ul class="simple">
+<li><p><strong>Listado de miembros:</strong> muestra los usuarios y grupos que contiene
+el nodo sobre el que se hizo clic.</p></li>
+<li><p><strong>Nuevo nodo organizacional:</strong> crea un nodo organizacional dentro del
+nodo sobre el que se hizo clic.</p></li>
+<li><p><strong>Renombrar:</strong> permite cambiar el nombre del nodo seleccionado sin
+necesidad de abrir su formulario de propiedades. Esa opción es
+similar a la opción que permite renombrar un archivo o directorio en
+Windows. Cuando uno la selecciona, el nombre del elemento queda
+seleccionado y aparece un cursor que permite modificar el texto.</p></li>
+<li><p><strong>Eliminar:</strong> elimina el objeto seleccionado.</p></li>
+<li><p><strong>Refrescar:</strong> actualiza la estructura del árbol, desde el nodo
+seleccionado hacia abajo.</p></li>
+<li><p><strong>Importar nodo desde archivo:</strong> importa un nodo (es decir, toda la
+rama definida por un nodo) que fue exportada en algún otro ambiente y
+lo coloca dentro del nodo seleccionado. Cuando se importan elementos
+cuyos identificadores coinciden con elementos ya existentes, éstos
+son actualizados con los datos importados, pero si estaban en otro
+nodo, son movidos hacia el nodo seleccionado. Más detalles en
+<a class="reference internal" href="#importar-nodo-desde-archivo"><span class="std std-ref">Importar nodo desde archivo</span></a>.</p></li>
+<li><p><strong>Exportar nodo a archivo:</strong> exporta a un archivo la rama definida
+por el nodo seleccionado. Este archivo puede ser utilizado más tarde
+para importar la rama exportada en otro ambiente en el que Qflow
+esté instalado. Además del nodo seleccionado y su contenido (nodos
+descendientes, usuarios, grupos) se exportan todos los proveedores de
+seguridad, calendarios y roles del sistema. Más detalles en
+<a class="reference internal" href="#exportar-nodo-a-archivo"><span class="std std-ref">Exportar nodo a archivo</span></a>.</p></li>
+<li><p><strong>Importar usuarios de directorio:</strong> permite, en un nodo, importar
+usuarios de un directorio, como <em>Active Directory</em>. Más detalles en
+<a class="reference internal" href="#importacion-de-usuarios-de-directorio"><span class="std std-ref">Importación de usuarios de directorio</span></a>.</p></li>
+<li><p><strong>Propiedades:</strong> muestra el panel de propiedades del nodo
+seleccionado.</p></li>
+</ul>
+</section>
+</section>
+<section id="especificacion-de-ruta-ldap">
+<h3>Especificación de Ruta LDAP<a class="headerlink" href="#especificacion-de-ruta-ldap" title="Link to this heading"></a></h3>
+<p>Nodos, usuarios y grupos tienen una propiedad en la que se puede
+especificar una ruta LDAP para poder sincronizar sus datos con los de un
+servicio de directorio. La propiedad está en el grupo “Avanzado” del
+panel de propiedades de un nodo, grupo o usuario (<a class="reference internal" href="#groupadvance"><span class="std std-numref">Figura 678</span></a>).</p>
+<figure class="align-center" id="id31">
+<span id="groupadvance"></span><a class="reference internal image-reference" href="_images/image2214.png"><img alt="Grupo “Avanzado” del formulario de propiedades de un usuario" src="_images/image2214.png" style="width: 7.99245in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 678 </span><span class="caption-text">Grupo “Avanzado” del formulario de propiedades de un usuario</span><a class="headerlink" href="#id31" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Para elegir la ruta:</strong></p>
+<ol class="arabic simple">
+<li><p>Haga clic en “Seleccionar”. Esto hace que Qflow muestre un panel
+como el de la <a class="reference internal" href="#ldappathselection"><span class="std std-numref">Figura 679</span></a> , en la cual se puede elegir el elemento del
+directorio que corresponda al nodo, usuario o grupo.</p></li>
+</ol>
+<figure class="align-center" id="id32">
+<span id="ldappathselection"></span><a class="reference internal image-reference" href="_images/image2315.png"><img alt="Selección de la ruta LDAP" src="_images/image2315.png" style="width: 3.63496in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 679 </span><span class="caption-text">Selección de la ruta LDAP</span><a class="headerlink" href="#id32" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>Seleccione el dominio que desee, en la lista que figura a la
+izquierda del botón “Cargar” y haga clic en este botón. Esto cargará
+la lista que aparece en la parte inferior del panel (<a class="reference internal" href="#directorybrowser"><span class="std std-numref">Figura 680</span></a>).
+Éste muestra unidades organizacionales (“<em>organizational units</em>”)
+del directorio y permite seleccionar alguna de ellas, o algún grupo.
+Para ver un grupo, abra la unidad organizacional a la que pertenece
+(<a class="reference internal" href="#openorgunit"><span class="std std-numref">Figura 681</span></a>).</p></li>
+</ol>
+<figure class="align-center" id="id33">
+<span id="directorybrowser"></span><a class="reference internal image-reference" href="_images/image2413.png"><img alt="Explorador de directorio con nodos cargados" src="_images/image2413.png" style="width: 3.22154in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 680 </span><span class="caption-text">Explorador de directorio con nodos cargados</span><a class="headerlink" href="#id33" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id34">
+<span id="openorgunit"></span><a class="reference internal image-reference" href="_images/image2514.png"><img alt="Una unidad organizacional abierta con todos sus grupos" src="_images/image2514.png" style="width: 3.121in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 681 </span><span class="caption-text">Una unidad organizacional abierta con todos sus grupos</span><a class="headerlink" href="#id34" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>Seleccione en la lista el elemento que desee asociar al nodo, usuario
+o grupo que está modificando y haga clic en “Aceptar”. Puede
+seleccionar un grupo o un nodo del directorio.</p></li>
+<li><p>Si está especificando una ruta LDAP para un usuario, el procedimiento
+es el mismo, excepto que existe una tabla adicional que muestra todos
+los usuarios del elemento seleccionado (<a class="reference internal" href="#directorydataimport"><span class="std std-numref">Figura 682</span></a>). Si hay muchos
+usuarios en ese elemento, puede filtrar la lista de usuarios
+utilizando la búsqueda rápida que aparece sobre la lista. Si usted
+había creado un usuario e importa sus datos, el nombre del usuario
+cambiará y pasará a ser el nombre importado.</p></li>
+</ol>
+<figure class="align-center" id="id35">
+<span id="directorydataimport"></span><a class="reference internal image-reference" href="_images/image2614.png"><img alt="Importador de datos de directorio con usuarios cargados" src="_images/image2614.png" style="width: 4.66302in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 682 </span><span class="caption-text">Importador de datos de directorio con usuarios cargados</span><a class="headerlink" href="#id35" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="propiedades-de-los-nodos">
+<h3>Propiedades de los nodos<a class="headerlink" href="#propiedades-de-los-nodos" title="Link to this heading"></a></h3>
+<p>Para modificar las propiedades de un nodo, búsquelo en el árbol de nodos
+organizacionales, hágale clic derecho y seleccione la opción
+“Propiedades” del menú contextual. Qflow mostrará el panel que se
+muestra en la <a class="reference internal" href="#nodeproperties"><span class="std std-numref">Figura 683</span></a>.</p>
+<p>El formulario divide las propiedades de un nodo en los siguientes
+grupos:</p>
+<ul class="simple">
+<li><p><strong>General:</strong> muestra y permite modificar el nombre, la descripción y
+el estado habilitado o no habilitado.</p></li>
+<li><p><strong>Propiedades:</strong> muestra y permite modificar propiedades adicionales
+del nodo. Las propiedades adicionales no están definidas en
+Qflow, sino que son propiedades que la organización define para
+que complementen las propiedades que ya vienen con el producto.</p></li>
+<li><p><strong>Roles:</strong> permite agregar y quitar roles de seguridad, asociándolos
+al nodo.</p></li>
+<li><p><strong>Supervisores:</strong> muestra la lista de usuarios y grupos que actúan
+como supervisores del nodo y permite modificar la lista.</p></li>
+<li><p><strong>Avanzado:</strong> muestra y permite modificar el comportamiento de cola
+de trabajo y sincronización con directorio.</p></li>
+<li><p><strong>Seguridad:</strong> permite especificar qué usuarios, grupos y roles de
+seguridad tienen permisos sobre el nodo y cuáles son esos
+permisos.</p></li>
+</ul>
+<p>El grupo “General” es el único que se muestra por defecto. Para que
+aparezcan los grupos descriptos posteriormente, despliéguelos haciendo
+clic en el botón “+”.</p>
+<figure class="align-center" id="id36">
+<span id="nodeproperties"></span><a class="reference internal image-reference" href="_images/image2713.png"><img alt="Propiedades de un nodo" src="_images/image2713.png" style="width: 7.86395in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 683 </span><span class="caption-text">Propiedades de un nodo</span><a class="headerlink" href="#id36" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="general">
+<h4>General<a class="headerlink" href="#general" title="Link to this heading"></a></h4>
+<p>Son las mismas propiedades que las que pueden ser modificadas al crear
+el nodo.</p>
+<ul class="simple">
+<li><p><strong>Nombre:</strong> es el nombre que aparece al lado del nodo en el árbol. En
+la <a class="reference internal" href="#nodeproperties"><span class="std std-numref">Figura 683</span></a>, el nombre es “Administración”.</p></li>
+<li><p><strong>Descripción:</strong> breve descripción del nodo.</p></li>
+<li><p><strong>Habilitado:</strong> permite habilitar o deshabilitar el nodo. Si un nodo
+no está habilitado, tiene color gris en el árbol.</p></li>
+</ul>
+</section>
+<section id="propiedades">
+<h4>Propiedades<a class="headerlink" href="#propiedades" title="Link to this heading"></a></h4>
+<p>El grupo “Propiedades” muestra las propiedades adicionales del nodo. Por
+más información acerca de las propiedades adicionales, vaya a la sección
+<a class="reference internal" href="#propiedades-adicionales"><span class="std std-ref">Propiedades adicionales</span></a>.</p>
+</section>
+<section id="roles">
+<h4>Roles<a class="headerlink" href="#roles" title="Link to this heading"></a></h4>
+<p>El grupo “Roles” (ver <a class="reference internal" href="#rolegroup"><span class="std std-numref">Figura 684</span></a>) permite definir los roles de seguridad
+del nodo. Los formularios de propiedades de usuarios y grupos también
+tienen este grupo, que funciona de la misma forma que para los nodos.</p>
+<figure class="align-center" id="id37">
+<span id="rolegroup"></span><a class="reference internal image-reference" href="_images/image285.png"><img alt="Grupo “Roles” con los roles de un nodo" src="_images/image285.png" style="width: 7.52326in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 684 </span><span class="caption-text">Grupo “Roles” con los roles de un nodo</span><a class="headerlink" href="#id37" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Para agregar un rol al nodo</strong>, escriba parte del nombre del
+destinatario al que quiera agregar como rol en donde dice “Comienza a
+escribir…”, y cuando lo vea en la lista que Qflow muestra,
+selecciónelo.</p>
+<p><strong>Para eliminar un rol del nodo</strong>, simplemente haga clic en el símbolo
+“x” que aparece al lado del rol.</p>
+<p>Nótese que esto no elimina el rol. Sólo lo quita de la lista de roles
+del nodo que se está modificando.</p>
+</section>
+<section id="supervisores-1">
+<span id="id2"></span><h4>Supervisores<a class="headerlink" href="#supervisores-1" title="Link to this heading"></a></h4>
+<p>El grupo “Supervisores” (ver <a class="reference internal" href="#supervisorgroup"><span class="std std-numref">Figura 685</span></a>) permite agregar o quitar
+usuarios y grupos a la lista de supervisores del nodo. El panel de
+propiedades de un grupo también tiene un grupo igual, que funciona como
+éste.</p>
+<figure class="align-center" id="id38">
+<span id="supervisorgroup"></span><a class="reference internal image-reference" href="_images/image295.png"><img alt="Grupo “Supervisores” con los supervisores de un nodo" src="_images/image295.png" style="width: 8.06693in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 685 </span><span class="caption-text">Grupo “Supervisores” con los supervisores de un nodo</span><a class="headerlink" href="#id38" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Para agregar un supervisor al nodo</strong>, escriba parte del nombre del
+usuario o grupo al que quiera agregar como supervisor donde dice
+“Comienza a escribir…”, y cuando lo vea en la lista que Qflow muestra,
+selecciónelo.</p>
+<p><strong>Para eliminar un supervisor al nodo</strong>, simplemente haga clic en el
+símbolo “x” que aparece al lado del rol.</p>
+</section>
+<section id="avanzado">
+<h4>Avanzado<a class="headerlink" href="#avanzado" title="Link to this heading"></a></h4>
+<p>El grupo “Avanzado” (<a class="reference internal" href="#advancenodegroup"><span class="std std-numref">Figura 686</span></a>) permite configurar el nodo para que se
+comporte como una cola de trabajo, y configurar esa cola de trabajo.
+También permite especificar una ruta LDAP para el nodo (ver
+<a class="reference internal" href="#especificacion-de-ruta-ldap"><span class="std std-ref">Especificación de Ruta LDAP</span></a>).</p>
+<p>Para que el nodo se comporte como una cola de trabajo, marque la opción
+<strong>Comportamiento de cola de trabajo</strong>. Cuando un nodo tiene
+comportamiento de cola de trabajo, puede ser seleccionado como miembro
+de roles de plantilla de procesos y así, ser destinatario de tareas de
+procesos de trabajo. Cualquier usuario que tenga permisos para contestar
+las tareas de la cola podrá tomar una de esas tareas y contestarla.</p>
+<p>Cuando un nodo es una cola de trabajo, el botón “<strong>Configuración</strong>”
+queda habilitado. Ese botón permite configurar los permisos y la
+vigencia de la cola de trabajo. Cuando se le hace clic en ese botón,
+aparecen las propiedades de la cola de trabajo (<a class="reference internal" href="#workqueuepropertiesform"><span class="std std-numref">Figura 688</span></a>).</p>
+<figure class="align-center" id="id39">
+<span id="advancenodegroup"></span><a class="reference internal image-reference" href="_images/image305.png"><img alt="Grupo “Avanzado” de un nodo" src="_images/image305.png" style="width: 8.70822in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 686 </span><span class="caption-text">Grupo “Avanzado” de un nodo</span><a class="headerlink" href="#id39" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="configuracion-de-cola-de-trabajo">
+<h5>Configuración de cola de trabajo<a class="headerlink" href="#configuracion-de-cola-de-trabajo" title="Link to this heading"></a></h5>
+<p>Para acceder a la configuración de cola de trabajo, además de poder
+hacerlo desde el formulario de propiedades de un nodo, es posible desde
+el árbol de nodos, cuando éste sea una cola de trabajo. Por lo tanto,
+para acceder directamente, haga clic derecho sobre la cola de trabajo y
+luego en “Propiedades de cola de trabajo” como muestra la <a class="reference internal" href="#workqueuepropertiesaccess"><span class="std std-numref">Figura 687</span></a>.</p>
+<figure class="align-center" id="id40">
+<span id="workqueuepropertiesaccess"></span><a class="reference internal image-reference" href="_images/image319.png"><img alt="Acceder a propiedades de cola de trabajo desde el árbol de nodos" src="_images/image319.png" style="width: 2.26042in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 687 </span><span class="caption-text">Acceder a propiedades de cola de trabajo desde el árbol de nodos</span><a class="headerlink" href="#id40" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>El formulario de propiedades de una cola de trabajo tiene los siguientes
+grupos:</p>
+<ul class="simple">
+<li><p>Seguridad</p></li>
+<li><p>Permisos</p></li>
+<li><p>Notificaciones</p></li>
+<li><p>Avanzado</p></li>
+</ul>
+<p>El grupo “Seguridad” del formulario de propiedades de una cola de
+trabajo permite definir los permisos sobre la misma. La columna muestra
+la lista de los usuarios, grupos y roles para los cuales se definieron
+permisos y la lista de permisos.</p>
+<p>El grupo “Seguridad” es el único que se muestra por defecto. Para que
+aparezcan los grupos descriptos posteriormente, despliéguelos haciendo
+clic en el símbolo “+”.</p>
+<p><strong>Para agregar un usuario, grupo o rol:</strong></p>
+<ol class="arabic simple">
+<li><p>Haga clic en botón “Agregar”. Eso hace que aparezca en la parte
+superior de dicho botón un texto que dice “Comienza a escribir…”.
+Escriba parte del nombre del usuario, grupo o rol deseado.</p></li>
+<li><p>Cuando lo vea en la lista que Qflow muestra, selecciónelo.</p></li>
+</ol>
+<figure class="align-center" id="id41">
+<span id="workqueuepropertiesform"></span><a class="reference internal image-reference" href="_images/image324.png"><img alt="Formulario propiedades de una cola de trabajo" src="_images/image324.png" style="width: 8.64887in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 688 </span><span class="caption-text">Formulario propiedades de una cola de trabajo</span><a class="headerlink" href="#id41" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Una vez agregados los usuarios, grupos o roles, es posible definir qué
+permisos tiene cada uno de ellos. Para hacer eso, marque “Permitido” o
+“Denegado” al lado de cada permiso como se muestra en la <a class="reference internal" href="#workqueuesecuritygroup"><span class="std std-numref">Figura 689</span></a>. Si
+marca la opción “Heredable”, el permiso se aplicará recursivamente. Esto
+quiere decir que el usuario, rol o grupo seleccionado tendrá permiso
+sobre el nodo que se está editando y, además, sobre todos los nodos
+descendientes de ese nodo. Por ejemplo, para que un gerente tenga
+permisos de “Visualizar” las tareas de las colas de trabajo de toda una
+rama de la organización se le puede otorgar permisos de “Visualizar”
+sobre el nodo raíz de esa rama y seleccionar la opción “Heredable”. Los
+posibles permisos son:</p>
+<ul class="simple">
+<li><p><strong>Visualizar:</strong> permite acceder a la bandeja de entrada de la cola de
+trabajo.</p></li>
+<li><p><strong>Actuar:</strong> permite contestar una tarea de la cola de trabajo.</p></li>
+<li><p><strong>Firmar:</strong> este permiso no tiene utilidad en Qflow, pero se usa en
+Q-expeditive, que está construido sobre la base de Qflow. Permite
+firmar.</p></li>
+</ul>
+<figure class="align-center" id="id42">
+<span id="workqueuesecuritygroup"></span><a class="reference internal image-reference" href="_images/image335.png"><img alt="Grupo “Seguridad” de una cola de trabajo - Configuración de permisos" src="_images/image335.png" style="width: 8.83128in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 689 </span><span class="caption-text">Grupo “Seguridad” de una cola de trabajo - Configuración de permisos</span><a class="headerlink" href="#id42" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Para editar permisos a un usuario, grupo o rol:</strong></p>
+<ol class="arabic simple">
+<li><p>Seleccione el elemento al que quiera editarle los permisos y haga
+clic en el botón “Editar”. Qflow volverá a mostrar el formulario
+“Configuración de permisos”.</p></li>
+<li><p>Seleccione las acciones que quiera permitir o denegar en el nuevo
+permiso.</p></li>
+</ol>
+<p><strong>Para eliminar permisos a un usuario, grupo o rol:</strong></p>
+<ol class="arabic simple">
+<li><p>Seleccione el elemento al que quiera eliminarle los permisos y
+posteriormente haga clic en el botón “Eliminar”.</p></li>
+<li><p>Qflow mostrará un mensaje de advertencia. Haga clic en el botón “Si”
+y se eliminarán todos los permisos para el elemento seleccionado.</p></li>
+</ol>
+<p>El grupo “Permisos” del formulario de propiedades de una cola de trabajo
+(<a class="reference internal" href="#userswitheffectivepermissions"><span class="std std-numref">Figura 690</span></a>) muestra una lista de los usuarios que tienen permisos
+efectivos sobre esa cola. Los permisos efectivos son todos los permisos
+que tiene el usuario, o sea, no solamente los que se le otorgaron
+directamente, sino también los que se le otorgaron indirectamente, por
+medio de un grupo, nodo o rol de seguridad. Para cada usuario se muestra
+cuáles de los tres permisos posibles (visualizar, actuar y firmar) tiene
+efectivamente.</p>
+<figure class="align-center" id="id43">
+<span id="userswitheffectivepermissions"></span><a class="reference internal image-reference" href="_images/image345.png"><img alt="Usuarios que tienen permisos efectivos sobre una cola de trabajo" src="_images/image345.png" style="width: 8.76744in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 690 </span><span class="caption-text">Usuarios que tienen permisos efectivos sobre una cola de trabajo</span><a class="headerlink" href="#id43" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>El grupo “Notificaciones” del formulario de propiedades de una cola de
+trabajo permite especificar el envío de notificaciones cuando ocurre
+algún evento relacionado con la cola. Para especificar los eventos que
+deben disparar notificaciones, marque las opciones que desee de entre
+las siguientes:</p>
+<ul class="simple">
+<li><p><strong>Notifica de nuevas tareas:</strong> si esta opción está marcada, Qflow
+enviará notificaciones cada vez que una nueva tarea sea asignada a la
+cola.</p></li>
+<li><p><strong>Notifica de acciones de tiempo:</strong> si esta opción está marcada,
+Qflow enviará notificaciones cada vez que se active alguna acción de
+tiempo como, por ejemplo, un vencimiento o un recordatorio.</p></li>
+<li><p><strong>Notifica de la firma de tareas:</strong> esta opción está pensada para
+cuando Qflow se utiliza en conjunto con Q-expeditive, software de
+expediente electrónico de Urudata y hace que Qflow envíe una
+notificación cuando se firma una actuación de un trámite de
+Q-expeditive.</p></li>
+<li><p><strong>Define una lista personalizada de destinatarios de
+notificaciones:</strong> si marca esta opción, debe seleccionar los usuarios
+que recibirían las notificaciones. De lo contrario, éstas serán
+enviadas a todos los miembros de la cola de trabajo. Para agregar un
+destinatario, escriba parte de su nombre donde dice “Comienza a
+escribir…”, y cuando lo vea en la lista que Qflow muestra,
+selecciónelo (<a class="reference internal" href="#addaddressee"><span class="std std-numref">Figura 691</span></a>). Para quitar un destinario de la lista,
+simplemente haga clic en el símbolo “x” que aparece al lado del
+destinatario.</p></li>
+</ul>
+<figure class="align-center" id="id44">
+<span id="addaddressee"></span><a class="reference internal image-reference" href="_images/image354.png"><img alt="Agregar destinatario a una lista personalizada de notificaciones" src="_images/image354.png" style="width: 8.51163in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 691 </span><span class="caption-text">Agregar destinatario a una lista personalizada de notificaciones</span><a class="headerlink" href="#id44" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>El grupo “Avanzado” del formulario de propiedades de una cola de trabajo
+permite definir la vigencia de la cola. Para definir un período de
+vigencia, marque la opción “Define período de vigencia” y seleccione la
+fecha de inicio del período (“Desde”) y la de finalización del período
+(“Hasta”). El nodo sólo se comportará como cola de trabajo durante ese
+período.</p>
+<figure class="align-center" id="id45">
+<a class="reference internal image-reference" href="_images/image364.png"><img alt="Grupo “Avanzado” del formulario de propiedades de una cola de trabajo" src="_images/image364.png" style="width: 8.70985in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 692 </span><span class="caption-text">Grupo “Avanzado” del formulario de propiedades de una cola de trabajo</span><a class="headerlink" href="#id45" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="seguridad">
+<h4>Seguridad<a class="headerlink" href="#seguridad" title="Link to this heading"></a></h4>
+<p>El grupo “Seguridad” (ver <a class="reference internal" href="#nodesecurityconfiguration"><span class="std std-numref">Figura 693</span></a>) permite definir quiénes tienen
+permisos para realizar operaciones sobre el nodo y cuáles son esos
+permisos. Las entidades que pueden estar asociadas a permisos sobre un
+nodo son los usuarios, los grupos y los roles de seguridad.</p>
+<figure class="align-center" id="id46">
+<span id="nodesecurityconfiguration"></span><a class="reference internal image-reference" href="_images/image374.png"><img alt="Configuración de seguridad de un nodo" src="_images/image374.png" style="width: 8.84884in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 693 </span><span class="caption-text">Configuración de seguridad de un nodo</span><a class="headerlink" href="#id46" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Para agregar un usuario, grupo o rol de seguridad al conjunto de
+entidades que tienen permisos sobre el nodo:</strong></p>
+<ol class="arabic simple">
+<li><p>Haga clic en botón “Agregar”. Eso hace que aparezca en la parte
+superior de dicho botón un texto que dice “Comienza a escribir…”.
+Escriba parte del nombre del usuario, grupo o rol deseado.</p></li>
+<li><p>Cuando lo vea en la lista que Qflow muestra, selecciónelo.</p></li>
+</ol>
+<p>Una vez agregados los usuarios, roles y grupos, es posible definir qué
+permisos tienen cada uno de ellos. Esto se hace marcando los casilleros
+“Permitir” o “Denegar” al lado de cada permiso como se muestra en la
+<a class="reference internal" href="#securitygrouppermissionsettings"><span class="std std-numref">Figura 694</span></a>. Para cada permiso se puede especificar si es heredable o no.
+Si un permiso sobre un nodo es heredable, el usuario, grupo o rol que lo
+tenga también lo tendrá para los nodos descendientes de ese nodo. Por
+ejemplo, el permiso “Ver ítem” permite ver el nodo, pero si es
+heredable, también permite ver sus nodos descendientes.</p>
+<p>Los posibles permisos son:</p>
+<ul class="simple">
+<li><p><strong>Ver ítems:</strong> permite ver el nodo.</p></li>
+<li><p><strong>Editar ítem</strong>: permite modificar el nodo.</p></li>
+<li><p><strong>Crear ítem:</strong> permite crear nodos dentro del nodo.</p></li>
+<li><p><strong>Eliminar ítem:</strong> permite borrar el nodo.</p></li>
+<li><p><strong>Auditar ítem:</strong> permite visualizar información de auditoría del
+nodo.</p></li>
+<li><p><strong>Administrar seguridad</strong>: permite agregar y modificar permisos sobre
+el nodo.</p></li>
+</ul>
+<p>Por una explicación detallada acerca del funcionamiento de los permisos
+de Qflow, consulte la sección <a class="reference internal" href="#manejo-de-permisos-en-qflow"><span class="std std-ref">Manejo de permisos en Qflow</span></a> de este
+manual.</p>
+<figure class="align-center" id="id47">
+<span id="securitygrouppermissionsettings"></span><a class="reference internal image-reference" href="_images/image384.png"><img alt="Grupo “Seguridad” – Configuración de permisos" src="_images/image384.png" style="width: 8.41736in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 694 </span><span class="caption-text">Grupo “Seguridad” – Configuración de permisos</span><a class="headerlink" href="#id47" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Para editar permisos a un usuario, grupo o rol:</strong></p>
+<ol class="arabic simple">
+<li><p>Seleccione el elemento al que quiera editarle los permisos y haga
+clic en el botón “Editar”, o haga clic en el símbolo “+” que se
+encuentra al lado del elemento.</p></li>
+<li><p>Qflow volverá a mostrar el formulario “Configuración de permisos”.
+Seleccione las acciones que quiera permitir o denegar en el nuevo
+permiso.</p></li>
+</ol>
+<p><strong>Para eliminar permisos a un usuario, grupo o rol:</strong></p>
+<ol class="arabic simple">
+<li><p>Seleccione el elemento al que quiera eliminarle los permisos y
+posteriormente haga clic en el botón “Eliminar”.</p></li>
+<li><p>Qflow mostrará un mensaje de advertencia. Haga clic en el botón “Si”
+y se eliminarán todos los permisos para el elemento seleccionado.</p></li>
+</ol>
+</section>
+</section>
+<section id="propiedades-de-los-grupos">
+<h3>Propiedades de los grupos<a class="headerlink" href="#propiedades-de-los-grupos" title="Link to this heading"></a></h3>
+<p>Para modificar las propiedades de un grupo, selecciónelo y haga doble
+clic sobre él. Qflow mostrará el panel que se muestra en la <a class="reference internal" href="#groupproperties"><span class="std std-numref">Figura 695</span></a>:</p>
+<figure class="align-center" id="id48">
+<span id="groupproperties"></span><a class="reference internal image-reference" href="_images/image395.png"><img alt="Propiedades de un grupo" src="_images/image395.png" style="width: 7.80019in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 695 </span><span class="caption-text">Propiedades de un grupo</span><a class="headerlink" href="#id48" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>El formulario divide las propiedades de un grupo en:</p>
+<ul class="simple">
+<li><p><strong>General:</strong> permite ver y modificar las propiedades que identifican
+el grupo.</p></li>
+<li><p><strong>Propiedades:</strong> permite ver y modificar las propiedades extendidas
+del grupo.</p></li>
+<li><p><strong>Miembros:</strong> permite agregar y quitar usuarios y grupos.</p></li>
+<li><p><strong>Miembro de:</strong> muestra a qué grupos pertenece el grupo que se está
+editando.</p></li>
+<li><p><strong>Roles:</strong> permite agregar y quitar roles de seguridad, asociándolos
+al grupo. Funciona de la misma forma que el grupo “Roles” de los
+nodos.</p></li>
+<li><p><strong>Supervisores:</strong> muestra la lista de usuarios y grupos que actúan
+como supervisores del grupo, y permite modificar la lista.
+Funciona de la misma forma que el grupo “Supervisores” de los
+nodos.</p></li>
+<li><p><strong>Avanzado:</strong> permite asociar el grupo a un grupo de <em>Active Directory</em>
+o de otro directorio mediante una ruta LDAP. Qflow
+utilizará esta ruta cuando sincronice los datos del modelo
+organizacional con los del directorio. El procedimiento para
+modificarla es igual al procedimiento para modificar la ruta LDAP
+de un nodo, descrito más arriba.</p></li>
+</ul>
+<p>El grupo “General” es el único que se muestra por defecto. Para que
+aparezcan los grupos descriptos posteriormente, despliéguelos haciendo
+clic en el símbolo “+”.</p>
+<section id="general-1">
+<span id="id3"></span><h4>General<a class="headerlink" href="#general-1" title="Link to this heading"></a></h4>
+<p>Las propiedades generales son:</p>
+<ul class="simple">
+<li><p><strong>Nombre</strong>: es el nombre del grupo. Aparece al lado de cada ícono que
+representa un grupo.</p></li>
+<li><p><strong>Descripción:</strong> breve descripción del grupo.</p></li>
+<li><p><strong>Habilitado:</strong> marcando o desmarcando el casillero se puede
+habilitar o deshabilitar un grupo. Un grupo deshabilitado no es
+tenido en cuenta por Qflow, pero puede volver a ser habilitado. Si
+un grupo no está habilitado, el ícono que lo representa se muestra en
+color gris.</p></li>
+</ul>
+</section>
+<section id="propiedades-1">
+<span id="id4"></span><h4>Propiedades<a class="headerlink" href="#propiedades-1" title="Link to this heading"></a></h4>
+<p>El grupo “Propiedades” muestra las propiedades adicionales del grupo.
+Por más información acerca de las propiedades adicionales, vea
+<a class="reference internal" href="#propiedades-adicionales"><span class="std std-ref">Propiedades adicionales</span></a>.</p>
+</section>
+<section id="miembros">
+<h4>Miembros<a class="headerlink" href="#miembros" title="Link to this heading"></a></h4>
+<p>El grupo “Miembros” muestra los usuarios y grupos que son miembro del
+grupo y permite agregar o quitar miembros. La <a class="reference internal" href="#membersgroup"><span class="std std-numref">Figura 696</span></a> muestra el grupo
+mencionado.</p>
+<figure class="align-center" id="id49">
+<span id="membersgroup"></span><a class="reference internal image-reference" href="_images/image405.png"><img alt="Grupo “Miembros”" src="_images/image405.png" style="width: 8.00913in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 696 </span><span class="caption-text">Grupo “Miembros”</span><a class="headerlink" href="#id49" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Para agregar un miembro a un grupo:</strong></p>
+<ol class="arabic simple">
+<li><p>Donde dice “Comienza a escribir…”, escriba parte del nombre del
+usuario o grupo deseado.</p></li>
+<li><p>Cuando Qflow despliegue la lista, seleccioné el usuario o grupo que
+desee agregar como miembro.</p></li>
+</ol>
+</section>
+</section>
+<section id="propiedades-de-los-usuarios">
+<h3>Propiedades de los usuarios<a class="headerlink" href="#propiedades-de-los-usuarios" title="Link to this heading"></a></h3>
+<p>Para modificar las propiedades de un usuario, selecciónelo y haga doble
+clic sobre él. Qflow mostrará el panel que se muestra en la <a class="reference internal" href="#userproperties"><span class="std std-numref">Figura 697</span></a>:</p>
+<figure class="align-center" id="id50">
+<span id="userproperties"></span><a class="reference internal image-reference" href="_images/image417.png"><img alt="Propiedades de un usuario" src="_images/image417.png" style="width: 8.45302in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 697 </span><span class="caption-text">Propiedades de un usuario</span><a class="headerlink" href="#id50" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>El formulario divide las propiedades de un usuario en los siguientes
+grupos:</p>
+<ul class="simple">
+<li><p><strong>General:</strong> tiene las propiedades que identifican el usuario y
+permite habilitarlo y deshabilitarlo.</p></li>
+<li><p><strong>Servicios de notificación del usuario:</strong> contiene las opciones de
+correo del usuario, utilizadas para enviarle notificaciones.</p></li>
+<li><p><strong>Propiedades:</strong> permite agregar propiedades al usuario.</p></li>
+<li><p><strong>Suplencias:</strong> permite definir suplencias para el usuario.</p></li>
+<li><p><strong>Miembro de:</strong> muestra los grupos a los que el usuario pertenece.</p></li>
+<li><p><strong>Roles:</strong> permite agregar y quitar roles de seguridad, asociándolos
+al usuario. Funciona de la misma forma que el grupo “Roles” de los
+nodos.</p></li>
+<li><p><strong>Avanzado:</strong> permite asociar el usuario a un usuario de <em>Active Directory</em>
+o de otro directorio mediante una ruta LDAP. Qflow
+utilizará esta ruta cuando sincronice los datos del modelo
+organizacional con los datos del directorio. El procedimiento para
+modificarla es similar al procedimiento que permite importar los
+datos del usuario (ver <a class="reference internal" href="#importacion-de-datos-de-un-usuario-desde-un-directorio"><span class="std std-ref">Importación de datos de un usuario desde un directorio</span></a>).
+Los paneles que aparecen son los mismos, y se debe seleccionar un
+usuario del directorio. La diferencia es que, al final del
+proceso, no se importan los datos del usuario, sino que se
+modifica la ruta LDAP del usuario.</p></li>
+</ul>
+<p>El grupo “General” es el único que se muestra por defecto. Para que
+aparezcan los grupos descriptos posteriormente, despliéguelos haciendo
+clic en el símbolo “+”.</p>
+<section id="general-2">
+<span id="id5"></span><h4>General<a class="headerlink" href="#general-2" title="Link to this heading"></a></h4>
+<p>Las propiedades generales son:</p>
+<ul class="simple">
+<li><p><strong>Nombre</strong>: es el nombre del usuario.</p></li>
+<li><p><strong>Dirección de correo electrónico</strong></p></li>
+<li><p><strong>Descripción:</strong> breve descripción del usuario.</p></li>
+<li><p><strong>Proveedor de seguridad:</strong> es el proveedor de seguridad que
+autentica al usuario (por ejemplo, el dominio Windows).</p></li>
+<li><p><strong>Login:</strong> es el nombre de usuario del usuario. Si el proveedor
+seleccionado es de tipo Google/Microsoft, este valor deberá ser el mail
+correspondiente (la herramienta no valida que el mail ingresado sea
+válido).</p></li>
+<li><p><strong>Dirección de mensajería instantánea</strong></p></li>
+<li><p><strong>Habilitado:</strong> marcando o desmarcando el casillero, se puede
+habilitar o deshabilitar el usuario. Un usuario deshabilitado no
+es tenido en cuenta por Qflow y no utiliza licencias de usuario,
+pero puede volver a ser habilitado. Si un usuario no está
+habilitado, el ícono que lo representa se muestra en color gris.
+Usuarios habilitados sí utilizan licencias de Qflow. Si usted
+habilita un usuario sin tener licencias suficientes para hacerlo,
+la herramienta le informará y no le permitirá efectuar la
+operación.</p></li>
+<li><p><strong>Calendario:</strong> es el calendario por el cual se rige el usuario.
+Usuarios diferentes pueden regirse por calendarios diferentes.
+Esto es útil, por ejemplo, para el caso de organizaciones con
+filiales en varios países diferentes que tienen regímenes
+laborales y feriados distintos.</p></li>
+</ul>
+</section>
+<section id="servicios-de-notificacion-del-usuario">
+<h4>Servicios de notificación del usuario<a class="headerlink" href="#servicios-de-notificacion-del-usuario" title="Link to this heading"></a></h4>
+<p>El grupo “Servicio de notificación del usuario” (<a class="reference internal" href="#mailoptions"><span class="std std-numref">Figura 698</span></a>) permite
+configurar las opciones de correo.</p>
+<figure class="align-center" id="id51">
+<span id="mailoptions"></span><a class="reference internal image-reference" href="_images/image424.png"><img alt="Opciones de correo" src="_images/image424.png" style="width: 8.41736in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 698 </span><span class="caption-text">Opciones de correo</span><a class="headerlink" href="#id51" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>La configuración de correo muestra los servicios de correo que están
+disponibles y permite marcar uno o más para que sean utilizados para
+enviarle mensajes al usuario (lo normal es marcar uno; también es
+posible no marcar ninguno). En la <a class="reference internal" href="#mailoptions"><span class="std std-numref">Figura 698</span></a> sólo se muestra un servicio
+de correo disponible.</p>
+<p>Para cada servicio, se puede especificar cómo los mensajes le serán
+enviados al usuario:</p>
+<ul class="simple">
+<li><p><strong>HTML Frame:</strong> no se envía todo el mensaje, sino que se envía un
+mensaje que, al ser abierto por ciertos clientes de correo (por
+ejemplo, Outlook Express), hace que el cliente de correo navegue
+hasta una página en un servidor. Esa página es la que contiene el
+cuerpo del mensaje.</p></li>
+<li><p><strong>HTML Link:</strong> se envía un mensaje formateado con HTML que tiene un
+vínculo a una página que contiene el cuerpo del mensaje.</p></li>
+<li><p><strong>Text Link:</strong> esta opción es similar a la anterior, pero el mensaje
+es enviado sin formato HTML, como texto plano con un vínculo que
+puede ser reconocido por algunos clientes de correo (por ejemplo,
+el de Lotus Notes).</p></li>
+<li><p><strong>XML:</strong> esta opción envía el mensaje como un documento XML que puede
+ser interpretado por alguna aplicación.</p></li>
+</ul>
+</section>
+<section id="propiedades-2">
+<span id="id6"></span><h4>Propiedades<a class="headerlink" href="#propiedades-2" title="Link to this heading"></a></h4>
+<p>El grupo “Propiedades” muestra las propiedades adicionales del usuario.
+Por más información acerca de las propiedades adicionales, vea
+<a class="reference internal" href="#propiedades-adicionales"><span class="std std-ref">Propiedades adicionales</span></a>.</p>
+</section>
+<section id="suplencias-1">
+<span id="id7"></span><h4>Suplencias<a class="headerlink" href="#suplencias-1" title="Link to this heading"></a></h4>
+<p>El grupo “Suplencias” (<a class="reference internal" href="#substitutiongroup"><span class="std std-numref">Figura 699</span></a>) permite definir suplentes para un
+usuario durante varios períodos. De esta forma, en caso de ausencia de
+una persona, se puede definir un suplente para el período en el que
+ocurra la ausencia. Qflow enviará al suplente todos los mensajes que
+originalmente estaban dirigidos a esa persona. Así, el suplente podrá
+realizar todas las tareas de Qflow de la persona que está supliendo.</p>
+<figure class="align-center" id="id52">
+<span id="substitutiongroup"></span><a class="reference internal image-reference" href="_images/image435.png"><img alt="Grupo “Suplencias”" src="_images/image435.png" style="width: 8.96602in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 699 </span><span class="caption-text">Grupo “Suplencias”</span><a class="headerlink" href="#id52" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Para agregar una suplencia:</strong></p>
+<ol class="arabic simple">
+<li><p>Haga clic en el botón “Agregar…”. Qflow agregará un elemento a la
+lista con el suplente por defecto “Vacío” y con las fechas del
+momento en que se crea. (<a class="reference internal" href="#addsubstitution"><span class="std std-numref">Figura 700</span></a>).</p></li>
+<li><p>Haga clic sobre “Vacío” y aparecerá un texto que dice “Comienza a
+escribir un usuario…” Escriba parte del nombre del usuario que
+hará la suplencia, y cuando Qflow despliegue la lista,
+selecciónelo. También se permite seleccionar un grupo. Si un grupo
+es seleccionado, todos los miembros del grupo podrán actuar como
+suplentes.</p></li>
+<li><p>Prosiga seleccionando la fecha de comienzo de la suplencia y la fecha
+de finalización de la suplencia.</p></li>
+</ol>
+<figure class="align-center" id="id53">
+<span id="addsubstitution"></span><a class="reference internal image-reference" href="_images/image445.png"><img alt="Agregar suplencia" src="_images/image445.png" style="width: 8.73549in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 700 </span><span class="caption-text">Agregar suplencia</span><a class="headerlink" href="#id53" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Es posible agregar varias suplencias. Para eliminar una suplencia,
+selecciónela y haga clic en el botón “Eliminar”. También se puede
+modificar una suplencia ya definida. Para hacerlo, seleccione cualquiera
+de los tres campos (Suplente, Desde o Hasta) de la suplencia que desee
+modificar y haga clic sobre él (<a class="reference internal" href="#updatesubstitution"><span class="std std-numref">Figura 701</span></a>).</p>
+<figure class="align-center" id="id54">
+<span id="updatesubstitution"></span><a class="reference internal image-reference" href="_images/image455.png"><img alt="Modificar suplencia" src="_images/image455.png" style="width: 8.15218in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 701 </span><span class="caption-text">Modificar suplencia</span><a class="headerlink" href="#id54" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="importacion-de-usuarios-de-directorio">
+<h3>Importación de usuarios de directorio<a class="headerlink" href="#importacion-de-usuarios-de-directorio" title="Link to this heading"></a></h3>
+<p>Qflow permite importar usuarios de <em>Active Directory</em> y de otros
+servicios de directorio compatibles con LDAP. Para importar usuarios a
+un nodo, haga lo siguiente:</p>
+<ol class="arabic simple">
+<li><p>Haga clic con el botón derecho sobre el nodo donde desea importar los
+usuarios y seleccione en el menú contextual la opción “Importar
+usuarios de directorio”. Qflow despliega un panel como el que
+aparece en la <a class="reference internal" href="#userdirectoryimport"><span class="std std-numref">Figura 702</span></a>.</p></li>
+</ol>
+<figure class="align-center" id="id55">
+<span id="userdirectoryimport"></span><a class="reference internal image-reference" href="_images/image464.png"><img alt="Importador de usuarios de directorio" src="_images/image464.png" style="width: 8.38372in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 702 </span><span class="caption-text">Importador de usuarios de directorio</span><a class="headerlink" href="#id55" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>En el panel desplegado por Qflow hay una lista que muestra los
+dominios disponibles. Seleccione el dominio deseado y haga clic en
+“Cargar”. Esto hace que Qflow muestre los nodos de ese dominio
+(<a class="reference internal" href="#userdirectoryimportwithdomain"><span class="std std-numref">Figura 703</span></a>).</p></li>
+</ol>
+<figure class="align-center" id="id56">
+<span id="userdirectoryimportwithdomain"></span><a class="reference internal image-reference" href="_images/image475.png"><img alt="Importador de usuarios de directorio con un dominio cargado" src="_images/image475.png" style="width: 8.41736in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 703 </span><span class="caption-text">Importador de usuarios de directorio con un dominio cargado</span><a class="headerlink" href="#id56" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic" start="3">
+<li><p>Seleccione el nodo donde están los usuarios que desee importar. Al
+seleccionar un nodo con usuarios, la lista de usuarios aparecerá
+en el panel de la derecha (<a class="reference internal" href="#usersselectednode"><span class="std std-numref">Figura 704</span></a>). Para seleccionar los
+usuarios, haga clic en el símbolo <a class="reference internal" href="_images/image485.png"><img alt="image1" src="_images/image485.png" style="width: 0.17368in; height: 0.1375in;" /></a> que figura del lado
+izquierdo de cada uno de ellos. También puede buscar un usuario,
+escribiendo parte de su nombre en el buscador que aparece en la
+parte superior de la pantalla. La búsqueda de usuarios puede ser
+solamente en el nodo seleccionado, o puede ser recursiva,
+incluyendo todos sus descendientes. El botón que muestra un sobre
+hace que se muestren solamente los usuarios que tienen asociada
+una cuenta de correo electrónico (<a class="reference internal" href="#userfilteroptions"><span class="std std-numref">Figura 705</span></a>). En la parte
+inferior del panel hay una opción para marcar:</p>
+<ul class="simple">
+<li><p><strong>Actualizar usuarios existentes:</strong> si marca esta opción, se
+actualizan el nombre y la dirección de correo electrónico el de
+cada uno de los usuarios, incluso los de usuarios que ya
+estaban en Qflow. Si no marca esta opción, los usuarios que ya
+existen son ignorados. Sus datos no son actualizados.</p></li>
+</ul>
+<figure class="align-center" id="id57">
+<span id="usersselectednode"></span><a class="reference internal image-reference" href="_images/image494.png"><img alt="Usuarios del nodo seleccionado" src="_images/image494.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 704 </span><span class="caption-text">Usuarios del nodo seleccionado</span><a class="headerlink" href="#id57" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id58">
+<span id="userfilteroptions"></span><a class="reference internal image-reference" href="_images/image505.png"><img alt="Opciones para filtrar usuarios" src="_images/image505.png" style="width: 5.37209in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 705 </span><span class="caption-text">Opciones para filtrar usuarios</span><a class="headerlink" href="#id58" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Haga clic en “Agregar”. El botón “Agregar” no hace que se cierre el
+panel. De esa forma, puede seguir agregando usuarios de otros nodos.
+Seleccione otro nodo, agregue los usuarios que desee que estén en él,
+y repita el proceso hasta que haya agregado todos los usuarios que
+desee. El botón “Agregar” sólo estará disponible si selecciona por lo
+menos un usuario, de lo contrario se mostrará deshabilitado como en
+la <a class="reference internal" href="#userfilteroptions"><span class="std std-numref">Figura 705</span></a>. A medida que se van agregando usuarios, se pueden
+visualizar como muestra la <a class="reference internal" href="#userstoimport"><span class="std std-numref">Figura 706</span></a>. Si no desea importar alguno de
+los usuarios agregados, haga clic en “x” y se eliminará de la lista.</p></li>
+</ol>
+<figure class="align-center" id="id59">
+<span id="userstoimport"></span><a class="reference internal image-reference" href="_images/image519.png"><img alt="Usuarios a importar" src="_images/image519.png" style="width: 5.07292in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 706 </span><span class="caption-text">Usuarios a importar</span><a class="headerlink" href="#id59" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="5">
+<li><p>Si ya existe algún usuario con el mismo <em>login</em>, este no se
+importará, salvo que se marque la opción de “Actualizar usuarios
+existentes”. Por lo tanto, si se marca esta opción, se actualizarán
+los datos del usuario.</p></li>
+<li><p>Cuando termine de agregar usuarios, haga clic en el botón ✓ que
+aparece del lado derecho superior del panel. Eso hará que Qflow
+importe los usuarios agregados.</p></li>
+</ol>
+</section>
+<section id="importacion-de-datos-de-un-usuario-desde-un-directorio">
+<h3>Importación de datos de un usuario desde un directorio<a class="headerlink" href="#importacion-de-datos-de-un-usuario-desde-un-directorio" title="Link to this heading"></a></h3>
+<p>Además de importar usuarios de un directorio, se puede importar los
+datos de un determinado usuario ya existente en Qflow. Esto permite
+actualizar los datos de ese usuario. También sirve para, después de
+crear un usuario, cargar sus datos desde el directorio (aunque en este
+caso probablemente sea más fácil importar directamente el usuario). Para
+importar los datos de un usuario, haga lo siguiente:</p>
+<ol class="arabic simple">
+<li><p>Haga clic con el botón derecho sobre el usuario cuyos datos desea
+importar, y seleccione del menú contextual la opción “Importar datos
+de directorio” o seleccione el usuario y haga clic sobre el botón
+correspondiente de la barra de herramientas (ver <a class="reference internal" href="#toolbarenabledisablemembers"><span class="std std-numref">Figura 674</span></a>). Qflow
+muestra un panel como el de la <a class="reference internal" href="#importdatafromdirectory"><span class="std std-numref">Figura 707</span></a>.</p></li>
+</ol>
+<figure class="align-center" id="id60">
+<span id="importdatafromdirectory"></span><a class="reference internal image-reference" href="_images/image525.png"><img alt="Importador de datos de directorio" src="_images/image525.png" style="width: 8.49891in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 707 </span><span class="caption-text">Importador de datos de directorio</span><a class="headerlink" href="#id60" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>En el panel desplegado por Qflow hay una lista que muestra los
+dominios disponibles, seleccione el dominio de directorio al que
+pertenece el usuario cuyos datos desea cargar.</p></li>
+<li><p>Haga clic en “Cargar”. Esto hace que Qflow cargue en la sección de
+la izquierda del panel el árbol de nodos de ese dominio (<a class="reference internal" href="#importdatafromdirectorywithdomain"><span class="std std-numref">Figura 708</span></a>).</p></li>
+</ol>
+<figure class="align-center" id="id61">
+<span id="importdatafromdirectorywithdomain"></span><a class="reference internal image-reference" href="_images/image535.png"><img alt="Importador de datos de directorio con dominio seleccionado" src="_images/image535.png" style="width: 8.19767in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 708 </span><span class="caption-text">Importador de datos de directorio con dominio seleccionado</span><a class="headerlink" href="#id61" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>Seleccione el nodo donde se encuentra el usuario cuyos datos desea
+cargar. Eso hace que Qflow muestre todos los usuarios de ese nodo
+(<a class="reference internal" href="#importdatafromdirectorywithusers"><span class="std std-numref">Figura 709</span></a>). Si hay muchos usuarios en ese nodo, puede filtrar la
+lista de usuarios utilizando las opciones para filtrar usuarios,
+descriptas anteriormente en la sección <a class="reference internal" href="#importacion-de-usuarios-de-directorio"><span class="std std-ref">Importación de usuarios de directorio</span></a>.
+Si usted había creado un usuario e importa sus datos,
+el nombre del usuario cambiará y pasará a ser el nombre importado.</p></li>
+</ol>
+<figure class="align-center" id="id62">
+<span id="importdatafromdirectorywithusers"></span><a class="reference internal image-reference" href="_images/image545.png"><img alt="Importador de datos de directorio con usuarios cargados" src="_images/image545.png" style="width: 8.23185in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 709 </span><span class="caption-text">Importador de datos de directorio con usuarios cargados</span><a class="headerlink" href="#id62" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="archivo">
+<h3>Archivo<a class="headerlink" href="#archivo" title="Link to this heading"></a></h3>
+<p>Esta sección describe las opciones “Importar nodo desde archivo” y
+“Exportar nodo a archivo” que se encuentran en el menú contextual de un
+nodo (<a class="reference internal" href="#treecontextmenu"><span class="std std-numref">Figura 676</span></a>).</p>
+<section id="importar-nodo-desde-archivo">
+<h4>Importar nodo desde archivo<a class="headerlink" href="#importar-nodo-desde-archivo" title="Link to this heading"></a></h4>
+<p>Esta opción permite importar desde un archivo un nodo. El archivo debe
+ser el producto de exportar el nodo en algún ambiente en el que esté
+instalado Qflow (ver <a class="reference internal" href="#exportar-nodo-a-archivo"><span class="std std-ref">Exportar nodo a archivo</span></a>).</p>
+<p>Cuando se importa el contenido de un archivo de esta forma, se importa
+toda la estructura del nodo y cada elemento quedará ubicado dentro del
+nodo indicado en el archivo. Para importar el nodo, se debe seleccionar
+el archivo en un panel que muestra Qflow (<a class="reference internal" href="#importorgchartpanel"><span class="std std-numref">Figura 710</span></a>) y hacer clic en
+“Ok”.</p>
+<figure class="align-center" id="id63">
+<span id="importorgchartpanel"></span><a class="reference internal image-reference" href="_images/image555.png"><img alt="Panel para importar el organigrama" src="_images/image555.png" style="width: 4.47319in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 710 </span><span class="caption-text">Panel para importar el organigrama</span><a class="headerlink" href="#id63" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>La opción “<strong>Corregir referencias ausentes</strong>”, que está marcada por
+defecto, permite hacer la importación aun cuando haya errores por
+referencias ausentes (por ejemplo, un usuario tiene como suplente otro
+usuario, que no está). Si se deja marcada esa opción, Qflow ignorará la
+referencia y continuará con la importación, pero advertirá de los
+errores encontrados para que esos problemas puedan ser corregidos (por
+ejemplo, en el caso de un suplente que no existe, asignándole otro
+suplente al usuario). Si no se deja marcada esta opción, Qflow
+interrumpirá la importación ni bien encuentre un error, y dejará los
+datos en el mismo estado en que se encontraban antes de que se comenzara
+con la importación.</p>
+</section>
+<section id="exportar-nodo-a-archivo">
+<h4>Exportar nodo a archivo<a class="headerlink" href="#exportar-nodo-a-archivo" title="Link to this heading"></a></h4>
+<p>La opción “Exportar nodo a archivo” permite exportar a un archivo el
+nodo y todo su contenido. Este archivo puede ser importado más tarde en
+otro ambiente en el que esté instalado Qflow. Para exportar el nodo,
+seleccione la opción “Exportar como archivo XML” o la opción “Exportar
+archivo comprimido” para exportarlo de una u otra forma.</p>
+<figure class="align-center" id="id64">
+<a class="reference internal image-reference" href="_images/image565.png"><img alt="Exportación del modelo organizacional" src="_images/image565.png" style="width: 4.75581in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 711 </span><span class="caption-text">Exportación del modelo organizacional</span><a class="headerlink" href="#id64" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="configuracion">
+<h3>Configuración<a class="headerlink" href="#configuracion" title="Link to this heading"></a></h3>
+<p>Esta sección describe las opciones que se encuentran en “Configuración”
+del menú superior de la pantalla principal del sitio web (<a class="reference internal" href="#lateralmenu"><span class="std std-numref">Figura 663</span></a>).</p>
+<section id="administrar-permisos-de-la-herramienta">
+<h4>Administrar permisos de la herramienta<a class="headerlink" href="#administrar-permisos-de-la-herramienta" title="Link to this heading"></a></h4>
+<p>Cuando esta opción es seleccionada, aparece un panel como el de la
+<a class="reference internal" href="#managetoolpermissions"><span class="std std-numref">Figura 712</span></a>. Este muestra una tabla con todos los permisos definidos.
+Para cada uno se muestra para qué rol es el permiso, la descripción del
+rol, una lista de acciones permitidas y una lista de acciones denegadas.
+La lista se puede filtrar de la forma usual y también se puede
+modificar, agregando, quitando y modificando elementos.</p>
+<figure class="align-center" id="id65">
+<span id="managetoolpermissions"></span><a class="reference internal image-reference" href="_images/image574.png"><img alt="Administrar permisos de la herramienta" src="_images/image574.png" style="width: 8.41736in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 712 </span><span class="caption-text">Administrar permisos de la herramienta</span><a class="headerlink" href="#id65" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Existen tres tipos de permisos definidos:</p>
+<ul class="simple">
+<li><p><strong>Acceder a la herramienta:</strong> permite abrir Qflow Team, pero
+no permite realizar cambios.</p></li>
+<li><p><strong>Administrar configuración:</strong> permite editar las opciones que se
+despliegan en la barra de configuración y que no están vinculadas a
+un nodo. Por ejemplo, crear un rol de seguridad.</p></li>
+<li><p><strong>Administrar seguridad:</strong> permite modificar los permisos de acceso a
+la herramienta.</p></li>
+</ul>
+<p><strong>Para agregar permisos:</strong></p>
+<ol class="arabic">
+<li><p>Haga clic en el botón “Agregar”. Eso hace que Qflow muestre un
+buscador de roles.</p></li>
+<li><p>Seleccione el destinatario del permiso. Para eso, escriba parte de su
+nombre en el buscador (donde dice “Comience a escribir…”) y cuando lo
+vea en la lista que aparece, selecciónelo (<a class="reference internal" href="#usergroupornodeselection"><span class="std std-numref">Figura 713</span></a>). El
+destinatario de un permiso puede ser un elemento de cualquiera de
+estos tipos:</p>
+<ul class="simple">
+<li><p>Rol de seguridad</p></li>
+<li><p>Nodo</p></li>
+<li><p>Grupo</p></li>
+<li><p>Usuario</p></li>
+<li><p>Cola de trabajo</p></li>
+</ul>
+<p>Cuando se selecciona el destinatario de un permiso, Qflow muestra un
+formulario para seleccionar las acciones que se incluyen en el nuevo
+permiso (<a class="reference internal" href="#addpermission"><span class="std std-numref">Figura 714</span></a>).</p>
+</li>
+</ol>
+<figure class="align-center" id="id66">
+<span id="usergroupornodeselection"></span><a class="reference internal image-reference" href="_images/image585.png"><img alt="Selección de un usuario, grupo, nodo o rol de seguridad" src="_images/image585.png" style="width: 8.5in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 713 </span><span class="caption-text">Selección de un usuario, grupo, nodo o rol de seguridad</span><a class="headerlink" href="#id66" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id67">
+<span id="addpermission"></span><a class="reference internal image-reference" href="_images/image594.png"><img alt="Configuración de permisos – Agregar permisos" src="_images/image594.png" style="width: 8.5in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 714 </span><span class="caption-text">Configuración de permisos – Agregar permisos</span><a class="headerlink" href="#id67" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>Para cada uno de los permisos que se muestran en ese formulario,
+marque si se permite o se deniega.</p></li>
+</ol>
+<p><strong>Para editar permisos:</strong></p>
+<ol class="arabic simple">
+<li><p>Seleccione el elemento al que quiera editarle los permisos y
+posteriormente haga clic en el botón “Editar”.</p></li>
+<li><p>Qflow volverá a mostrar el formulario “Configuración de permisos”.
+Seleccione las acciones que quiera permitir o denegar en el nuevo
+permiso (<a class="reference internal" href="#editpermission"><span class="std std-numref">Figura 715</span></a>).</p></li>
+</ol>
+<figure class="align-center" id="id68">
+<span id="editpermission"></span><a class="reference internal image-reference" href="_images/image603.png"><img alt="Configuración de permisos – Editar permisos" src="_images/image603.png" style="width: 8.41736in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 715 </span><span class="caption-text">Configuración de permisos – Editar permisos</span><a class="headerlink" href="#id68" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Para eliminar permisos:</strong></p>
+<ol class="arabic simple">
+<li><p>Seleccione el elemento al que quiera eliminarle los permisos y
+posteriormente haga clic en el botón “Eliminar”.</p></li>
+<li><p>Qflow mostrará un mensaje de advertencia (<a class="reference internal" href="#deletepermissionconfirmation"><span class="std std-numref">Figura 716</span></a>). Haga clic en
+el botón “Ok” y se eliminarán todos los permisos para el elemento
+seleccionado.</p></li>
+</ol>
+<figure class="align-center" id="id69">
+<span id="deletepermissionconfirmation"></span><a class="reference internal image-reference" href="_images/image6110.png"><img alt="Confirmar eliminación de permisos" src="_images/image6110.png" style="width: 4.33156in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 716 </span><span class="caption-text">Confirmar eliminación de permisos</span><a class="headerlink" href="#id69" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="calendarios">
+<h4>Calendarios<a class="headerlink" href="#calendarios" title="Link to this heading"></a></h4>
+<p>La opción “Calendarios” de configuración permite definir calendarios
+para que distintos usuarios se puedan regir por distintos calendarios.
+Esto es útil, por ejemplo, cuando una organización tiene filiales en
+varios países y, por lo tanto, esas filiales se rigen por calendarios
+diferentes (feriados, régimen de trabajo, etc.)</p>
+<p>Cuando esa opción es seleccionada, Qflow despliega un formulario como
+el que se muestra en la <a class="reference internal" href="#calendarform"><span class="std std-numref">Figura 717</span></a>.</p>
+<figure class="align-center" id="id70">
+<span id="calendarform"></span><a class="reference internal image-reference" href="_images/image624.png"><img alt="Formulario de calendarios" src="_images/image624.png" style="width: 4.26793in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 717 </span><span class="caption-text">Formulario de calendarios</span><a class="headerlink" href="#id70" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Para agregar un calendario:</strong></p>
+<ol class="arabic simple">
+<li><p>Haga clic en el botón “Agregar”. Qflow desplegará otro formulario
+como el de la <a class="reference internal" href="#calendardefintion"><span class="std std-numref">Figura 718</span></a>.</p></li>
+<li><p>Cree el calendario (en la sección <a class="reference internal" href="#propiedades-de-los-calendarios"><span class="std std-ref">Propiedades de los calendarios</span></a> se
+explica cómo).</p></li>
+<li><p>Haga clic en el botón “✓” que aparece del lado derecho superior del
+panel.</p></li>
+</ol>
+<p><strong>Para modificar un calendario</strong>, selecciónelo de la lista y haga clic
+en el botón “Editar”.</p>
+<p><strong>Para borrar un calendario</strong>, selecciónelo de la lista y haga clic en
+el botón “Eliminar”. Qflow mostrará un mensaje de advertencia. Haga
+clic en el botón “Si” y se eliminará el calendario.</p>
+<section id="propiedades-de-los-calendarios">
+<h5>Propiedades de los calendarios<a class="headerlink" href="#propiedades-de-los-calendarios" title="Link to this heading"></a></h5>
+<p>Cuando se está agregando o editando un calendario, Qflow abre un panel
+como el que se muestra en la <a class="reference internal" href="#calendardefintion"><span class="std std-numref">Figura 718</span></a>. Este formulario permite definir
+un calendario.</p>
+<figure class="align-center" id="id71">
+<span id="calendardefintion"></span><a class="reference internal image-reference" href="_images/image635.png"><img alt="Definición de un calendario" src="_images/image635.png" style="width: 3.44156in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 718 </span><span class="caption-text">Definición de un calendario</span><a class="headerlink" href="#id71" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>El formulario de propiedades de los calendarios tiene tres grupos:</p>
+<p>El grupo principal, que muestra las principales propiedades:</p>
+<ul class="simple">
+<li><p><strong>Nombre:</strong> nombre descriptivo del calendario. Es el nombre que
+aparece cuando hay que elegir un calendario (por ejemplo, en las
+propiedades de los usuarios).</p></li>
+<li><p><strong>Descripción:</strong> breve descripción del calendario.</p></li>
+<li><p><strong>Zona horaria:</strong> zona horaria en la que se van a encontrar todas las
+fechas y horas definidas en el calendario.</p></li>
+</ul>
+<p>El segundo y tercer grupo, “Feriados” y “Días laborales”
+respectivamente, que para desplegarlos hay que hacer clic en el símbolo
+“+”.</p>
+<p>El grupo “Feriados” permite especificar feriados u otros días del año en
+los que no se trabaja.</p>
+<p><strong>Para agregar un feriado:</strong></p>
+<ol class="arabic simple">
+<li><p>Haga clic en el botón “Agregar”. Qflow agregará por defecto un
+elemento a la lista con la fecha del momento en que se agrega.</p></li>
+<li><p>Si quiere otra fecha (que no sea la del momento), haga clic en esa
+fecha creada por defecto, y Qflow mostrará un calendario que le
+permitirá elegir un día del año (<a class="reference internal" href="#holidaydefintion"><span class="std std-numref">Figura 719</span></a>).</p></li>
+<li><p>Seleccione un día del año.</p></li>
+</ol>
+<figure class="align-center" id="id72">
+<span id="holidaydefintion"></span><a class="reference internal image-reference" href="_images/image644.png"><img alt="Definición de feriados y vacaciones" src="_images/image644.png" style="width: 3.61166in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 719 </span><span class="caption-text">Definición de feriados y vacaciones</span><a class="headerlink" href="#id72" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>El tercer grupo “Días laborales” (<a class="reference internal" href="#labordays"><span class="std std-numref">Figura 720</span></a>), permite marcar los días de
+la semana en los que se trabaja y, para cada día, el horario de trabajo
+(hora de entrada y de salida). Para marcar un día como día de trabajo,
+seleccione el día y Qflow extenderá el grupo con más opciones. Marque
+el casillero “Es día laborable” (<a class="reference internal" href="#checklabordays"><span class="std std-numref">Figura 721</span></a>).</p>
+<p><strong>Hora para notificaciones de fecha fija:</strong> aquí se indica a qué hora se
+deben enviar notificaciones que están programadas con datos de tipo Fecha.</p>
+<figure class="align-center" id="id73">
+<span id="labordays"></span><a class="reference internal image-reference" href="_images/image654.png"><img alt="Días laborales" src="_images/image654.png" style="width: 3.85714in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 720 </span><span class="caption-text">Días laborales</span><a class="headerlink" href="#id73" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id74">
+<span id="checklabordays"></span><a class="reference internal image-reference" href="_images/image664.png"><img alt="Marcar días laborales" src="_images/image664.png" style="width: 3.66234in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 721 </span><span class="caption-text">Marcar días laborales</span><a class="headerlink" href="#id74" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="roles-de-seguridad">
+<h4>Roles de seguridad<a class="headerlink" href="#roles-de-seguridad" title="Link to this heading"></a></h4>
+<p>La opción “Roles de seguridad” permite definir los roles de seguridad
+que pueden ser asociados a nodos, grupos y usuarios. Cuando esa opción
+es seleccionada, Qflow despliega un formulario como el que se muestra
+en la <a class="reference internal" href="#rolesecurityform"><span class="std std-numref">Figura 722</span></a>. El formulario tiene una lista de los roles de seguridad
+definidos, y permite agregar nuevos, eliminar los roles que están en la
+lista, editarlos y deshabilitarlos/habilitarlos.</p>
+<figure class="align-center" id="id75">
+<span id="rolesecurityform"></span><a class="reference internal image-reference" href="_images/image675.png"><img alt="Formulario Configuración de roles de seguridad" src="_images/image675.png" style="width: 4.16615in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 722 </span><span class="caption-text">Formulario Configuración de roles de seguridad</span><a class="headerlink" href="#id75" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Para agregar un rol de seguridad:</strong></p>
+<ol class="arabic simple">
+<li><p>Haga clic en el botón “Agregar”. Qflow desplegará un subformulario
+como el que se muestra en la <a class="reference internal" href="#securityroleproperties"><span class="std std-numref">Figura 723</span></a>.</p></li>
+<li><p>Complete los valores de las propiedades del rol (explicadas más
+adelante).</p></li>
+<li><p>Guarde el rol haciendo clic en el botón ✓ que aparece del lado
+derecho superior del subformulario.</p></li>
+</ol>
+<p><strong>Para eliminar un rol de seguridad</strong>, selecciónelo de la lista y haga
+clic en el botón “Eliminar”. Qflow mostrará un mensaje de advertencia.
+Haga clic en el botón “Si” y se eliminará el rol de seguridad.</p>
+<p><strong>Para modificar las propiedades de un rol de seguridad</strong>,
+selecciónelo de la lista y haga clic en el botón “Editar”. Qflow
+desplegará un subformulario que le permitirá modificar las propiedades
+del rol.</p>
+<p><strong>Para deshabilitar un rol de seguridad</strong>, selecciónelo de la lista y
+haga clic en el botón “Deshabilitar”. Si luego lo desea <strong>habilitar</strong>
+nuevamente, realice el mismo procedimiento, pero inversamente.</p>
+<section id="propiedades-de-los-roles-de-seguridad">
+<h5>Propiedades de los roles de seguridad<a class="headerlink" href="#propiedades-de-los-roles-de-seguridad" title="Link to this heading"></a></h5>
+<p>La <a class="reference internal" href="#securityroleproperties"><span class="std std-numref">Figura 723</span></a> muestra el subformulario que Qflow despliega cuando se
+está <strong>agregando</strong> un rol de seguridad.</p>
+<figure class="align-center" id="id76">
+<span id="securityroleproperties"></span><a class="reference internal image-reference" href="_images/image685.png"><img alt="Propiedades de un rol de seguridad cuando se agrega" src="_images/image685.png" style="width: 35%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 723 </span><span class="caption-text">Propiedades de un rol de seguridad cuando se agrega</span><a class="headerlink" href="#id76" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Los roles de seguridad tienen tres propiedades:</p>
+<ul class="simple">
+<li><p><strong>Nombre:</strong> nombre descriptivo del rol de seguridad. Es el nombre que
+aparece cuando hay que elegir un rol de seguridad.</p></li>
+<li><p><strong>Descripción:</strong> breve descripción del rol de seguridad.</p></li>
+<li><p><strong>Habilitado:</strong> este casillero permite habilitar o deshabilitar el
+rol de seguridad.</p></li>
+</ul>
+<p>La <a class="reference internal" href="#securityrolepropertiesatediting"><span class="std std-numref">Figura 724</span></a> muestra el subformulario que Qflow despliega cuando se
+está <strong>editando</strong> un rol de seguridad. Es el mismo subformulario de la
+<a class="reference internal" href="#securityroleproperties"><span class="std std-numref">Figura 723</span></a>, solo que tiene dos grupos más, cuyas opciones no son
+editables sino descriptivas.</p>
+<figure class="align-center" id="id77">
+<span id="securityrolepropertiesatediting"></span><a class="reference internal image-reference" href="_images/image694.png"><img alt="Propiedades de un rol de seguridad cuando se edita" src="_images/image694.png" style="width: 4.15584in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 724 </span><span class="caption-text">Propiedades de un rol de seguridad cuando se edita</span><a class="headerlink" href="#id77" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>El grupo “Miembros” muestra los usuarios, nodos y grupos que están
+asociados al rol de seguridad.</p>
+<figure class="align-center" id="id78">
+<a class="reference internal image-reference" href="_images/image705.png"><img alt="Miembros de un rol de seguridad" src="_images/image705.png" style="width: 6.41736in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 725 </span><span class="caption-text">Miembros de un rol de seguridad</span><a class="headerlink" href="#id78" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>El grupo “Permisos” muestra los permisos que le fueron asignados al rol
+de seguridad. Los permisos aparecen agrupados por tipo de permiso
+(herramientas, nodos, paquetes). Para cada permiso, se indica sobre qué
+objeto fue definido, cuál es el permiso y cuál es el nivel de acceso
+(“Permitido” o “Denegado”).</p>
+<figure class="align-center" id="id79">
+<a class="reference internal image-reference" href="_images/image717.png"><img alt="Permisos de un rol de seguridad" src="_images/image717.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 726 </span><span class="caption-text">Permisos de un rol de seguridad</span><a class="headerlink" href="#id79" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="proveedores-de-seguridad">
+<h4>Proveedores de seguridad<a class="headerlink" href="#proveedores-de-seguridad" title="Link to this heading"></a></h4>
+<p>La opción “Proveedores de seguridad” permite definir los proveedores de
+seguridad (por ejemplo, dominios Windows) usados por Qflow para
+autenticar a sus usuarios.</p>
+<p>Al seleccionar esta opción, Qflow abre un formulario como el que se
+muestra en la <a class="reference internal" href="#securityproviderform"><span class="std std-numref">Figura 727</span></a>. El formulario muestra una lista con todos los
+proveedores de seguridad definidos, y permite agregar nuevos proveedores
+de seguridad, eliminar proveedores que aparecen en la lista, editar sus
+propiedades y deshabilitarlos/habilitarlos.</p>
+<p>Recuerde que una vez agregado el proveedor de seguridad, deberá asignárselo
+al usuario deseado en la sección «Propiedades del usuario» <a class="reference internal" href="#userproperties"><span class="std std-numref">Figura 697</span></a></p>
+<figure class="align-center" id="id80">
+<span id="securityproviderform"></span><a class="reference internal image-reference" href="_images/image924.png"><img alt="Formulario de manejo de proveedores de seguridad" src="_images/image924.png" style="width: 4.49351in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 727 </span><span class="caption-text">Formulario de manejo de proveedores de seguridad</span><a class="headerlink" href="#id80" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Para agregar un proveedor de seguridad:</strong></p>
+<ol class="arabic simple">
+<li><p>Haga clic en el botón “Agregar”. Qflow desplegará un subformulario
+como el que se muestra en la <a class="reference internal" href="#securityprovidersubform"><span class="std std-numref">Figura 728</span></a>.</p></li>
+<li><p>Complete los valores de las propiedades (explicadas más adelante).</p></li>
+<li><p>Guarde el proveedor de seguridad haciendo clic en el botón ✓ que
+aparece del lado derecho superior del subformulario.</p></li>
+</ol>
+<p><strong>Para eliminar un proveedor de seguridad</strong>, selecciónelo de la lista y
+haga clic en el botón “Eliminar”. Qflow mostrará un mensaje de
+advertencia. Haga clic en el botón “Si” y se eliminará el proveedor de
+seguridad.</p>
+<p><strong>Para editar un proveedor de seguridad</strong>, selecciónelo de la lista y
+haga clic en el botón “Editar”. Qflow desplegará el subformulario de
+propiedades del proveedor.</p>
+<p><strong>Para deshabilitar un proveedor de seguridad</strong>, selecciónelo de la
+lista y haga clic en el botón “Deshabilitar”. Si luego lo desea
+<strong>habilitar</strong> nuevamente, realice el mismo procedimiento, pero
+inversamente.</p>
+<p><strong>Para definir un proveedor de seguridad como predeterminado</strong>,
+selecciónelo de la lista y haga clic en el botón “Definir como
+predeterminado”. Esto hará que tanto en la ventana de login, como en
+el panel de creación de usuario, ya aparezca preseleccionado.</p>
+<section id="propiedades-de-los-proveedores-de-seguridad">
+<h5>Propiedades de los proveedores de seguridad<a class="headerlink" href="#propiedades-de-los-proveedores-de-seguridad" title="Link to this heading"></a></h5>
+<p>Al crear o editar un proveedor de seguridad, Qflow muestra un
+subformulario como el que se muestra en la <a class="reference internal" href="#securityprovidersubform"><span class="std std-numref">Figura 728</span></a>. Este subformulario
+permite editar las propiedades del proveedor:</p>
+<ul class="simple">
+<li><p><strong>Nombre:</strong> nombre descriptivo que se le quiere dar al proveedor de
+seguridad. Es el nombre que Qflow mostrará cuando abra algún
+formulario en el que haya que elegir un proveedor de seguridad (por
+ejemplo, en el formulario de propiedades de un usuario).</p></li>
+<li><p><strong>Descripción</strong>: breve descripción del proveedor de seguridad. No
+importa si está vacío.</p></li>
+<li><p><strong>Habilitado</strong>: el casillero permite habilitar o deshabilitar el
+proveedor de seguridad.</p></li>
+<li><p><strong>Clase del servicio del directorio</strong>: indica a qué tipo de servicio
+de directorio pertenece el proveedor (Dominio NT, Active Directory,
+Google/Microsoft, Qflow, LDAP o Azure active directory). Solo puede existir un proveedor de seguridad de clase
+Google/Microsoft y Qflow.</p></li>
+<li><p><strong>Fully Qualified Domain Name</strong>: nombre característico del dominio
+(FQDN). Este campo no aparecerá en caso de servicios Google/Microsoft, Qflow, Dominio NT
+y Azure active directory.</p></li>
+<li><p><strong>Nombre NetBIOS</strong>: este campo no aparecerá en caso de servicios
+Google/Microsoft, Qflow y Azure active directory.</p></li>
+<li><p><strong>Tipos de cuenta soportados</strong>: indica si soporta una organización única
+o múltiples. Este campo sólo aparecerá para servicios Azure active directory.</p></li>
+<li><p><strong>Id de cliente</strong>: este campo sólo aparecerá para servicios Azure active directory.</p></li>
+<li><p><strong>Id de directorio</strong>: este campo sólo aparecerá para servicios Azure active directory.</p></li>
+<li><p><strong>Avanzado</strong>: este botón sólo está habilitado si la clase de servicio
+del directorio es LDAP o Active Directory. En el caso de LDAP,
+permite configurar varias propiedades avanzadas (<a class="reference internal" href="#ldapdirectoryproperties"><span class="std std-numref">Figura 731</span></a>).
+En el caso de Active Directory (<a class="reference internal" href="#advancepropertiesactivedirectory"><span class="std std-numref">Figura 730</span></a>), permite definir
+las credenciales que se utilizarán para consultar el directorio. Se
+puede optar por utilizar las credenciales de red (opción por defecto)
+o especificar un usuario y contraseña fijos.</p></li>
+<li><p><strong>Verificar configuración</strong>: despliega un subformulario en el que se
+puede escribir un nombre de usuario y una contraseña para comprobar
+que el proveedor de seguridad configurado funciona correctamente (<a class="reference internal" href="#verifysecurityprovider"><span class="std std-numref">Figura 729</span></a>).</p></li>
+</ul>
+<figure class="align-center" id="id81">
+<span id="securityprovidersubform"></span><a class="reference internal image-reference" href="_images/image734.png"><img alt="Subformulario de propiedades de un proveedor de seguridad" src="_images/image734.png" style="width: 2.80297in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 728 </span><span class="caption-text">Subformulario de propiedades de un proveedor de seguridad</span><a class="headerlink" href="#id81" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id82">
+<span id="verifysecurityprovider"></span><a class="reference internal image-reference" href="_images/image744.png"><img alt="Verificar el proveedor de seguridad" src="_images/image744.png" style="width: 2.92708in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 729 </span><span class="caption-text">Verificar el proveedor de seguridad</span><a class="headerlink" href="#id82" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id83">
+<span id="advancepropertiesactivedirectory"></span><a class="reference internal image-reference" href="_images/image754.png"><img alt="Propiedades avanzadas (Active Directory)" src="_images/image754.png" style="width: 3.125in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 730 </span><span class="caption-text">Propiedades avanzadas (Active Directory)</span><a class="headerlink" href="#id83" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Agregar proveedor de seguridad LDAP</strong></p>
+<p>El formulario de propiedades avanzadas de LDAP (<a class="reference internal" href="#ldapdirectoryproperties"><span class="std std-numref">Figura 731</span></a>) tiene las
+siguientes propiedades:</p>
+<ul class="simple">
+<li><p><strong>General:</strong> contiene las propiedades de conexión que especifican cómo Qflow se
+conecta con el directorio:</p>
+<ul>
+<li><p><strong>Tipo de autenticación:</strong> tipo de autenticación requerido por el
+servicio de directorio. Si el servicio de directorio no requiere
+autenticación, seleccione “Anonymous” (anónima).</p></li>
+<li><p><strong>Puerto:</strong> el puerto del servicio de directorio</p></li>
+<li><p><strong>Nombre distinguido base:</strong> ubicación de los elementos
+organizacionales dentro del directorio. Por ejemplo, en <em>Active
+Directory</em> para el dominio soft.urudata.com.uy los elementos
+organizacionales se encuentran en dc=uy, dc=com, dc=urudata y
+dc=soft.</p></li>
+</ul>
+</li>
+<li><p><strong>Credenciales usadas para consultar el directorio LDAP:</strong> En caso de
+usar un tipo de autenticación distinto de Anonymous (anónima) aquí se
+ingresan las credenciales (usuario y contraseña) que Qflow utilizará
+para consultar el directorio.</p></li>
+<li><p><strong>Configuración de usuario:</strong> las propiedades de usuario permiten
+especificar las clases de objetos y atributos que se corresponden con
+los usuarios manejados por Qflow.</p>
+<ul>
+<li><p><strong>Clase:</strong> La clase de objeto que identifica a los usuarios.</p></li>
+<li><p><strong>Identificador de usuario:</strong> El atributo usado para identificar a
+los usuarios (el equivalente al <em>login</em>).</p></li>
+<li><p><strong>Nombre:</strong> El atributo correspondiente al nombre del usuario en
+Qflow. Se utiliza sólo en la importación y sincronización de datos
+de directorio.</p></li>
+<li><p><strong>Descripción:</strong> El atributo correspondiente a la descripción de los
+usuarios en Qflow. Se utiliza sólo en la importación y
+sincronización de datos de directorio.</p></li>
+<li><p><strong>E-mail:</strong> El atributo correspondiente a la dirección de e-mail de
+los usuarios en Qflow. Se utiliza sólo en la importación y
+sincronización de datos de directorio.</p></li>
+<li><p><strong>Habilitado:</strong> El atributo que indica si un usuario está habilitado
+o no. Se utiliza en la importación y sincronización de datos de
+directorio si es que se ingresó.</p></li>
+</ul>
+</li>
+<li><p><strong>Configuración de unidad organizacional:</strong> las propiedades de unidad
+organizacional permiten especificar las clases de objetos y atributos
+que se corresponden con los nodos manejados por Qflow.</p>
+<ul>
+<li><p><strong>Clase:</strong> La clase de objeto que identifica a los nodos.</p></li>
+<li><p><strong>Nombre:</strong> El atributo correspondiente al nombre del nodo en Qflow.
+Se utiliza sólo en la sincronización de datos de directorio.</p></li>
+</ul>
+</li>
+<li><p><strong>Configuración de grupo:</strong> las propiedades de grupo permiten
+especificar las clases de objetos y atributos que se corresponden con
+los grupos manejados por Qflow.</p>
+<ul>
+<li><p><strong>Clase:</strong> La clase de objeto que identifica a los grupos.</p></li>
+<li><p><strong>Nombre:</strong> El atributo correspondiente al nombre del grupo en
+Qflow. Se utiliza sólo en la sincronización de datos de directorio.</p></li>
+<li><p><strong>Miembro:</strong> El atributo utilizado para indicar los miembros de un
+grupo. Se utiliza sólo en la sincronización de datos de directorio.</p></li>
+</ul>
+</li>
+</ul>
+<p>El grupo “General” es el único que se muestra por defecto. Para que
+aparezcan los grupos descriptos anteriormente, despliéguelos haciendo
+clic en el símbolo “+”.</p>
+<figure class="align-center" id="id84">
+<span id="ldapdirectoryproperties"></span><a class="reference internal image-reference" href="_images/image765.png"><img alt="Propiedades del directorio LDAP" src="_images/image765.png" style="width: 7.41736in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 731 </span><span class="caption-text">Propiedades del directorio LDAP</span><a class="headerlink" href="#id84" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Agregar proveedor de seguridad Google/Microsoft</strong></p>
+<p>Para permitir que usuarios con cuentas de Google o Microsoft puedan iniciar sesión en la herramienta,
+es necesario crear un proveedor de seguridad con tipo «Google/Microsoft».</p>
+<p><strong>Agregar proveedor de seguridad Azure Active Directory</strong></p>
+<p>Antes de poner en funcionamiento este tipo de servicio de directorio, debemos configurar los siguientes
+aspectos dentro del Portal de Azure.</p>
+<ol class="arabic simple">
+<li><p>Dirijase a Registro de aplicaciones. Una vez dentro haga clic sobre «Nuevo registro».</p></li>
+<li><p>Ingrese un nombre y en «Tipos de cuentas compatibles», seleccione
+«Cuentas en cualquier directorio organizativo (cualquier directorio de Azure AD: multiinquilino)».</p></li>
+<li><p>En el menú de la izquierda, en la sección Administrar haga clic sobre «Autenticación».
+Dentro de la Configuración avanzada habilite los «flujos móviles y de escritorio» y presione «Guardar».</p></li>
+<li><p>En el menú de la izquierda, en la sección Administrar haga clic sobre «Permisos de API».
+Haga clic sobre «Agregar un permiso» y se desplegará un menú donde deberá elegir «Microsoft Graph».
+Allí deberá seleccionar «Permisos de la aplicación» y en la sección «User», escoja «User.Read.All».
+Haga clic sobre «Agregar permisos».</p></li>
+<li><p>Regrese a la sección de «Información general» del menú de la izquierda. Aquí se encontrará la información
+que debemos ingresar en la herramienta Qflow Team en el siguiente punto, «Id. de aplicación (cliente)» e
+«Id. de directorio (inquilino)» (<a class="reference internal" href="#azureportaloverview"><span class="std std-numref">Figura 732</span></a>).</p></li>
+<li><p>Dentro de la herramienta Qflow Team una vez seleccionada la opción para agregar un nuevo proveedor de seguridad,
+escoja un nombre para el nuevo proveedor, seleccione «Azure active directory» en «Clase del servicio de directorio» y
+«Organización única» en «Tipos de cuenta soportados». En «Id de cliente» ingrese el «Id. de aplicación (cliente)»
+y en «Id de directorio» el «Id. de directorio (inquilino)». Guarde la configuración.</p></li>
+</ol>
+<figure class="align-center" id="id85">
+<span id="azureportaloverview"></span><a class="reference internal image-reference" href="_images/image918.png"><img alt="Vista de Portal de Azure - Información general" src="_images/image918.png" style="width: 8.57143in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 732 </span><span class="caption-text">Vista de Portal de Azure - Información general</span><a class="headerlink" href="#id85" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="propiedades-para-nuevos-usuarios">
+<h4>Propiedades para nuevos usuarios<a class="headerlink" href="#propiedades-para-nuevos-usuarios" title="Link to this heading"></a></h4>
+<p>En el panel de propiedades para nuevos usuarios se definirán algunos datos
+de interés que  tendrán por defecto los nuevos usuarios al ser creados. Estos
+datos son los roles iniciales y los servicios de notificación.</p>
+<figure class="align-center" id="id86">
+<a class="reference internal image-reference" href="_images/image905.png"><img alt="Propiedades para nuevos usuarios" src="_images/image905.png" style="width: 35%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 733 </span><span class="caption-text">Propiedades para nuevos usuarios</span><a class="headerlink" href="#id86" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="reporte-de-ingresos">
+<h4>Reporte de Ingresos<a class="headerlink" href="#reporte-de-ingresos" title="Link to this heading"></a></h4>
+<p>El reporte de ingresos muestra qué usuarios han iniciado sesión en
+alguna herramienta de Qflow en determinado período de tiempo. También
+se muestran cierres de sesión e intentos fallidos de iniciar sesión. En
+la parte superior de la pantalla se puede seleccionar el período para el
+cual se desean ver los datos, como se muestra en la <a class="reference internal" href="#loginreport"><span class="std std-numref">Figura 734</span></a>.
+Al lado de cada reporte se indica en qué zona horaria se encuentra.</p>
+<figure class="align-center" id="id87">
+<span id="loginreport"></span><a class="reference internal image-reference" href="_images/image775.png"><img alt="Reporte de ingresos" src="_images/image775.png" style="width: 8.70073in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 734 </span><span class="caption-text">Reporte de ingresos</span><a class="headerlink" href="#id87" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="auditoria-de-permisos">
+<h4>Auditoría de permisos<a class="headerlink" href="#auditoria-de-permisos" title="Link to this heading"></a></h4>
+<p>La auditoría de permisos (<a class="reference internal" href="#permissionaudit"><span class="std std-numref">Figura 735</span></a>) permite consultar las
+modificaciones de los permisos de los usuarios. Un usuario puede recibir
+permisos desde diversas fuentes, algunas directas, como la asignación
+explícita de permisos a un rol de seguridad, y otras indirectas, como la
+asignación de un nuevo rol de seguridad a un usuario. La auditoría
+permite distinguir todos estos casos y provee información detallada de
+las modificaciones realizadas. Solamente usuarios que tengan permiso
+para auditar en el nodo raíz pueden acceder a la auditoría de permisos.
+La información se divide en los siguientes ítems (<a class="reference internal" href="#permissionaudititems"><span class="std std-numref">Figura 736</span></a>):</p>
+<ul class="simple">
+<li><p><strong>Asignaciones de supervisores:</strong> muestra operaciones de asignación
+de usuarios como supervisores de nodos y grupos. También se muestran
+operaciones en las que se hizo que un usuario dejara de ser
+supervisor de un nodo o grupo (“desasignación”). Para cada operación,
+se muestra quién la hizo (“Usuario”), a qué nodo o grupo se asignó el
+supervisor, y qué supervisor se asignó.</p></li>
+<li><p><strong>Miembros de grupos:</strong> permite ver los cambios en la pertenencia de
+usuarios o grupos a otros grupos. Mover de nodo a un usuario se
+considera como un cambio de grupo, y por lo tanto también figura
+aquí. Estos cambios pueden afectar los permisos, ya que el usuario
+adquiere los permisos del grupo al que pertenece.</p></li>
+<li><p><strong>Miembros de roles:</strong> permite ver las modificaciones en la
+pertenencia de miembros organizacionales a roles de seguridad.</p></li>
+<li><p><strong>Permisos de herramientas:</strong> muestra los cambios realizados en las
+definiciones de permisos de herramienta (como, por ejemplo, el propio
+Qflow Team). Además de los permisos se
+especifica la herramienta a la que corresponden.</p></li>
+<li><p><strong>Permisos de nodos:</strong> muestra las modificaciones a los permisos de
+nodo. Permite filtrar las modificaciones mostradas para incluir
+solamente aquellas de permisos específicos de colas de trabajo.</p></li>
+<li><p><strong>Permisos de paquetes:</strong> muestra los permisos otorgados y denegados
+sobre paquetes.</p></li>
+<li><p><strong>Suplencias:</strong> muestra las suplencias agregadas y eliminadas. Las
+suplencias son relevantes porque durante el periodo de la suplencia
+el suplente adquiere los permisos de la persona que suple.</p></li>
+</ul>
+<figure class="align-center" id="id88">
+<span id="permissionaudit"></span><a class="reference internal image-reference" href="_images/image785.png"><img alt="Auditoría de permisos" src="_images/image785.png" style="width: 8.70073in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 735 </span><span class="caption-text">Auditoría de permisos</span><a class="headerlink" href="#id88" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id89">
+<span id="permissionaudititems"></span><a class="reference internal image-reference" href="_images/image794.png"><img alt="Ítems - Auditoría de permisos" src="_images/image794.png" style="width: 8.57143in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 736 </span><span class="caption-text">Ítems - Auditoría de permisos</span><a class="headerlink" href="#id89" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="propiedades-adicionales">
+<h3>Propiedades adicionales<a class="headerlink" href="#propiedades-adicionales" title="Link to this heading"></a></h3>
+<p>A veces puede ser deseable manejar propiedades que no están definidas en
+Qflow. Por ejemplo, Qflow no dispone de una propiedad “Número de
+Teléfono” para un usuario. Para estos casos existen las propiedades
+adicionales.</p>
+<section id="cuadro-de-propiedades">
+<h4>Cuadro de propiedades<a class="headerlink" href="#cuadro-de-propiedades" title="Link to this heading"></a></h4>
+<p>Las propiedades adicionales de un elemento se muestran en el grupo
+“Propiedades” del formulario de ese elemento. Por defecto, ese grupo
+muestra un cuadro que tiene dos columnas: Nombre y Valor (<a class="reference internal" href="#extraproperties"><span class="std std-numref">Figura 737</span></a>).</p>
+<figure class="align-center" id="id90">
+<span id="extraproperties"></span><a class="reference internal image-reference" href="_images/image804.png"><img alt="Propiedades adicionales" src="_images/image804.png" style="width: 8.41736in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 737 </span><span class="caption-text">Propiedades adicionales</span><a class="headerlink" href="#id90" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Para agregar una</strong> <strong>propiedad:</strong></p>
+<ol class="arabic simple">
+<li><p>Haga clic en el botón “Agregar…”. Qflow agregará un elemento al
+cuadro con el Nombre y Valor por defecto “Nombre1”.</p></li>
+<li><p>Haga clic sobre “Nombre1” de la columna Nombre, escriba el nombre de
+la nueva propiedad y pulse la tecla “Enter”. De igual manera, haga
+clic sobre “Nombre1” de la columna Valor, escriba el valor de la
+nueva propiedad y nuevamente haga clic sobre la tecla “Enter”.</p></li>
+</ol>
+<p>La <a class="reference internal" href="#addedextraproperties"><span class="std std-numref">Figura 738</span></a> muestra tres propiedades agregadas.</p>
+<figure class="align-center" id="id91">
+<span id="addedextraproperties"></span><a class="reference internal image-reference" href="_images/image817.png"><img alt="Propiedades adicionales agregadas" src="_images/image817.png" style="width: 6.41736in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 738 </span><span class="caption-text">Propiedades adicionales agregadas</span><a class="headerlink" href="#id91" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Para eliminar una propiedad:</strong></p>
+<ol class="arabic simple">
+<li><p>Seleccione la propiedad o las propiedades que desea eliminar haciendo
+clic en el símbolo <a class="reference internal" href="_images/image485.png"><img alt="image2" src="_images/image485.png" style="width: 0.17368in; height: 0.1375in;" /></a> que figura del lado izquierdo de cada uno
+de ellas.</p></li>
+<li><p>Haga clic en el botón “Eliminar”.</p></li>
+</ol>
+<p>Hay otra forma de definir propiedades, que implica configurar Qflow
+para que éstas queden definidas para todos los elementos de cierto tipo
+(por ejemplo, para todos los usuarios), y que el grupo “Propiedades”, en
+lugar de mostrar un cuadro, muestre un conjunto personalizado de
+controles (<a class="reference internal" href="#configurationextraproperties"><span class="std std-numref">Figura 739</span></a>). Las ventajas de hacerlo de esa forma son que se
+puede especificar el tipo de cada propiedad (si es un número, un texto,
+un miembro organizacional, o una fecha, por ejemplo), y cada propiedad
+se muestra de una forma adecuada a su tipo, lo cual permite evitar
+errores al asignarles valores. Por ejemplo, si una propiedad es del tipo
+“Sí/No”, se mostrará con un control que sólo permite elegir esos dos
+valores.</p>
+<p>Para definir las propiedades adicionales de esa forma se utiliza
+Qflow Admin (para más información ver el manual de
+de <a class="reference external" href="19-QflowAdmin.html">QflowAdmin</a>). El hecho de definir
+propiedades de esa forma no implica que no se pueda seguir usando el
+cuadro. El cuadro seguirá disponible en la parte inferior del grupo,
+como se visualiza en la <a class="reference internal" href="#configurationextraproperties"><span class="std std-numref">Figura 739</span></a>.</p>
+<figure class="align-center" id="id92">
+<span id="configurationextraproperties"></span><a class="reference internal image-reference" href="_images/image825.png"><img alt="Propiedades adicionales definidas por medio de configuración" src="_images/image825.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 739 </span><span class="caption-text">Propiedades adicionales definidas por medio de configuración</span><a class="headerlink" href="#id92" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="licencias">
+<h3>Licencias<a class="headerlink" href="#licencias" title="Link to this heading"></a></h3>
+<p>Qflow Team permite controlar el uso de
+licencias de Qflow, mediante el “Indicador de usuarios habilitados” de
+la página principal (ver <a class="reference internal" href="#homescreen"><span class="std std-numref">Figura 661</span></a>). Además,
+cuando alguien crea o habilita un usuario en Qflow Team,
+se controla que la operación no haga que se
+exceda la cantidad de licencias disponibles. Si esto sucede, la
+herramienta le dará un aviso al usuario y la operación se suspenderá.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="15-QflowDesign.html" class="btn btn-neutral float-left" title="Qflow Design" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="19-QflowAdmin.html" class="btn btn-neutral float-right" title="Qflow Admin" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>v5.2 &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/29.3-ReleaseNote5_2.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="v5.1.2" href="29.2-ReleaseNote5_1_2.html" />
+    <link rel="prev" title="v5.3" href="29.4-ReleaseNote5_3.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="29.13-ReleaseNote6_0.html">v6.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.12-ReleaseNote5_6_2.html">v5.6.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.11-ReleaseNote5_6_1.html">v5.6.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.10-ReleaseNote5_6.html">v5.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.9-ReleaseNote5_5_4.html">v5.5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.8-ReleaseNote5_5_3.html">v5.5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.7-ReleaseNote5_5_1.html">v5.5.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.6-ReleaseNote5_5.html">v5.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.5-ReleaseNote5_4.html">v5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.4-ReleaseNote5_3.html">v5.3</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">v5.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mejoras-generales">Mejoras generales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qflow-task">Qflow Task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qflow-design">Qflow Design</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qflow-team">Qflow Team</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#backend">Backend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qflow-admin">Qflow Admin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html">v5.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html">v5.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_Cloud.html">v5.1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+      <li class="breadcrumb-item active">v5.2</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="v5-2">
+<h1>v5.2<a class="headerlink" href="#v5-2" title="Link to this heading"></a></h1>
+<p><strong>Resumen de características</strong></p>
+<p>La versión 5.2 incorpora diversas funcionalidades para mejorar la experiencia de usuario en Qflow, tales como brindar un nuevo sitio
+(Qflow Access) que sea el punto de acceso de los usuarios a Qflow, compartir la sesión entre las herramientas, brindar plantillas de proceso
+predeterminadas, responder múltiples tareas de manera simple, entre otras. Por otra parte, el sistema ahora cuenta con la capacidad de almacenar los adjuntos
+en una base de datos independiente.</p>
+<p>Adicionalmente, el producto continúa su constante evolución, incorporando funcionalidades solicitadas
+por nuestros clientes y socios de negocios, que facilitan su trabajo para poder hacer más en menos tiempo.</p>
+<p>Cuando la característica descrita tenga un alto contenido técnico se lo indicará con el ícono (<a class="reference internal" href="_images/TechnicalIcon1.png"><img alt="technical-icon" src="_images/TechnicalIcon1.png" style="width: 0.65in; height: 22px;" /></a>).
+Además, si se incluyó como fix para alguna versión anterior, se indicará de la siguiente manera: [x.y]. Si es
+un analista funcional puede omitir la lectura de esas novedades.</p>
+<p>Si cuentas con un espacio de trabajo en la nube, ¡ya estás disfrutando de estas funcionalidades! De lo contrario,
+analiza los planes en <a class="reference external" href="https://qflowbpm.com/es/precios/">https://qflowbpm.com/es/precios/</a>.
+Si ya cuentas con una instalación onpremise, para aprovechar las ventajas de la nueva versión entra en contacto con tu
+gerente de cuenta, quien podrá asistirte en la instalación o actualización del sistema, para comenzar a usar las
+nuevas funcionalidades. Si no tienes un gerente de cuenta, puedes contactarnos completando el formulario de la siguiente URL:
+<a class="reference external" href="https://qflowbpm.com/es/contacto/">https://qflowbpm.com/es/contacto/</a>.</p>
+<section id="mejoras-generales">
+<h2>Mejoras generales<a class="headerlink" href="#mejoras-generales" title="Link to this heading"></a></h2>
+<section id="renovacion-de-nombres-y-logos">
+<h3>Renovación de nombres y logos<a class="headerlink" href="#renovacion-de-nombres-y-logos" title="Link to this heading"></a></h3>
+<p>¡Se renueva el producto, se actualiza Q-flow y ahora se presenta como Qflow!</p>
+<blockquote>
+<div><figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/NewQflowLogo.png"><img alt="Nuevo logo Qflow" src="_images/NewQflowLogo.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 54 </span><span class="caption-text">Nuevo logo Qflow</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>Se renuevan los distintos sitios y para que su nombre sea más intuitivo, se deciden hacer los siguientes cambios:</p>
+<blockquote>
+<div><figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/NewToolsLogos.png"><img alt="Nuevo logos y nombres de las herramientas de Qflow" src="_images/NewToolsLogos.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 55 </span><span class="caption-text">Nuevo logos y nombres de las herramientas de Qflow</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</section>
+<section id="unificacion-de-acceso-al-producto">
+<h3>Unificación de acceso al producto<a class="headerlink" href="#unificacion-de-acceso-al-producto" title="Link to this heading"></a></h3>
+<p>Se crea Qflow Access, nuevo portal de acceso al producto, brindando un único punto de acceso y sesión compartida entre los distintos sitios.
+De esta manera, los usuarios obtienen una experiencia más sencilla y fluida, no debiendo iniciar sesión en cada una de las herramientas individualmente.
+Sólo se inicia sesión en Qflow Access y se tiene acceso inmediato a todas las herramientas disponibles.</p>
+<blockquote>
+<div><figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/QfAccess.png"><img alt="Página de login de Qflow" src="_images/QfAccess.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 56 </span><span class="caption-text">Página de login de Qflow</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>Además, desde cualquiera de las herramientas es posible acceder a los distintos sitios a los cuales tenga permiso de acceder.</p>
+<blockquote>
+<div><figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/SitesLinked.png"><img alt="Acceso a las distintas herramientas desde Qflow Task" src="_images/SitesLinked.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 57 </span><span class="caption-text">Acceso a las distintas herramientas desde Qflow Task</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>Continuando con la unificación de acceso al producto, se actualiza la página de login de las distintas herramientas, manteniendo
+un estilo armónico entre sí, cambiando únicamente el color principal.</p>
+<blockquote>
+<div><figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/LoginViews.png"><img alt="Páginas de login" src="_images/LoginViews.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 58 </span><span class="caption-text">Páginas de login</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>Es posible mostrar el logo de la empresa, cargándolo en Qflow Admin, al actualizar el parámetro de sistema <em>Logo</em>.</p>
+<p>Se puede ver más detalles sobre cómo configurar un parámetro de sistema en <span class="xref std std-ref">Qflow Admin - Parámetros de sistema</span>.</p>
+</section>
+<section id="integracion-con-gravatar">
+<h3>Integración con gravatar<a class="headerlink" href="#integracion-con-gravatar" title="Link to this heading"></a></h3>
+<p>En el menú superior de las distintas herramientas, se podrá visualizar la foto de perfil que el usuario tenga registrada en <em>gravatar</em>, asociada a su correo electrónico.</p>
+<blockquote>
+<div><figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/HeaderWithGravatar.png"><img alt="Menú superior de Qflow Task con imagen *gravatar*" src="_images/HeaderWithGravatar.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 59 </span><span class="caption-text">Menú superior de Qflow Task con imagen <em>gravatar</em></span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>Cada persona puede asociar su mail en <a class="reference external" href="https://gravatar.com">https://gravatar.com</a>.</p>
+<p>En caso de que el mail no esté registrado o se haya deshabilitado esta opción en Qflow Admin, las iniciales del usuario serán mostradas en su lugar.</p>
+<blockquote>
+<div><figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/HeaderWithInitials.png"><img alt="Menú superior de Qflow Task con iniciales del usuario" src="_images/HeaderWithInitials.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 60 </span><span class="caption-text">Menú superior de Qflow Task con iniciales del usuario</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>Por defecto, la opción de usar gravatar estará habilitada. Si se desea deshabilitar esta opción, es necesario actualizar el parámetro de sistema
+<em>Usar gravatar para foto de perfil</em> en Qflow Admin.</p>
+</section>
+<section id="optimizaciones-en-navegacion-technical-icon">
+<h3>Optimizaciones en navegación <a class="reference internal" href="_images/TechnicalIcon1.png"><img alt="technical-icon" src="_images/TechnicalIcon1.png" style="width: 0.65in; height: 22px;" /></a><a class="headerlink" href="#optimizaciones-en-navegacion-technical-icon" title="Link to this heading"></a></h3>
+<p>Se implementa la utilización de service worker en los distintos sitios (Task, Design, Team y Admin) para almacenar localmente
+archivos estáticos que serán reutilizados en las distintas navegaciones. Esto permite una navegación más fluida a los usuarios.</p>
+</section>
+</section>
+<section id="qflow-task">
+<h2>Qflow Task<a class="headerlink" href="#qflow-task" title="Link to this heading"></a></h2>
+<section id="responder-multiples-tareas-de-manera-simple">
+<h3>Responder múltiples tareas de manera simple<a class="headerlink" href="#responder-multiples-tareas-de-manera-simple" title="Link to this heading"></a></h3>
+<p>Desde la vista de Mis tareas, es posible seleccionar múltiples tareas que permitan Respuesta rápida y responder por todas ellas
+una respuesta que tengan en común. Además, se permite agregar un comentario para todas aquellas que lo admitan o lo requieran.</p>
+<p>Para poder acceder a esta funcionalidad, se debe tener configurado en la vista correspondiente, la columna de sistema «Respuesta rápida».
+De igual forma, si no se desea brindar esta funcionalidad, se puede quitar dicha columna.</p>
+<blockquote>
+<div><figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="_images/QuickRespose_RespondTasks.gif"><img alt="Configuración columna Respuesta rápida" src="_images/QuickRespose_RespondTasks.gif" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 61 </span><span class="caption-text">Configuración columna Respuesta rápida</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>Dado que es posible seleccionar múltiples tareas, su progreso será visible en la esquina inferior derecha, donde es posible
+visualizar las tareas en proceso, en error y finalizadas. Además, podrá acceder a una vista completa para visualizar la información
+con mayor comodidad.</p>
+<p>Además, la tarea debe permitir este tipo de respuestas, para lo cual no debe tener ningun dato, rol o adjunto que sea requerido.</p>
+<blockquote>
+<div><figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="_images/QuickRespose_Configuration.png"><img alt="Configuración columna Respuesta rápida" src="_images/QuickRespose_Configuration.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 62 </span><span class="caption-text">Configuración columna Respuesta rápida</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>Se puede ver más detalles sobre cómo configurar las respuestas rápidas en <a class="reference internal" href="04-QflowTask.html#respuesta-rapida"><span class="std std-ref">Qflow Task - Respuesta rápida</span></a>.</p>
+</section>
+<section id="almacenamiento-de-adjuntos-en-base-de-datos-externa-onpremise-icon-2x-technical-icon">
+<h3>Almacenamiento de adjuntos en base de datos externa <i class="fa fa-server fa-2x" style="color: orange;font-size: 20px;"></i> <a class="reference internal" href="_images/TechnicalIcon1.png"><img alt="technical-icon" src="_images/TechnicalIcon1.png" style="width: 0.65in; height: 22px;" /></a><a class="headerlink" href="#almacenamiento-de-adjuntos-en-base-de-datos-externa-onpremise-icon-2x-technical-icon" title="Link to this heading"></a></h3>
+<p>El contenido de los adjuntos del sistema ahora se puede almacenar en una base de datos externa.
+Es posible optar por almacenar los adjuntos de los procesos en: Base de datos de Qflow, Base de datos externa o Azure blob storage.</p>
+</section>
+<section id="actualizacion-de-formularios-por-defecto">
+<h3>Actualización de formularios por defecto<a class="headerlink" href="#actualizacion-de-formularios-por-defecto" title="Link to this heading"></a></h3>
+<p>Por defecto, los formularios de los eventos de inicio, las tareas, edición del proceso e información del proceso utilizarán la versión de una columna.</p>
+</section>
+</section>
+<section id="qflow-design">
+<h2>Qflow Design<a class="headerlink" href="#qflow-design" title="Link to this heading"></a></h2>
+<section id="plantillas-de-proceso-pre-creadas">
+<h3>Plantillas de proceso pre-creadas<a class="headerlink" href="#plantillas-de-proceso-pre-creadas" title="Link to this heading"></a></h3>
+<p>Es posible comenzar a utilizar alguno de nuestros procesos pre-creados en minutos.
+Las plantillas disponibles hasta el momento son:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Aprobación en dos etapas</p></li>
+<li><p>Solicitud de vacaciones</p></li>
+<li><p>Selección de personal</p></li>
+<li><p>Rendición de gastos</p></li>
+<li><p>Aprobación de documentos</p></li>
+<li><p>Solicitud de compras</p></li>
+</ul>
+</div></blockquote>
+<p>Por ejemplo, el proceso de solicitud de vacaciones, genera una plantilla como la siguiente:</p>
+<blockquote>
+<div><figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="_images/VacationRequestProcess.png"><img alt="Proceso de solicitud de vacaciones" src="_images/VacationRequestProcess.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 63 </span><span class="caption-text">Proceso de solicitud de vacaciones</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>Para utilizarla, simplemente es necesario asignar la versión de la plantilla en producción en Qflow Design
+y comenzar a iniciar procesos en Qflow Task.</p>
+<p>Se puede ver más detalles sobre las plantillas pre-creadas en <a class="reference internal" href="15-QflowDesign.html#plantillas-pre-creadas"><span class="std std-ref">Qflow Design - Plantillas pre-creadas</span></a>.</p>
+</section>
+<section id="nos-integramos-con-sharepoint-365">
+<h3>¡Nos integramos con Sharepoint 365!<a class="headerlink" href="#nos-integramos-con-sharepoint-365" title="Link to this heading"></a></h3>
+<p>Es posible crear Dominios, Integraciones y Parámetros de aplicación con Sharepoint 365. Por lo tanto, se puede tener un dato que seleccione un elemento
+de una lista de Sharepoint 365 y complete otros datos a partir del seleccionado. Además es posible insertar nuevos elementos mediante las integraciones.</p>
+<p>Se puede ver más detalles sobre dominios en <a class="reference internal" href="15-QflowDesign.html#dominios"><span class="std std-ref">Qflow Design - Dominios</span></a>. Sobre las itegraciones en <a class="reference internal" href="15-QflowDesign.html#integraciones"><span class="std std-ref">Qflow Design - Integraciones</span></a>.</p>
+</section>
+<section id="nuevos-dominios-por-defecto">
+<h3>Nuevos dominios por defecto<a class="headerlink" href="#nuevos-dominios-por-defecto" title="Link to this heading"></a></h3>
+<p>Se crean los siguientes dominios por defecto en el paquete raíz:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Hipervínculo</p></li>
+<li><p>Cuadro de texto enriquecido</p></li>
+<li><p>Contraseña</p></li>
+<li><p>Correo</p></li>
+<li><p>Teléfono</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="errores-corregidos">
+<h3>Errores corregidos<a class="headerlink" href="#errores-corregidos" title="Link to this heading"></a></h3>
+<p><strong>Si el texto de la nota es mayor a 256 caracteres, se corta</strong></p>
+<p>En caso de que se ingresara en una nota del proceso un texto de largo mayor a 256 caracteres, se perdían los caracteres posteriores a 256.</p>
+</section>
+</section>
+<section id="qflow-team">
+<h2>Qflow Team<a class="headerlink" href="#qflow-team" title="Link to this heading"></a></h2>
+<section id="enviar-bienvenida-al-usuario-creado">
+<h3>Enviar bienvenida al usuario creado<a class="headerlink" href="#enviar-bienvenida-al-usuario-creado" title="Link to this heading"></a></h3>
+<p>Al momento de crear un nuevo usuario, se le enviará mediante correo electrónico la bienvenida a Qflow con el link de acceso a Qflow Access.</p>
+<blockquote>
+<div><figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="_images/WelcomeQflowEmail.png"><img alt="Correo de bienvenida" src="_images/WelcomeQflowEmail.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 64 </span><span class="caption-text">Correo de bienvenida</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>El correo será enviado siempre que el nuevo usuario creado tenga asignado un correo electrónico y servicio de notificación válidos.</p>
+<p>El logo utilizado puede ser personalizado, actualizando el valor del parámetro de sistema <em>Logo de correos</em>.</p>
+<p>Si se desea, esta funcionalidad se puede deshabilitar, configurando el parámetro de sistema <em>Notificar al usuario en la creación</em> como Falso.</p>
+</section>
+<section id="configuracion-de-proveedor-de-seguridad-predeterminado">
+<h3>Configuración de proveedor de seguridad predeterminado<a class="headerlink" href="#configuracion-de-proveedor-de-seguridad-predeterminado" title="Link to this heading"></a></h3>
+<p>Desde la herramienta, es posible elegir cuál será el proveedor de seguridad predeterminado del espacio de trabajo. Esto permite que se preseleccione en las vistas de login.</p>
+<blockquote>
+<div><figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="_images/DefaultSecurityProvider.png"><img alt="Proveedor de predeterminado" src="_images/DefaultSecurityProvider.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 65 </span><span class="caption-text">Proveedor de predeterminado</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>Se puede ver más detalles sobre proveedores de seguridad en <a class="reference internal" href="18-QflowTeam.html#proveedores-de-seguridad"><span class="std std-ref">Qflow Team - Proveedores de seguridad</span></a>.</p>
+</section>
+<section id="configuracion-de-propiedades-por-defecto-para-nuevos-usuarios">
+<h3>Configuración de propiedades por defecto para nuevos usuarios<a class="headerlink" href="#configuracion-de-propiedades-por-defecto-para-nuevos-usuarios" title="Link to this heading"></a></h3>
+<p>Desde el menú superior, en la sección de configuración, podrá acceder a configurar propiedades para que todos los usuarios
+creados las obtengan por defecto.</p>
+<blockquote>
+<div><figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="_images/DefaultProperties_SelectUser.png"><img alt="Seleccionar Propiedades para nuevos usuarios" src="_images/DefaultProperties_SelectUser.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 66 </span><span class="caption-text">Seleccionar Propiedades para nuevos usuarios</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>Actualmente se pueden configurar los roles y servicios de notificación, como lo muestra la siguiente imagen.</p>
+<blockquote>
+<div><figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="_images/DefaultProperties_Configuration.png"><img alt="Propiedades para nuevos usuarios" src="_images/DefaultProperties_Configuration.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 67 </span><span class="caption-text">Propiedades para nuevos usuarios</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>Todo usuario nuevo heredará estas propiedades por defecto y podrán ser modificadas en su creación.
+Esto también aplica a la creación de usuarios desde los servicios web.</p>
+</section>
+<section id="mejoras-en-panel-de-usuario">
+<h3>Mejoras en panel de usuario<a class="headerlink" href="#mejoras-en-panel-de-usuario" title="Link to this heading"></a></h3>
+<p>Se muestra la configuración de roles, incluso cuando el panel no está expandido, permitiendo esta configuración de manera ágil.</p>
+<p>Se deja cerrado por defecto el grupo de servicios de configuración, dado que actualmente se heredan de la configuración por defecto
+deja de ser necesario configurarlo para cada usuario.</p>
+</section>
+</section>
+<section id="backend">
+<h2>Backend<a class="headerlink" href="#backend" title="Link to this heading"></a></h2>
+<section id="actualizacion-de-estilos-de-notificaciones-de-correo-segun-tema-del-espacio-de-trabajo">
+<h3>Actualización de estilos de notificaciones de correo según tema del espacio de trabajo<a class="headerlink" href="#actualizacion-de-estilos-de-notificaciones-de-correo-segun-tema-del-espacio-de-trabajo" title="Link to this heading"></a></h3>
+<p>Se actualizan los estilos y las imágenes utilizadas en los mails, utilizando colores asociados al tema del espacio de trabajo.
+Por ejemplo, a continuación se puede ver un correo electrónico enviado:</p>
+<blockquote>
+<div><figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="_images/ReminderEmail.png"><img alt="Correo de qflow" src="_images/ReminderEmail.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 68 </span><span class="caption-text">Correo de qflow</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</section>
+<section id="contemplar-zona-horaria-en-addsubstitution-en-tarea-de-codigo-technical-icon">
+<h3>Contemplar zona horaria en AddSubstitution en tarea de código <a class="reference internal" href="_images/TechnicalIcon1.png"><img alt="technical-icon" src="_images/TechnicalIcon1.png" style="width: 0.65in; height: 22px;" /></a><a class="headerlink" href="#contemplar-zona-horaria-en-addsubstitution-en-tarea-de-codigo-technical-icon" title="Link to this heading"></a></h3>
+<p>Si se utiiza el método AddSubstitution en una tarea de código, en caso que la fecha especificada sea DateTime con Kind UTC,
+se utiliza la fecha estipulada en UTC, de lo contrario se asume que el valor se encuentra en la zona horaria del calendario del usuario.</p>
+<p>Se puede ver más detalle sobre cómo funciona el método en <a class="reference internal" href="10-ScriptingInterface.html#iscripthost"><span class="std std-ref">Interfaz de scripting</span></a>.</p>
+</section>
+<section id="id1">
+<h3>Errores corregidos<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p><strong>No se usa versión en producción en actividad de llamada</strong></p>
+<p>Al cambiar la versión en producción de la plantilla seleccionada, se seguía iniciando la versión que estaba en producción al momento
+de configurar la actividad de llamada.</p>
+</section>
+</section>
+<section id="qflow-admin">
+<h2>Qflow Admin<a class="headerlink" href="#qflow-admin" title="Link to this heading"></a></h2>
+<section id="nuevos-parametros-de-sistema-technical-icon">
+<h3>Nuevos parámetros de sistema <a class="reference internal" href="_images/TechnicalIcon1.png"><img alt="technical-icon" src="_images/TechnicalIcon1.png" style="width: 0.65in; height: 22px;" /></a><a class="headerlink" href="#nuevos-parametros-de-sistema-technical-icon" title="Link to this heading"></a></h3>
+<p>Para más y mejores personalizaciones, se agregan los siguientes parámetros de sistema:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Logo</p></li>
+<li><p>Logo versión clara</p></li>
+<li><p>Logo de task</p></li>
+<li><p>Mini logo de task</p></li>
+<li><p>Logo de correos</p></li>
+<li><p>Usar gravatar para foto de perfil</p></li>
+<li><p>Notificar al usuario en la creación</p></li>
+</ul>
+</div></blockquote>
+<p>Se puede ver más información sobre estos parámetros en <a class="reference internal" href="19-QflowAdmin.html#listado-de-parametros-de-sistema"><span class="std std-ref">Qflow Admin - Parámetros de sistema</span></a>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="29.4-ReleaseNote5_3.html" class="btn btn-neutral float-left" title="v5.3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="29.2-ReleaseNote5_1_2.html" class="btn btn-neutral float-right" title="v5.1.2" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

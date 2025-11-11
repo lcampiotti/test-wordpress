@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>v5.5 &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/29.6-ReleaseNote5_5.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="v5.4" href="29.5-ReleaseNote5_4.html" />
+    <link rel="prev" title="v5.5.1" href="29.7-ReleaseNote5_5_1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="29.13-ReleaseNote6_0.html">v6.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.12-ReleaseNote5_6_2.html">v5.6.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.11-ReleaseNote5_6_1.html">v5.6.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.10-ReleaseNote5_6.html">v5.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.9-ReleaseNote5_5_4.html">v5.5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.8-ReleaseNote5_5_3.html">v5.5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.7-ReleaseNote5_5_1.html">v5.5.1</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">v5.5</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#resumen-de-caracteristicas">Resumen de características</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#correccion-de-errores-y-mejoras">Corrección de errores y mejoras</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.5-ReleaseNote5_4.html">v5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.4-ReleaseNote5_3.html">v5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.3-ReleaseNote5_2.html">v5.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html">v5.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html">v5.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_Cloud.html">v5.1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+      <li class="breadcrumb-item active">v5.5</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="v5-5">
+<h1>v5.5<a class="headerlink" href="#v5-5" title="Link to this heading"></a></h1>
+<section id="resumen-de-caracteristicas">
+<h2>Resumen de características<a class="headerlink" href="#resumen-de-caracteristicas" title="Link to this heading"></a></h2>
+<p>La versión 5.5 de Qflow introduce una serie de innovaciones que elevan significativamente la integración,
+personalización, seguridad y rendimiento de la plataforma.</p>
+<p>Con la incorporación de Conectores, los usuarios ahora pueden integrar Qflow con las herramientas más
+utilizadas en el entorno organizacional sin necesidad de programación adicional, facilitando la automatización
+de procesos. Esta versión también permite personalizar completamente el menú lateral de Qflow Task,
+adaptándose por completo a las necesidades específicas de cada organización. Además, esta versión presenta
+mejoras en la exportación de datos, nuevas medidas de seguridad como el Captcha en formularios para usuarios
+externos y optimizaciones en el rendimiento general, ofreciendo una experiencia de usuario más ágil y eficiente.</p>
+<section id="conectores">
+<h3>Conectores<a class="headerlink" href="#conectores" title="Link to this heading"></a></h3>
+<p>En esta versión, Qflow incorpora una funcionalidad muy importante: <a class="reference external" href="34-ConnectorsIndex.html">Conectores</a>. Estos conectores facilitan la integración con una
+variedad de herramientas externas de manera simple y sin necesidad de programación
+adicional. Ahora, los usuarios pueden llevar la automatización de procesos a un siguiente
+nivel y conectar sus procesos creados en Qflow con algunas de las herramientas más utilizadas
+en el entorno organizacional.</p>
+<a class="reference internal image-reference" href="_images/connectors.png"><img alt="Conectores Qflow" class="align-center" src="_images/connectors.png" style="width: 50%;" /></a>
+<p>A continuación, se listan los conectores incorporados:</p>
+<ul class="simple">
+<li><p><em>DocuSign</em>: Envía documentos para su firma electrónica, consulta el estado de las solicitudes de
+firma, cancela solicitudes pendientes y obtiene los documentos firmados.</p></li>
+<li><p><em>Outlook</em>: Gestiona reuniones en el calendario de Outlook, incluyendo su creación, modificación y
+eliminación.</p></li>
+<li><p><em>Google Calendar</em>: Realiza acciones similares en el calendario de Google, como la creación,
+modificación y eliminación de eventos.</p></li>
+<li><p><em>Redmine</em>: Gestiona las peticiones en proyectos de Redmine, con operaciones para crear,
+modificar y eliminar peticiones.</p></li>
+<li><p><em>Jira</em>: Incorpora diversas funcionalidades para la gestión de incidencias de Jira. Permite
+crear incidencias, eliminarlas, agregar comentarios, actualizar su fecha de vencimiento,
+prioridad, estado y usuarios asignados.</p></li>
+<li><p><em>Trello</em>: Administra tarjetas en los tableros de Trello, con opciones para crear, eliminar,
+mover, agregar comentarios y modificar asignaciones de usuarios.</p></li>
+<li><p><em>Microsoft Teams</em>: Permite publicar un mensaje de texto en un canal específico de Microsoft
+Teams.</p></li>
+<li><p><em>Slack</em>: Publica un mensaje de texto en el canal ingresado.</p></li>
+<li><p><em>OpenAI</em>: Utiliza la inteligencia artificial de OpenAI para generar respuestas por los
+modelos de ChatGPT a partir de mensajes o moderar contenido enviado a través de la plataforma.</p></li>
+</ul>
+<p>La ejecución de estos conectores tiene un consumo específico de Q-points. Para obtener información sobre
+el consumo de Q-points de los conectores, se puede acceder a la sección de <a class="reference external" href="21-Q-pointsConsumption.html">consumo de Q-points</a>.</p>
+</section>
+<section id="personalizacion-completa-de-menu-lateral">
+<h3>Personalización completa de menú lateral<a class="headerlink" href="#personalizacion-completa-de-menu-lateral" title="Link to this heading"></a></h3>
+<p>Esta característica permite a los usuarios adaptar completamente las opciones del menú lateral de
+Qflow Task según las necesidades específicas de su organización. Reemplaza la funcionalidad anterior de
+creación de vínculos en un submenú de «Vínculos», esta nueva característica ofrece un nivel de personalización
+mucho más completo. Sin embargo, los usuarios aún conservan la capacidad de agregar sus propios vínculos
+personales utilizando la funcionalidad de «Mis Vínculos». Para más información, dirigase a la sección de
+<a class="reference internal" href="04-QflowTask.html#sidebarconfiguration"><span class="std std-ref">personalización del menú lateral</span></a>.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/task-custom-side-menu.png"><img alt="Menú lateral por defecto y menú personalizado" src="_images/task-custom-side-menu.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 34 </span><span class="caption-text">Menú lateral por defecto y menú personalizado</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>A continuación, se detallan las características principales:</p>
+<ul class="simple">
+<li><p><em>Personalización completa</em>: Los usuarios pueden ajustar el menú lateral según las necesidades de su
+organización, definiendo qué opciones se muestran y su disposición. Esto incluye la capacidad de
+crear niveles de anidamiento y establecer un orden específico.</p></li>
+<li><p><em>Definición de opciones por roles</em>: Es posible especificar que ciertas opciones del menú solo
+aparezcan para determinados roles, lo que permite una experiencia personalizada según el rol del usuario.</p></li>
+<li><p><em>Vínculos internos y externos</em>: Los usuarios pueden agregar enlaces a recursos importantes en cualquier
+sección del menú. Esto puede incluir enlaces a páginas dentro de Qflow o a sitios externos utilizados
+por la organización, proporcionando un acceso rápido a información relevante.</p></li>
+<li><p><em>Iconos Personalizados</em>: Se ofrece la opción de seleccionar iconos personalizados para cada opción del
+menú. Esto facilita la identificación visual y mejora la navegación dentro de la plataforma.</p></li>
+</ul>
+</section>
+<section id="exportar-a-excel-desde-vistas">
+<h3>Exportar a Excel desde vistas<a class="headerlink" href="#exportar-a-excel-desde-vistas" title="Link to this heading"></a></h3>
+<p>La versión 5.5 de Qflow presenta una mejora significativa en las opciones de exportación de datos.
+Anteriormente, los usuarios solo podían exportar datos desde las vistas de Qflow en formatos <em>CSV</em> y <em>HTML</em>.
+Ahora, con la introducción de la función de exportar a Excel, los usuarios pueden exportar los datos de
+cualquier vista directamente al formato nativo de Excel: <em>XLSX</em>.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/export-options-list.png"><img alt="Formatos de exportación en Qflow Task" src="_images/export-options-list.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 35 </span><span class="caption-text">Formatos de exportación en Qflow Task</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="captcha-inicio-anonimo">
+<h3>Captcha inicio anónimo<a class="headerlink" href="#captcha-inicio-anonimo" title="Link to this heading"></a></h3>
+<p>En esta actualización se ha añadido una medida adicional de seguridad al formulario de inicio de proceso para
+usuarios externos a Qflow: la incorporación de <em>Captcha</em>. Esta nueva funcionalidad requiere que los usuarios
+demuestren su identidad como humanos completando un desafío <em>Captcha</em> para iniciar un proceso a través de Qflow.
+Esta medida refuerza la protección contra bots y ataques automatizados, garantizando la autenticidad de los
+usuarios y la integridad de los procesos iniciados por ellos.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/external-start-captcha.png"><img alt="Captcha en formulario de inicio de proceso anónimo" src="_images/external-start-captcha.png" style="width: 65%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 36 </span><span class="caption-text">Captcha en formulario de inicio de proceso anónimo</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="manejo-de-zonas-horarias-en-formularios-de-usuarios-externos-anonimos">
+<h3>Manejo de zonas horarias en formularios de usuarios externos/anónimos<a class="headerlink" href="#manejo-de-zonas-horarias-en-formularios-de-usuarios-externos-anonimos" title="Link to this heading"></a></h3>
+<p>Ahora se muestra la zona horaria en la que se muestran las fechas en los formularios para invitados.
+Esto proporciona claridad sobre los plazos y evita confusiones en la interpretación de las fechas.
+La actualización se implementa automáticamente en todos los espacios de trabajo, sin necesidad de
+intervención por parte de los usuarios.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/external-flow-start-timezone.png"><img alt="Zona horaria en formulario de inicio/respuesta anónima" src="_images/external-flow-start-timezone.png" style="width: 65%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 37 </span><span class="caption-text">Zona horaria en formulario de inicio/respuesta anónima</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="mejoras-de-performance">
+<h3>Mejoras de performance<a class="headerlink" href="#mejoras-de-performance" title="Link to this heading"></a></h3>
+<p>Esta actualización busca atacar un punto clave para la experiencia de usuario de Qflow: el rendimiento
+del producto. Se ha optimizado de manera importante la lógica interna del cargado y filtrado de vistas en Qflow
+Task, para brindar a nuestros usuarios una experiencia más ágil y fluida. Además, se mejoran notablemente
+los tiempos de carga para la obtención de tareas de suplencias.</p>
+</section>
+<section id="configuracion-de-columnas-consideradas-en-busqueda-rapida-de-vistas">
+<h3>Configuración de columnas consideradas en búsqueda rápida de vistas<a class="headerlink" href="#configuracion-de-columnas-consideradas-en-busqueda-rapida-de-vistas" title="Link to this heading"></a></h3>
+<p>Se agrega la posibilidad de indicar si una columna es o no buscable en la búsqueda rápida de las vistas
+en Qflow Task. Esta es una configuración avanzada, que está pensada para tener utilidad en ambientes con
+grandes volúmenes de información, en las que reducir la complejidad de las búsquedas puede brindar aún más
+mejoras en el rendimiento del sitio.</p>
+</section>
+</section>
+<section id="correccion-de-errores-y-mejoras">
+<h2>Corrección de errores y mejoras<a class="headerlink" href="#correccion-de-errores-y-mejoras" title="Link to this heading"></a></h2>
+<section id="qflow-task">
+<h3>Qflow Task<a class="headerlink" href="#qflow-task" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Se brindan mejoras en la experiencia de usuario al mostrar los mensajes de error
+cuando se intentan tomar tareas que ya fue tomadas en una cola de trabajo,
+permitiendo que los usuarios identifiquen más rápidamente los motivos de no
+poder realizar la acción.</p></li>
+<li><p>Se corrige un error de visualización cuando las respuestas tienen caracteres
+extraños en la lista desplegable para elegir respuestas al utilizar respuesta rápida.</p></li>
+<li><p>Se corrige un error de cómo se mostraba el destinatario en el seguimiento de
+una tarea de usuario cuando la tarea está destinada a una cola de trabajo.</p></li>
+</ul>
+</section>
+<section id="qflow-team">
+<h3>Qflow Team<a class="headerlink" href="#qflow-team" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Se corrige un error que surgía al ingresar a Qflow Team si el equipo del usuario
+tenía configuraciones regionales de una zona horaria con desplazamiento positivo.</p></li>
+</ul>
+</section>
+<section id="qflow-admin">
+<h3>Qflow Admin<a class="headerlink" href="#qflow-admin" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Se corrige un error al editar un espacio de trabajo existente en la sección
+de «espacios de trabajo».</p></li>
+</ul>
+</section>
+<section id="generales">
+<h3>Generales<a class="headerlink" href="#generales" title="Link to this heading"></a></h3>
+<section id="tecnicos">
+<h4>Técnicos:<a class="headerlink" href="#tecnicos" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Se agregan las siguientes funciones a la <a class="reference external" href="32-JavaScriptLibraryReference.html">librería ScriptHost de JavaScript</a>:</p>
+<ul>
+<li><p><em>getCurrentUserId()</em>: Devuelve el identificador del usuario actual de Qflow.</p></li>
+<li><p><em>getCurrentUserGroups()</em>: Devuelve los grupos a los que pertenece el usuario actual de Qflow.</p></li>
+</ul>
+</li>
+<li><p>Se agrega la siguiente función a la <a class="reference external" href="10-ScriptingInterface.html">interfaz de scripting</a>:</p>
+<ul>
+<li><p><em>IsParameterMappedToApplicationData(string parameterName)</em>: Dado el nombre del parámetro,
+devuelve verdadero si está asociado a un dato de aplicación.</p></li>
+<li><p><em>GetAttachment(string name)</em>: método de IScriptHost que, dado el nombre de un adjunto, devuelve
+un objeto con su información.</p></li>
+</ul>
+</li>
+<li><p>Se corrige un error de timeout que se podía dar al ejecutar integraciones
+que lanzan excepciones no serializables.</p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="29.7-ReleaseNote5_5_1.html" class="btn btn-neutral float-left" title="v5.5.1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="29.5-ReleaseNote5_4.html" class="btn btn-neutral float-right" title="v5.4" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

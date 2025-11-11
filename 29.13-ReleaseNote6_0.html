@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>v6.0 &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/29.13-ReleaseNote6_0.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="v5.6.2" href="29.12-ReleaseNote5_6_2.html" />
+    <link rel="prev" title="Novedades" href="29-ReleaseNote.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">v6.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#disenador-de-formularios">Diseñador de formularios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nueva-accion-agregar-adjuntos-a-incidencia-en-jira">Nueva acción: agregar adjuntos a incidencia en JIRA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#eliminar-proceso-finalizado">Eliminar proceso finalizado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nuevo-modelo-de-visibilidad-de-datos">Nuevo modelo de visibilidad de datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.12-ReleaseNote5_6_2.html">v5.6.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.11-ReleaseNote5_6_1.html">v5.6.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.10-ReleaseNote5_6.html">v5.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.9-ReleaseNote5_5_4.html">v5.5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.8-ReleaseNote5_5_3.html">v5.5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.7-ReleaseNote5_5_1.html">v5.5.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.6-ReleaseNote5_5.html">v5.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.5-ReleaseNote5_4.html">v5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.4-ReleaseNote5_3.html">v5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.3-ReleaseNote5_2.html">v5.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html">v5.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html">v5.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_Cloud.html">v5.1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+      <li class="breadcrumb-item active">v6.0</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="v6-0">
+<h1>v6.0<a class="headerlink" href="#v6-0" title="Link to this heading"></a></h1>
+<p>La versión 6.0 de Qflow incorpora nuevas funcionalidades que mejoran la experiencia del usuario, amplían las capacidades de diseño y facilitan la integración con herramientas externas.</p>
+<section id="disenador-de-formularios">
+<h2>Diseñador de formularios<a class="headerlink" href="#disenador-de-formularios" title="Link to this heading"></a></h2>
+<p>Se incorpora una nueva herramienta de diseño de formularios dentro del módulo <strong>Design</strong>, que permite construir formularios personalizados de manera visual e intuitiva.</p>
+<ul class="simple">
+<li><p>Nuevo editor drag &amp; drop para la creación de formularios.</p></li>
+<li><p>Posibilidad de reordenar datos y roles libremente dentro del formulario.</p></li>
+<li><p>Los roles ya no necesitan estar agrupados, ahora pueden ubicarse en cualquier parte del formulario. Lo mismo aplica para la bitácora de comentarios.</p></li>
+<li><p>Estética moderna y adaptable.</p></li>
+<li><p>Soporte para agregar títulos y mensajes informativos.</p></li>
+<li><p>Formularios completamente integrables en los procesos de Qflow.</p></li>
+</ul>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/qform.png"><img alt="Diseñador de formularios" src="_images/qform.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 1 </span><span class="caption-text">Diseñador de formularios</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="nueva-accion-agregar-adjuntos-a-incidencia-en-jira">
+<h2>Nueva acción: agregar adjuntos a incidencia en JIRA<a class="headerlink" href="#nueva-accion-agregar-adjuntos-a-incidencia-en-jira" title="Link to this heading"></a></h2>
+<p>Se incorpora una nueva acción para el conector con JIRA. Este permite enviar archivos adjuntos directamente desde Qflow a un issue específico de JIRA, mejorando la integración con flujos de trabajo en herramientas externas.</p>
+<p>Más información en la <a class="reference external" href="36.6-JiraCloudConnector.html">documentación del conector de JIRA</a>.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/JIRA.png"><img alt="JIRA" src="_images/JIRA.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 2 </span><span class="caption-text">JIRA</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="eliminar-proceso-finalizado">
+<h2>Eliminar proceso finalizado<a class="headerlink" href="#eliminar-proceso-finalizado" title="Link to this heading"></a></h2>
+<p>Ahora es posible eliminar procesos que ya se encuentren finalizados, lo que facilita la gestión y limpieza de instancias innecesarias o creadas por error. A su vez, se libera espacio de almacenamiento.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/DeleteFlows.png"><img alt="Eliminar procesos finalizados" src="_images/DeleteFlows.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 3 </span><span class="caption-text">Eliminar procesos finalizados</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="nuevo-modelo-de-visibilidad-de-datos">
+<h2>Nuevo modelo de visibilidad de datos<a class="headerlink" href="#nuevo-modelo-de-visibilidad-de-datos" title="Link to this heading"></a></h2>
+<p>Se redefine el concepto de visibilidad de los datos dentro de los formularios, con un enfoque más claro y estructurado.</p>
+<ul class="simple">
+<li><p>Los nuevos estados posibles son: <strong>Ausente</strong>, <strong>Solo lectura</strong>, <strong>Editable</strong> y <strong>Requerido</strong>.</p></li>
+<li><p>Para mantener compatibilidad con configuraciones anteriores (por ejemplo, «solo lectura editable»), se agrega una opción adicional: «<strong>Permite modificar el valor por código o dependencia</strong>», que flexibiliza el comportamiento según lógica de negocio.</p></li>
+</ul>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/Scope.png"><img alt="Nuevo modelo de visibilidad de datos" src="_images/Scope.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 4 </span><span class="caption-text">Nuevo modelo de visibilidad de datos</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/CodeDep.png"><img alt="Modificar el valor por código o dependencia" src="_images/CodeDep.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 5 </span><span class="caption-text">Modificar el valor por código o dependencia</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="29-ReleaseNote.html" class="btn btn-neutral float-left" title="Novedades" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="29.12-ReleaseNote5_6_2.html" class="btn btn-neutral float-right" title="v5.6.2" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

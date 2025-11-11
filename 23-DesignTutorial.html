@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diseña un proceso de quejas &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/23-DesignTutorial.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Descubre Qflow Task" href="24-QflowTaskTutorial.html" />
+    <link rel="prev" title="Crea tu primer proceso" href="06-Tutorial.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="26-QflowToolsTutorial.html">Introducción a las herramientas de Qflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-Tutorial.html">Crea tu primer proceso</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Diseña un proceso de quejas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduccion">Introducción</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#proceso-de-quejas">Proceso de quejas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#construccion-del-proceso-de-qflow">Construcción del proceso de Qflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="24-QflowTaskTutorial.html">Descubre Qflow Task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27-QflowTeamTutorial.html">Configura el equipo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="28-QflowAdminTutorial.html">Administra y monitorea el sistema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="37-QformTutorial.html">Crea tu formulario personalizado</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="TutorialsIndex.html">Tutoriales</a></li>
+      <li class="breadcrumb-item active">Diseña un proceso de quejas</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="disena-un-proceso-de-quejas">
+<h1>Diseña un proceso de quejas<a class="headerlink" href="#disena-un-proceso-de-quejas" title="Link to this heading"></a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading"></a></h2>
+<p>Este tutorial explica brevemente las principales funcionalidades de
+Qflow Design a partir del diseño de un proceso de atención de quejas.</p>
+<p>Esta herramienta permite al usuario diseñar procesos, definir datos de
+aplicación, roles y otros elementos que forman la base de los procesos
+que se ejecutan.</p>
+</section>
+<section id="proceso-de-quejas">
+<h2>Proceso de quejas<a class="headerlink" href="#proceso-de-quejas" title="Link to this heading"></a></h2>
+<p>Una empresa quiere mejorar su sistema de atención de quejas de clientes
+mediante un proceso de Qflow.</p>
+<p>El proceso de quejas que implementarán se desarrolla de la siguiente
+manera:</p>
+<ol class="arabic simple">
+<li><p>Un cliente llama a la empresa para expresar una queja</p></li>
+<li><p>El receptor de la llamada inicia un proceso de Qflow con los
+siguientes datos:</p>
+<ul class="simple">
+<li><p>Nombre del cliente</p></li>
+<li><p>Dirección de correo electrónico: se usará para enviarle un mensaje una vez atendida la queja</p></li>
+<li><p>Texto de queja: descripción de la queja del cliente</p></li>
+<li><p>Texto para enviar al cliente: el texto que se le enviará al cliente vía correo electrónico una vez atendida la queja</p></li>
+<li><p>Elegir la opción de si la queja es por mala atención, producto defectuoso u otra.</p></li>
+</ul>
+</li>
+<li><p>Se dirige la queja a un departamento dependiendo de la opción de
+queja que se asignó: encargado de producto, encargado de atención o
+al gerente comercial que elige a un empleado como encargado de
+atender la queja.</p></li>
+<li><p>Cualquiera de los encargados de atender la queja la atiende y redacta un texto para
+enviarle por correo electrónico al cliente.</p></li>
+<li><p>Se envía automáticamente un mensaje de correo electrónico al cliente,
+utilizando el texto ingresado en el paso anterior.</p></li>
+<li><p>Termina la ejecución del proceso.</p></li>
+</ol>
+</section>
+<section id="construccion-del-proceso-de-qflow">
+<h2>Construcción del proceso de Qflow<a class="headerlink" href="#construccion-del-proceso-de-qflow" title="Link to this heading"></a></h2>
+<p>Crea una nueva plantilla vacía para el proceso “Quejas”.</p>
+<section id="agregar-los-elementos-al-diseno-del-proceso">
+<h3>Agregar los elementos al diseño del proceso:<a class="headerlink" href="#agregar-los-elementos-al-diseno-del-proceso" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Al crear la plantilla se abre el “Diseño de proceso”, este viene con un evento de
+inicio y fin y es donde se van a agregar todos los pasos que sucedan
+entre estos dos.</p>
+<p>Un evento representa algo que ocurre en el proceso. Estos se pueden clasificar como Eventos de inicio,
+Eventos intermedios y Eventos de fin.</p>
+<p>El evento de inicio marca el inicio de un proceso. También representa el
+punto en el que un usuario inicia un proceso.</p>
+<p>Los eventos de fin de Qflow pueden ser de fin y de fin terminal, ambos
+finalizan la ejecución de los procesos.</p>
+<p>Un evento de fin terminal termina la ejecución del proceso aún cuando
+todavía haya hilos en ejecución. En ese caso, Qflow finaliza esos hilos
+y el proceso termina su ejecución. Un evento de fin, por el contrario,
+espera que todos los hilos terminen y una vez terminados finaliza el
+proceso. Los hilos del proceso se van a explicar más adelante en la sección
+de compuertas dento de <a class="reference internal" href="#configuracion-de-las-actividades">Configuración de las actividades</a>.</p>
+<p>Este tutorial no utiliza eventos intermedios, por lo que si deseas información
+sobre estos consulta el manual de <a class="reference external" href="15-QflowDesign.html">Qflow Design.</a></p>
+</li>
+</ol>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/imagen3.png"><img alt="Diseño de proceso" src="_images/imagen3.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 205 </span><span class="caption-text">Diseño de proceso</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic" start="2">
+<li><p>Para agregar actividades, selecciona el ícono que representa una
+actividad en la barra de herramientas <a class="reference internal" href="_images/imagen38.png"><img alt="imagen38" src="_images/imagen38.png" style="width: 0.22917in;" /></a>. Hágale clic y después haga clic en el diseño.</p>
+<p>Una actividad representa una unidad de trabajo a realizar en el proceso.
+Esta puede ser una tarea, un proceso automático o un subproceso.</p>
+</li>
+</ol>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/imagen4.png"><img alt="Agregar actividad" src="_images/imagen4.png" style="width: 15%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 206 </span><span class="caption-text">Agregar actividad</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>Agrega las tareas y la compuerta exclusiva para determinar a dónde
+se dirige la queja.</p></li>
+<li><p>Para conectar las actividades selecciona la herramienta de conexión
+(ícono violeta) en la barra de herramientas y luego haz clic en la
+actividad que quieras conectar.</p></li>
+</ol>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/imagen5.png"><img alt="Conectar actividades" src="_images/imagen5.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 207 </span><span class="caption-text">Conectar actividades</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="5">
+<li><p>Asigna los tipos a las actividades. Para especificar el
+tipo selecciona la tarea y luego haz clic en el botón <a class="reference internal" href="_images/imagen39.png"><img alt="imagen39" src="_images/imagen39.png" style="width: 0.22917in;" /></a>. Ahí aparece un menú para elegir el
+tipo de la actividad. Siendo “Elegir encargado de atender la queja”,
+“Atender mala atención”, “Atender producto defectuoso” y “Atender
+queja” tareas de usuario y “Enviar respuesta al cliente” tarea de
+email.</p></li>
+</ol>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/imagen6.png"><img alt="Asignar tipo a la actividad" src="_images/imagen6.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 208 </span><span class="caption-text">Asignar tipo a la actividad</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="roles">
+<h3>Roles<a class="headerlink" href="#roles" title="Link to this heading"></a></h3>
+<p>Los roles representan uno o más usuarios que desempeñarán una
+determinada función durante la ejecución de un proceso. Cuando una
+plantilla de proceso especifica que Qflow debe enviar una tarea a un
+usuario, no especifica un usuario concreto, especifica un rol.</p>
+<p>Se permite la opción de asignar solo a un miembro, a varios o miembros
+que tienen muchos usuarios (por ejemplo, grupos).</p>
+<p>Además, se permite aplicar reglas que determinan quiénes son los miembros
+del rol, como ser, “supervisado por” otro miembro, “supervisor de”,
+entre otros.</p>
+<p>El proceso necesita cuatro roles:</p>
+<ul class="simple">
+<li><p><strong>Gerente comercial:</strong> es el que recibe la tarea cuando se determinó
+que la queja es otra y es el que elige al encargado de atender la
+queja. A este rol se le puede asignar un usuario durante la
+definición del proceso (se sabe quién es el gerente comercial). Este
+rol es el destinatario de la tarea “Elegir encargado de atender la
+queja”.</p></li>
+<li><p><strong>Encargado de atender la queja:</strong> es el que recibe la tarea “Atender
+la queja”. A este rol se le asigna un usuario durante la ejecución
+del proceso: es lo que hace el gerente comercial. Este rol es el
+destinatario de la tarea “Atender la queja”.</p></li>
+<li><p><strong>Encargado de atención:</strong> es el que recibe la tarea cuando se
+determina que la queja es por mala atención. Asigna tu cuenta de
+usuario como miembro (esto es sólo para probar: naturalmente, en un
+caso real, cada uno tendría un miembro distinto). Este rol es el
+destinatario de la tarea “Atender mala atención”.</p></li>
+<li><p><strong>Encargado de productos:</strong> es el que recibe la tarea
+cuando se determina que la queja es por un producto defectuoso.
+Asigna tu cuenta de usuario como miembro (esto es sólo para probar:
+naturalmente, en un caso real, cada uno tendría un miembro distinto).
+Este rol es el destinatario de la tarea “Atender producto
+defectuoso”.</p></li>
+</ul>
+<p>Creación del rol de “Encargado de productos”:</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/gifCreacionRol.gif"><img alt="Creación de un rol" src="_images/gifCreacionRol.gif" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 209 </span><span class="caption-text">Creación de un rol</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Resultado de la creación de todos los roles:</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/imagen7.png"><img alt="Roles" src="_images/imagen7.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 210 </span><span class="caption-text">Roles</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="dominios-de-dato">
+<h3>Dominios de dato<a class="headerlink" href="#dominios-de-dato" title="Link to this heading"></a></h3>
+<p>El dominio de un dato especifica el conjunto de valores que el dato
+puede tomar y está asociado a un tipo de dato. En Qflow, cada dato
+de aplicación está asociado a un dominio y este está asociado a un tipo
+de dato.</p>
+<p>Qflow ofrece un conjunto de dominios básicos, pero es posible definir
+dominios adicionales.</p>
+<p>Los dominios básicos de Qflow son:</p>
+<ul class="simple">
+<li><p>Área de texto</p></li>
+<li><p>Área de texto enriquecido</p></li>
+<li><p>Contraseña</p></li>
+<li><p>Dinero</p></li>
+<li><p>Documento</p></li>
+<li><p>Email</p></li>
+<li><p>Fecha</p></li>
+<li><p>Fecha y hora</p></li>
+<li><p>Hora</p></li>
+<li><p>Hipervínculo</p></li>
+<li><p>Número</p></li>
+<li><p>Teléfono</p></li>
+<li><p>Texto</p></li>
+<li><p>Verdadero/Falso</p></li>
+</ul>
+<p>Crea un nuevo dominio para poder clasificar la queja:
+“Categoría de queja” y se le asigna el tipo de control “Combo Box”, tipo
+de dato “texto” y origen de dato “lista”.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/imagen8.png"><img alt="Creación de un dominio" src="_images/imagen8.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 211 </span><span class="caption-text">Creación de un dominio</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Luego, ve a la configuración de la lista, haciendo clic en
+el botón. Dentro de la ventana se pueden agregar las distintas opciones
+que aparecerán en la lista con el botón “+”.</p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="_images/imagen9.png"><img alt="Configuración de la lista" src="_images/imagen9.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 212 </span><span class="caption-text">Configuración de la lista</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="datos-de-aplicacion">
+<h3>Datos de aplicación<a class="headerlink" href="#datos-de-aplicacion" title="Link to this heading"></a></h3>
+<p>Los datos de aplicación son datos que maneja Qflow en los procesos.
+Cada dato está asociado a un dominio, y este está asociado a un tipo de
+dato y a un tipo de control que determina cómo el dato será mostrado en
+los formularios de los procesos.</p>
+<p>El formulario de propiedades de un dato de aplicación tiene las
+siguientes secciones.</p>
+<ul class="simple">
+<li><p><strong>General:</strong> contiene el nombre, la descripción, el dominio y otras
+opciones que definen el comportamiento del dato.</p></li>
+<li><p><strong>Avanzado:</strong> permite definir valores por defecto para el dato.</p></li>
+<li><p><strong>Presentación:</strong> contiene propiedades que definen aspectos de cómo el
+dato se verá en Qflow Task.</p></li>
+</ul>
+<p>Los datos de aplicación que se necesitan para este tutorial son:</p>
+<ul class="simple">
+<li><p>Nombre del cliente</p></li>
+<li><p>Dirección de correo electrónico</p></li>
+<li><p>Texto de la queja</p></li>
+<li><p>Texto para enviar al cliente</p></li>
+<li><p>Categoría</p></li>
+</ul>
+<p>Cada dato de aplicación se crea presionando el botón “+”, ahí
+se abre una ventana para crearlo. Para cada uno ingresar sus respectivos
+dominios.</p>
+<p>Creación del dato de aplicación “Nombre del cliente”:</p>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="_images/gifCreacionDatoAplicacion.gif"><img alt="Creación de un dato de aplicación" src="_images/gifCreacionDatoAplicacion.gif" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 213 </span><span class="caption-text">Creación de un dato de aplicación</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Resultado de la creación de todos los datos de aplicación:</p>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="_images/imagen10.png"><img alt="Datos de aplicación" src="_images/imagen10.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 214 </span><span class="caption-text">Datos de aplicación</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="configuracion-de-paso-de-inicio">
+<h3>Configuración de paso de inicio<a class="headerlink" href="#configuracion-de-paso-de-inicio" title="Link to this heading"></a></h3>
+<p>El paso de inicio desencadena el inicio de un proceso, y por lo tanto, es en este paso donde se definen los datos de aplicación que se solicitarán en el formulario de inicio.</p>
+<p>Para definir estos datos de aplicación, debes acceder a la ventana de configuración correspondiente al paso de inicio y allí seleccionar la pestaña «Formulario» y
+en la sección de “Visibilidad” podrás encontrar los datos de aplicación.
+A continuación, deberá marcarse como “Requerido” a cada uno de los campos que desees incluir en el formulario de inicio del proceso.</p>
+<p>La siguiente imagen presenta un ejemplo de configuración de Visibilidad de datos.</p>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="_images/imagen37.png"><img alt="Configuración de la visibilidad de datos" src="_images/imagen37.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 215 </span><span class="caption-text">Configuración de la visibilidad de datos</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="configuracion-de-las-actividades">
+<h3>Configuración de las actividades<a class="headerlink" href="#configuracion-de-las-actividades" title="Link to this heading"></a></h3>
+<p>Para definir cada actividad debes hacer clic en cada una de ellas y luego clic en el botón de
+azul del engranaje (“Editar”) o doble clic sobre estas y una ventana se abrirá para poder especificar
+las propiedades.</p>
+<p><strong>Compuerta exclusiva</strong></p>
+<p>Las compuertas permiten modificar el flujo de un proceso, ya sea creando
+varios caminos paralelos en el proceso o seleccionando un camino de
+varios posibles posteriores a la compuerta.</p>
+<p>Todas las compuertas se conectan con varios elementos a través de sus
+conectores. Lo que cambia según el tipo de compuerta es si, una vez que
+un proceso pasa por ella, continúa utilizando todos los caminos, algunos
+de ellos o solamente uno.</p>
+<p>Pueden ser de los siguientes tipos:</p>
+<ul class="simple">
+<li><p><strong>Compuerta exclusiva:</strong> selecciona uno de varios posibles caminos para
+que el proceso continúe su ejecución.</p></li>
+<li><p><strong>Compuerta inclusiva:</strong> selecciona uno o más de varios posibles caminos
+para que el proceso continúe su ejecución, de modo que puede generar
+varios hilos paralelos.</p></li>
+<li><p><strong>Compuerta paralela:</strong> genera tantos caminos paralelos como conexiones
+salientes tenga.</p></li>
+</ul>
+<p>En este tutorial se creó una compuerta de tipo exclusiva. Para asignarle sus propiedades
+se accede a la ventana de configuración de esta.</p>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="_images/gifConfigPaso.gif"><img alt="Configuración de compuerta exclusiva" src="_images/gifConfigPaso.gif" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 216 </span><span class="caption-text">Configuración de compuerta exclusiva</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Al abrir el panel de configuracion de la compuerta podemos visualizar 3 sub-secciones, cada una
+haciendo referencia a las tareas a las cuales la compuerta está
+conectada.</p>
+<p>En la subsección correspondiente a la tarea “Atender Producto
+Defectuoso”, haz clic en “+ Condición”. Esto agrega una condición vacía
+y donde dice “Comience a escribir”, escribe “Categoría”. Cuando aparezca
+una lista con el dato de aplicación “Categoría”, selecciónalo.</p>
+<p>En la caja de texto que aparece debajo de “Categoría”, escribe “Producto
+defectuoso”.</p>
+<p>Haz lo mismo en la subsección correspondiente a “Atender mala
+atención”, pero escribiendo “Mala atención” en lugar de “Producto
+defectuoso” en la condición.</p>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="_images/imagen11.png"><img alt="Condiciones de la compuerta exclusiva" src="_images/imagen11.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 217 </span><span class="caption-text">Condiciones de la compuerta exclusiva</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Finalmente, existe la posibilidad de una conexión por defecto que es la que usa una
+compuerta exclusiva cuando ninguna de las condiciones que contiene es
+evaluada como verdadera.</p>
+<p>Para definir una conexión por defecto, en la plantilla del proceso haz clic en la conexión que
+une a la compuerta a la tarea “Elegir encargado de atender queja”. Haz
+clic en el ícono verde que muestra dos flechitas blancas y seleccione
+“Conexión por defecto”. De este modo, si ninguna de las otras
+expresiones se evalúa como verdadera, se utilizará esta conexión.</p>
+<p>La flecha que conecta las actividades quedará así:</p>
+<figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="_images/imagen12.png"><img alt="Conexión por defecto" src="_images/imagen12.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 218 </span><span class="caption-text">Conexión por defecto</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Tarea “Elegir encargado de atender la queja”</strong></p>
+<p>Al ser una tarea de usuario hay que definir el mensaje, destinatarios,
+las respuestas y la visibilidad de los datos.</p>
+<p>En el mensaje agregar, “Elegir encargado de queja de ” y (seguido de un
+espacio) incluye el nombre del cliente en el asunto. Este se agrega con
+una etiqueta, la cual se define con un “#” y luego agregando el dato de
+aplicación “Nombre de cliente”.</p>
+<p>Luego, hay que seleccionar el destinatario de la tarea. El destinatario
+es el rol al que se asignará la tarea (mediante el rol, la tarea se
+asigna a usuarios: los miembros del rol). En este caso, el destinatario
+es el rol “Gerente comercial”.</p>
+<p>Debajo del asunto de la tarea se deben ingresar las respuestas posibles
+para la tarea. Cuando a un usuario se le asigna una tarea, debe ingresar
+a Qflow Task para contestarla. Algunas tareas brindan varias
+respuestas posibles. En este caso, sólo se necesita una respuesta que
+indique que se seleccionó al encargado de atender la queja y el proceso
+puede continuar. La respuesta se agrega con el botón “+”.</p>
+<figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="_images/imagen13.png"><img alt="Tarea de usuario" src="_images/imagen13.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 219 </span><span class="caption-text">Tarea de usuario</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Por último, se debe determinar la visibilidad. Qflow permite definir qué datos de aplicación, roles del proceso y
+archivos adjuntos los usuarios pueden ver o modificar durante la
+ejecución de un proceso y dónde pueden hacerlo. Lo mismo ocurre con los
+comentarios, pero en este caso se pueden agregar o ver los existentes.</p>
+<p>La visibilidad de datos y de roles se comportan de la misma manera que en el paso de inicio.</p>
+<p>La visibilidad de los datos de aplicación se modifica mediante una
+tabla que muestra la lista de datos de aplicación. Se visualizarán todos
+los datos de aplicación si todos ellos tienen la visibilidad “Ausente”,
+quedando marcada automáticamente la opción “Mostrar datos con visibilidad
+ausente”, de lo contrario se mostrarán los datos que tengan una visibilidad
+distinta a “Ausente”.</p>
+<p>En este caso hay que
+modificar la visibilidad para que el rol “Encargado de atender la queja” sea
+modificable y requerido. Además, el usuario que desempeña esta tarea
+debería ver los datos de la queja, por lo que en la visibilidad de datos se
+debe especificar que los datos de aplicación sean visibles pero no
+modificables (visibilidad de “Sólo lectura”).</p>
+<p>La visibilidad de datos queda así:</p>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="_images/imagen14.png"><img alt="Visibilidad de datos" src="_images/imagen14.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 220 </span><span class="caption-text">Visibilidad de datos</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>La visibilidad de roles queda así:</p>
+<figure class="align-center" id="id18">
+<a class="reference internal image-reference" href="_images/imagen15.png"><img alt="Visibilidad de roles" src="_images/imagen15.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 221 </span><span class="caption-text">Visibilidad de roles</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Para cambiarlo selecciona los datos que quieres modificar y la visibilidad que desees configurar.</p>
+<figure class="align-center" id="id19">
+<a class="reference internal image-reference" href="_images/imagen26.png"><img alt="Visibilidad de datos" src="_images/imagen26.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 222 </span><span class="caption-text">Visibilidad de datos</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Tarea “Atender mala atención” y “Atender producto defectuoso”</strong></p>
+<p>Al ser ambas tareas de usuario se configuran sus propiedades de manera
+similar a la anterior. Asignando su correcto destinatario y en este caso
+los datos de aplicación no requieren ser visibles, excepto el “Texto para enviarle al cliente”
+que debe ser editable para que el encargado de atender la queja pueda editar el comentario.</p>
+<figure class="align-center" id="id20">
+<a class="reference internal image-reference" href="_images/imagen16.png"><img alt="Tarea de usuario “Atender mala atención” y “Atender producto defectuoso”" src="_images/imagen16.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 223 </span><span class="caption-text">Tarea de usuario “Atender mala atención” y “Atender producto defectuoso”</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Tarea “Atender queja”</strong></p>
+<p>En el asunto escribe “Atender la queja y escribir el texto para enviarle
+al cliente” y a continuación usa el dato de aplicación “Nombre del
+cliente” como etiqueta, al igual que se hizo con la otra tarea de
+usuario.</p>
+<p>El destinatario es el rol “Encargado de atender la queja”, que hasta el
+momento no tiene ningún miembro, pero cuando se esté ejecutando el
+proceso, tendrá como miembro el usuario que seleccione el gerente
+comercial en la tarea anterior.</p>
+<p>Luego, agrega una respuesta como final, para que el usuario pueda
+responder el formulario. Por ejemplo, con clave y texto “Resuelto”.</p>
+<p>En esta tarea, ningún rol debe ser visible ni modificable pero los datos
+de aplicación deben estar habilitados como “solo lectura” menos el
+“Texto para enviarle al cliente” que debe ser editable para que el
+encargado de atender la queja pueda editar el comentario.</p>
+<p>La tarea queda así:</p>
+<figure class="align-center" id="id21">
+<a class="reference internal image-reference" href="_images/imagen17.png"><img alt="Tarea de usuario “Atender la queja”" src="_images/imagen17.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 224 </span><span class="caption-text">Tarea de usuario “Atender la queja”</span><a class="headerlink" href="#id21" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>La visibilidad de la tarea queda así:</p>
+<figure class="align-center" id="id22">
+<a class="reference internal image-reference" href="_images/imagen18.png"><img alt="Visibilidad de la tarea" src="_images/imagen18.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 225 </span><span class="caption-text">Visibilidad de la tarea</span><a class="headerlink" href="#id22" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Tarea “Enviar respuesta al cliente”</strong></p>
+<p>Esta tarea es de e-mail por lo que su configuración no va a ser igual
+que las anteriores.</p>
+<p>Se debe especificar que el destinatario se tome del dato de aplicación
+“Dirección de correo electrónico”. Esto se hace con una etiqueta al
+igual que las tareas de usuario. Luego deberás escribir un asunto para el
+mensaje que recibirá el cliente, escribe “Resolución de su queja”.</p>
+<p>Luego, hay que especificar que el cuerpo del mensaje debe ser lo
+ingresado en el dato “Texto para enviar al cliente” por el encargado de
+resolver la queja. Se especifica mediante una etiqueta, pero en este
+caso, para abrir la lista de ítems que se pueden usar como etiquetas,
+debes hacer clic en el área de texto y pulsar Control + Espacio. Así
+funcionan las propiedades que usan un área de texto (por ejemplo, el
+código de una tarea de código).</p>
+<figure class="align-center" id="id23">
+<a class="reference internal image-reference" href="_images/imagen19.png"><img alt="Tarea de e-mail" src="_images/imagen19.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 226 </span><span class="caption-text">Tarea de e-mail</span><a class="headerlink" href="#id23" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Las tareas además pueden ser de servicio, código, notificación
+de usuario, servicio asíncrono, fórmula o de llamada dependiendo de qué
+se desea hacer en ese paso.</p>
+<ul class="simple">
+<li><p><strong>Tarea de código:</strong> permite escribir un programa para que un proceso lo
+ejecute. El código puede ser escrito en los lenguajes C# o Visual
+Basic .NET y debe implementar una interfaz definida en Qflow.</p></li>
+<li><p><strong>Tarea de email:</strong> envía un mensaje de correo electrónico a las casillas
+especificadas en sus propiedades.</p></li>
+<li><p><strong>Tarea de fórmula:</strong> toma datos de aplicación o roles del proceso, hace
+operaciones con ellos y genera un resultado que se almacena también
+en algún dato de aplicación o rol, según corresponda.</p></li>
+<li><p><strong>Tarea de notificación de usuario:</strong> envía una notificación a usuarios
+de Qflow.</p></li>
+<li><p><strong>Tarea de servicio:</strong> ejecuta una integración.</p></li>
+<li><p><strong>Tarea de servicio asíncrono:</strong> permite asignarle un trabajo a un bot.
+Un bot puede tener parámetros, al igual que una integración. Una
+tarea de servicio asíncrono es muy similar a una tarea de servicio,
+con la única diferencia de que, en lugar de seleccionar una
+integración para ejecutar, se selecciona un bot al cual se le asigna
+un trabajo.</p></li>
+<li><p><strong>Tarea de usuario:</strong> asigna una tarea a un usuario o conjunto de
+usuarios. Los destinatarios de la tarea se especifican mediante roles
+de plantilla de proceso.</p></li>
+</ul>
+</section>
+<section id="ejecucion-de-proceso">
+<h3>Ejecución de proceso<a class="headerlink" href="#ejecucion-de-proceso" title="Link to this heading"></a></h3>
+<p>Finalmente, se debe publicar el diseño.
+De esta manera al ingresar a Qflow Task para iniciar el proceso,
+encontrarás la plantilla que acabas de diseñar. Para publicarla
+haz clic en el botón “Publicar” en la barra de acciones del proceso,
+en la parte superior derecha de la pantalla de diseño. Alternativamente
+se puede publicar haciendo click derecho en la plantilla y seleccionar
+“Publicar” en el menú.</p>
+<p>El diseño final del proceso es el siguiente, por más información sobre ítems y elementos del proceso
+que no se detalló en el tutorial, puede ver el
+manual de <a class="reference external" href="15-QflowDesign.html">Qflow Design.</a></p>
+<figure class="align-center" id="id24">
+<a class="reference internal image-reference" href="_images/imagen36.png"><img alt="Diseño final del proceso" src="_images/imagen36.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 227 </span><span class="caption-text">Diseño final del proceso</span><a class="headerlink" href="#id24" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="06-Tutorial.html" class="btn btn-neutral float-left" title="Crea tu primer proceso" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="24-QflowTaskTutorial.html" class="btn btn-neutral float-right" title="Descubre Qflow Task" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

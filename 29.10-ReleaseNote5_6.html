@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>v5.6 &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/29.10-ReleaseNote5_6.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="v5.5.4" href="29.9-ReleaseNote5_5_4.html" />
+    <link rel="prev" title="v5.6.1" href="29.11-ReleaseNote5_6_1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="29.13-ReleaseNote6_0.html">v6.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.12-ReleaseNote5_6_2.html">v5.6.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.11-ReleaseNote5_6_1.html">v5.6.1</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">v5.6</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#resumen-de-caracteristicas">Resumen de características</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nuevas-funcionalidades">Nuevas funcionalidades</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#correccion-de-errores-y-mejoras">Corrección de errores y mejoras</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.9-ReleaseNote5_5_4.html">v5.5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.8-ReleaseNote5_5_3.html">v5.5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.7-ReleaseNote5_5_1.html">v5.5.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.6-ReleaseNote5_5.html">v5.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.5-ReleaseNote5_4.html">v5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.4-ReleaseNote5_3.html">v5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.3-ReleaseNote5_2.html">v5.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html">v5.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html">v5.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_Cloud.html">v5.1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+      <li class="breadcrumb-item active">v5.6</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="v5-6">
+<h1>v5.6<a class="headerlink" href="#v5-6" title="Link to this heading"></a></h1>
+<section id="resumen-de-caracteristicas">
+<h2>Resumen de características<a class="headerlink" href="#resumen-de-caracteristicas" title="Link to this heading"></a></h2>
+<p>La nueva versión de Qflow trae un rediseño completo de Qflow Design, pensado para simplificar el diagrama de flujos de trabajo y mejorar la experiencia de usuario.
+El diseño de Qflow Design cambia y se adapta a las necesidades de sus usuarios, ofreciendo un diseño de procesos más simple y óptimo.</p>
+<p>Esta transformación abarca:</p>
+<ul class="simple">
+<li><p>Cambios de conceptos.</p></li>
+<li><p>Nueva barra de acciones.</p></li>
+<li><p>Eliminación de las pestañas de navegación.</p></li>
+<li><p>Rediseño del panel izquierdo.</p></li>
+<li><p>Unión de plantilla y versiones.</p></li>
+<li><p>Simplificación y rediseño de los paneles de configuración de pasos.</p></li>
+</ul>
+<p>¡Explora el nuevo Qflow Design y transforma la forma en que diseñas procesos!</p>
+<p>Por otro lado, se incorpora la opción de autenticación en dos pasos (2FA) para tareas asignadas a usuarios externos, garantizando un mayor
+nivel de seguridad.</p>
+</section>
+<section id="nuevas-funcionalidades">
+<h2>Nuevas funcionalidades<a class="headerlink" href="#nuevas-funcionalidades" title="Link to this heading"></a></h2>
+<section id="cambio-de-conceptos-en-qflow-design">
+<h3>Cambio de conceptos en Qflow Design<a class="headerlink" href="#cambio-de-conceptos-en-qflow-design" title="Link to this heading"></a></h3>
+<p>Atendiendo las necesidades de nuestros usuarios, transformamos algunos conceptos de Qflow Design con el fin de que sea más intuitivo. Conoce los nuevos conceptos:</p>
+<ul class="simple">
+<li><p><strong>Proteger</strong> se transforma en <strong>Guardar</strong>.</p></li>
+<li><p><strong>Desproteger</strong> es <strong>Editar</strong>.</p></li>
+<li><p><strong>Deshacer desprotección</strong> es <strong>Descartar cambios</strong>.</p></li>
+<li><p><strong>Alcance</strong> se convierte en <strong>Visibilidad</strong>.</p></li>
+</ul>
+</section>
+<section id="barra-de-acciones-procesos-en-marcha-con-menos-clics">
+<h3>Barra de acciones: ¡procesos en marcha con menos clics!<a class="headerlink" href="#barra-de-acciones-procesos-en-marcha-con-menos-clics" title="Link to this heading"></a></h3>
+<p>¡La navegación en el diseñador nunca fue tan sencilla! Con la nueva barra de acciones, accede rápidamente a los ítems de
+tus paquetes y plantillas, agilizando la configuración de tus procesos.</p>
+<p>Además, la barra de acciones te permitirá realizar las principales acciones sobre la plantilla en la que estés trabajando:
+puedes guardar, editar y descartar cambios y publicar tu proceso.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/ActionBar.png"><img alt="Barra de acciones" src="_images/ActionBar.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 12 </span><span class="caption-text">Barra de acciones</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Cabe resaltar que esta funcionalidad agrega una manera sencilla y directa de iniciar procesos de las plantillas publicadas.
+Inicia tu proceso directamente desde el diseño de proceso, ahorrando pasos y estimulando la detección temprana de errores en
+tus flujos de trabajo.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/StartFlow.png"><img alt="Inicio de proceso desde la barra de acciones" src="_images/StartFlow.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 13 </span><span class="caption-text">Inicio de proceso desde la barra de acciones</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="cambios-de-navegacion-adios-a-las-pestanas">
+<h3>Cambios de navegación: ¡adiós a las pestañas!<a class="headerlink" href="#cambios-de-navegacion-adios-a-las-pestanas" title="Link to this heading"></a></h3>
+<p>Para mejorar la navegación se eliminaron las pestañas previamente mostradas en el encabezado de Qflow Design,
+relocalizando su contenido en la nueva y sencilla barra de acciones.</p>
+<p>En lugar de las pestañas, el nuevo diseño muestra solamente el nombre del paquete, la plantilla o versión en la que se
+está trabajando. De esta manera, apostamos por un diseño más fácil de entender y utilizar: las mismas funcionalidades,
+en un diseño más amigable.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/NewNavigation.png"><img alt="Cambios en navegación de Qflow Design" src="_images/NewNavigation.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 14 </span><span class="caption-text">Cambios en navegación de Qflow Design</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="rediseno-del-panel-izquierdo">
+<h3>Rediseño del panel izquierdo<a class="headerlink" href="#rediseno-del-panel-izquierdo" title="Link to this heading"></a></h3>
+<p>La barra lateral fue reemplazada por un panel izquierdo con pestañas que permiten navegar entre el árbol de paquetes,
+los procesos sin confirmar generados por IA y el buscador.</p>
+<p>También se han actualizado los iconos, adaptando su diseño para que sean más intuitivos para los usuarios.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/LeftPanel.png"><img alt="Panel izquierdo" src="_images/LeftPanel.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 15 </span><span class="caption-text">Panel izquierdo</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="union-de-plantilla-y-versiones">
+<h3>Unión de plantilla y versiones<a class="headerlink" href="#union-de-plantilla-y-versiones" title="Link to this heading"></a></h3>
+<p>A partir de esta versión, ya no se trabaja en las plantillas y las versiones de forma separada, si no que cada plantilla de Qflow Design
+identifica como versión actual a aquella sobre la que se está trabajando.
+Por eso, las acciones previamente realizadas sobre las versiones (como por ejemplo, publicar) ahora se realizan sobre
+la plantilla y se aplican a la versión seleccionada.</p>
+<p>¿Cómo se ve el cambio? En el árbol de paquetes ya no veremos el listado de versiones, sino simplemente los paquetes y
+plantillas. Para cada plantilla, Qflow Design indica entre paréntesis la versión seleccionada.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/TemplateVersionUnion.png"><img alt="Unión de plantillas y versiones" src="_images/TemplateVersionUnion.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 16 </span><span class="caption-text">Unión de plantillas y versiones</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>¿Qué pasa con las versiones? ¡Siguen estando disponibles! Puedes acceder al listado de versiones, cambiar la versión
+seleccionada y agregar nuevas versiones a través del menú contextual de las plantillas.</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/TemplateVersions.png"><img alt="Listado de versiones de plantillas de proceso" src="_images/TemplateVersions.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 17 </span><span class="caption-text">Listado de versiones de plantillas de proceso</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Al trabajar en tu proceso, los ítems como datos y roles ahora se configuran a nivel plantilla de forma predeterminada,
+lo que sigue las mejores prácticas del diseño de procesos, permitiendo realizar gráficas e indicadores con roles y datos
+de procesos que tengan diferentes versiones. Para casos avanzados, será posible crear elementos exclusivamente a nivel de versión.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/SwitchDataTemplateVersion.png"><img alt="Cambio de listado de datos de aplicación de plantilla a versión" src="_images/SwitchDataTemplateVersion.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 18 </span><span class="caption-text">Cambio de listado de datos de aplicación de plantilla a versión</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="rediseno-de-paneles-de-configuracion-de-pasos">
+<h3>Rediseño de paneles de configuración de pasos<a class="headerlink" href="#rediseno-de-paneles-de-configuracion-de-pasos" title="Link to this heading"></a></h3>
+<p>¡Nunca fue tan fácil configurar tus procesos!</p>
+<p>El rediseño de los paneles de configuración añade pestañas para agrupar las opciones de configuración,
+simplificando el proceso. Además, implementa la posibilidad de ocultar opciones por defecto, habilitando su uso
+sólo a los usuarios avanzados que así lo requieran.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/NewUserTaskPanel.png"><img alt="Formulario de Tarea de usuario" src="_images/NewUserTaskPanel.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 19 </span><span class="caption-text">Formulario de Tarea de usuario</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Para lograr una mayor claridad y legibilidad de los procesos por parte de nuestros usuarios, algunas configuraciones ya no
+estarán disponibles para configurar en nuevos procesos. Todos estos cambios tienen una alternativa sencilla de implementar en
+esta nueva versión. Explora los cambios implementados y descubre las alternativas sugeridas en caso de que estuvieras utilizando
+la configuración anterior:</p>
+<ul>
+<li><p><strong>Bandera y progreso:</strong> se eliminan los conceptos de «Bandera de inicio» y «Bandera de fin». Ahora solo existe una
+configuración llamada «bandera», que aparece en los eventos de inicio, intermedios y de fin. El progreso se convierte
+en una configuración exclusiva para los eventos.</p>
+<p>Para replicar el comportamiento anterior de la «Bandera de inicio» en un paso, ahora se puede agregar un evento
+intermedio antes del paso y configurar el valor en el campo «Bandera». De igual forma, para replicar el comportamiento
+de «Bandera de fin» o «Progreso», basta con agregar un evento intermedio después del paso y configurarlo adecuadamente.</p>
+</li>
+<li><p><strong>Importancia del proceso:</strong> se elimina el concepto de «importancia del proceso», que anteriormente se podía
+configurar en todos los pasos.</p>
+<p>Para replicar este comportamiento, puedes utilizar un dato del proceso que represente la importancia. Si deseas que
+la importancia varíe según el camino que siga el proceso, puedes implementar pasos de fórmula o de código para
+actualizar el valor del dato, o simplemente permitir modificar su valor en un formulario.</p>
+</li>
+<li><p><strong>Manejadores de eventos:</strong> ahora solo se pueden configurar manejadores de eventos en aquellos pasos que pueden tener
+novedades antes de finalizar, es decir: tareas de usuario y tareas de servicio asincrónicas.</p>
+<p>Para el resto de los pasos, dado que se ejecutan de manera atómica, puedes agregar un paso de código antes del paso
+si deseas ejecutar código previamente, o un paso de código después del paso si prefieres que el código se ejecute
+al finalizar el paso en cuestión.</p>
+</li>
+<li><p><strong>Inicio diferido en actividad de llamada:</strong> se ha eliminado la configuración de inicio diferido en la actividad de llamada. Anteriormente, esta
+opción permitía iniciar el proceso hijo de forma diferida según la configuración establecida. Ahora, este comportamiento puede replicarse añadiendo
+un evento de temporización que retrase el proceso el tiempo necesario antes de realizar la llamada al proceso hijo.</p></li>
+</ul>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="_images/CallActivityDeferredStartAlternative.png"><img alt="Alternativa a inicio diferido de actividad de llamada" src="_images/CallActivityDeferredStartAlternative.png" style="width: 40%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 20 </span><span class="caption-text">Alternativa a inicio diferido de actividad de llamada</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="autoguardado">
+<h3>Autoguardado<a class="headerlink" href="#autoguardado" title="Link to this heading"></a></h3>
+<p>Ahora los cambios que realices en tus plantillas ¡se guardan automáticamente!</p>
+<p>Cada vez que edites el grafo, configures un paso, añadas datos, roles o cualquier ítem, los cambios se almacenan de
+forma temporal para evitar la pérdida del progreso.</p>
+<p>En la esquina inferior derecha podrás ver la marca temporal del último autoguardado de la plantilla.</p>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="_images/Autosave.png"><img alt="Autoguardado temporal de proceso" src="_images/Autosave.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 21 </span><span class="caption-text">Autoguardado temporal de proceso</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Es importante considerar que estos cambios son temporales y no afectarán los procesos iniciados con la plantilla.
+Para aplicar las modificaciones es necesario guardar explícitamente desde la barra de acciones o desde el árbol.</p>
+</section>
+<section id="tareas-con-autenticacion-en-dos-pasos">
+<h3>Tareas con autenticación en dos pasos<a class="headerlink" href="#tareas-con-autenticacion-en-dos-pasos" title="Link to this heading"></a></h3>
+<p>Para mayor seguridad, las tareas asignadas a usuarios externos pueden solicitar autenticación en dos pasos (2FA).</p>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="_images/2FAConfiguration.png"><img alt="Configuración de autenticación en dos pasos (2FA) en Tarea de usuario" src="_images/2FAConfiguration.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 22 </span><span class="caption-text">Configuración de autenticación en dos pasos (2FA) en Tarea de usuario</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Si activas esta opción, antes de responder la tarea el usuario asignado deberá ingresar un código de verificación enviado
+en tiempo real al correo electrónico asociado. De esta manera, garantizas que solo quien tiene acceso al correo
+electrónico destinatario pueda completar la tarea, protegiendo tus procesos.</p>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="_images/2FA.png"><img alt="Autenticación en dos pasos (2FA) en tareas de usuarios externos" src="_images/2FA.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 23 </span><span class="caption-text">Autenticación en dos pasos (2FA) en tareas de usuarios externos</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="correccion-de-errores-y-mejoras">
+<h2>Corrección de errores y mejoras<a class="headerlink" href="#correccion-de-errores-y-mejoras" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Nuevas funcionalidades en la Interfaz de scripting</strong>: se han incorporado nuevos métodos en la interfaz de scripting que permiten
+eliminar adjuntos asociados a los procesos. Estos métodos ofrecen la flexibilidad de eliminar adjuntos de forma física desde pasos de código,
+manejadores de eventos o integraciones, ya sea utilizando su nombre o identificador. Esto libera espacio de almacenamiento en el espacio de trabajo.</p></li>
+<li><p><strong>Mejoras de performance</strong>: se realizan mejoras de performance que generan una navegación más fluida en Qflow Task.</p></li>
+<li><p><strong>Opción predeterminada en creación de nueva versión de proceso</strong>: al crear una nueva versión de proceso, ahora la opción predeterminada es la de
+crear la versión a partir de la versión más actual y no de una versión vacía. De ser necesario, sigue siendo posible empezar desde una versión
+vacía o de elegir una versión anterior.</p></li>
+<li><p><strong>Adjuntar dato de tipo documento en una Tarea de email</strong>: a partir de esta versión, es posible elegir un dato de aplicación de tipo Documento como adjunto
+a enviar en una Tarea de email.</p></li>
+<li><p><strong>Error al retroceder en pasos que inician etapas</strong>: se corrige un error que impedía retroceder procesos cuando se encontraban en un paso que
+iniciaba una etapa.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="29.11-ReleaseNote5_6_1.html" class="btn btn-neutral float-left" title="v5.6.1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="29.9-ReleaseNote5_5_4.html" class="btn btn-neutral float-right" title="v5.5.4" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

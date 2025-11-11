@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>v5.1.1 &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/29.1-ReleaseNote5_1_1.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="v5.1" href="29.1-ReleaseNote5_1_Cloud.html" />
+    <link rel="prev" title="v5.1.2" href="29.2-ReleaseNote5_1_2.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="29.13-ReleaseNote6_0.html">v6.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.12-ReleaseNote5_6_2.html">v5.6.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.11-ReleaseNote5_6_1.html">v5.6.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.10-ReleaseNote5_6.html">v5.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.9-ReleaseNote5_5_4.html">v5.5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.8-ReleaseNote5_5_3.html">v5.5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.7-ReleaseNote5_5_1.html">v5.5.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.6-ReleaseNote5_5.html">v5.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.5-ReleaseNote5_4.html">v5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.4-ReleaseNote5_3.html">v5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.3-ReleaseNote5_2.html">v5.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.2-ReleaseNote5_1_2.html">v5.1.2</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">v5.1.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mejoras-generales">Mejoras generales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#omm-web">OMM Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bpm-web">BPM Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sam-web">SAM Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sitio-web">Sitio web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nuevos-manuales-y-tutoriales">Nuevos manuales y tutoriales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#se-depreca-la-compatibilidad-de-oracle-a-partir-de-la-version-5-2">Se depreca la compatibilidad de Oracle a partir de la versión 5.2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_Cloud.html">v5.1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+      <li class="breadcrumb-item active">v5.1.1</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="v5-1-1">
+<h1>v5.1.1<a class="headerlink" href="#v5-1-1" title="Link to this heading"></a></h1>
+<p><strong>Resumen de características</strong></p>
+<p>La versión 5.1.1 incorpora la globalización en los componentes de fecha, mediante el uso de zonas horarias.
+Además, se renuevan los de estilos de los distintos sitios y se actualiza el sitio de documentación de usuario, incorporando también
+los manuales en idioma inglés.</p>
+<p>Adicionalmente, el producto continúa su constante evolución, incorporando funcionalidades solicitadas
+por nuestros clientes y socios de negocios, que facilitan su trabajo para poder hacer más en menos tiempo.</p>
+<p>Cuando la característica descrita tenga un alto contenido técnico se lo indicará con el ícono (<a class="reference internal" href="_images/TechnicalIcon.png"><img alt="technical-icon" src="_images/TechnicalIcon.png" style="width: 0.65in;" /></a>).
+Además, si se incluyó como fix para alguna versión anterior, se indicará de la siguiente manera: [x.y]. Si es
+un analista funcional puede omitir la lectura de esas novedades.</p>
+<p>Si ya cuentas con un espacio de trabajo en la nube, ¡ya estás disfrutando de estas funcionalidades! De lo contrario,
+analiza los planes en <a class="reference external" href="https://qflowbpm.com/es/precios/">https://qflowbpm.com/es/precios/</a>.
+Si ya cuentas con una instalación onpremise, para aprovechar las ventajas de la nueva versión entra en contacto con tu
+gerente de cuenta, quien podrá asistirte en la instalación o actualización del sistema, para comenzar a usar las
+nuevas funcionalidades. Si no tienes un gerente de cuenta, puedes contactarnos completando el formulario de la siguiente URL:
+<a class="reference external" href="https://qflowbpm.com/es/contacto/">https://qflowbpm.com/es/contacto/</a>.</p>
+<section id="mejoras-generales">
+<h2>Mejoras generales<a class="headerlink" href="#mejoras-generales" title="Link to this heading"></a></h2>
+<section id="actualizacion-de-menu-superior">
+<h3>Actualización de menú superior<a class="headerlink" href="#actualizacion-de-menu-superior" title="Link to this heading"></a></h3>
+<p>Se movieron los botones de ayuda y novedades a la “<i class="fa fa-info"></i>” de info del menú superior.</p>
+<blockquote>
+<div><figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/HeaderInfo.png"><img alt="Ubicación de novedades y ayuda" src="_images/HeaderInfo.png" style="width: 4in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 77 </span><span class="caption-text">Ubicación de novedades y ayuda</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</section>
+<section id="unificar-estilos-de-los-mails">
+<h3>Unificar estilos de los mails<a class="headerlink" href="#unificar-estilos-de-los-mails" title="Link to this heading"></a></h3>
+<p>Se unificaron los estilos de notificación que se utilizan en q-flow:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Nueva tarea:</strong> Al instanciar una nueva tarea.</p></li>
+<li><p><strong>Nueva notificación:</strong> Al instanciar una nueva notificación.</p></li>
+<li><p><strong>Recordatorio automático de tarea:</strong> Están definidos en la configuración del paso y se ejecutan automáticamente.</p></li>
+<li><p><strong>Alerta automática de tarea:</strong> Están definidos en la configuración del paso y se ejecutan automáticamente.</p></li>
+<li><p><strong>Vencimiento automático de tarea:</strong> Están definidos en la configuración del paso y se ejecutan automáticamente.</p></li>
+<li><p><strong>Delegación automática de tarea:</strong> Están definidos en la configuración del paso y se ejecutan automáticamente.</p></li>
+<li><p><strong>Recordatorio manual de tarea:</strong> Definidas desde el sitio web.</p></li>
+<li><p><strong>Alerta manual de tarea:</strong> Definidas desde el sitio web.</p></li>
+<li><p><strong>Reenvío manual de tarea:</strong> Definidas desde el sitio web.</p></li>
+<li><p><strong>Recordatorio de etapa:</strong> Se definen en las etapas de un proceso y se ejecutan automáticamente según la etapa.</p></li>
+<li><p><strong>Alerta de etapa:</strong> Se definen en las etapas de un proceso y se ejecutan automáticamente según la etapa.</p></li>
+<li><p><strong>Cambio en paquete:</strong> Se envían al realizar un cambio en algún paquete que el usuario esté suscrito.</p></li>
+<li><p><strong>Proceso en error:</strong> Se envían al dueño de la versión, cuando un proceso queda en error (debe estar marcado el check de Proceso en error en el sitio de BPM).</p></li>
+</ul>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/QflowNotificationMails.png"><img alt="Email de notificación de Q-flow" src="_images/QflowNotificationMails.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 78 </span><span class="caption-text">Notificaciones de Q-flow</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>Las notificaciones tendrán los estilos asociados al tema elegido en la instancia, asi como el logo configurado para tales efectos en el
+Administrador y Monitor del Sistema (SAM), en el parámetro “Logo de correos”.</p>
+</section>
+<section id="utilizar-idioma-del-usuario-destinatario-en-notificaciones">
+<h3>Utilizar idioma del usuario destinatario en Notificaciones<a class="headerlink" href="#utilizar-idioma-del-usuario-destinatario-en-notificaciones" title="Link to this heading"></a></h3>
+<p>Los mails se envian en el idioma detectado en la última sesión del usuario.
+Los idiomas soportados son inglés, español y portugués.</p>
+</section>
+<section id="soporte-de-globalizacion-de-la-hora">
+<h3>Soporte de globalización de la hora<a class="headerlink" href="#soporte-de-globalizacion-de-la-hora" title="Link to this heading"></a></h3>
+<p><strong>Preferencia de zona horaria</strong></p>
+<blockquote>
+<div><figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="_images/TimezonePreference.png"><img alt="Zona horaria seleccionada por el usuario" src="_images/TimezonePreference.png" style="width: 5in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 79 </span><span class="caption-text">Zona horaria seleccionada por el usuario</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>Se creó una preferencia que indique la zona horaria del usuario, ésta zona afecta a todas las fechas de los sitios, por lo que se podrá cambiar la preferencia desde cualquiera de
+los sitios.</p>
+<p><strong>Cambio de zona horaria</strong></p>
+<p>En todos los sitios al seleccionar la opción del menú superior, se muestra un panel derecho y un pop up en el caso del sitio web para seleccionar la
+zona horaria de preferencia. Al cambiar la zona horaria, afecta a todos los sitios.</p>
+<blockquote>
+<div><figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="_images/ChangeTimeZone.png"><img alt="Cambio de zona horaria" src="_images/ChangeTimeZone.png" style="width: 5.53704in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 80 </span><span class="caption-text">Cambio de zona horaria</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p><strong>Horario de verano</strong></p>
+<p>En el caso de que una zona horaria se encuentre actualmente en horario de verano, Q-flow lo informará para tenerlo en cuenta.</p>
+<blockquote>
+<div><figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="_images/ChangeTimeZoneDayLightTime.png"><img alt="Horario de verano" src="_images/ChangeTimeZoneDayLightTime.png" style="width: 5.53704in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 81 </span><span class="caption-text">Horario de verano</span><a class="headerlink" href="#id11" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p><strong>Sugerir cambio de preferencia si es distinta a la del cliente</strong></p>
+<p>En el caso en que la zona horaria seleccionada no coincida con la del dispositivo del usuario, Q-flow mostrará una sugerencia para cambiar a esa zona horaria.</p>
+<blockquote>
+<div><figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="_images/SuggestionChangeTimeZone.png"><img alt="Sugerir cambio de preferencia si es distinta a la del cliente" src="_images/SuggestionChangeTimeZone.png" style="width: 10.53704in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 82 </span><span class="caption-text">Sugerir cambio de preferencia si es distinta a la del cliente</span><a class="headerlink" href="#id12" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p><strong>Selector de Fecha y Hora</strong></p>
+<p>Ahora se especifica en qué zona horaria se encuentra la fecha y hora que se está seleccionando ya que afecta al resultado.</p>
+<blockquote>
+<div><figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="_images/DateTimeSelector.png"><img alt="Selector de Fecha y Hora" src="_images/DateTimeSelector.png" style="width: 3.53704in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 83 </span><span class="caption-text">Selector de Fecha y Hora</span><a class="headerlink" href="#id13" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p><strong>Selector de Fecha</strong></p>
+<p>Los cambios entre zonas horarias no afectan a estos tipos de datos.</p>
+<blockquote>
+<div><figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="_images/DateSelector.png"><img alt="Selector de Fecha" src="_images/DateSelector.png" style="width: 2.53704in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 84 </span><span class="caption-text">Selector de Fecha</span><a class="headerlink" href="#id14" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p><strong>Tarea de fórmula</strong></p>
+<p>Las tareas de fórmula ahora tienen opción de agregar la zona horaria independiente a la del usuario.</p>
+<blockquote>
+<div><figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="_images/FormulaTaskPanel.png"><img alt="Panel de tarea de fórmula" src="_images/FormulaTaskPanel.png" style="width: 5.53704in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 85 </span><span class="caption-text">Panel de tarea de fórmula</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>Y en el sitio de Q-flow la tarea de fórmula se ejecutó con la zona horaria configurada en el sitio de BPM.</p>
+<blockquote>
+<div><figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="_images/DetailFormulaTaskQflow.png"><img alt="Detalles de paso de tarea de fórmula en Q-flow" src="_images/DetailFormulaTaskQflow.png" style="width: 8.53704in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 86 </span><span class="caption-text">Detalles de paso de tarea de fórmula en Q-flow</span><a class="headerlink" href="#id16" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</section>
+<section id="permitir-utilizar-website-webservices-y-bpm-app-en-diferentes-instancias-5-0-5-1">
+<h3>Permitir utilizar WebSite, WebServices y BPM App en diferentes instancias [5.0] [5.1]<a class="headerlink" href="#permitir-utilizar-website-webservices-y-bpm-app-en-diferentes-instancias-5-0-5-1" title="Link to this heading"></a></h3>
+<p>Ahora se permite de manera personalizada la posibilidad de conectarse con estas
+herramientas utilizando una instancia que no sea el por defecto, configurando dentro del
+app.config el parámetro “TenantId”.</p>
+</section>
+<section id="quitar-boton-de-de-expandir-paneles-en-version-movil-5-1">
+<h3>Quitar botón de “…” de expandir paneles en versión móvil [5.1]<a class="headerlink" href="#quitar-boton-de-de-expandir-paneles-en-version-movil-5-1" title="Link to this heading"></a></h3>
+<p>El botón de expandir y colapsar se quitó en versión móvil.</p>
+</section>
+<section id="boton-de-cambiar-tenant-en-sitios-web-5-1">
+<h3>Botón de cambiar tenant en sitios web [5.1]<a class="headerlink" href="#boton-de-cambiar-tenant-en-sitios-web-5-1" title="Link to this heading"></a></h3>
+<p>Cuando se hace clic en el botón de cambiar instancia, si el listado está abierto, este se cierra.</p>
+</section>
+<section id="se-puede-configurar-redis-como-cache-5-1-technical-icon">
+<h3>Se puede configurar Redis como caché [5.1] <a class="reference internal" href="_images/TechnicalIcon.png"><img alt="technical-icon" src="_images/TechnicalIcon.png" style="width: 0.65in;" /></a><a class="headerlink" href="#se-puede-configurar-redis-como-cache-5-1-technical-icon" title="Link to this heading"></a></h3>
+<p>Ahora todo el caché del backend, incluyendo la web API está centralizado.
+Este se puede configurar para que sea Redis o Memorycache. También se quitó de las propiedades
+extendidas de SAM un mensaje que indicaba que si había algún cambio hay que reiniciar
+los servidores, ya que ahora no es necesario.</p>
+</section>
+<section id="logs-de-webapi-en-version-release-5-0-5-1-technical-icon">
+<h3>Logs de webapi en versión release [5.0] [5.1] <a class="reference internal" href="_images/TechnicalIcon.png"><img alt="technical-icon" src="_images/TechnicalIcon.png" style="width: 0.65in;" /></a><a class="headerlink" href="#logs-de-webapi-en-version-release-5-0-5-1-technical-icon" title="Link to this heading"></a></h3>
+<p>Se agregó en los handlers de la webapi, logs de los errores antes de devolverlos al frontend.</p>
+</section>
+<section id="crear-servicio-web-para-eliminar-instancias-5-1-technical-icon">
+<h3>Crear servicio web para eliminar instancias [5.1] <a class="reference internal" href="_images/TechnicalIcon.png"><img alt="technical-icon" src="_images/TechnicalIcon.png" style="width: 0.65in;" /></a><a class="headerlink" href="#crear-servicio-web-para-eliminar-instancias-5-1-technical-icon" title="Link to this heading"></a></h3>
+<p>Se creó un servicio web para eliminar instancia, para ello el usuario debe tener permiso de “Administrar seguridad” y estar en la instancia por defecto.</p>
+</section>
+<section id="errores-corregidos">
+<h3>Errores corregidos<a class="headerlink" href="#errores-corregidos" title="Link to this heading"></a></h3>
+<p><strong>Mejoras en los estilos mobile [5.1]</strong></p>
+<p>Se corrigió que, en la vista mobile los paneles en los sitios de OMM, SAM y BPM, para que al abrirlos en vista mobile
+se adapte al espacio de la pantalla, antes no se podía ver algunos paneles por los tamaños de pantalla.</p>
+<p><strong>En mobile se ve cortado los popups [5.1]</strong></p>
+<p>Se centraron los popup de todos los sitios para que ocupen todo el ancho posible de la pantalla, ya que pasaba que se mostraba la mitad
+del popup al abrirlo.</p>
+<p><strong>Ya no se oculta el panel inferior con el panel derecho [5.0] [5.1]</strong></p>
+<p>En los sitios de SAM y OMM se muestran los indicadores del estado de panel cuando el
+panel derecho está abierto.</p>
+<p><strong>Corrección de error en componente de subir archivos [5.1]</strong></p>
+<p>Se corrigió un error en el componente de subir archivos adjuntos
+en el sitio Web de Q-flow, causado por la previsualización de
+archivos con formato .RAR. Se quitó la previsualización de estos
+archivos.</p>
+<p><strong>Servicio web de adjunto recibe byte array como null [5.0] [5.1]</strong> <a class="reference internal" href="_images/TechnicalIcon.png"><img alt="technical-icon" src="_images/TechnicalIcon.png" style="width: 0.65in;" /></a></p>
+<p>Se corrigió el servicio web UploadNewAttachment cuando se manda en el cuerpo un arreglo de bytes, porque pasaba que al servidor
+le llegaba null.</p>
+</section>
+</section>
+<section id="omm-web">
+<h2>OMM Web<a class="headerlink" href="#omm-web" title="Link to this heading"></a></h2>
+<section id="actualizacion-de-la-home">
+<h3>Actualización de la home<a class="headerlink" href="#actualizacion-de-la-home" title="Link to this heading"></a></h3>
+<p>Se actualizó la vista de la home del sitio de OMM, ahora se muestra un listado de las últimas 10 sesiones creadas por los usuarios y a qué sitio aplican.
+Y muestra un indicador de cantidad de usuarios de la instancia.</p>
+<blockquote>
+<div><figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="_images/HomeOMMOnPremise.png"><img alt="Página de inicio del sitio OMM" src="_images/HomeOMMOnPremise.png" style="width: 9in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 87 </span><span class="caption-text">Página de inicio del sitio OMM</span><a class="headerlink" href="#id17" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Íconos no alineados en “sólo lectura” [5.0] [5.1]</dt><dd><ul>
+<li><p>En los paneles derechos, el ícono no queda alineado al texto en “sólo lectura”.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="nuevo-proveedor-de-seguridad-azure-active-directory">
+<h3>Nuevo proveedor de seguridad: Azure Active Directory<a class="headerlink" href="#nuevo-proveedor-de-seguridad-azure-active-directory" title="Link to this heading"></a></h3>
+<blockquote>
+<div><figure class="align-center">
+<a class="reference internal image-reference" href="_images/AzureActiveDirectory.png"><img alt="_images/AzureActiveDirectory.png" src="_images/AzureActiveDirectory.png" style="width: 4in;" /></a>
+</figure>
+</div></blockquote>
+<p>El usuario tiene la opción de agregar un proveedor de seguridad de tipo Azure Active Directory con las configuraciones de su organización y poder loguearse
+en los distintos sitios, y también se podrá utilizar para acceder a los servicios web.</p>
+</section>
+<section id="id1">
+<h3>Errores corregidos<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p><strong>Se permite crear varios proveedores de seguridad OAuth [5.0] [5.1]</strong></p>
+<p>Ahora sólo se permite crear un sólo proveedor de seguridad de tipo OAuth, porque ocurría que a veces dejaba loguear
+y otras veces no, por problemas de inconsistencia.</p>
+<p><strong>Período de vigencia en propiedades de cola de trabajo no se oculta al quitar el check [5.1]</strong></p>
+<p>Se corrigió el check “Define período de vigencia”, al seleccionarlo se despliega
+“fecha desde” y “fecha hasta” con un asterisco obligatorio. En caso de no estar
+seleccionado el check, se ocultan los campos.</p>
+<p><strong>Credenciales de propiedades de directorio no están siendo utilizadas [5.0] [5.1]</strong></p>
+<p>Se corrigió que al configurar el usuario y contraseña de un proveedor de seguridad “active directory”,
+las use para hacer consultas ya que antes no las usaba. Y que se deshabilite la parte de usuario y contraseña si se tiene marcado el
+checkbox de usar credenciales de red y en caso de estar desmarcado el checkbox,
+los campos son obligatorios.</p>
+</section>
+</section>
+<section id="bpm-web">
+<h2>BPM Web<a class="headerlink" href="#bpm-web" title="Link to this heading"></a></h2>
+<section id="mejoras-de-estilos">
+<h3>Mejoras de estilos<a class="headerlink" href="#mejoras-de-estilos" title="Link to this heading"></a></h3>
+<section id="id2">
+<h4>Actualización de la home<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<p>El botón de “Crear plantilla” se mantiene pero se cambiaron los estilos y ahora muestra la cantidad de plantillas que están en producción en la instancia.
+Seguido muestra “Pestañas recientes” y abajo “Procesos recientes” donde muestra las últimas 10 versiones modificadas por el usuario (proteger, desproteger,
+crear y/o modificación de template), en ambos casos si se hace clic sobre un elemento se lo redirige al elemento seleccionado.</p>
+<blockquote>
+<div><figure class="align-center" id="id18">
+<a class="reference internal image-reference" href="_images/HomeBPM.png"><img alt="Página de inicio del sitio BPM" src="_images/HomeBPM.png" style="width: 10.53704in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 88 </span><span class="caption-text">Página de inicio del sitio BPM</span><a class="headerlink" href="#id18" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</section>
+</section>
+<section id="advertencia-de-duplicados">
+<h3>Advertencia de duplicados<a class="headerlink" href="#advertencia-de-duplicados" title="Link to this heading"></a></h3>
+<p>Se agregó un control de advertencia de duplicados para nombres de datos en plantillas.
+Esto pasaba si se quieren crear datos con nombres que ya existen en algún paquete o plantilla padre.
+Podía causar problemas de consistencia de información en los formularios del sitio web a la hora de ejecutar el proceso.
+Por eso, ahora el sitio muestra una advertencia al crear datos con nombres repetidos.</p>
+<blockquote>
+<div><figure class="align-center" id="id19">
+<a class="reference internal image-reference" href="_images/DuplicateWarning.png"><img alt="Advertencia de duplicados" src="_images/DuplicateWarning.png" style="width: 16in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 89 </span><span class="caption-text">Advertencia de duplicados</span><a class="headerlink" href="#id19" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</section>
+<section id="encabezados-http-en-dominios-e-integraciones-rest-technical-icon">
+<h3>Encabezados HTTP en dominios e integraciones REST <a class="reference internal" href="_images/TechnicalIcon.png"><img alt="technical-icon" src="_images/TechnicalIcon.png" style="width: 0.65in;" /></a><a class="headerlink" href="#encabezados-http-en-dominios-e-integraciones-rest-technical-icon" title="Link to this heading"></a></h3>
+<p>Respecto a las capacidades de trabajo de BPM, se agregó la característica de encabezados HTTP en dominios e integraciones REST.
+Los encabezados HTTP son una parte muy importante del protocolo HTTP, permiten enviar información adicional respecto al cuerpo del mensaje, códigos de autorización,
+información sobre los tipos de información que se está enviando, y más. Esto permite que los mensajes y peticiones que se hacen a la API REST tengan estos encabezados,
+lo que abre muchas posibilidades respecto al tipo de peticiones que se pueden hacer frente a servicios que, por ejemplo, requieren de una autorización mediante el envío de
+un código token en los encabezados HTTP. Dentro de el panel de configuración de un dominio, si configuramos el origen de datos como un web service rest,
+podemos acceder a la configuración y podemos ver una tabla de encabezados HTTP. Aquí le podemos dar nombre, y los valores que se pueden seleccionar en la lista desplegable son
+los valores de los parámetros definidos en la tabla de parámetros ubicada por encima de la tabla de encabezados.</p>
+<p><strong>Dominios</strong></p>
+<blockquote>
+<div><figure class="align-center" id="id20">
+<a class="reference internal image-reference" href="_images/HeaderHTTPDomain.png"><img alt="A la izquierda panel de dominio y en la izquierda panel de configuración de web service REST" src="_images/HeaderHTTPDomain.png" style="width: 5.53704in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 90 </span><span class="caption-text">A la izquierda panel de dominio y en la izquierda panel de configuración de web service REST</span><a class="headerlink" href="#id20" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>Los parámetros definidos en la tabla de configuración del origen de datos serán los valores a seleccionar para los encabezados HTTP.</p>
+<p><strong>Integraciones</strong></p>
+<p>Los parámetros definidos en el panel de integraciones serán los valores a seleccionar para los encabezados HTTP.</p>
+<blockquote>
+<div><figure class="align-center" id="id21">
+<a class="reference internal image-reference" href="_images/HeaderHTTPIntegration.png"><img alt="Configuración para integraciones" src="_images/HeaderHTTPIntegration.png" style="width: 5.53704in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 91 </span><span class="caption-text">Configuración para integraciones</span><a class="headerlink" href="#id21" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>En integraciones, para configurar los encabezados se debe definir el parámetro en el panel de la integración en sí, y para agregar
+ese parámetro como token se debe crear una operación de tipo Web service REST, y dentro del panel de la operación veremos la tabla
+de encabezados, y de la misma manera podemos definir el encabezado que definimos anteriormente en la tabla de parámetros.</p>
+</section>
+<section id="se-agrega-columna-de-id-en-listado-de-bots">
+<h3>Se agrega columna de Id en listado de bots<a class="headerlink" href="#se-agrega-columna-de-id-en-listado-de-bots" title="Link to this heading"></a></h3>
+<p>En la visualización de listados de Bots, se podrá visualizar la columna Id, como lo muestra la siguiente figura:</p>
+<blockquote>
+<div><figure class="align-center" id="id22">
+<a class="reference internal image-reference" href="_images/ShowBotIdInBotsList.gif"><img alt="Mostrar el Id de los Bots" src="_images/ShowBotIdInBotsList.gif" style="width: 5.53704in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 92 </span><span class="caption-text">Mostrar el Id de los Bots</span><a class="headerlink" href="#id22" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>El Id es útil a la hora de invocar al bot.</p>
+</section>
+<section id="mejoras-en-panel-de-datos-5-1">
+<h3>Mejoras en panel de datos [5.1]<a class="headerlink" href="#mejoras-en-panel-de-datos-5-1" title="Link to this heading"></a></h3>
+<p>Se agregó una separación entre el botón de editar y el de los valores por defecto. Y se agrandó la fuente de
+los valores por defecto una vez se setean.</p>
+</section>
+<section id="icono-de-home-no-alineado-5-1">
+<h3>Ícono de home no alineado [5.1]<a class="headerlink" href="#icono-de-home-no-alineado-5-1" title="Link to this heading"></a></h3>
+<p>Se centró el ícono de las pestañas.</p>
+</section>
+<section id="icono-desalineado-en-asignar-valor-de-una-integracion-5-0-5-1">
+<h3>Ícono desalineado en asignar valor de una integración [5.0] [5.1]<a class="headerlink" href="#icono-desalineado-en-asignar-valor-de-una-integracion-5-0-5-1" title="Link to this heading"></a></h3>
+<p>Se alinearon los íconos cuando se asigna un valor a alguno de los métodos en una integración, por ejemplo, de tipo sharepoint.</p>
+</section>
+<section id="alinear-ordenado-de-grupos-con-el-resto-de-los-componentes-5-1">
+<h3>Alinear ordenado de grupos con el resto de los componentes [5.1]<a class="headerlink" href="#alinear-ordenado-de-grupos-con-el-resto-de-los-componentes-5-1" title="Link to this heading"></a></h3>
+<p>Se alineó el componente de ordenado de grupos en la definición del alcance.</p>
+</section>
+<section id="mapeo-en-actividad-de-llamadas-4-3-5-0-5-1">
+<h3>Mapeo en actividad de llamadas [4.3] [5.0] [5.1]<a class="headerlink" href="#mapeo-en-actividad-de-llamadas-4-3-5-0-5-1" title="Link to this heading"></a></h3>
+<p>Si se tiene un mapeo hecho con datos y se cambia la versión en producción de la plantilla a la
+que apunta por otra, se mantienen los mapeos que puedan corresponder a la nueva versión.</p>
+</section>
+<section id="quitar-valores-por-defecto-no-usados-de-parametros-de-integracion-y-bots-5-0-5-1">
+<h3>Quitar valores por defecto no usados de parámetros de integración y bots [5.0] [5.1]<a class="headerlink" href="#quitar-valores-por-defecto-no-usados-de-parametros-de-integracion-y-bots-5-0-5-1" title="Link to this heading"></a></h3>
+<p>Se quitan los valores por defecto de los parámetros de integración y de bots.
+Estos fueron eliminados porque no eran utilizados.</p>
+</section>
+<section id="agregar-los-paquetes-en-indexeddb-5-0-5-1-technical-icon">
+<h3>Agregar los paquetes en IndexedDB [5.0] [5.1] <a class="reference internal" href="_images/TechnicalIcon.png"><img alt="technical-icon" src="_images/TechnicalIcon.png" style="width: 0.65in;" /></a><a class="headerlink" href="#agregar-los-paquetes-en-indexeddb-5-0-5-1-technical-icon" title="Link to this heading"></a></h3>
+<p>Se cambió para que los paquetes se guarden en una IndexedDB en vez del localStorage.</p>
+</section>
+<section id="id3">
+<h3>Errores corregidos<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p><strong>Cambio de ícono al importar una versión [5.1]</strong></p>
+<p>Se corrigió, que al exportar una versión y luego importarla en otro template, deje el mismo ícono.</p>
+<p><strong>Error de que dato debe ser multivaluado si no tiene línea, no se borra [5.0] [5.1]</strong></p>
+<p>En el panel de propiedades de un dato, se corrigió que al poner en una línea un dato que no es
+multivaluado, se limpie los errores, cosa que no se limpiaban cuando se quitaba la línea y
+se daba a guardar el panel y se creaba otro.</p>
+<p><strong>No avisa que está mal al intentar guardar una integración sin haber generado el código [5.1]</strong></p>
+<p>Se corrigió que, en una integración de tipo sharepoint, luego de seleccionar una lista,
+un método y haber llenado los parámetros, al dar guardar si hay algún dato de entrada inválido, indica cuál es, antes no se
+indicaba cúal era el dato de entrada inválido.</p>
+<p><strong>Ventana de código se cambia de tamaño y rompe manejadores de eventos [5.0] [5.1]</strong></p>
+<p>Se corrigió que al abrir un manejador de eventos y hacer clic al comentario de “TODO” al final de
+la línea, se mantiene el tamaño de la ventana, porque ocurría que el código se corría para la izquierda.</p>
+<p><strong>Pestaña de diseño de proceso protegido aparece editada si se pegó algo [5.0] [5.1]</strong></p>
+<p>Se corrigió que, si intenta pegar un paso de otro grafo, no se pega nada y no muestra que hubo cambios en la pestaña de diseño.</p>
+<p><strong>Error de configuración en una compuerta paralela [4.3] [5.0] [5.1]</strong></p>
+<p>Se corrigió que, al abrir y guardar el panel de una compuerta paralela, y luego de proteger el paquete, deje ver el grafo, porque
+ocurría que por el error de la compuerta paralela no dejaba ver el grafo.</p>
+<p><strong>Proteger un paquete con worklets desde la aplicación de escritorio [5.0] [5.1]</strong></p>
+<p>Se corrigió el siguiente error: “Reason: Operand type clash: uniqueidentifier is incompatible with tinyint”.</p>
+<p><strong>No detecta nombre cambiado de paso conectado al abrir compuerta [5.1]</strong></p>
+<p>Se corrigió que, si estaba conectada a una tarea de usuario que se le cambió
+el nombre desde el grafo, muestre el nombre en la conexión.</p>
+<p><strong>No exporta paquete con scope de ordenado de grupos [5.0] [5.1]</strong></p>
+<p>Se corrigió que, si alguno de los pasos de alguna versión del paquete tiene scope de ordenado de
+grupos pueda exportar el paquete.</p>
+<p><strong>Se permite que los pasos tengan un progreso superior a 100 [5.0]</strong></p>
+<p>Se limitó un progreso no superior a 100, por ejemplo en un paso de fin.</p>
+<p><strong>Eliminar un dominio con un dato asociado rompe el dato [5.1]</strong></p>
+<p>Se corrigió para que cuando se elimine el dominio ponga otro dominio por defecto, antes ocurría que,
+al editar ese dato, el panel derecho quedaba cargando, y se lanzaba un error en consola.</p>
+<p><strong>No permite cambiar descripción de plantillas y versiones [5.1]</strong></p>
+<p>Se corrigió para que se pueda permitir cambiar la descripción, antes ocurría que al cambiar la descripción saltaba un
+cartel abajo que decía “No se realizaron cambios” y no se cambia nada.</p>
+<p><strong>No se están mapeando los permisos heredados que se estén asignando a un grupo [5.0] [5.1]</strong></p>
+<p>Si se define que en cierto paquete “P”, cierto grupo tenga permisos “X”, se corrigió, que al acceder
+como usuario y parte de ese grupo, se obtengan dichos permisos, cosa que no ocurría.</p>
+<p><strong>Error en auditorías de paquetes en Oracle [5.0] [5.1]</strong></p>
+<p>Se corrigieron las validaciones de las auditorías.</p>
+<p><strong>Controlar largo de nombres en pasos de un proceso [5.1]</strong></p>
+<p>En los paneles correspondientes a los pasos, se limita el largo de los nombres a 256 caracteres
+para evitar perder información que se almacena en la base de datos.</p>
+<p><strong>No se permite utilizar parámetros de tipo contraseña en tarea de servicio [5.0] [5.1]</strong> <a class="reference internal" href="_images/TechnicalIcon.png"><img alt="technical-icon" src="_images/TechnicalIcon.png" style="width: 0.65in;" /></a></p>
+<p>A la hora de seleccionar los parámetros a utilizar en una tarea de servicio,
+se corrigió, que no aparecen para seleccionar los parámetros de tipo contraseña.</p>
+</section>
+</section>
+<section id="sam-web">
+<h2>SAM Web<a class="headerlink" href="#sam-web" title="Link to this heading"></a></h2>
+<section id="id4">
+<h3>Actualización de la home<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p>Ahora muestra un indicador con la cantidad de usuarios de la instancia. Cuando alguno de estos valores sobrepasa el límite o el usuario no tiene
+licencia habilitada el indicador se pone rojo. Además los valores son acumulativos, es decir, si se ponen 5 licencias se acumula en el indicador.</p>
+<blockquote>
+<div><figure class="align-center" id="id23">
+<a class="reference internal image-reference" href="_images/HomeSAMOnPremise.png"><img alt="Página de inicio del sitio SAM" src="_images/HomeSAMOnPremise.png" style="width: 10.53704in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 93 </span><span class="caption-text">Página de inicio del sitio SAM</span><a class="headerlink" href="#id23" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</section>
+<section id="dar-de-baja-instancia">
+<h3>Dar de baja instancia<a class="headerlink" href="#dar-de-baja-instancia" title="Link to this heading"></a></h3>
+<p>Se agregó la funcionalidad de borrar instancia. La instancia principal no se puede borrar.
+Esta opción está sólo en la instancia principal y no tiene el botón habilitado en las instancias hijos.
+Al borrar la instancia se borra toda la información relacionada a la instancia de todos los sitios (datos de aplicación, template, paquetes, flows).
+Y para realizar esta acción el usuario debe tener permiso de administrar configuración.</p>
+<blockquote>
+<div><figure class="align-center" id="id24">
+<a class="reference internal image-reference" href="_images/TenantListSAM.png"><img alt="Lista de instancias" src="_images/TenantListSAM.png" style="width: 5.53704in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 94 </span><span class="caption-text">Lista de instancias</span><a class="headerlink" href="#id24" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</section>
+<section id="actualizacion-de-estadisticas">
+<h3>Actualización de estadísticas<a class="headerlink" href="#actualizacion-de-estadisticas" title="Link to this heading"></a></h3>
+<p>Se actualizaron las gráficas de estadísticas, así como también se agregaron nuevas:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Tareas respondidas</p></li>
+<li><p>Procesos iniciados</p></li>
+<li><p>Uso de Q-points (*)</p></li>
+<li><p>Uso de Q-points por plantilla (*)</p></li>
+</ul>
+</div></blockquote>
+<p>(*) Se muestra sólo si se tiene configurado para que Q-flow realice una simulación de la ejecución de puntos como en cloud.
+Para más información sobre cómo configurarlo ir al manual de <a class="reference external" href="02-InstallationAndConfiguration.html">instalación y configuración</a>.</p>
+<p><strong>Uso de Q-points</strong></p>
+<p>Muestra el consumo de los Q-points para el mes actual de la licencia.</p>
+<blockquote>
+<div><figure class="align-center">
+<a class="reference internal image-reference" href="_images/ChartQPoint.png"><img alt="Modo de presentación" src="_images/ChartQPoint.png" style="width: 5.53704in;" /></a>
+</figure>
+</div></blockquote>
+<p><strong>Uso de Q-points por plantilla</strong></p>
+<p>Muestra el consumo de Q-points para el mes actual de cada plantilla en el sistema.</p>
+<blockquote>
+<div><figure class="align-center">
+<a class="reference internal image-reference" href="_images/ChartQPointByTemplate.png"><img alt="Modo de presentación" src="_images/ChartQPointByTemplate.png" style="width: 5.53704in;" /></a>
+</figure>
+</div></blockquote>
+<p><strong>Historial de consumo</strong></p>
+<p>Permite ver los valores resultantes de la licencia (hasta 12 meses).
+Las gráficas de las tareas respondidas y los procesos iniciados permite agrupar por día y por mes, y filtrar por rangos de fechas.</p>
+<blockquote>
+<div><figure class="align-center" id="id25">
+<a class="reference internal image-reference" href="_images/UsageHistoryRespondedTaskAndStartedFlowsChart.png"><img alt="Sección “Uso de Q-points”" src="_images/UsageHistoryRespondedTaskAndStartedFlowsChart.png" style="width: 5.53704in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 95 </span><span class="caption-text">Sección “Uso de Q-points”</span><a class="headerlink" href="#id25" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</section>
+<section id="id5">
+<h3>Errores corregidos<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<p><strong>Cambio de instancia en vista de ipad se ve mal [5.0] [5.1]</strong></p>
+<p>En vista de ipad los textos de cambiar instancia en el formulario de iniciar sesión no estaban centrados.</p>
+<p><strong>Error en archivos de imagen “sólo lectura” [5.0] [5.1]</strong></p>
+<p>Si bien no aparece el botón para agregar un archivo y pisar el actual
+cuando el panel está en “sólo lectura” (por ejemplo al ver info del logo),
+si se arrastraba una imagen arriba, se modifica, pero al guardar indicaba que
+no se realizaron cambios. Ahora, no se modifica ni se indica ningún mensaje.</p>
+<p><strong>Errores en Propiedades Extendidas [5.1]</strong></p>
+<p>Se corrigió que, al crear una propiedad extendida con una clave igual a otra ya existente,
+al darle guardar, se notifica del error solamente, antes pasaba que notificaba un error y queda cargando y sigue en ese estado aunque se cambie
+la clave y no permite hacer nada.</p>
+</section>
+</section>
+<section id="sitio-web">
+<h2>Sitio web<a class="headerlink" href="#sitio-web" title="Link to this heading"></a></h2>
+<section id="notificar-al-usuario-que-no-subio-adjunto-antes-de-iniciar-proceso-o-responder-tarea-5-1">
+<h3>Notificar al usuario que no subió adjunto antes de iniciar proceso o responder tarea [5.1]<a class="headerlink" href="#notificar-al-usuario-que-no-subio-adjunto-antes-de-iniciar-proceso-o-responder-tarea-5-1" title="Link to this heading"></a></h3>
+<p>Ahora muestra una notificación de que no se hizo clic al botón “subir” y no deja iniciar proceso,
+o responder el formulario en caso de una tarea.</p>
+</section>
+<section id="id6">
+<h3>Errores corregidos<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<p><strong>Retroceder a una tarea de usuario hace que no se manden todas las tareas [5.0] [5.1]</strong></p>
+<p>Se corrigió, que al retroceder a una tarea de usuario en la pestaña de seguimiento, se
+manda la tarea de nuevo a todos los usuarios incluyendo al que hizo el retroceso.</p>
+<p><strong>Error en creación de vínculos [5.0] [5.1]</strong></p>
+<p>Al crear un vínculo, por defecto en la sección de destino aparece seleccionado
+en la misma pestaña, se corrigió que al guardar y abrir el vínculo lo abra en la misma pestaña.</p>
+<p><strong>No se cargan las vistas destacadas si no se tiene permisos sobre alguna de ellas [5.0] [5.1]</strong></p>
+<p>Se corrigió que, si no se tiene permiso no lanze error y se cargue el menú de las vistas destacadas.</p>
+<p><strong>Acciones de colas de trabajo en tenants hijos [5.0] [5.1]</strong></p>
+<p>En los tenants hijos, se corrigió, que las acciones de las colas de trabajo no aparecían.</p>
+<p><strong>Recurso de iniciar proceso en historial de qflow [5.1]</strong></p>
+<p>Se cambió de “iniciar workflow” a “iniciar proceso”.</p>
+<p><strong>Dependencias de salida de dato oculto editable [5.1]</strong></p>
+<p>Se corrigió que en el sitio web al ingresar valor incorrecto para un dominio de tipo combobox con una dependencia
+de entrada y otra de salida con un dato del dominio que está oculto editable los datos se limpien, antes sucedía que al ingresar
+un valor en la dependencia de entrada válido, se borraba y se seteaba un valor incorrecto el valor no se limpiaba.</p>
+<p><strong>Se cuelga el sitio al previsualizar un adjunto .RAR muy grande [5.1]</strong></p>
+<p>Se quitó la pre visualización para adjuntos con extensión  “.RAR”.</p>
+<p><strong>Dato decimal sólo lectura editable convierte su parte decimal en entera [5.0] [5.1]</strong></p>
+<p>Se corrigió que , los valores que tenían decimales, por ejemplo “4,27”, al responder la tarea no modifique el valor del dato decimal.</p>
+<p><strong>Dato de aplicación que no está en el alcance da un error en consola [5.0] [5.1]</strong></p>
+<p>Ahora se da un error más amigable indicando cuál es el dato que falta.</p>
+<p><strong>Formularios de notificación tienen el título de responder tarea [5.1]</strong></p>
+<p>En un paso de notificación de usuario, el título que previamente decía “responder tarea”
+se cambió por “notificación”.</p>
+<p><strong>Camel case distinto en JS que en NewtonSoft [5.0] [5.1]</strong> <a class="reference internal" href="_images/TechnicalIcon.png"><img alt="technical-icon" src="_images/TechnicalIcon.png" style="width: 0.65in;" /></a></p>
+<p>En la versión 11.0.1 de NewtonSoft se cambió el ToCamel
+case para que las palabras completas que sigan de un espacio se transformen
+todo a minúscula, ej “DATO 1”.</p>
+<p><strong>Error en “GetMyLatestTasks” en worker [5.0] [5.1]</strong> <a class="reference internal" href="_images/TechnicalIcon.png"><img alt="technical-icon" src="_images/TechnicalIcon.png" style="width: 0.65in;" /></a></p>
+<p>Se corrigió un error al no tener cargado el id del usuario cuando inicializa el worker.</p>
+<p><strong>Cross-site scripting (XSS) en gestión de vínculos y favoritos [4.2] [4.3] [5.0] [5.1]</strong> <a class="reference internal" href="_images/TechnicalIcon.png"><img alt="technical-icon" src="_images/TechnicalIcon.png" style="width: 0.65in;" /></a></p>
+<p>Se agregaron controles al crear desde Postman favoritos y vínculos con una url maliciosa.</p>
+</section>
+</section>
+<section id="nuevos-manuales-y-tutoriales">
+<h2>Nuevos manuales y tutoriales<a class="headerlink" href="#nuevos-manuales-y-tutoriales" title="Link to this heading"></a></h2>
+<p>Los manuales fueron actualizados a formato HTML. Además, ahora están disponibles en Inglés.</p>
+<blockquote>
+<div><figure class="align-center" id="id26">
+<a class="reference internal image-reference" href="_images/Manual.png"><img alt="Vista de introducción a Q-flow" src="_images/Manual.png" style="width: 5.53704in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 96 </span><span class="caption-text">Vista de introducción a Q-flow</span><a class="headerlink" href="#id26" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</section>
+<section id="se-depreca-la-compatibilidad-de-oracle-a-partir-de-la-version-5-2">
+<h2>Se depreca la compatibilidad de Oracle a partir de la versión 5.2<a class="headerlink" href="#se-depreca-la-compatibilidad-de-oracle-a-partir-de-la-version-5-2" title="Link to this heading"></a></h2>
+<p>A partir de la versión 5.2 se dejará de lanzar nuevas actualizaciones para todas las
+aplicaciones de Q-flow, esto afectará a los clientes que usen versión de Q-flow OnPremise, por lo que recomendamos a los clientes que
+hagan la transición a Cloud u OnPremise con base de datos SQL Server.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="29.2-ReleaseNote5_1_2.html" class="btn btn-neutral float-left" title="v5.1.2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="29.1-ReleaseNote5_1_Cloud.html" class="btn btn-neutral float-right" title="v5.1" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

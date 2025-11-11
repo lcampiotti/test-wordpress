@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administración de procesos de negocio [Deprecado] &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/11-AppBPA.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Administración de procesos de negocio [Deprecado]</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="administracion-de-procesos-de-negocio-deprecado">
+<h1>Administración de procesos de negocio [Deprecado]<a class="headerlink" href="#administracion-de-procesos-de-negocio-deprecado" title="Link to this heading"></a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading"></a></h2>
+<p>El propósito de este manual es explicar el funcionamiento del
+administrador de procesos del negocio. El administrador de procesos del
+negocio permite realizar operaciones en los procesos: pausarlos,
+hacerlos retroceder, etc. Estas operaciones pueden ser realizadas de
+forma masiva, es decir, es posible seleccionar varios procesos
+simultáneamente para ejecutar alguna operación sobre ellos.</p>
+<section id="advertencia-de-producto-deprecado">
+<h3>Advertencia de producto deprecado<a class="headerlink" href="#advertencia-de-producto-deprecado" title="Link to this heading"></a></h3>
+<p>Note que este administrador está deprecado, y sólo puede ser usado con
+el espacio de trabajo principal. Por más información sobre los espacios de trabajo,
+consulte el manual de <a class="reference external" href="19-QflowAdmin.html">Qflow Admin</a>.</p>
+</section>
+</section>
+<section id="conexion-con-el-servidor-y-seguridad">
+<h2>Conexión con el servidor y seguridad<a class="headerlink" href="#conexion-con-el-servidor-y-seguridad" title="Link to this heading"></a></h2>
+<p>La primera vez que ejecute el administrador de procesos de negocio,
+deberá indicarle a la herramienta cómo ésta debe conectarse con el
+servidor. Esta sección también describe cómo configurar los permisos de
+acceso a la herramienta.</p>
+<section id="configuracion-de-la-conexion-con-el-servidor">
+<h3>Configuración de la conexión con el servidor<a class="headerlink" href="#configuracion-de-la-conexion-con-el-servidor" title="Link to this heading"></a></h3>
+<p>La primera vez que intente abrir el administrador Qflow mostrará la
+ventana en la que se configura la conexión con el servidor de los
+servicios de backend (<code class="xref std std-numref docutils literal notranslate"><span class="pre">ConectToServer</span></code>). La ventana muestra las siguientes
+opciones:</p>
+<ul class="simple">
+<li><p><strong>Nombre del servidor:</strong> nombre del servidor con el que se desea conectar.</p></li>
+<li><p><strong>Sub dirección:</strong> subdirección del servidor. Este dato también debe
+ser conocido de antemano, pero por defecto es 6006 y, en general, no
+es necesario modificarlo. Si 6006 no funciona, consulte al
+administrador de la red.</p></li>
+<li><p><strong>Información de ingreso:</strong></p>
+<ul>
+<li><p><strong>Usar mis credenciales de red:</strong> utiliza las credenciales del
+usuario actual.</p></li>
+<li><p><strong>Usar las siguientes credenciales:</strong> permite especificar un
+nombre de usuario y contraseña que se utilizará para hacer la
+conexión con el servidor.</p></li>
+</ul>
+</li>
+<li><p><strong>Conectar automáticamente:</strong> esta opción hace que la herramienta se
+conecte automáticamente las próximas veces, utilizando esta
+configuración.</p></li>
+</ul>
+<figure class="align-center" id="id2">
+<span id="conecttoserver"></span><a class="reference internal image-reference" href="_images/image315.png"><img alt="_images/image315.png" src="_images/image315.png" style="width: 3.28258in; height: 3.10465in;" /></a>
+<figcaption>
+<p><span class="caption-text">Conexión con el servidor</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Una vez configuradas todas las opciones, haga clic en el botón
+“Conectar” para conectarse al servidor seleccionado.</p>
+</section>
+<section id="opciones-de-seguridad">
+<h3>Opciones de seguridad<a class="headerlink" href="#opciones-de-seguridad" title="Link to this heading"></a></h3>
+<p>Las opciones de seguridad permiten determinar quién puede y quién no
+puede acceder al administrador de procesos del negocio, y en caso de
+poder hacerlo, qué operaciones puede realizar.</p>
+<p>Para acceder a la ventana de opciones de seguridad, seleccione, en el
+menú “Herramientas”, la opción “Opciones”. Qflow mostrará una ventana
+como la que se muestra en la <code class="xref std std-numref docutils literal notranslate"><span class="pre">Options</span></code>.</p>
+<figure class="align-center" id="id3">
+<span id="options"></span><a class="reference internal image-reference" href="_images/Option.png"><img alt="_images/Option.png" src="_images/Option.png" style="width: 4.52885in; height: 5.5625in;" /></a>
+<figcaption>
+<p><span class="caption-text">Opciones</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>La primera solapa de la ventana muestra diversos datos:</p>
+<ul class="simple">
+<li><p><strong>Nombre de la herramienta</strong></p></li>
+<li><p><strong>Versión de la herramienta</strong></p></li>
+<li><p><strong>Usuario actual:</strong> usuario que está ejecutando la herramienta.</p></li>
+<li><p><strong>Conectado a:</strong> nombre del servidor con el que la herramienta está
+conectada.</p></li>
+</ul>
+<p>La segunda solapa (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Security</span></code>) permite configurar el acceso a la
+herramienta:</p>
+<figure class="align-center" id="id4">
+<span id="security"></span><a class="reference internal image-reference" href="_images/image515.png"><img alt="_images/image515.png" src="_images/image515.png" style="width: 4.39535in; height: 5.44167in;" /></a>
+<figcaption>
+<p><span class="caption-text">Seguridad</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En la parte superior de la ventana (donde dice “Nombre del rol o miembro
+organizacional”) se muestran los roles de seguridad, grupos y usuarios
+que tienen acceso a la herramienta. El botón “Agregar…” permite agregar
+roles de seguridad, grupos y usuarios a la lista, y el botón “Eliminar”
+permite quitar de la lista el elemento seleccionado. Por más información
+acerca de los roles de seguridad, consulte el manual de <a class="reference external" href="18-QflowTeam.html">Qflow Team</a>.</p>
+<p>En la parte inferior de la pantalla se muestran los permisos que tiene
+el elemento seleccionado. Hay dos tipos de operación:</p>
+<ul class="simple">
+<li><p><strong>Acceder a la herramienta:</strong>
+permite abrir el administrador de procesos del negocio.</p></li>
+<li><p><strong>Administrar la seguridad:</strong>
+permite modificar los permisos de acceso a la herramienta.</p></li>
+</ul>
+</section>
+</section>
+<section id="descripcion-de-la-interfaz-de-usuario">
+<h2>Descripción de la interfaz de usuario<a class="headerlink" href="#descripcion-de-la-interfaz-de-usuario" title="Link to this heading"></a></h2>
+<p>La <code class="xref std std-numref docutils literal notranslate"><span class="pre">Home</span></code> muestra la pantalla del administrador de procesos de
+negocio. A la izquierda de la pantalla se muestra el árbol de paquetes
+(el concepto de paquete se explica en el manual de <a class="reference external" href="15-QflowDesign.html">Qflow Design</a>).</p>
+<p>En la parte derecha de la pantalla se muestran los procesos del paquete
+seleccionado.</p>
+<p>El significado de cada una de las columnas que se muestran en la lista
+de procesos es explicado en la sección <a class="reference internal" href="#datos-de-los-procesos"><span class="std std-ref">Datos de los procesos</span></a>.</p>
+<figure class="align-center" id="id5">
+<span id="home"></span><a class="reference internal image-reference" href="_images/image617.png"><img alt="_images/image617.png" src="_images/image617.png" style="width: 6.41736in; height: 4.44in;" /></a>
+<figcaption>
+<p><span class="caption-text">Pantalla principal</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="datos-de-los-procesos">
+<h3>Datos de los procesos<a class="headerlink" href="#datos-de-los-procesos" title="Link to this heading"></a></h3>
+<p>Para cada proceso, se muestran los siguientes datos:</p>
+<ul class="simple">
+<li><p><strong>Id:</strong> identificador numérico y correlativo del proceso.</p></li>
+<li><p><strong>Nombre:</strong> nombre del proceso.</p></li>
+<li><p><strong>Descripción:</strong> descripción del proceso.</p></li>
+<li><p><strong>Bandera:</strong> la bandera del proceso. Para todos los pasos de un
+proceso se puede definir una bandera de inicio, y para algunos, una
+bandera de finalización del paso. Cuando un proceso llega a un paso,
+la bandera del proceso pasa a ser el texto de la bandera de inicio
+de ese paso, y cuando el proceso abandona el paso, su bandera pasa a
+ser la bandera de finalización de ese paso. La bandera, por lo tanto,
+indica, de cierta forma, el estado del proceso, o en qué punto del
+proceso se encuentra.</p></li>
+<li><p><strong>Fecha de finalización:</strong> si el proceso está finalizado, esta
+columna indica la fecha de su finalización.</p></li>
+<li><p><strong>Nombre del template:</strong> nombre del template al que pertenece el
+proceso.</p></li>
+<li><p><strong>Nombre de la versión:</strong> nombre de la versión de template a la que
+pertenece el proceso.</p></li>
+<li><p><strong>Estado:</strong> estado del proceso. Los estados posibles son:</p>
+<ul>
+<li><p><strong>Activo:</strong> el proceso está en ejecución y no tiene errores ni
+está en espera. Un proceso puede estar en este estado si, por
+ejemplo, está pasando de un paso a otro, o está ejecutando alguna
+operación.</p></li>
+<li><p><strong>En espera:</strong> El proceso está esperando la acción de algún
+usuario.</p></li>
+<li><p><strong>En error:</strong> por lo menos un hilo del proceso está trancado
+debido a un error.</p></li>
+<li><p><strong>Finalizado:</strong> el proceso terminó su ejecución naturalmente
+(llegó a un paso de fin).</p></li>
+<li><p><strong>Finalizado por el usuario:</strong> el proceso fue finalizado por
+algún usuario antes de llegar a un paso de fin.</p></li>
+<li><p><strong>Pausado:</strong> alguien ha pausado el proceso y éste se encuentra
+suspendido.</p></li>
+</ul>
+</li>
+</ul>
+<p>Para cada proceso, además, se muestra un ícono con un color que indica
+su estado. El ícono no hace distinción entre un proceso finalizado
+normalmente y un proceso finalizado por un usuario.</p>
+<figure class="align-center" id="id6">
+<span id="iconstatusworkflow"></span><a class="reference internal image-reference" href="_images/image714.png"><img alt="_images/image714.png" src="_images/image714.png" style="width: 1.16279in; height: 0.99043in;" /></a>
+<figcaption>
+<p><span class="caption-text">Ícono que indica el estado de un proceso</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Para ver información de cada hilo de un proceso, haga doble clic sobre
+el proceso, o haga clic en el botón que está a la derecha del botón de
+actualizar la lista de procesos (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Home</span></code>).</p>
+<section id="orden-de-los-procesos">
+<h4>Orden de los procesos<a class="headerlink" href="#orden-de-los-procesos" title="Link to this heading"></a></h4>
+<p>Un clic en el cabezal de cualquiera de las columnas que se muestran hace
+que la lista sea ordenada utilizando los valores de esa columna. El
+orden puede ser creciente o decreciente, y se indica mediante una
+flechita que se muestra al lado del nombre de cada columna. Para cambiar
+el orden de creciente a decreciente o viceversa, haga clic nuevamente en
+el cabezal de la columna. Por ejemplo, si actualmente la lista está
+ordenada por nombre de forma creciente, al hacer clic sobre el cabezal
+de la columna Nombre la lista pasará a estar ordenada de forma
+decreciente.</p>
+</section>
+</section>
+<section id="acciones">
+<h3>Acciones<a class="headerlink" href="#acciones" title="Link to this heading"></a></h3>
+<p>Arriba de la lista de procesos, hay una barra de herramientas que
+permite realizar varias acciones (<code class="xref std std-numref docutils literal notranslate"><span class="pre">Actions</span></code>). La mayoría de estas
+acciones se pueden realizar también mediante un menú contextual que
+aparece al hacer clic sobre un proceso con el botón derecho del ratón.</p>
+<ul class="simple">
+<li><p><strong>Actualizar árbol de paquetes:</strong> actualiza el árbol de paquetes para
+mostrar los cambios que ocurrieron desde la última vez que se
+actualizó.</p></li>
+<li><p><strong>Filtros:</strong> se pude filtrar la lista de procesos por nombre y por
+estado. Por más detalles, consulte la sección <a class="reference internal" href="#filtrar-la-lista-de-procesos"><span class="std std-ref">Filtrar la lista de procesos</span></a>.</p>
+<ul>
+<li><p><strong>Filtro por nombre:</strong> permite escribir un texto para que la lista
+de procesos muestre solamente los procesos cuyos nombres
+contengan ese texto.</p></li>
+<li><p><strong>Aplicar filtro por nombre:</strong> filtra la lista de procesos según
+el texto que fue escrito en el filtro por nombre.</p></li>
+<li><p><strong>Filtro por estado:</strong> permite seleccionar un estado para que la
+lista de procesos muestre solamente los procesos que estén en el
+estado seleccionado.</p></li>
+</ul>
+</li>
+<li><p><strong>Actualizar lista de procesos:</strong> actualiza la lista de procesos
+para que refleje cambios que ocurrieron desde la última vez que se
+actualizó. Por ejemplo, alguien puede haber iniciado un proceso, y
+éste no aparece porque la lista se cargó antes de que eso ocurriera.
+Para que aparezca, hay que actualizar la lista.</p></li>
+<li><p><strong>Ver hilos de un proceso:</strong> abre una ventana que muestra los hilos
+del proceso seleccionado. La sección <a class="reference internal" href="#hilos-de-un-proceso"><span class="std std-ref">Hilos de un proceso</span></a> explica
+el funcionamiento de esa ventana.</p></li>
+<li><p><strong>Operaciones:</strong> acciones que permiten realizar operaciones sobre los
+procesos. La sección <a class="reference internal" href="#operaciones-sobre-los-procesos"><span class="std std-ref">Operaciones sobre los procesos</span></a> explica cada
+operación en detalle.</p>
+<ul>
+<li><p>Pausar proceso</p></li>
+<li><p>Reanudar proceso</p></li>
+<li><p>Finalizar proceso</p></li>
+<li><p>Eliminar proceso</p></li>
+<li><p>Reintentar hilos en error</p></li>
+</ul>
+</li>
+<li><p><strong>Ver detalles del proceso:</strong> muestra en el navegador el formulario
+de detalles del proceso en Qflow Task. Por más información acerca
+de ese formulario, consulte el manual de <a class="reference external" href="04-QflowTask.html">Qflow Task</a>.</p></li>
+<li><p><strong>Ver formulario de edición del proceso:</strong> muestra en el navegador
+el formulario de edición del proceso en Qflow Task. Por
+más información acerca de ese formulario, consulte el manual de
+<a class="reference external" href="04-QflowTask.html">Qflow Task</a>.</p></li>
+</ul>
+<figure class="align-center" id="id7">
+<span id="actions"></span><a class="reference internal image-reference" href="_images/image814.png"><img alt="_images/image814.png" src="_images/image814.png" style="width: 6.41736in; height: 1.95345in;" /></a>
+<figcaption>
+<p><span class="caption-text">Acciones</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="filtrar-la-lista-de-procesos">
+<h3>Filtrar la lista de procesos<a class="headerlink" href="#filtrar-la-lista-de-procesos" title="Link to this heading"></a></h3>
+<p>Como lo indica la <code class="xref std std-numref docutils literal notranslate"><span class="pre">Actions</span></code>, es posible filtrar la lista de procesos.</p>
+<section id="filtrar-los-procesos-segun-su-nombre-o-identificador">
+<h4>Filtrar los procesos según su nombre o identificador<a class="headerlink" href="#filtrar-los-procesos-segun-su-nombre-o-identificador" title="Link to this heading"></a></h4>
+<p>Arriba y a la izquierda de la lista de procesos hay una caja de texto
+en la que se puede escribir un texto (en la <code class="xref std std-numref docutils literal notranslate"><span class="pre">Actions</span></code>, la caja de texto
+está indicada con la etiqueta “Buscar un proceso”). Si usted hace clic
+en el ícono que representa una lupa(como se muestra en la <code class="xref std std-numref docutils literal notranslate"><span class="pre">Actions</span></code> ),
+Qflow le aplica un filtro a la lista de procesos del paquete
+seleccionado, de modo que sólo aquellos cuyos nombres contengan el texto
+ingresado en la caja de texto sean mostrados en la lista. Si el texto
+ingresado es un número, Qflow busca el proceso cuyo identificador
+correlativo sea ese número.</p>
+</section>
+<section id="filtrar-los-procesos-segun-su-estado">
+<h4>Filtrar los procesos según su estado<a class="headerlink" href="#filtrar-los-procesos-segun-su-estado" title="Link to this heading"></a></h4>
+<p>A la derecha de la caja de texto que permite definir un filtro por
+nombres, hay una lista desplegable que permite filtrar la lista de
+procesos según su estado (“Filtrar procesos por estado”, <code class="xref std std-numref docutils literal notranslate"><span class="pre">Actions</span></code>).</p>
+<p>Las opciones que se pueden seleccionar en la lista son todos los estados
+posibles de los procesos:</p>
+<ul class="simple">
+<li><p><strong>Todos:</strong> se muestran todos los procesos del paquete seleccionado.</p></li>
+<li><p><strong>Activo:</strong> muestra solamente los procesos activos. Los procesos
+activos son los que están en ejecución (no están finalizados ni
+pausados).</p></li>
+<li><p><strong>En espera:</strong> muestra solamente los procesos que esperan la acción
+de algún usuario (por ejemplo, que un usuario conteste una pregunta
+de un paso de pregunta).</p></li>
+<li><p><strong>En error:</strong> muestra solamente los procesos que tienen por lo menos
+algún hilo en error.</p></li>
+<li><p><strong>Pausado:</strong> muestra solamente procesos pausados.</p></li>
+<li><p><strong>Finalizado:</strong> si se selecciona esta opción, la lista mostrará
+solamente procesos que hayan finalizado. procesos que hayan sido
+finalizados por algún usuario también son incluidos.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="operaciones-sobre-los-procesos">
+<h2>Operaciones sobre los procesos<a class="headerlink" href="#operaciones-sobre-los-procesos" title="Link to this heading"></a></h2>
+<p>Las operaciones que se pueden realizar sobre los procesos son las
+siguientes:</p>
+<ul class="simple">
+<li><p><strong>Pausar:</strong> pausa un proceso. Cuando un proceso está pausado, no
+avanza, y las tareas pendientes de ese proceso ya no figuran entre
+las tareas en espera. Para que un proceso pueda ser pausado, al
+menos uno de sus hilos no debe estar avanzando.</p></li>
+<li><p><strong>Reanudar:</strong> vuelve un proceso pausado a su estado original.</p></li>
+<li><p><strong>Finalizar:</strong> finaliza el proceso a la fuerza, es decir, interrumpe
+su ejecución y lo da por finalizado.</p></li>
+<li><p><strong>Eliminar:</strong> permite eliminar de la base de datos un proceso
+finalizado.</p></li>
+<li><p><strong>Reintentar hilos en error:</strong> permite reintentar la ejecución de
+todos los hilos del proceso que estén en estado de error. Es
+equivalente a ejecutar la operación “Reintentar ejecución” (ver más
+abajo) para todos los hilos, pero sin necesidad de ejecutar esa
+operación hilo por hilo.</p></li>
+</ul>
+<p>Para ejecutar alguna de estas operaciones, haga clic con el botón
+derecho en el proceso sobre el que desea aplicar la operación y
+seleccione la operación en el menú contextual.</p>
+<figure class="align-center" id="id8">
+<span id="operations"></span><a class="reference internal image-reference" href="_images/image914.png"><img alt="_images/image914.png" src="_images/image914.png" style="width: 1.74953in; height: 1.19767in;" /></a>
+<figcaption>
+<p><span class="caption-text">Operaciones</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Es posible hacer retroceder un proceso, o reintentar la ejecución de
+uno de sus pasos. Estas operaciones, sin embargo, son operaciones que se
+realizan sobre los hilos, y para ejecutarlas hay que abrir la ventana de
+hilos del proceso.</p>
+<p>También es posible ejecutar una operación sobre varios procesos a la
+vez. Para ello, seleccione varios procesos, dejando apretada la tecla
+“Ctrl” y seleccionando los procesos uno a uno, y luego haga clic con el
+botón derecho sobre alguno de los procesos seleccionados para desplegar
+el menú contextual y seleccionar la operación que desee ejecutar.</p>
+<p>Si la operación que se desea ejecutar no está disponible para todos los
+procesos seleccionados, ésta no estará habilitada en el menú
+contextual. Por ejemplo, no se puede reanudar un proceso que no está
+pausado, por lo que si se selecciona un proceso pausado y un proceso
+activo simultáneamente, la operación “Reanudar” no estará disponible. En
+esos casos, hay que quitar de la selección los procesos que impiden que
+aparezca la operación que se desea ejecutar.</p>
+</section>
+<section id="hilos-de-un-proceso">
+<h2>Hilos de un proceso<a class="headerlink" href="#hilos-de-un-proceso" title="Link to this heading"></a></h2>
+<p>La ventana de hilos de un proceso muestra información de todos los
+hilos de un proceso. Para abrirla, ejecute cualquiera de las siguientes
+acciones:</p>
+<ul class="simple">
+<li><p>Hacer doble clic en el proceso</p></li>
+<li><p>Hacer clic con el botón derecho en el proceso y seleccione la opción
+“Ver hilos</p></li>
+<li><p>Seleccionar el proceso y hacer clic en el botón de “Ver hilos del”
+(el botón que está a la derecha del botón de actualizar la lista de
+procesos; ver <code class="xref std std-numref docutils literal notranslate"><span class="pre">Actions</span></code>).</p></li>
+</ul>
+<p>La <code class="xref std std-numref docutils literal notranslate"><span class="pre">threadsWorkflow</span></code> muestra la ventana de hilos de un proceso.</p>
+<figure class="align-center" id="id9">
+<span id="threadsworkflow"></span><a class="reference internal image-reference" href="_images/image1013.png"><img alt="_images/image1013.png" src="_images/image1013.png" style="width: 5.1614in; height: 2.89535in;" /></a>
+<figcaption>
+<p><span class="caption-text">Hilos de un proceso</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>La columna que indica el nombre del paso actual también tiene un
+semáforo que se pondrá rojo si el hilo está en estado de error.</p>
+<section id="operaciones-sobre-hilos-de-un-proceso">
+<h3>Operaciones sobre hilos de un proceso<a class="headerlink" href="#operaciones-sobre-hilos-de-un-proceso" title="Link to this heading"></a></h3>
+<p>Un clic con el botón derecho sobre uno de los hilos del proceso abre el
+menú contextual del hilo. Éste presenta dos opciones, que corresponden a
+las dos operaciones que se pueden ejecutar sobre un hilo:</p>
+<ul class="simple">
+<li><p><strong>Reintentar ejecución:</strong> es útil para hilos que están en error. Esta
+operación reintenta la ejecución del último paso del hilo, de modo
+que, si las circunstancias que provocaron el error cambiaron, el hilo
+pueda continuar normalmente su ejecución. Es normal utilizar esta
+operación junto con la de hacer retroceder, ya que Qflow deja los
+hilos en error una vez que uno los deshace. En esos casos, se utiliza
+la operación de reintentar ejecución para que el proceso continúe
+con su ejecución.</p></li>
+<li><p><strong>Hacer retroceder:</strong> hace que el hilo retroceda hasta el paso
+anterior al actual. Después del retroceso, el proceso queda en
+estado de error, por lo que no avanza, y se puede repetir la
+operación tantas veces como se desee, bajo ciertas condiciones.</p>
+<ul>
+<li><p><strong>No se puede hacer retroceder un hilo si éste tiene hilos hijos,
+a menos que todos ellos estén ejecutando su primer paso.</strong> Por
+ejemplo, en el proceso de la <code class="xref std std-numref docutils literal notranslate"><span class="pre">WorkflowWithAParentThreadAndTwoChildThreads</span></code> a, no se puede hacer
+retroceder el hilo principal, porque tiene dos hilos hijos, y los
+pasos actuales de éstos no son sus primeros pasos. En el proceso
+de la <code class="xref std std-numref docutils literal notranslate"><span class="pre">WorkflowWithAParentThreadAndTwoChildThreads</span></code> b, sí se puede. Cada uno de los hilos hijos está
+parado en su primer paso. Basta con que uno de los hilos hijos no
+esté en esas condiciones para que no sea posible hacer retroceder
+el hilo padre.</p></li>
+<li><p><strong>No se puede hacer retroceder un hilo si su paso actual es el
+primer paso del hilo.</strong> En ese caso, se debe hacer retroceder el
+hilo padre. Es el caso de la <code class="xref std std-numref docutils literal notranslate"><span class="pre">WorkflowWithAParentThreadAndTwoChildThreads</span></code> b. En el caso de la <code class="xref std std-numref docutils literal notranslate"><span class="pre">WorkflowWithAParentThreadAndTwoChildThreads</span></code>
+a, sí se puede hacer retroceder cualquiera de los hilos hijos.</p></li>
+<li><p><strong>No se puede hacer retroceder un hilo finalizado, a menos que su
+hilo padre se encuentre en el paso Separar que le dio origen.</strong>
+Cuando un proceso llega a un paso Separar, da origen a hilos
+hijos del hilo en el que se encuentra ese paso. El momento en el
+que el hilo padre continúa su ejecución depende de la
+configuración del paso Unir correspondiente al paso Separar. Una
+opción, por ejemplo, es que el hilo padre continúe ejecutándose ni
+bien uno de sus hijos haya finalizado su ejecución. En este caso,
+no es posible hacer retroceder el hilo, porque el hilo padre ya no
+está en el paso de Separar.</p></li>
+</ul>
+</li>
+</ul>
+<figure class="align-center" id="id10">
+<span id="workflowwithaparentthreadandtwochildthreads"></span><a class="reference internal image-reference" href="_images/image1114.png"><img alt="_images/image1114.png" src="_images/image1114.png" style="width: 4.98235in; height: 4.32558in;" /></a>
+<figcaption>
+<p><span class="caption-text">proceso con un hilo padre y dos hilos hijos</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>En la ventana de hilos también se puede seleccionar varios hilos para
+aplicarles una operación a todos ellos.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

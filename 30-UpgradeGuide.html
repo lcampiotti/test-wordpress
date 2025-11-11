@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guía de actualización &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/30-UpgradeGuide.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Guía de actualización</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="guia-de-actualizacion">
+<h1>Guía de actualización<a class="headerlink" href="#guia-de-actualizacion" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Tareas previas</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="30.1-UpgradeGuide_pre_task.html">Tareas previas</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Actualización</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="30.1-UpgradeGuide_update.html">Actualización</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">v5.2-v5.5</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="30.1-UpgradeGuide5_2_To_5_5.html">v5.2-v5.5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="30.1-UpgradeGuide5_2_To_5_5.html#consideraciones-de-migracion-desde-qflow-5-2">Consideraciones de migración desde Qflow 5.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide5_2_To_5_5.html#cambios-en-formularios-personalizados">Cambios en formularios personalizados</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide5_2_To_5_5.html#cambio-de-permiso-administrar-vinculos">Cambio de permiso «Administrar vínculos»</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide5_2_To_5_5.html#propiedades-nulleables-de-objetos-de-configuracion-de-cola-de-trabajo">Propiedades nulleables de objetos de configuración de cola de trabajo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide5_2_To_5_5.html#nuevos-parametros-de-sistema">Nuevos parámetros de sistema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide5_2_To_5_5.html#cambios-en-archivos-web-config-de-sitios-y-backend-api">Cambios en archivos <em>web.config</em> de sitios y backend API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">v5.1.1-v5.2</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="30.1-UpgradeGuide5_1_1_To_5_2.html">v5.1.1-v5.2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="30.1-UpgradeGuide5_1_1_To_5_2.html#consideraciones-de-migracion-desde-qflow-5-1-1">Consideraciones de migración desde Qflow 5.1.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide5_1_1_To_5_2.html#cambio-en-la-firma-de-metodos-en-los-controladores-flow-y-attachment">Cambio en la firma de métodos en los controladores Flow y Attachment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide5_1_1_To_5_2.html#sesion-unificada-en-los-sitios">Sesión unificada en los sitios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide5_1_1_To_5_2.html#nuevos-parametros-de-sistema">Nuevos parámetros de sistema</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">v5.0-v5.1.1</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="30.1-UpgradeGuide5_0_To_5_1_1.html">v5.0-v5.1.1</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="30.1-UpgradeGuide5_0_To_5_1_1.html#consideraciones-de-migracion-desde-q-flow-5-0">Consideraciones de migración desde Q-flow 5.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide5_0_To_5_1_1.html#version-de-servidor-de-base-de-datos-sql">Versión de Servidor de Base de datos SQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide5_0_To_5_1_1.html#tarea-de-codigo-que-usan-fechas">Tarea de código que usan fechas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide5_0_To_5_1_1.html#datos-de-tipo-fecha-cambiados">Datos de tipo fecha cambiados</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide5_0_To_5_1_1.html#zona-horaria-por-defecto">Zona horaria por defecto</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">v4.3-v5.0</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="30.1-UpgradeGuide4_3_To_5_0.html">v4.3-v5.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="30.1-UpgradeGuide4_3_To_5_0.html#uso-de-web-services-rest">Uso de Web services REST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="30.1-UpgradeGuide4_3_To_5_0.html#servicios-de-notificacion-en-sam">Servicios de notificación en SAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="30.1-UpgradeGuide4_3_To_5_0.html#uso-de-herramientas-de-escritorio">Uso de herramientas de escritorio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="30.1-UpgradeGuide4_3_To_5_0.html#parametros-de-sistema">Parámetros de sistema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="30.1-UpgradeGuide4_3_To_5_0.html#version-de-net-framework">Versión de .NET Framework</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">v3.01-v4.3</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html">v3.01-v4.3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#parametros-de-sistema-y-propiedades-extendidas">Parámetros de sistema y propiedades extendidas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#habilitar-configuracion-de-formularios-personalizados-del-sitio-webforms">Habilitar configuración de formularios personalizados del sitio WebForms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#consideraciones-de-migracion-desde-q-flow-3-6-o-anterior">Consideraciones de migración desde Q-flow 3.6 o anterior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#validacion-de-campo-requerido-tipo-checkbox">Validación de campo requerido tipo CheckBox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#formularios-personalizados">Formularios personalizados</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#filtros-de-vistas-graficas-e-indicadores">Filtros de vistas, gráficas e indicadores</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#tableros-de-control">Tableros de control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#propiedades-de-adjuntos">Propiedades de adjuntos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#sitio-webforms-deprecado">Sitio WebForms deprecado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#sitio-mobile-deprecado">Sitio Mobile deprecado</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#consideraciones-de-migracion-desde-qflow-3-5-o-anterior">Consideraciones de migración desde qflow 3.5 o anterior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#actualizacion-de-las-web-parts-de-sharepoint">Actualización de las Web Parts de SharePoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#cambios-en-el-cuadro-de-texto-enriquecidoverificacion-de-consistencia-de-datos-ingresados-programaticamente">Cambios en el cuadro de texto enriquecidoVerificación de consistencia de datos ingresados programáticamente</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#cambios-relacionados-con-localizacion-en-tiempo-de-ejecucion">Cambios relacionados con localización en tiempo de ejecución</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#cambios-en-el-formato-de-exportacion">Cambios en el formato de exportación</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#consideraciones-de-migracion-desde-qflow-3-4-o-anterior">Consideraciones de migración desde qflow 3.4 o anterior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#requisitos-de-software-de-base">Requisitos de software de base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#asp-net">ASP.NET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#configuracion-de-sistema">Configuración de sistema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#codigo-personalizado">Código personalizado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#acciones-temporales-en-dias">Acciones temporales en días</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#cambios-en-web-services">Cambios en Web Services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#verificacion-de-consistencia-de-datos-ingresados-programaticamente">Verificación de consistencia de datos ingresados programáticamente</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#consideraciones-de-migracion-desde-qflow-3-3-o-anterior">Consideraciones de migración desde qflow 3.3 o anterior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#id1">Formularios personalizados</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#diseno-de-procesos">Diseño de procesos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#base-de-datos">Base de datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#exportacion-e-importacion">Exportación e importación</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#consideraciones-de-migracion-desde-qflow-3-2-o-anterior">Consideraciones de migración desde qflow 3.2 o anterior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#id2">Formularios personalizados</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#hojas-de-estilos-css">Hojas de estilos (CSS)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#consideraciones-de-migracion-desde-qflow-3-1-o-anterior">Consideraciones de migración desde qflow 3.1 o anterior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#id3">Formularios personalizados</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#disenador-de-procesos">Diseñador de procesos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#consideraciones-de-migracion-desde-qflow-3-05-o-anterior">Consideraciones de migración desde qflow 3.05 o anterior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#cola-de-mensajes">Cola de mensajes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#consideraciones-para-migracion-de-datos-en-base-de-personalizacion">Consideraciones para migración de datos en Base de Personalización</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#consideraciones-de-acceso-a-datos-de-aplicacion-para-actualizacion-de-base-de-datos">Consideraciones de acceso a datos de aplicación para actualización de Base de Datos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#compatibilidad-de-funcionalidades-con-versiones-de-servidor-de-base-de-datos">Compatibilidad de funcionalidades con versiones de Servidor de Base de Datos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#consideraciones-de-migracion-desde-q-flow-3-03-o-anterior">Consideraciones de migración desde Q-flow 3.03 o anterior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#uso-de-ajax">Uso de Ajax</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#consideraciones-de-migracion-desde-q-flow-3-01-o-anterior">Consideraciones de migración desde Q-flow 3.01 o anterior</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="30.1-UpgradeGuide3_1_To_4_3.html#id6">Formularios personalizados</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

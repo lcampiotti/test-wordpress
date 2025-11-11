@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>v5.1.2 &mdash; Qflow Cloud</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="canonical" href="https://qflowbpm.com/docs/qflowcloud/es/29.2-ReleaseNote5_1_2.html"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=3ae3941c"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/translations.js?v=efdbd0b9"></script>
+    <script src="_static/js/theme.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="v5.1.1" href="29.1-ReleaseNote5_1_1.html" />
+    <link rel="prev" title="v5.2" href="29.3-ReleaseNote5_2.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+  <header>
+    <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
+        <!-- Collect the nav links, forms, and other content for toggling-->
+        <div class="options-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/">Qflow</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://forum.qflowbpm.com/">Foro</a>
+                </li>
+                <li class="option">
+                  <a class="page-scroll" href="https://qflowbpm.com/es/centro-de-ayuda/">Centro de Ayuda</a>
+                </li>
+                <li class="option">
+                    <a class="page-scroll" href="https://qflowbpm.com/es/contacto/">Contáctanos</a>
+                </li>
+            </ul>
+        </div>
+            <!-- /.navbar-collapse -->
+        <!-- /.container-fluid -->
+    </nav>
+  </header> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Qflow
+          </a><div style="width: 100%;margin-bottom: 10px;">
+    <div style="display: flex;">
+        <div class="version-select">
+            <div class="input-group">
+              <select id="versionSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(qflowcloud|qflow5_1_1|qflow5_2|qflow5_5)/'), this.value)) }" style="margin-right: 6px; border-radius: 50px;">
+                <option value="/qflowcloud/">Cloud (latest)</option>
+                <option value="/qflow5_5/">5.5 OnPremise (latest)</option>
+                <option value="/qflow5_2/">5.2 OnPremise</option>
+                <option value="/qflow5_1_1/">5.1.1 OnPremise</option>
+              </select>
+            </div>
+        </div>
+        <div class="language-select">
+          <div class="input-group">
+            <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
+              <option value="/en/">English</option>
+              <option value="/es/">Español</option>
+            </select>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    selectElement('versionSelect', getVersion());
+    selectElement('languageSelect', getLanguage());
+
+    function selectElement(id, valueToSelect) {    
+        let element = document.getElementById(id);
+        element.value = valueToSelect;
+    }
+    
+    function getLanguage() {    
+      if (window.location.href.includes('/es/')) 
+      {
+        return '/es/';
+      }
+      else {
+        return '/en/';
+      }
+    }
+    
+    function getVersion() {    
+      if (window.location.href.includes('/qflowcloud/')) 
+      {
+        return '/qflowcloud/';
+      }
+      else if (window.location.href.includes('/qflow5_1_1/')) 
+      {
+        return '/qflow5_1_1/';
+      }
+      else if (window.location.href.includes('/qflow5_2/')) 
+      {
+        return '/qflow5_2/';
+      }
+      else {
+        return '/qflow5_5/';
+      } 
+    }
+
+    function redirectToSite(url) {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+          if (http.readyState === 4) {
+            if (http.status !== 404) {
+              window.location.href = url;
+            } else {
+              window.location.href = url.replace(url.substr(url.lastIndexOf('/') + 1), 'index.html');
+            }
+          }
+        }
+
+        http.open('HEAD', url, true);
+        http.send();        
+    }
+  </script>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Inicio</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="29.13-ReleaseNote6_0.html">v6.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.12-ReleaseNote5_6_2.html">v5.6.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.11-ReleaseNote5_6_1.html">v5.6.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.10-ReleaseNote5_6.html">v5.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.9-ReleaseNote5_5_4.html">v5.5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.8-ReleaseNote5_5_3.html">v5.5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.7-ReleaseNote5_5_1.html">v5.5.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.6-ReleaseNote5_5.html">v5.5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.5-ReleaseNote5_4.html">v5.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.4-ReleaseNote5_3.html">v5.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.3-ReleaseNote5_2.html">v5.2</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">v5.1.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mejoras-generales">Mejoras generales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sitio-web">Sitio Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bpm-web">BPM Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sam-web">SAM Web</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#omm-web">OMM Web</a></li>
+<li><a class="reference internal" href="#client-registration">Client Registration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_1.html">v5.1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="29.1-ReleaseNote5_1_Cloud.html">v5.1</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="01-QflowIntroduction.html">Introducción a Qflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TutorialsIndex.html">Tutoriales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-QflowTask.html">Qflow Task</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-QflowDesign.html">Qflow Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-QflowTeam.html">Qflow Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-QflowAdmin.html">Qflow Admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-Q-pointsConsumption.html">Consumo de Q-points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34-ConnectorsIndex.html">Conectores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31-Development.html">Desarrolladores</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qflow</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="29-ReleaseNote.html">Novedades  <i class="fa fa-star showOnlyInMenu" style="color: orange"></i></a></li>
+      <li class="breadcrumb-item active">v5.1.2</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="v5-1-2">
+<h1>v5.1.2<a class="headerlink" href="#v5-1-2" title="Link to this heading"></a></h1>
+<p><strong>Resumen de características</strong></p>
+<p>La versión 5.1.2 incorpora diversas funcionalidades para mejorar la experiencia de usuario en Q-flow, tales como la posibilidad de «Recordar usuario»
+y simplificación en los pasos para empezar a diseñar un proceso. Por otra parte, el sistema ahora cuenta con la capacidad de almacenar los adjuntos
+en Azure Blob Storage.</p>
+<section id="mejoras-generales">
+<h2>Mejoras generales<a class="headerlink" href="#mejoras-generales" title="Link to this heading"></a></h2>
+<section id="recordar-usuario">
+<h3>Recordar usuario<a class="headerlink" href="#recordar-usuario" title="Link to this heading"></a></h3>
+<p>En todos los sitios, en la pantalla de inicio de sesión, se agregó un cuadro seleccionable de «Recuérdame».
+Esta opción permite recordar la sesión en el navegador, para no tener que volver a iniciar sesión luego de cerrarlo.
+Esta opción está soportada también para el inicio de sesión con Google o Microsoft.</p>
+<blockquote>
+<div><figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/rememberMe.png"><img alt="Página de login de Q-flow, con opción de recuérdame" src="_images/rememberMe.png" style="width: 9in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 69 </span><span class="caption-text">Página de login de Q-flow, con opción de recuérdame</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</section>
+<section id="foro-de-q-flow">
+<h3>Foro de Q-flow<a class="headerlink" href="#foro-de-q-flow" title="Link to this heading"></a></h3>
+<p>Ahora está disponible el foro de Q-flow, el lugar ideal para plantear dudas y recibir soporte por parte de la comunidad y especialistas de Q-flow.
+Entre otros usos, se pueden realizar pedidos de funcionalidades, consulta de diseño de formularios y reportes de errores.</p>
+<blockquote>
+<div><figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/homeForum.png"><img alt="Home del foro" src="_images/homeForum.png" style="width: 8in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 70 </span><span class="caption-text">Home del foro</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/askForum.png"><img alt="Crear nueva entrada en el foro" src="_images/askForum.png" style="width: 6in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 71 </span><span class="caption-text">Crear nueva entrada en el foro</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/forumEntry.png"><img alt="Publicación en foro de Q-flow" src="_images/forumEntry.png" style="width: 8in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 72 </span><span class="caption-text">Publicación en foro de Q-flow</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</section>
+<section id="acceso-al-foro-desde-los-sitios">
+<h3>Acceso al foro desde los sitios<a class="headerlink" href="#acceso-al-foro-desde-los-sitios" title="Link to this heading"></a></h3>
+<p>Se puede acceder al foro de Q-flow desde cualquier sitio, desde la opción que se encuentra  en la “<i class="fa fa-info"></i>” de info del menú superior.</p>
+<blockquote>
+<div><figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/forumLink.png"><img alt="Ubicación de foro en menú superior" src="_images/forumLink.png" style="width: 4in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 73 </span><span class="caption-text">Ubicación de foro en menú superior</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</section>
+</section>
+<section id="sitio-web">
+<h2>Sitio Web<a class="headerlink" href="#sitio-web" title="Link to this heading"></a></h2>
+<section id="almacenamiento-de-adjuntos-en-azure">
+<h3>Almacenamiento de adjuntos en Azure<a class="headerlink" href="#almacenamiento-de-adjuntos-en-azure" title="Link to this heading"></a></h3>
+<p>El contenido de los adjuntos del sistema ahora se almacena en la nube, mediante la tecnología de Azure Blob
+Storage. Gracias a este cambio, se perciben beneficios inherentes a los almacenamientos en la nube. Se puede
+destacar la velocidad en los accesos a archivos y el manejo de la seguridad de nuestros datos, ya que el
+servicio garantiza protección contra accesos maliciosos y emplea mecanismos como la redundancia para recuperar
+datos ante cualquier imprevisto.</p>
+</section>
+<section id="errores-corregidos">
+<h3>Errores corregidos<a class="headerlink" href="#errores-corregidos" title="Link to this heading"></a></h3>
+<p><strong>Vistas de sistema de cola de trabajo</strong></p>
+<p>Se cambia la acción por defecto a «Editar» al hacer doble click en una vista de cola de trabajo, desde el listado de vistas de sistema.</p>
+<p><strong>Error en datos decimales vacíos con alcance solo lectura editable</strong></p>
+<p>Se corrige el error que no permitía responder una tarea al tener un dato de aplicación de tipo decimal vacío con alcance «Solo lectura editable».</p>
+</section>
+</section>
+<section id="bpm-web">
+<h2>BPM Web<a class="headerlink" href="#bpm-web" title="Link to this heading"></a></h2>
+<section id="dejar-grafo-desprotegido-al-crear-una-plantilla">
+<h3>Dejar grafo desprotegido al crear una plantilla<a class="headerlink" href="#dejar-grafo-desprotegido-al-crear-una-plantilla" title="Link to this heading"></a></h3>
+<p>Al crear una nueva plantilla, tanto la plantilla como la versión creada se abren y el grafo queda desprotegido por defecto.</p>
+<blockquote>
+<div><figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/checkedoutGraph.png"><img alt="Grafo desprotegido luego de creación de plantilla" src="_images/checkedoutGraph.png" style="width: 9in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 74 </span><span class="caption-text">Grafo desprotegido luego de creación de plantilla</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</section>
+<section id="permitir-crear-paquete-padre-al-crear-plantilla">
+<h3>Permitir crear paquete padre al crear plantilla<a class="headerlink" href="#permitir-crear-paquete-padre-al-crear-plantilla" title="Link to this heading"></a></h3>
+<p>Al agregar una nueva plantilla desde un paquete, se permite seleccionar la opción «Crear subpaquete
+contenedor del proceso».
+Si se selecciona esta opción, se crea un subpaquete en el paquete que se encuentra seleccionado
+(que tomará el mismo nombre que la plantilla) y se creará la plantilla dentro de este subpaquete nuevo.</p>
+<blockquote>
+<div><figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="_images/createContainerSubpackage.png"><img alt="Crear plantilla con opción de crear subpaquete contenedor" src="_images/createContainerSubpackage.png" style="width: 4in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 75 </span><span class="caption-text">Crear plantilla con opción de crear subpaquete contenedor</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</section>
+<section id="nuevos-roles-por-defecto-iniciador-y-supervisor">
+<h3>Nuevos roles por defecto: Iniciador y Supervisor<a class="headerlink" href="#nuevos-roles-por-defecto-iniciador-y-supervisor" title="Link to this heading"></a></h3>
+<p>Se agregan los roles Iniciador del proceso y Supervisor del iniciador, como roles por defecto en el paquete raíz.</p>
+</section>
+</section>
+<section id="sam-web">
+<h2>SAM Web<a class="headerlink" href="#sam-web" title="Link to this heading"></a></h2>
+<section id="mejoras-de-estilos-en-graficas-de-consumo">
+<h3>Mejoras de estilos en gráficas de consumo<a class="headerlink" href="#mejoras-de-estilos-en-graficas-de-consumo" title="Link to this heading"></a></h3>
+<p>Se realizan mejoras generales en los estilos de las gráficas de consumo</p>
+<blockquote>
+<div><figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="_images/chartsStyles.png"><img alt="Gráficas de consumo" src="_images/chartsStyles.png" style="width: 9in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 76 </span><span class="caption-text">Gráficas de consumo</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+</section>
+<section id="id1">
+<h3>Errores corregidos<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p><strong>Cross-site scripting (XSS) en historial de Parámetros de Sistema</strong> <a class="reference internal" href="_images/TechnicalIcon1.png"><img alt="technical-icon" src="_images/TechnicalIcon1.png" style="width: 0.65in;" /></a></p>
+<p>Se agregaron controles en el historial de Parámetros de Sistema para evitar la ejecución de código JavaScript que podría ser ingresado por un usuario.</p>
+</section>
+</section>
+<section id="omm-web">
+<h2>OMM Web<a class="headerlink" href="#omm-web" title="Link to this heading"></a></h2>
+<section id="id2">
+<h3>Errores corregidos<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p><strong>Acción «Configuración de cola de trabajo guardada» sin descripción</strong></p>
+<p>Se agrega a la auditoría de nodos la descripción de las entradas generadas al configurar una cola de trabajo.</p>
+</section>
+</section>
+<section id="client-registration">
+<h2>Client Registration<a class="headerlink" href="#client-registration" title="Link to this heading"></a></h2>
+<section id="espacio-de-trabajo">
+<h3>Espacio de trabajo<a class="headerlink" href="#espacio-de-trabajo" title="Link to this heading"></a></h3>
+<p>Se cambia el concepto manejado como «Instancia» a «Espacio de trabajo».</p>
+</section>
+<section id="cambio-de-tipo-de-licencia-en-uso">
+<h3>Cambio de tipo de licencia en uso<a class="headerlink" href="#cambio-de-tipo-de-licencia-en-uso" title="Link to this heading"></a></h3>
+<p>Ahora se permite cambiar el tipo de licencia que se tiene en uso.
+Si se realiza un cambio de licencia a una licencia de menor costo que la anterior, se mantiene la licencia anterior hasta que finalice su vigencia.
+Si el cambio es a una licencia de mayor costo, la nueva licencia entra en vigencia en el momento, cambiando la fecha de facturación en caso que
+corresponda. Dependiendo de la diferencia de costo entre las licencias, se realiza un prorrateo para el cálculo de la nueva fecha de facturación.</p>
+</section>
+<section id="permitir-pago-manual-con-transferencia-bancaria">
+<h3>Permitir pago manual con transferencia bancaria<a class="headerlink" href="#permitir-pago-manual-con-transferencia-bancaria" title="Link to this heading"></a></h3>
+<p>Al crear un espacio de trabajo, se agregó la posibilidad de pago mediante transferencia bancaria.
+Al seleccionar esta opción, el equipo se pondrá en contacto para finalizar el pago y continuar con la creación del espacio de trabajo.</p>
+</section>
+<section id="otras-mejoras">
+<h3>Otras mejoras<a class="headerlink" href="#otras-mejoras" title="Link to this heading"></a></h3>
+<p>Se realizan mejoras generales en diferentes aspectos de la usabilidad del sitio, entre ellos: estilos, textos y animaciones de carga.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="29.3-ReleaseNote5_2.html" class="btn btn-neutral float-left" title="v5.2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="29.1-ReleaseNote5_1_1.html" class="btn btn-neutral float-right" title="v5.1.1" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2025, Urudata Software.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDS8S4B42"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LMDS8S4B42', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>
