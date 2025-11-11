@@ -53,33 +53,34 @@
   </a>
 </h2>
 
-<div id="contenido-html"></div>
+<h2>
+  <a href="#"
+     rel="index"
+     onclick="cambiarTexto(this, 'https://raw.githubusercontent.com/lcampiotti/test-wordpress/main/03-AppBPM.html'); return false;">
+     BUTTON TXT
+  </a>
+</h2>
 
 <script>
-function cargarHTML(url, link) {
-  // Cambia el texto del enlace mientras carga
+function cambiarTexto(link, url) {
+  // Mientras "carga"
   link.textContent = 'Cargando...';
 
+  // Simula que se carga algo (fetch es opcional, sirve solo si querés verificar el enlace)
   fetch(url)
-    .then(response => response.text())
-    .then(html => {
-      // Si el archivo tiene <body>, tomamos solo su contenido
-      const bodyMatch = html.match(/<body[^>]*>([\s\S]*)<\/body>/i);
-      document.getElementById('contenido-html').innerHTML = bodyMatch ? bodyMatch[1] : html;
-      
-      // Cambia el texto del link al nombre del archivo
+    .then(response => {
+      if (!response.ok) throw new Error('No se pudo cargar');
+      // Extrae solo el nombre del archivo del URL
       const nombreArchivo = url.split('/').pop();
       link.textContent = nombreArchivo;
     })
     .catch(err => {
-      document.getElementById('contenido-html').innerHTML = "<p>Error al cargar el archivo.</p>";
       link.textContent = 'Error';
       console.error(err);
     });
 }
 </script>
 
-    </div>
     
   
  
@@ -351,6 +352,7 @@ function cargarHTML(url, link) {
 </body>
 
 </html>
+
 
 
 
