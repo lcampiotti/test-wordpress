@@ -32,6 +32,7 @@
 <body class="wy-body-for-nav">
 
   <header>
+    
     <nav class="navbar navbar-default navbar-shrink urudata-header no-print">
         <!-- Collect the nav links, forms, and other content for toggling-->
         <div class="options-menu">
@@ -53,6 +54,7 @@
             <!-- /.navbar-collapse -->
         <!-- /.container-fluid -->
     </nav>
+    
   </header> 
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
@@ -71,6 +73,7 @@
               </select>
             </div>
         </div>
+      <!-- OCULTAR POR AHORA 
         <div class="language-select">
           <div class="input-group">
             <select id="languageSelect" class="form-select" onchange="if (this.value) { redirectToSite(window.location.href.replace(new RegExp('/(en|es)/'), this.value)) }" style="border-radius: 50px;">
@@ -81,25 +84,26 @@
       </div>
     </div>
   </div>
-
+-->
   <script>
-    selectElement('versionSelect', getVersion());
-    selectElement('languageSelect', getLanguage());
-
-    function selectElement(id, valueToSelect) {    
-        let element = document.getElementById(id);
-        element.value = valueToSelect;
-    }
     
-    function getLanguage() {    
-      if (window.location.href.includes('/es/')) 
-      {
-        return '/es/';
-      }
-      else {
-        return '/en/';
-      }
-    }
+     // selectElement('versionSelect', getVersion());
+     // selectElement('languageSelect', getLanguage());
+
+     // function selectElement(id, valueToSelect) {    
+      //    let element = document.getElementById(id);
+      //    element.value = valueToSelect;
+   //   }
+    
+    //  function getLanguage() {    
+    //    if (window.location.href.includes('/es/')) 
+      //  {
+      //    return '/es/';
+     //   }
+     //   else {
+      //    return '/en/';
+     //  }
+   //   }
     
     function getVersion() {    
       if (window.location.href.includes('/qflowcloud/')) 
@@ -334,4 +338,5 @@
     </script> 
 
 </body>
+
 </html>
